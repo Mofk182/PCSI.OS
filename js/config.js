@@ -29,3 +29,28 @@ const DEFAULT_PORTALS = [
   { id: 'port_3', title: 'MonLycée.net', url: 'https://auth.monlycee.net/realms/TWIDF/protocol/openid-connect/auth?approval_prompt=force&client_id=psn-web-een&code_challenge=a549sIcPfHp7Hq23KmbnL3mSI-lk7ZWyRjzhygja6Ok&code_challenge_method=S256&redirect_uri=https%3A%2F%2Fpsn.monlycee.net%2Foauth2%2Fcallback&response_type=code&scope=openid&state=HVtdB5urANmg_K3CUQfrHMwqqaeLdR_G0FvY5JS-rrI%3Ahttps%3A%2F%2Fpsn.monlycee.net%2Fcas%2Finit%3FredirectUrl%3Dhttps%3A%2F%2Fpsn.monlycee.net%2F', icon: 'ph-identification-badge', desc: 'ENT du lycée' }
 ];
 
+// ---------------------------------------------------------------
+// Paramètres dynamiques (stockés dans state.settings, synchronisés via Supabase)
+// ---------------------------------------------------------------
+const SUBJECTS_DEFAULT = JSON.parse(JSON.stringify(SUBJECTS)); // référence pour les surcharges (state.subjectOverrides)
+const IMPORTANCE_LEVELS = [1, 1.5, 2];                          // multiplicateur manuel d'importance (task.weight)
+const DEFAULT_SETTINGS = {
+  tension: {
+    deadlineBalance: 50,  // 0..100 : 50 = formule historique ; >50 favorise l'urgence deadline, <50 favorise la durée estimée
+    autoDS: true,         // boost auto des tâches d'une matière ayant un DS à venir
+    dsMultiplier: 1.4,    // 1..3
+    dsWindowDays: 7       // 1..21 : fenêtre (jours à venir) pour détecter un DS
+  },
+  tasks: {
+    sortMode: 'tension',  // 'tension' | 'deadline' (tri strict par échéance)
+    pinTomorrow: true     // épingle en tête les tâches dues demain
+  },
+  evening: {
+    minStart: '17:00',    // début au plus tôt du planning soirée
+    fallbackStart: '18:00', // début si aucun cours/colle dans la journée
+    endTime: '23:00',     // couvre-feu
+    breakMin: 10,         // pause entre deux blocs (minutes)
+    meals: [{ id: 'dinner', label: 'Dîner', start: '19:00', end: '19:45' }]
+  }
+};
+

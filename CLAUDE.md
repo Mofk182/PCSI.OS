@@ -22,6 +22,10 @@ Cockpit de prépa PCSI : missions, emploi du temps, mur d'erreurs, portails. Fro
 - `schedule[]` : `{id,title,subject,type,start,end,room}` + `dayOfWeek` (récurrent) **ou** `date` (ponctuel)
 - `postits[]` : `{id,subject,errType,color,source,text,rot,imageData}`
 - `errorTypes[]`, `portals[]`
+- `settings` : `tension{deadlineBalance 0-100 (50 = formule historique), autoDS, dsMultiplier, dsWindowDays}`, `tasks{sortMode 'tension'|'deadline', pinTomorrow}`, `evening{minStart, fallbackStart, endTime, breakMin, meals[]}` (défauts : `DEFAULT_SETTINGS`)
+- `subjectOverrides{id:{name,short,color}}` appliqué sur `SUBJECTS` par `applySubjectOverrides()` ; `eveningPlan{date:{order[],manual{}}}`
+- Tâche, champs optionnels lus via `getTaskWeight(t)` (1|1.5|2) et `getTaskPipeline(t)` (2-3 jalons datés)
+- Tout chargement externe de `state` (local, pull, import) doit appeler `normalizeState()`. Tout nouveau champ synchronisé doit être ajouté à `dataSig()`.
 - UI : `activeTab`, `sidebarCollapsed`, `cahierMode`, `cahierSubjFilter`, `postitSubjFilter`, `postitTypeFilter`
 
 ## Sync Supabase

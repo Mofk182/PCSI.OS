@@ -5,7 +5,7 @@ const DIRTY_KEY = 'pcsi_sync_dirty_v1';
 let syncDirty = false, syncOk = false, lastSyncAt = null, syncVersion = 0, lastDataSig = '', pushTimer = null, lastAutoSync = 0;
 
 let supaConfig = { syncId: '' }; // Mode Local-First
-function dataSig() { return JSON.stringify({ t: state.tasks, s: state.schedule, p: state.postits, e: state.errorTypes, po: state.portals }); }
+function dataSig() { return JSON.stringify({ t: state.tasks, s: state.schedule, p: state.postits, e: state.errorTypes, po: state.portals, se: state.settings, so: state.subjectOverrides, ev: state.eveningPlan }); }
 function supaConfigured() { return SUPABASE_URL !== '' && SUPABASE_KEY !== '' && supaConfig.syncId !== '' && !SUPABASE_URL.includes('TON_PROJET'); }
 function supaEndpoint() { return `${SUPABASE_URL.replace(/\/$/, '')}/rest/v1/cockpit_sync`; }
 function supaHeaders(extra) { return Object.assign({ 'Content-Type': 'application/json', 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }, extra || {}); }
@@ -51,7 +51,7 @@ window.syncNowSupabase = async function(opts) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const rows = await res.json();
       if (rows && rows.length && rows[0].payload) {
-        state = Object.assign(state, rows[0].payload); lastDataSig = dataSig(); syncDirty = false;
+        state = Object.assign(state, rows[0].payload); normalizeState(); lastDataSig = dataSig(); syncDirty = false;
         if (!state.portals || !state.portals.length) state.portals = JSON.parse(JSON.stringify(DEFAULT_PORTALS)); // Sécurité
         try { localStorage.removeItem(DIRTY_KEY); localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
         syncOk = true; lastSyncAt = Date.now(); updateSyncIndicator(); 
