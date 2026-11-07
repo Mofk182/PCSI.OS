@@ -34,8 +34,8 @@ window.addEventListener('DOMContentLoaded', () => {
     initDailyDrop();
   }
 
-  // Onboarding ou démarrage normal
-  if (!localStorage.getItem('pcsi_has_seen_tuto')) {
+  // Onboarding ou démarrage normal (affiché à tout le monde une fois pour la v4)
+  if (!localStorage.getItem('pcsi_tuto_v4_seen')) {
     if (typeof window.openOnboardingModal === 'function') {
       window.openOnboardingModal();
     } else {

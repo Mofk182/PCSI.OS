@@ -879,55 +879,51 @@
     </div>
   </div>
 
-  <!-- MODAL 9 : ONBOARDING (PARCOURS EN 4 ÉTAPES ULTRA-CLAIR + BOUTON PASSER) -->
+  <!-- MODAL 9 : ONBOARDING (PARCOURS EN 5 ÉTAPES AVEC INTRO BADASSE + DESIGN ORBITAL MONOLITH) -->
   <div id="onboarding-modal" class="modal-backdrop">
-    <div class="modal-box" style="max-width: 520px; padding: 26px 28px;">
+    <div class="modal-box" style="max-width: 540px; padding: 26px 28px;">
 
       <!-- Barre supérieure permanente : Indicateur d'étape + Passer le tutoriel -->
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid var(--border-subtle);">
         <div style="display:flex; align-items:center; gap:8px;">
-          <span class="brand-name" style="font-size:13px;">PCSI<span>.OS</span></span>
+          <span class="brand-name" style="font-size:13px; font-weight:800; letter-spacing:0.02em;">PCSI<span style="color:#A1A1AA;">.OS</span></span>
           <span style="color:var(--text-subtle);">·</span>
-          <span id="onb-header-step-label" class="mono" style="font-size:11px; font-weight:700; color:#38BDF8; letter-spacing:0.06em;">ÉTAPE 1 / 4</span>
+          <span id="onb-header-step-label" class="mono" style="font-size:11px; font-weight:700; color:#FAFAFC; letter-spacing:0.06em;">DÉCOUVERTE 1 / 5</span>
         </div>
         <button type="button" onclick="window.skipOnboarding()" class="onb-skip-btn" title="Fermer et passer immédiatement le tutoriel">
-          <span>Passer le tuto</span>
+          <span>Passer</span>
           <i class="ph-bold ph-caret-double-right"></i>
         </button>
       </div>
 
-      <!-- ÉTAPE 1 : TES HORAIRES DU SOIR -->
+      <!-- ÉTAPE 1 : INTRO BADASSE & INITIALISATION COCKPIT -->
       <div id="onb-step-1" class="onb-step">
-        <div style="text-align:center; margin-bottom:18px;">
-          <div style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:14px; background:rgba(168,85,247,0.14); border:1px solid rgba(168,85,247,0.3); color:#C084FC; font-size:25px; margin-bottom:12px;">
-            <i class="ph-bold ph-moon-stars"></i>
+        <div class="onb-intro-hero">
+          <div class="onb-orbital-pulse">
+            <img src="icon.png" alt="PCSI.OS Icon" class="onb-intro-logo" />
           </div>
-          <h3 style="font-size:19px; font-weight:700; margin-bottom:6px;">1. Tes horaires du soir</h3>
-          <p style="font-size:13.5px; color:var(--text-muted); line-height:1.55;">
-            Indique à quelle heure tu manges et à quelle heure tu veux dormir. L'appli organisera tes révisions du soir <strong>sans jamais toucher à ta pause repas ni dépasser ton coucher</strong>.
+          <div class="onb-badge-version mono">ORBITAL MONOLITH · V4</div>
+          <h2 class="onb-glitch-title">Bienvenue sur PCSI.OS</h2>
+          <p style="font-size:13.5px; color:var(--text-muted); line-height:1.6; max-width:440px; margin:0 auto 18px;">
+            Le système d'exploitation conçu pour dompter la prépa : pilote tes devoirs, ton emploi du temps et tes révisions avec une précision chirurgicale.
           </p>
         </div>
 
-        <div class="onb-visual-card">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
-            <div>
-              <label style="font-size:11.5px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:4px;">
-                <i class="ph-bold ph-fork-knife" style="color:#F59E0B;"></i> Début du repas
-              </label>
-              <input type="time" id="onb-dinner-start" class="saas-input mono" value="19:00" onchange="window.updateOnbRhythmSetting('dinnerStart', this.value)" />
-            </div>
-            <div>
-              <label style="font-size:11.5px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:4px;">
-                <i class="ph-bold ph-fork-knife" style="color:#F59E0B;"></i> Fin du repas
-              </label>
-              <input type="time" id="onb-dinner-end" class="saas-input mono" value="20:00" onchange="window.updateOnbRhythmSetting('dinnerEnd', this.value)" />
-            </div>
+        <div class="onb-visual-card" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; text-align:center;">
+          <div style="padding:8px 4px;">
+            <div style="font-size:20px; color:#FAFAFC; margin-bottom:4px;"><i class="ph-bold ph-lightning"></i></div>
+            <div style="font-size:11.5px; font-weight:700; color:var(--text-main);">Tension Index</div>
+            <div style="font-size:10px; color:var(--text-subtle);">Priorisation DS & DM</div>
           </div>
-          <div>
-            <label style="font-size:11.5px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:4px;">
-              <i class="ph-bold ph-bed" style="color:#C084FC;"></i> Heure de coucher (fin du travail)
-            </label>
-            <input type="time" id="onb-bedtime" class="saas-input mono" value="23:00" onchange="window.updateOnbRhythmSetting('bedtime', this.value)" />
+          <div style="padding:8px 4px; border-left:1px solid rgba(255,255,255,0.06); border-right:1px solid rgba(255,255,255,0.06);">
+            <div style="font-size:20px; color:#FAFAFC; margin-bottom:4px;"><i class="ph-bold ph-clock-countdown"></i></div>
+            <div style="font-size:11.5px; font-weight:700; color:var(--text-main);">After-Hours</div>
+            <div style="font-size:10px; color:var(--text-subtle);">Optimiseur du soir</div>
+          </div>
+          <div style="padding:8px 4px;">
+            <div style="font-size:20px; color:#FAFAFC; margin-bottom:4px;"><i class="ph-bold ph-cards"></i></div>
+            <div style="font-size:11.5px; font-weight:700; color:var(--text-main);">AnkiConnect</div>
+            <div style="font-size:10px; color:var(--text-subtle);">Daily Drop en 1 clic</div>
           </div>
         </div>
 
@@ -937,37 +933,46 @@
             <button type="button" class="onb-dot" onclick="window.onbGoStep(2)" aria-label="Étape 2"></button>
             <button type="button" class="onb-dot" onclick="window.onbGoStep(3)" aria-label="Étape 3"></button>
             <button type="button" class="onb-dot" onclick="window.onbGoStep(4)" aria-label="Étape 4"></button>
+            <button type="button" class="onb-dot" onclick="window.onbGoStep(5)" aria-label="Étape 5"></button>
           </div>
           <button type="button" class="btn-primary" onclick="window.onbGoStep(2)">
-            Suivant <i class="ph-bold ph-arrow-right"></i>
+            Explorer le Cockpit <i class="ph-bold ph-arrow-right"></i>
           </button>
         </div>
       </div>
 
-      <!-- ÉTAPE 2 : AJOUTE TES DEVOIRS SIMPLEMENT -->
+      <!-- ÉTAPE 2 : TES HORAIRES DU SOIR (RHYTHME COCKPIT) -->
       <div id="onb-step-2" class="onb-step" style="display:none;">
-        <div style="text-align:center; margin-bottom:16px;">
-          <div style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:14px; background:rgba(249,115,22,0.14); border:1px solid rgba(249,115,22,0.3); color:#FB923C; font-size:25px; margin-bottom:12px;">
-            <i class="ph-bold ph-check-square-offset"></i>
+        <div style="text-align:center; margin-bottom:18px;">
+          <div style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:13px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#FAFAFC; font-size:23px; margin-bottom:10px;">
+            <i class="ph-bold ph-moon-stars"></i>
           </div>
-          <h3 style="font-size:19px; font-weight:700; margin-bottom:6px;">2. Tes devoirs en 2 clics</h3>
-          <p style="font-size:13.5px; color:var(--text-muted); line-height:1.55;">
-            Dans l'onglet <strong>Missions</strong>, note ce que tu as à faire, la date de rendu et la durée estimée :
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:6px;">1. Calibre ton After-Hours</h3>
+          <p style="font-size:13px; color:var(--text-muted); line-height:1.55;">
+            L'algorithme organise tes séances de révision dès la fin des cours, en sanctuarisant ta pause dîner et ton couvre-feu de coucher.
           </p>
         </div>
 
-        <div class="onb-visual-card" style="display:flex; flex-direction:column; gap:11px; font-size:12.5px; color:var(--text-muted);">
-          <div style="display:flex; align-items:flex-start; gap:10px;">
-            <i class="ph-bold ph-tag" style="color:#FB923C; font-size:16px; margin-top:2px;"></i>
-            <div><strong style="color:var(--text-main);">Choisis le type :</strong> un <strong>DS</strong> ou un <strong>DM</strong> passe automatiquement avant un simple <strong>Exercice</strong> ou une relecture de <strong>Cours</strong>.</div>
+        <div class="onb-visual-card">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;">
+            <div>
+              <label style="font-size:11px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:4px;">
+                <i class="ph-bold ph-fork-knife" style="color:#FAFAFC;"></i> Début du dîner
+              </label>
+              <input type="time" id="onb-dinner-start" class="saas-input mono" value="19:00" onchange="window.updateOnbRhythmSetting('dinnerStart', this.value)" />
+            </div>
+            <div>
+              <label style="font-size:11px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:4px;">
+                <i class="ph-bold ph-fork-knife" style="color:#FAFAFC;"></i> Fin du dîner
+              </label>
+              <input type="time" id="onb-dinner-end" class="saas-input mono" value="20:00" onchange="window.updateOnbRhythmSetting('dinnerEnd', this.value)" />
+            </div>
           </div>
-          <div style="display:flex; align-items:flex-start; gap:10px;">
-            <i class="ph-bold ph-Flame" style="color:#F87171; font-size:16px; margin-top:2px;"></i>
-            <div><strong style="color:var(--text-main);">Pour demain = tout en haut :</strong> ce qui est à rendre pour le lendemain s'affiche toujours en priorité.</div>
-          </div>
-          <div style="display:flex; align-items:flex-start; gap:10px;">
-            <i class="ph-bold ph-git-commit" style="color:#38BDF8; font-size:16px; margin-top:2px;"></i>
-            <div><strong style="color:var(--text-main);">Gros DM ?</strong> Coupe-le en 2 ou 3 morceaux (ex: <em>1. Brouillon → 2. Calculs → 3. Rédaction</em>) pour l'étaler sur plusieurs soirs.</div>
+          <div>
+            <label style="font-size:11px; font-weight:600; color:var(--text-muted); display:block; margin-bottom:4px;">
+              <i class="ph-bold ph-bed" style="color:#FAFAFC;"></i> Couvre-feu / Coucher (fin du travail)
+            </label>
+            <input type="time" id="onb-bedtime" class="saas-input mono" value="23:00" onchange="window.updateOnbRhythmSetting('bedtime', this.value)" />
           </div>
         </div>
 
@@ -978,6 +983,7 @@
             <button type="button" class="onb-dot active" onclick="window.onbGoStep(2)" aria-label="Étape 2"></button>
             <button type="button" class="onb-dot" onclick="window.onbGoStep(3)" aria-label="Étape 3"></button>
             <button type="button" class="onb-dot" onclick="window.onbGoStep(4)" aria-label="Étape 4"></button>
+            <button type="button" class="onb-dot" onclick="window.onbGoStep(5)" aria-label="Étape 5"></button>
           </div>
           <button type="button" class="btn-primary" onclick="window.onbGoStep(3)">
             Suivant <i class="ph-bold ph-arrow-right"></i>
@@ -985,33 +991,30 @@
         </div>
       </div>
 
-      <!-- ÉTAPE 3 : TON PROGRAMME DU SOIR AUTOMATIQUE -->
+      <!-- ÉTAPE 3 : GESTION DES DEVOIRS & TENSION INDEX -->
       <div id="onb-step-3" class="onb-step" style="display:none;">
         <div style="text-align:center; margin-bottom:16px;">
-          <div style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:14px; background:rgba(16,185,129,0.14); border:1px solid rgba(16,185,129,0.3); color:#10B981; font-size:25px; margin-bottom:12px;">
-            <i class="ph-bold ph-calendar-check"></i>
+          <div style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:13px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#FAFAFC; font-size:23px; margin-bottom:10px;">
+            <i class="ph-bold ph-check-square-offset"></i>
           </div>
-          <h3 style="font-size:19px; font-weight:700; margin-bottom:6px;">3. Ton programme du soir prêt</h3>
-          <p style="font-size:13.5px; color:var(--text-muted); line-height:1.55;">
-            Plus besoin d'hésiter à 18h : dans <strong>Agenda → Planning Soirée</strong>, l'appli aligne tes devoirs les plus importants de la fin des cours jusqu'au coucher.
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:6px;">2. Cahier de Devoirs &amp; Tension</h3>
+          <p style="font-size:13px; color:var(--text-muted); line-height:1.55;">
+            Ajoute tes missions en 3 secondes. L'algorithme calcule l'urgence réelle selon l'échéance et les DS du samedi.
           </p>
         </div>
 
-        <div class="onb-visual-card" style="display:flex; flex-direction:column; gap:8px;">
-          <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 11px; border-radius:8px; background:rgba(255,255,255,0.035); border-left:3px solid #A855F7; font-size:12px;">
-            <span class="mono" style="color:var(--text-muted); font-size:11px;">17:30 → 19:00</span>
-            <span style="font-weight:600; color:var(--text-main);">DM Physique (Étape 1)</span>
-            <span class="mono" style="font-size:10.5px; color:#FB923C;">À faire</span>
+        <div class="onb-visual-card" style="display:flex; flex-direction:column; gap:11px; font-size:12.5px; color:var(--text-muted);">
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <i class="ph-bold ph-lightning" style="color:#FAFAFC; font-size:16px; margin-top:2px;"></i>
+            <div><strong style="color:var(--text-main);">Boost DS automatique :</strong> si un DS de Physique ou de Maths arrive le samedi, les révisions associées sont propulsées en tête.</div>
           </div>
-          <div style="display:flex; align-items:center; justify-content:space-between; padding:6px 11px; border-radius:8px; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.28); font-size:11.5px; color:#FDE68A;">
-            <span class="mono" style="font-size:11px;">19:00 → 20:00</span>
-            <span><i class="ph-fill ph-fork-knife"></i> Pause Repas</span>
-            <span class="mono" style="font-size:10px;">Pause</span>
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <i class="ph-bold ph-git-commit" style="color:#A1A1AA; font-size:16px; margin-top:2px;"></i>
+            <div><strong style="color:var(--text-main);">Pipeline de DM :</strong> découpe un lourd devoir en étapes (ex: <em>Brouillon → Résolution → Rédaction</em>) pour l'étaler sans stress.</div>
           </div>
-          <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 11px; border-radius:8px; background:rgba(16,185,129,0.06); border-left:3px solid #EF4444; font-size:12px; opacity:0.65;">
-            <span class="mono" style="color:var(--text-muted); font-size:11px;">20:00 → 21:00</span>
-            <span style="font-weight:600; text-decoration:line-through; color:var(--text-muted);">Exercices Maths</span>
-            <span class="mono" style="font-size:10.5px; color:#10B981;">✓ Fait (reste affiché)</span>
+          <div style="display:flex; align-items:flex-start; gap:10px;">
+            <i class="ph-bold ph-faders" style="color:#A1A1AA; font-size:16px; margin-top:2px;"></i>
+            <div><strong style="color:var(--text-main);">Pipeline pédagogique :</strong> l'algorithme respecte l'ordre optimal <strong>Cours → Exercices/TD → DM</strong>.</div>
           </div>
         </div>
 
@@ -1022,6 +1025,7 @@
             <button type="button" class="onb-dot" onclick="window.onbGoStep(2)" aria-label="Étape 2"></button>
             <button type="button" class="onb-dot active" onclick="window.onbGoStep(3)" aria-label="Étape 3"></button>
             <button type="button" class="onb-dot" onclick="window.onbGoStep(4)" aria-label="Étape 4"></button>
+            <button type="button" class="onb-dot" onclick="window.onbGoStep(5)" aria-label="Étape 5"></button>
           </div>
           <button type="button" class="btn-primary" onclick="window.onbGoStep(4)">
             Suivant <i class="ph-bold ph-arrow-right"></i>
@@ -1029,44 +1033,90 @@
         </div>
       </div>
 
-      <!-- ÉTAPE 4 : DAILY DROP & SYNCHRONISATION -->
+      <!-- ÉTAPE 4 : AFTER-HOURS ENGINE & PAUSES SIESTES -->
       <div id="onb-step-4" class="onb-step" style="display:none;">
         <div style="text-align:center; margin-bottom:16px;">
-          <div style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:14px; background:rgba(234,179,8,0.14); border:1px solid rgba(234,179,8,0.32); color:#FACC15; font-size:25px; margin-bottom:12px;">
-            <i class="ph-bold ph-sparkle"></i>
+          <div style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:13px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#FAFAFC; font-size:23px; margin-bottom:10px;">
+            <i class="ph-bold ph-calendar-check"></i>
           </div>
-          <h3 style="font-size:19px; font-weight:700; margin-bottom:6px;">4. Anglais, Culture G &amp; Synchro</h3>
-          <p style="font-size:13.5px; color:var(--text-muted); line-height:1.55;">
-            L'onglet <strong>Daily Drop</strong> te donne chaque jour 1 mot d'anglais utile, 2 fautes classiques à éviter en colle/DS et 1 histoire de Culture Générale expliquée simplement.
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:6px;">3. Planning Soirée Intelligent</h3>
+          <p style="font-size:13px; color:var(--text-muted); line-height:1.55;">
+            Dans <strong>Agenda → Planning Soirée</strong>, tes créneaux sont agencés à la minute près. Besoin de souffler ? Pose une sieste en 1 clic.
           </p>
         </div>
 
-        <div class="onb-visual-card" style="margin-bottom:18px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px;">
-            <label for="onb-sync-id" style="font-size:12px; font-weight:600; color:var(--text-main);">
-              <i class="ph-bold ph-devices" style="color:#38BDF8;"></i> Retrouver mes données sur Téléphone + Ordi (Optionnel)
-            </label>
-            <button type="button" onclick="window.openQRScannerModal()" class="btn-ghost" style="padding:4px 9px; font-size:11px;">
-              <i class="ph ph-camera"></i> Scanner QR
-            </button>
+        <div class="onb-visual-card" style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:8px 11px; border-radius:9px; background:rgba(255,255,255,0.03); border-left:3px solid #A855F7; font-size:12px;">
+            <span class="mono" style="color:var(--text-muted); font-size:11px;">16:30 → 18:00</span>
+            <span style="font-weight:600; color:var(--text-main);">DM Physique (Partie A)</span>
+            <span class="mono" style="font-size:10.5px; color:#A1A1AA;">Sélectionné</span>
           </div>
-          <input type="text" id="onb-sync-id" class="saas-input mono" placeholder="Choisis un code (ex: thomas_pcsi) ou laisse vide" />
-          <div style="font-size:11px; color:var(--text-subtle); margin-top:6px;">
-            En mettant le même code sur ton téléphone et ton ordi, tout se synchronise tout seul.
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:7px 11px; border-radius:9px; background:rgba(255,255,255,0.05); border:1px dashed rgba(255,255,255,0.22); font-size:11.5px; color:#FAFAFC;">
+            <span class="mono" style="font-size:11px;">18:00 → 18:30</span>
+            <span><i class="ph-bold ph-hourglass-high"></i> Pause Sieste (+30m décale sans supprimer)</span>
+            <span class="mono" style="font-size:10px;">Récupération</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:6px 11px; border-radius:9px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); font-size:11.5px; color:#A1A1AA;">
+            <span class="mono" style="font-size:11px;">19:00 → 20:00</span>
+            <span><i class="ph-bold ph-fork-knife"></i> Dîner</span>
+            <span class="mono" style="font-size:10px;">Sanctuarisé</span>
           </div>
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
           <button type="button" class="btn-ghost" onclick="window.onbGoStep(3)"><i class="ph-bold ph-arrow-left"></i> Retour</button>
           <div class="onb-dots">
             <button type="button" class="onb-dot" onclick="window.onbGoStep(1)" aria-label="Étape 1"></button>
             <button type="button" class="onb-dot" onclick="window.onbGoStep(2)" aria-label="Étape 2"></button>
             <button type="button" class="onb-dot" onclick="window.onbGoStep(3)" aria-label="Étape 3"></button>
             <button type="button" class="onb-dot active" onclick="window.onbGoStep(4)" aria-label="Étape 4"></button>
+            <button type="button" class="onb-dot" onclick="window.onbGoStep(5)" aria-label="Étape 5"></button>
+          </div>
+          <button type="button" class="btn-primary" onclick="window.onbGoStep(5)">
+            Suivant <i class="ph-bold ph-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 5 : ANKI & SYNCHRONISATION MULTI-APPAREILS -->
+      <div id="onb-step-5" class="onb-step" style="display:none;">
+        <div style="text-align:center; margin-bottom:16px;">
+          <div style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:13px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.18); color:#FAFAFC; font-size:23px; margin-bottom:10px;">
+            <i class="ph-bold ph-cloud-arrow-up"></i>
+          </div>
+          <h3 style="font-size:18px; font-weight:700; margin-bottom:6px;">4. Anki &amp; Synchronisation Cloud</h3>
+          <p style="font-size:13px; color:var(--text-muted); line-height:1.55;">
+            Profite du <strong>Daily Drop</strong> avec export Anki direct, et connecte ton téléphone à ton ordinateur avec un simple Sync ID ou QR Code.
+          </p>
+        </div>
+
+        <div class="onb-visual-card" style="margin-bottom:18px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px;">
+            <label for="onb-sync-id" style="font-size:12px; font-weight:600; color:var(--text-main);">
+              <i class="ph-bold ph-devices" style="color:#FAFAFC;"></i> Synchroniser Téléphone + Ordi + iPad (Optionnel)
+            </label>
+            <button type="button" onclick="window.openQRScannerModal()" class="btn-ghost" style="padding:4px 9px; font-size:11px;">
+              <i class="ph ph-camera"></i> Scanner QR
+            </button>
+          </div>
+          <input type="text" id="onb-sync-id" class="saas-input mono" placeholder="Choisis un code (ex: prepa_major) ou laisse vide" />
+          <div style="font-size:11px; color:var(--text-subtle); margin-top:6px;">
+            Tous tes appareils partageant le même Sync ID restent synchronisés en temps réel en arrière-plan.
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <button type="button" class="btn-ghost" onclick="window.onbGoStep(4)"><i class="ph-bold ph-arrow-left"></i> Retour</button>
+          <div class="onb-dots">
+            <button type="button" class="onb-dot" onclick="window.onbGoStep(1)" aria-label="Étape 1"></button>
+            <button type="button" class="onb-dot" onclick="window.onbGoStep(2)" aria-label="Étape 2"></button>
+            <button type="button" class="onb-dot" onclick="window.onbGoStep(3)" aria-label="Étape 3"></button>
+            <button type="button" class="onb-dot" onclick="window.onbGoStep(4)" aria-label="Étape 4"></button>
+            <button type="button" class="onb-dot active" onclick="window.onbGoStep(5)" aria-label="Étape 5"></button>
           </div>
           <div style="display:flex; gap:8px; flex-wrap:wrap; margin-left:auto;">
             <button type="button" class="btn-primary" onclick="window.onbNextOrFinish()">
-              <i class="ph-bold ph-rocket-launch"></i> C'est parti !
+              <i class="ph-bold ph-rocket-launch"></i> Lancer PCSI.OS
             </button>
           </div>
         </div>

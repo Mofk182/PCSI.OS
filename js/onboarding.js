@@ -1,7 +1,7 @@
 // onboarding.js : parcours d'accueil guidé en 4 étapes & configuration rapide du rythme d'internat
 
 let currentOnbStep = 1;
-const TOTAL_ONB_STEPS = 4;
+const TOTAL_ONB_STEPS = 5;
 
 window.onbGoStep = function(step) {
   currentOnbStep = Math.max(1, Math.min(TOTAL_ONB_STEPS, parseInt(step, 10) || 1));
@@ -13,14 +13,14 @@ window.onbGoStep = function(step) {
 
   const stepLabel = document.getElementById('onb-header-step-label');
   if (stepLabel) {
-    stepLabel.textContent = `ÉTAPE ${currentOnbStep} / ${TOTAL_ONB_STEPS}`;
+    stepLabel.textContent = `DÉCOUVERTE ${currentOnbStep} / ${TOTAL_ONB_STEPS}`;
   }
 
   document.querySelectorAll('.onb-dot').forEach((dot, idx) => {
     dot.classList.toggle('active', idx + 1 === currentOnbStep);
   });
 
-  if (currentOnbStep === 4 && typeof window.focusModalInput === 'function') {
+  if (currentOnbStep === 5 && typeof window.focusModalInput === 'function') {
     window.focusModalInput('onb-sync-id');
   }
 };
@@ -67,6 +67,7 @@ window.updateOnbRhythmSetting = function(key, val) {
 
 function markOnboardingCompletedInProfile() {
   try {
+    localStorage.setItem('pcsi_tuto_v4_seen', '1');
     localStorage.setItem('pcsi_has_seen_tuto', '1');
   } catch (e) {}
   if (typeof state !== 'undefined') {
