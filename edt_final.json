@@ -1,0 +1,7342 @@
+[
+  {
+    "id": "s_0",
+    "end": "10:00",
+    "date": "2026-09-01",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_1",
+    "end": "12:00",
+    "date": "2026-09-01",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_2",
+    "end": "15:30",
+    "date": "2026-09-01",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_3",
+    "end": "17:30",
+    "date": "2026-09-01",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_4",
+    "end": "10:00",
+    "date": "2026-09-02",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_5",
+    "end": "12:00",
+    "date": "2026-09-02",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_6",
+    "end": "15:30",
+    "date": "2026-09-02",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_7",
+    "end": "10:00",
+    "date": "2026-09-03",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_8",
+    "end": "12:00",
+    "date": "2026-09-03",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_9",
+    "end": "15:30",
+    "date": "2026-09-03",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_10",
+    "end": "09:00",
+    "date": "2026-09-04",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_11",
+    "end": "10:00",
+    "date": "2026-09-04",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_12",
+    "end": "11:00",
+    "date": "2026-09-04",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_13",
+    "end": "12:00",
+    "date": "2026-09-04",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_14",
+    "end": "15:30",
+    "date": "2026-09-04",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_15",
+    "end": "10:00",
+    "date": "2026-09-07",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_16",
+    "end": "12:00",
+    "date": "2026-09-07",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_17",
+    "end": "13:00",
+    "date": "2026-09-07",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_18",
+    "end": "17:30",
+    "date": "2026-09-07",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_19",
+    "end": "10:00",
+    "date": "2026-09-08",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_20",
+    "end": "12:00",
+    "date": "2026-09-08",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_21",
+    "end": "15:30",
+    "date": "2026-09-08",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_22",
+    "end": "17:30",
+    "date": "2026-09-08",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_23",
+    "end": "10:00",
+    "date": "2026-09-09",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_24",
+    "end": "12:00",
+    "date": "2026-09-09",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_25",
+    "end": "15:30",
+    "date": "2026-09-09",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_26",
+    "end": "10:00",
+    "date": "2026-09-10",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_27",
+    "end": "12:00",
+    "date": "2026-09-10",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_28",
+    "end": "15:30",
+    "date": "2026-09-10",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_29",
+    "end": "09:00",
+    "date": "2026-09-11",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_30",
+    "end": "10:00",
+    "date": "2026-09-11",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_31",
+    "end": "11:00",
+    "date": "2026-09-11",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_32",
+    "end": "12:00",
+    "date": "2026-09-11",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_33",
+    "end": "15:30",
+    "date": "2026-09-11",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_34",
+    "end": "10:00",
+    "date": "2026-09-14",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_35",
+    "end": "12:00",
+    "date": "2026-09-14",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_36",
+    "end": "13:00",
+    "date": "2026-09-14",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_37",
+    "end": "17:30",
+    "date": "2026-09-14",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_38",
+    "end": "10:00",
+    "date": "2026-09-15",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_39",
+    "end": "12:00",
+    "date": "2026-09-15",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_40",
+    "end": "15:30",
+    "date": "2026-09-15",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_41",
+    "end": "17:30",
+    "date": "2026-09-15",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_42",
+    "end": "10:00",
+    "date": "2026-09-16",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_43",
+    "end": "12:00",
+    "date": "2026-09-16",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_44",
+    "end": "15:30",
+    "date": "2026-09-16",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_45",
+    "end": "17:30",
+    "date": "2026-09-16",
+    "room": "Mme Legrand",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle Chimie - Mme Legrand",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_46",
+    "end": "10:00",
+    "date": "2026-09-17",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_47",
+    "end": "12:00",
+    "date": "2026-09-17",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_48",
+    "end": "15:30",
+    "date": "2026-09-17",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_colle_49",
+    "end": "17:30",
+    "date": "2026-09-17",
+    "room": "M. Marnieros",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle SI - M. Marnieros",
+    "subject": "si"
+  },
+  {
+    "id": "s_50",
+    "end": "09:00",
+    "date": "2026-09-18",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_51",
+    "end": "10:00",
+    "date": "2026-09-18",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_52",
+    "end": "11:00",
+    "date": "2026-09-18",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_53",
+    "end": "12:00",
+    "date": "2026-09-18",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_54",
+    "end": "15:30",
+    "date": "2026-09-18",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_701",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2026-09-19",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS1 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_56",
+    "end": "10:00",
+    "date": "2026-09-21",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_57",
+    "end": "12:00",
+    "date": "2026-09-21",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_58",
+    "end": "13:00",
+    "date": "2026-09-21",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_59",
+    "end": "17:30",
+    "date": "2026-09-21",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_colle_60",
+    "end": "18:30",
+    "date": "2026-09-21",
+    "room": "M. Devilliers",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Maths - M. Devilliers",
+    "subject": "maths"
+  },
+  {
+    "id": "s_61",
+    "end": "10:00",
+    "date": "2026-09-22",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_62",
+    "end": "12:00",
+    "date": "2026-09-22",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_63",
+    "end": "15:30",
+    "date": "2026-09-22",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_64",
+    "end": "17:30",
+    "date": "2026-09-22",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_65",
+    "end": "10:00",
+    "date": "2026-09-23",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_66",
+    "end": "12:00",
+    "date": "2026-09-23",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_67",
+    "end": "15:30",
+    "date": "2026-09-23",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_68",
+    "end": "10:00",
+    "date": "2026-09-24",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_69",
+    "end": "12:00",
+    "date": "2026-09-24",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_70",
+    "end": "15:30",
+    "date": "2026-09-24",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_colle_71",
+    "end": "17:30",
+    "date": "2026-09-24",
+    "room": "Mme Purdue",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle Anglais - Mme Purdue",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_72",
+    "end": "09:00",
+    "date": "2026-09-25",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_73",
+    "end": "10:00",
+    "date": "2026-09-25",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_74",
+    "end": "11:00",
+    "date": "2026-09-25",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_75",
+    "end": "12:00",
+    "date": "2026-09-25",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_76",
+    "end": "15:30",
+    "date": "2026-09-25",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_702",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2026-09-26",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS1 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_78",
+    "end": "10:00",
+    "date": "2026-09-28",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_79",
+    "end": "12:00",
+    "date": "2026-09-28",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_80",
+    "end": "13:00",
+    "date": "2026-09-28",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_81",
+    "end": "17:30",
+    "date": "2026-09-28",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_82",
+    "end": "10:00",
+    "date": "2026-09-29",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_83",
+    "end": "12:00",
+    "date": "2026-09-29",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_84",
+    "end": "15:30",
+    "date": "2026-09-29",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_85",
+    "end": "17:30",
+    "date": "2026-09-29",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_86",
+    "end": "10:00",
+    "date": "2026-09-30",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_87",
+    "end": "12:00",
+    "date": "2026-09-30",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_88",
+    "end": "15:30",
+    "date": "2026-09-30",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_89",
+    "end": "10:00",
+    "date": "2026-10-01",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_90",
+    "end": "12:00",
+    "date": "2026-10-01",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_91",
+    "end": "15:30",
+    "date": "2026-10-01",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_92",
+    "end": "09:00",
+    "date": "2026-10-02",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_93",
+    "end": "10:00",
+    "date": "2026-10-02",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_94",
+    "end": "11:00",
+    "date": "2026-10-02",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_95",
+    "end": "12:00",
+    "date": "2026-10-02",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_colle_97",
+    "end": "13:00",
+    "date": "2026-10-02",
+    "room": "M. Ghanem",
+    "type": "COLLE",
+    "start": "12:00",
+    "title": "Colle Physique - M. Ghanem",
+    "subject": "physique"
+  },
+  {
+    "id": "s_96",
+    "end": "15:30",
+    "date": "2026-10-02",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_colle_98",
+    "end": "17:30",
+    "date": "2026-10-02",
+    "room": "Mme Aucoin",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle SI - Mme Aucoin",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_703",
+    "start": "08:00",
+    "end": "10:00",
+    "date": "2026-10-03",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS1 Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_ds_704",
+    "start": "10:00",
+    "end": "12:00",
+    "date": "2026-10-03",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS1 SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_101",
+    "end": "10:00",
+    "date": "2026-10-05",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_102",
+    "end": "12:00",
+    "date": "2026-10-05",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_103",
+    "end": "13:00",
+    "date": "2026-10-05",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_104",
+    "end": "17:30",
+    "date": "2026-10-05",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_colle_105",
+    "end": "18:30",
+    "date": "2026-10-05",
+    "room": "Mme Delbecchi",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Anglais - Mme Delbecchi",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_106",
+    "end": "10:00",
+    "date": "2026-10-06",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_107",
+    "end": "12:00",
+    "date": "2026-10-06",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_108",
+    "end": "15:30",
+    "date": "2026-10-06",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_109",
+    "end": "17:30",
+    "date": "2026-10-06",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_110",
+    "end": "10:00",
+    "date": "2026-10-07",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_111",
+    "end": "12:00",
+    "date": "2026-10-07",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_112",
+    "end": "15:30",
+    "date": "2026-10-07",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_113",
+    "end": "16:30",
+    "date": "2026-10-07",
+    "room": "M. Le Lièvre",
+    "type": "COLLE",
+    "start": "15:30",
+    "title": "Colle Maths - M. Le Lièvre",
+    "subject": "maths"
+  },
+  {
+    "id": "s_114",
+    "end": "10:00",
+    "date": "2026-10-08",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_115",
+    "end": "12:00",
+    "date": "2026-10-08",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_116",
+    "end": "15:30",
+    "date": "2026-10-08",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_117",
+    "end": "09:00",
+    "date": "2026-10-09",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_118",
+    "end": "10:00",
+    "date": "2026-10-09",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_119",
+    "end": "11:00",
+    "date": "2026-10-09",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_120",
+    "end": "12:00",
+    "date": "2026-10-09",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_121",
+    "end": "15:30",
+    "date": "2026-10-09",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_705",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2026-10-10",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS2 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_123",
+    "end": "10:00",
+    "date": "2026-10-12",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_124",
+    "end": "12:00",
+    "date": "2026-10-12",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_125",
+    "end": "13:00",
+    "date": "2026-10-12",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_126",
+    "end": "17:30",
+    "date": "2026-10-12",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_colle_127",
+    "end": "18:30",
+    "date": "2026-10-12",
+    "room": "M. Achard",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle SI - M. Achard",
+    "subject": "si"
+  },
+  {
+    "id": "s_128",
+    "end": "10:00",
+    "date": "2026-10-13",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_129",
+    "end": "12:00",
+    "date": "2026-10-13",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_130",
+    "end": "15:30",
+    "date": "2026-10-13",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_131",
+    "end": "17:30",
+    "date": "2026-10-13",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_132",
+    "end": "10:00",
+    "date": "2026-10-14",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_133",
+    "end": "12:00",
+    "date": "2026-10-14",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_134",
+    "end": "15:30",
+    "date": "2026-10-14",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_135",
+    "end": "10:00",
+    "date": "2026-10-15",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_136",
+    "end": "12:00",
+    "date": "2026-10-15",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_137",
+    "end": "15:30",
+    "date": "2026-10-15",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_colle_138",
+    "end": "17:30",
+    "date": "2026-10-15",
+    "room": "M. Rey",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle Physique - M. Rey",
+    "subject": "physique"
+  },
+  {
+    "id": "s_139",
+    "end": "09:00",
+    "date": "2026-10-16",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_140",
+    "end": "10:00",
+    "date": "2026-10-16",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_141",
+    "end": "11:00",
+    "date": "2026-10-16",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_142",
+    "end": "12:00",
+    "date": "2026-10-16",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_143",
+    "end": "15:30",
+    "date": "2026-10-16",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_144",
+    "end": "10:00",
+    "date": "2026-11-02",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_145",
+    "end": "12:00",
+    "date": "2026-11-02",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_146",
+    "end": "13:00",
+    "date": "2026-11-02",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_colle_148",
+    "end": "14:30",
+    "date": "2026-11-02",
+    "room": "M. Slisse",
+    "type": "COLLE",
+    "start": "13:30",
+    "title": "Colle Anglais - M. Slisse",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_147",
+    "end": "17:30",
+    "date": "2026-11-02",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_149",
+    "end": "10:00",
+    "date": "2026-11-03",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_150",
+    "end": "12:00",
+    "date": "2026-11-03",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_151",
+    "end": "15:30",
+    "date": "2026-11-03",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_152",
+    "end": "17:30",
+    "date": "2026-11-03",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_153",
+    "end": "10:00",
+    "date": "2026-11-04",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_154",
+    "end": "12:00",
+    "date": "2026-11-04",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_155",
+    "end": "15:30",
+    "date": "2026-11-04",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_156",
+    "end": "17:30",
+    "date": "2026-11-04",
+    "room": "M. Lartaux",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle Maths - M. Lartaux",
+    "subject": "maths"
+  },
+  {
+    "id": "s_157",
+    "end": "10:00",
+    "date": "2026-11-05",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_158",
+    "end": "12:00",
+    "date": "2026-11-05",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_159",
+    "end": "15:30",
+    "date": "2026-11-05",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_160",
+    "end": "09:00",
+    "date": "2026-11-06",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_161",
+    "end": "10:00",
+    "date": "2026-11-06",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_162",
+    "end": "11:00",
+    "date": "2026-11-06",
+    "room": "BS C2",
+    "type": "TD",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_163",
+    "end": "12:00",
+    "date": "2026-11-06",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_164",
+    "end": "15:30",
+    "date": "2026-11-06",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_706",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2026-11-07",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS2 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_166",
+    "end": "10:00",
+    "date": "2026-11-09",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_167",
+    "end": "12:00",
+    "date": "2026-11-09",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_168",
+    "end": "13:00",
+    "date": "2026-11-09",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_169",
+    "end": "17:30",
+    "date": "2026-11-09",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_171",
+    "end": "10:00",
+    "date": "2026-11-10",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_172",
+    "end": "12:00",
+    "date": "2026-11-10",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_173",
+    "end": "15:30",
+    "date": "2026-11-10",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_174",
+    "end": "17:30",
+    "date": "2026-11-10",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_175",
+    "end": "10:00",
+    "date": "2026-11-12",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_176",
+    "end": "12:00",
+    "date": "2026-11-12",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_177",
+    "end": "15:30",
+    "date": "2026-11-12",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_colle_178",
+    "end": "18:30",
+    "date": "2026-11-12",
+    "room": "Mme Souche",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Physique - Mme Souche",
+    "subject": "physique"
+  },
+  {
+    "id": "s_179",
+    "end": "09:00",
+    "date": "2026-11-13",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_180",
+    "end": "10:00",
+    "date": "2026-11-13",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_181",
+    "end": "11:00",
+    "date": "2026-11-13",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_182",
+    "end": "12:00",
+    "date": "2026-11-13",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_183",
+    "end": "15:30",
+    "date": "2026-11-13",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_colle_170",
+    "end": "16:30",
+    "date": "2026-11-13",
+    "room": "Mme Colonna",
+    "type": "COLLE",
+    "start": "15:30",
+    "title": "Colle Chimie - Mme Colonna",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_ds_707",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2026-11-14",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS3 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_186",
+    "end": "10:00",
+    "date": "2026-11-16",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_187",
+    "end": "12:00",
+    "date": "2026-11-16",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_188",
+    "end": "13:00",
+    "date": "2026-11-16",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_189",
+    "end": "17:30",
+    "date": "2026-11-16",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_190",
+    "end": "10:00",
+    "date": "2026-11-17",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_191",
+    "end": "12:00",
+    "date": "2026-11-17",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_192",
+    "end": "15:30",
+    "date": "2026-11-17",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_193",
+    "end": "17:30",
+    "date": "2026-11-17",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_194",
+    "end": "18:30",
+    "date": "2026-11-17",
+    "room": "Mme Antunes",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Anglais - Mme Antunes",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_195",
+    "end": "10:00",
+    "date": "2026-11-18",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_196",
+    "end": "12:00",
+    "date": "2026-11-18",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_197",
+    "end": "15:30",
+    "date": "2026-11-18",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_198",
+    "end": "16:30",
+    "date": "2026-11-18",
+    "room": "M. Lartaux",
+    "type": "COLLE",
+    "start": "15:30",
+    "title": "Colle Maths - M. Lartaux",
+    "subject": "maths"
+  },
+  {
+    "id": "s_199",
+    "end": "10:00",
+    "date": "2026-11-19",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_200",
+    "end": "12:00",
+    "date": "2026-11-19",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_201",
+    "end": "15:30",
+    "date": "2026-11-19",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_202",
+    "end": "09:00",
+    "date": "2026-11-20",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_203",
+    "end": "10:00",
+    "date": "2026-11-20",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_204",
+    "end": "11:00",
+    "date": "2026-11-20",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_205",
+    "end": "12:00",
+    "date": "2026-11-20",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_206",
+    "end": "15:30",
+    "date": "2026-11-20",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_708",
+    "start": "08:00",
+    "end": "10:00",
+    "date": "2026-11-21",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS2 Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_ds_709",
+    "start": "10:00",
+    "end": "12:00",
+    "date": "2026-11-21",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS3 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_208",
+    "end": "10:00",
+    "date": "2026-11-23",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_209",
+    "end": "12:00",
+    "date": "2026-11-23",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_210",
+    "end": "13:00",
+    "date": "2026-11-23",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_211",
+    "end": "17:30",
+    "date": "2026-11-23",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_212",
+    "end": "10:00",
+    "date": "2026-11-24",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_213",
+    "end": "12:00",
+    "date": "2026-11-24",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_214",
+    "end": "15:30",
+    "date": "2026-11-24",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_215",
+    "end": "17:30",
+    "date": "2026-11-24",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_216",
+    "end": "10:00",
+    "date": "2026-11-25",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_217",
+    "end": "12:00",
+    "date": "2026-11-25",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_218",
+    "end": "15:30",
+    "date": "2026-11-25",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_219",
+    "end": "18:30",
+    "date": "2026-11-25",
+    "room": "M. Vincenot",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Chimie - M. Vincenot",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_220",
+    "end": "10:00",
+    "date": "2026-11-26",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_221",
+    "end": "12:00",
+    "date": "2026-11-26",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_222",
+    "end": "15:30",
+    "date": "2026-11-26",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_colle_223",
+    "end": "18:30",
+    "date": "2026-11-26",
+    "room": "M. Marnieros",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle SI - M. Marnieros",
+    "subject": "si"
+  },
+  {
+    "id": "s_224",
+    "end": "09:00",
+    "date": "2026-11-27",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_225",
+    "end": "10:00",
+    "date": "2026-11-27",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_226",
+    "end": "11:00",
+    "date": "2026-11-27",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_227",
+    "end": "12:00",
+    "date": "2026-11-27",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_228",
+    "end": "15:30",
+    "date": "2026-11-27",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_710",
+    "start": "08:00",
+    "end": "10:00",
+    "date": "2026-11-28",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS2 SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_711",
+    "start": "10:00",
+    "end": "12:00",
+    "date": "2026-11-28",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS4 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_230",
+    "end": "10:00",
+    "date": "2026-11-30",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_231",
+    "end": "12:00",
+    "date": "2026-11-30",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_232",
+    "end": "13:00",
+    "date": "2026-11-30",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_233",
+    "end": "17:30",
+    "date": "2026-11-30",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_colle_234",
+    "end": "18:30",
+    "date": "2026-11-30",
+    "room": "M. Devilliers",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Maths - M. Devilliers",
+    "subject": "maths"
+  },
+  {
+    "id": "s_235",
+    "end": "10:00",
+    "date": "2026-12-01",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_236",
+    "end": "12:00",
+    "date": "2026-12-01",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_237",
+    "end": "15:30",
+    "date": "2026-12-01",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_238",
+    "end": "17:30",
+    "date": "2026-12-01",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_239",
+    "end": "10:00",
+    "date": "2026-12-02",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_240",
+    "end": "12:00",
+    "date": "2026-12-02",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_241",
+    "end": "15:30",
+    "date": "2026-12-02",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_242",
+    "end": "10:00",
+    "date": "2026-12-03",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_243",
+    "end": "12:00",
+    "date": "2026-12-03",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_244",
+    "end": "15:30",
+    "date": "2026-12-03",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_colle_245",
+    "end": "17:30",
+    "date": "2026-12-03",
+    "room": "Mme Purdue",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle Anglais - Mme Purdue",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_246",
+    "end": "09:00",
+    "date": "2026-12-04",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_247",
+    "end": "10:00",
+    "date": "2026-12-04",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_248",
+    "end": "11:00",
+    "date": "2026-12-04",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_249",
+    "end": "12:00",
+    "date": "2026-12-04",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_250",
+    "end": "15:30",
+    "date": "2026-12-04",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_712",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2026-12-05",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS4 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_253",
+    "end": "10:00",
+    "date": "2026-12-07",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_254",
+    "end": "12:00",
+    "date": "2026-12-07",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_255",
+    "end": "13:00",
+    "date": "2026-12-07",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_256",
+    "end": "17:30",
+    "date": "2026-12-07",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_colle_257",
+    "end": "18:30",
+    "date": "2026-12-07",
+    "room": "M. Bimbo",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Physique - M. Bimbo",
+    "subject": "physique"
+  },
+  {
+    "id": "s_258",
+    "end": "10:00",
+    "date": "2026-12-08",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_259",
+    "end": "12:00",
+    "date": "2026-12-08",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_260",
+    "end": "15:30",
+    "date": "2026-12-08",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_261",
+    "end": "17:30",
+    "date": "2026-12-08",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_262",
+    "end": "10:00",
+    "date": "2026-12-09",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_263",
+    "end": "12:00",
+    "date": "2026-12-09",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_264",
+    "end": "15:30",
+    "date": "2026-12-09",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_265",
+    "end": "10:00",
+    "date": "2026-12-10",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_266",
+    "end": "12:00",
+    "date": "2026-12-10",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_267",
+    "end": "15:30",
+    "date": "2026-12-10",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_268",
+    "end": "09:00",
+    "date": "2026-12-11",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_269",
+    "end": "10:00",
+    "date": "2026-12-11",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_270",
+    "end": "11:00",
+    "date": "2026-12-11",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_271",
+    "end": "12:00",
+    "date": "2026-12-11",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_272",
+    "end": "15:30",
+    "date": "2026-12-11",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_colle_273",
+    "end": "17:30",
+    "date": "2026-12-11",
+    "room": "Mme Aucoin",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle SI - Mme Aucoin",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_713",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2026-12-12",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS5 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_275",
+    "end": "10:00",
+    "date": "2026-12-14",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_276",
+    "end": "12:00",
+    "date": "2026-12-14",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_277",
+    "end": "13:00",
+    "date": "2026-12-14",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_278",
+    "end": "17:30",
+    "date": "2026-12-14",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_colle_279",
+    "end": "18:30",
+    "date": "2026-12-14",
+    "room": "Mme Annunzio",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Anglais - Mme Annunzio",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_280",
+    "end": "10:00",
+    "date": "2026-12-15",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_281",
+    "end": "12:00",
+    "date": "2026-12-15",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_282",
+    "end": "15:30",
+    "date": "2026-12-15",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_283",
+    "end": "17:30",
+    "date": "2026-12-15",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_284",
+    "end": "18:30",
+    "date": "2026-12-15",
+    "room": "M. Laumosne",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Maths - M. Laumosne",
+    "subject": "maths"
+  },
+  {
+    "id": "s_285",
+    "end": "10:00",
+    "date": "2026-12-16",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_286",
+    "end": "12:00",
+    "date": "2026-12-16",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_287",
+    "end": "15:30",
+    "date": "2026-12-16",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_288",
+    "end": "10:00",
+    "date": "2026-12-17",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_289",
+    "end": "12:00",
+    "date": "2026-12-17",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_290",
+    "end": "15:30",
+    "date": "2026-12-17",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_291",
+    "end": "09:00",
+    "date": "2026-12-18",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_292",
+    "end": "10:00",
+    "date": "2026-12-18",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_293",
+    "end": "11:00",
+    "date": "2026-12-18",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_294",
+    "end": "12:00",
+    "date": "2026-12-18",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_295",
+    "end": "15:30",
+    "date": "2026-12-18",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_296",
+    "end": "10:00",
+    "date": "2027-01-04",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_297",
+    "end": "12:00",
+    "date": "2027-01-04",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_298",
+    "end": "13:00",
+    "date": "2027-01-04",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_299",
+    "end": "17:30",
+    "date": "2027-01-04",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_colle_300",
+    "end": "18:30",
+    "date": "2027-01-04",
+    "room": "M. Achard",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle SI - M. Achard",
+    "subject": "si"
+  },
+  {
+    "id": "s_301",
+    "end": "10:00",
+    "date": "2027-01-05",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_302",
+    "end": "12:00",
+    "date": "2027-01-05",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_303",
+    "end": "15:30",
+    "date": "2027-01-05",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_304",
+    "end": "17:30",
+    "date": "2027-01-05",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_305",
+    "end": "10:00",
+    "date": "2027-01-06",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_306",
+    "end": "12:00",
+    "date": "2027-01-06",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_307",
+    "end": "15:30",
+    "date": "2027-01-06",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_308",
+    "end": "16:30",
+    "date": "2027-01-06",
+    "room": "M. Colin",
+    "type": "COLLE",
+    "start": "15:30",
+    "title": "Colle Physique - M. Colin",
+    "subject": "physique"
+  },
+  {
+    "id": "s_309",
+    "end": "10:00",
+    "date": "2027-01-07",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_310",
+    "end": "12:00",
+    "date": "2027-01-07",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_311",
+    "end": "15:30",
+    "date": "2027-01-07",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_312",
+    "end": "09:00",
+    "date": "2027-01-08",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_313",
+    "end": "10:00",
+    "date": "2027-01-08",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_314",
+    "end": "11:00",
+    "date": "2027-01-08",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_315",
+    "end": "12:00",
+    "date": "2027-01-08",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_316",
+    "end": "15:30",
+    "date": "2027-01-08",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_714",
+    "start": "08:00",
+    "end": "10:00",
+    "date": "2027-01-09",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS3 Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_ds_715",
+    "start": "10:00",
+    "end": "12:00",
+    "date": "2027-01-09",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS3 SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_318",
+    "end": "10:00",
+    "date": "2027-01-11",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_319",
+    "end": "12:00",
+    "date": "2027-01-11",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_320",
+    "end": "13:00",
+    "date": "2027-01-11",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_colle_322",
+    "end": "14:30",
+    "date": "2027-01-11",
+    "room": "M. Slisse",
+    "type": "COLLE",
+    "start": "13:30",
+    "title": "Colle Anglais - M. Slisse",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_321",
+    "end": "17:30",
+    "date": "2027-01-11",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_323",
+    "end": "10:00",
+    "date": "2027-01-12",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_324",
+    "end": "12:00",
+    "date": "2027-01-12",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_325",
+    "end": "15:30",
+    "date": "2027-01-12",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_326",
+    "end": "17:30",
+    "date": "2027-01-12",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_327",
+    "end": "10:00",
+    "date": "2027-01-13",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_328",
+    "end": "12:00",
+    "date": "2027-01-13",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_329",
+    "end": "15:30",
+    "date": "2027-01-13",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_330",
+    "end": "10:00",
+    "date": "2027-01-14",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_331",
+    "end": "12:00",
+    "date": "2027-01-14",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_332",
+    "end": "15:30",
+    "date": "2027-01-14",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_colle_333",
+    "end": "18:30",
+    "date": "2027-01-14",
+    "room": "M. Mifsud",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Maths - M. Mifsud",
+    "subject": "maths"
+  },
+  {
+    "id": "s_334",
+    "end": "09:00",
+    "date": "2027-01-15",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_335",
+    "end": "10:00",
+    "date": "2027-01-15",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_336",
+    "end": "11:00",
+    "date": "2027-01-15",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_337",
+    "end": "12:00",
+    "date": "2027-01-15",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_338",
+    "end": "15:30",
+    "date": "2027-01-15",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_716",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-01-16",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS5 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_341",
+    "end": "10:00",
+    "date": "2027-01-18",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_342",
+    "end": "12:00",
+    "date": "2027-01-18",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_343",
+    "end": "13:00",
+    "date": "2027-01-18",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_344",
+    "end": "17:30",
+    "date": "2027-01-18",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_345",
+    "end": "10:00",
+    "date": "2027-01-19",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_346",
+    "end": "12:00",
+    "date": "2027-01-19",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_347",
+    "end": "15:30",
+    "date": "2027-01-19",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_348",
+    "end": "17:30",
+    "date": "2027-01-19",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_349",
+    "end": "10:00",
+    "date": "2027-01-20",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_350",
+    "end": "12:00",
+    "date": "2027-01-20",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_351",
+    "end": "15:30",
+    "date": "2027-01-20",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_352",
+    "end": "10:00",
+    "date": "2027-01-21",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_353",
+    "end": "12:00",
+    "date": "2027-01-21",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_354",
+    "end": "15:30",
+    "date": "2027-01-21",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_colle_355",
+    "end": "17:30",
+    "date": "2027-01-21",
+    "room": "Mme Laureti",
+    "type": "COLLE",
+    "start": "16:30",
+    "title": "Colle Chimie - Mme Laureti",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_colle_356",
+    "end": "18:30",
+    "date": "2027-01-21",
+    "room": "Mme Souche",
+    "type": "COLLE",
+    "start": "17:30",
+    "title": "Colle Physique - Mme Souche",
+    "subject": "physique"
+  },
+  {
+    "id": "s_357",
+    "end": "09:00",
+    "date": "2027-01-22",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_358",
+    "end": "10:00",
+    "date": "2027-01-22",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_359",
+    "end": "11:00",
+    "date": "2027-01-22",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_360",
+    "end": "12:00",
+    "date": "2027-01-22",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_361",
+    "end": "15:30",
+    "date": "2027-01-22",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_717",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-01-23",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS6 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_363",
+    "end": "10:00",
+    "date": "2027-01-25",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_364",
+    "end": "12:00",
+    "date": "2027-01-25",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_365",
+    "end": "13:00",
+    "date": "2027-01-25",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_366",
+    "end": "17:30",
+    "date": "2027-01-25",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_367",
+    "end": "10:00",
+    "date": "2027-01-26",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_368",
+    "end": "12:00",
+    "date": "2027-01-26",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_369",
+    "end": "15:30",
+    "date": "2027-01-26",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_370",
+    "end": "17:30",
+    "date": "2027-01-26",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_371",
+    "end": "10:00",
+    "date": "2027-01-27",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_372",
+    "end": "12:00",
+    "date": "2027-01-27",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_373",
+    "end": "15:30",
+    "date": "2027-01-27",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_374",
+    "end": "10:00",
+    "date": "2027-01-28",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_375",
+    "end": "12:00",
+    "date": "2027-01-28",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_376",
+    "end": "15:30",
+    "date": "2027-01-28",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_377",
+    "end": "09:00",
+    "date": "2027-01-29",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_378",
+    "end": "10:00",
+    "date": "2027-01-29",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_379",
+    "end": "11:00",
+    "date": "2027-01-29",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_380",
+    "end": "12:00",
+    "date": "2027-01-29",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_381",
+    "end": "15:30",
+    "date": "2027-01-29",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_382",
+    "end": "10:00",
+    "date": "2027-02-01",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_383",
+    "end": "12:00",
+    "date": "2027-02-01",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_384",
+    "end": "13:00",
+    "date": "2027-02-01",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_385",
+    "end": "17:30",
+    "date": "2027-02-01",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_386",
+    "end": "10:00",
+    "date": "2027-02-02",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_387",
+    "end": "12:00",
+    "date": "2027-02-02",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_388",
+    "end": "15:30",
+    "date": "2027-02-02",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_389",
+    "end": "17:30",
+    "date": "2027-02-02",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_390",
+    "end": "10:00",
+    "date": "2027-02-03",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_391",
+    "end": "12:00",
+    "date": "2027-02-03",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_392",
+    "end": "15:30",
+    "date": "2027-02-03",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_393",
+    "end": "10:00",
+    "date": "2027-02-04",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_394",
+    "end": "12:00",
+    "date": "2027-02-04",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_395",
+    "end": "15:30",
+    "date": "2027-02-04",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_396",
+    "end": "09:00",
+    "date": "2027-02-05",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_397",
+    "end": "10:00",
+    "date": "2027-02-05",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_398",
+    "end": "11:00",
+    "date": "2027-02-05",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_399",
+    "end": "12:00",
+    "date": "2027-02-05",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_400",
+    "end": "15:30",
+    "date": "2027-02-05",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_718",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-02-06",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS6 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_402",
+    "end": "10:00",
+    "date": "2027-02-08",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_403",
+    "end": "12:00",
+    "date": "2027-02-08",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_404",
+    "end": "13:00",
+    "date": "2027-02-08",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_405",
+    "end": "17:30",
+    "date": "2027-02-08",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_406",
+    "end": "10:00",
+    "date": "2027-02-09",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_407",
+    "end": "12:00",
+    "date": "2027-02-09",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_408",
+    "end": "15:30",
+    "date": "2027-02-09",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_409",
+    "end": "17:30",
+    "date": "2027-02-09",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_410",
+    "end": "10:00",
+    "date": "2027-02-10",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_411",
+    "end": "12:00",
+    "date": "2027-02-10",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_412",
+    "end": "15:30",
+    "date": "2027-02-10",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_413",
+    "end": "10:00",
+    "date": "2027-02-11",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_414",
+    "end": "12:00",
+    "date": "2027-02-11",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_415",
+    "end": "15:30",
+    "date": "2027-02-11",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_416",
+    "end": "09:00",
+    "date": "2027-02-12",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_417",
+    "end": "10:00",
+    "date": "2027-02-12",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_418",
+    "end": "11:00",
+    "date": "2027-02-12",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_419",
+    "end": "12:00",
+    "date": "2027-02-12",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_420",
+    "end": "15:30",
+    "date": "2027-02-12",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_719",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-02-27",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS7 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_421",
+    "end": "10:00",
+    "date": "2027-03-01",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_422",
+    "end": "12:00",
+    "date": "2027-03-01",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_423",
+    "end": "13:00",
+    "date": "2027-03-01",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_424",
+    "end": "17:30",
+    "date": "2027-03-01",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_425",
+    "end": "10:00",
+    "date": "2027-03-02",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_426",
+    "end": "12:00",
+    "date": "2027-03-02",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_427",
+    "end": "15:30",
+    "date": "2027-03-02",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_428",
+    "end": "17:30",
+    "date": "2027-03-02",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_429",
+    "end": "10:00",
+    "date": "2027-03-03",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_430",
+    "end": "12:00",
+    "date": "2027-03-03",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_431",
+    "end": "15:30",
+    "date": "2027-03-03",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_432",
+    "end": "10:00",
+    "date": "2027-03-04",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_433",
+    "end": "12:00",
+    "date": "2027-03-04",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_434",
+    "end": "15:30",
+    "date": "2027-03-04",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_435",
+    "end": "09:00",
+    "date": "2027-03-05",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_436",
+    "end": "10:00",
+    "date": "2027-03-05",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_437",
+    "end": "11:00",
+    "date": "2027-03-05",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_438",
+    "end": "12:00",
+    "date": "2027-03-05",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_439",
+    "end": "15:30",
+    "date": "2027-03-05",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_720",
+    "start": "08:00",
+    "end": "10:00",
+    "date": "2027-03-06",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS4 Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_ds_721",
+    "start": "10:00",
+    "end": "12:00",
+    "date": "2027-03-06",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS4 SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_442",
+    "end": "10:00",
+    "date": "2027-03-08",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_443",
+    "end": "12:00",
+    "date": "2027-03-08",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_444",
+    "end": "13:00",
+    "date": "2027-03-08",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_445",
+    "end": "17:30",
+    "date": "2027-03-08",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_446",
+    "end": "10:00",
+    "date": "2027-03-09",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_447",
+    "end": "12:00",
+    "date": "2027-03-09",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_448",
+    "end": "15:30",
+    "date": "2027-03-09",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_449",
+    "end": "17:30",
+    "date": "2027-03-09",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_450",
+    "end": "10:00",
+    "date": "2027-03-10",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_451",
+    "end": "12:00",
+    "date": "2027-03-10",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_452",
+    "end": "15:30",
+    "date": "2027-03-10",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_453",
+    "end": "10:00",
+    "date": "2027-03-11",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_454",
+    "end": "12:00",
+    "date": "2027-03-11",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_455",
+    "end": "15:30",
+    "date": "2027-03-11",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_456",
+    "end": "09:00",
+    "date": "2027-03-12",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_457",
+    "end": "10:00",
+    "date": "2027-03-12",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_458",
+    "end": "11:00",
+    "date": "2027-03-12",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_459",
+    "end": "12:00",
+    "date": "2027-03-12",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_460",
+    "end": "15:30",
+    "date": "2027-03-12",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_722",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-03-13",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS7 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_462",
+    "end": "10:00",
+    "date": "2027-03-15",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_463",
+    "end": "12:00",
+    "date": "2027-03-15",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_464",
+    "end": "13:00",
+    "date": "2027-03-15",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_465",
+    "end": "17:30",
+    "date": "2027-03-15",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_466",
+    "end": "10:00",
+    "date": "2027-03-16",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_467",
+    "end": "12:00",
+    "date": "2027-03-16",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_468",
+    "end": "15:30",
+    "date": "2027-03-16",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_469",
+    "end": "17:30",
+    "date": "2027-03-16",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_470",
+    "end": "10:00",
+    "date": "2027-03-17",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_471",
+    "end": "12:00",
+    "date": "2027-03-17",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_472",
+    "end": "15:30",
+    "date": "2027-03-17",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_473",
+    "end": "10:00",
+    "date": "2027-03-18",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_474",
+    "end": "12:00",
+    "date": "2027-03-18",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_475",
+    "end": "15:30",
+    "date": "2027-03-18",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_476",
+    "end": "09:00",
+    "date": "2027-03-19",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_477",
+    "end": "10:00",
+    "date": "2027-03-19",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_478",
+    "end": "11:00",
+    "date": "2027-03-19",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_479",
+    "end": "12:00",
+    "date": "2027-03-19",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_480",
+    "end": "15:30",
+    "date": "2027-03-19",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_723",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-03-20",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS8 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_482",
+    "end": "10:00",
+    "date": "2027-03-22",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_483",
+    "end": "12:00",
+    "date": "2027-03-22",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_484",
+    "end": "13:00",
+    "date": "2027-03-22",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_485",
+    "end": "17:30",
+    "date": "2027-03-22",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_486",
+    "end": "10:00",
+    "date": "2027-03-23",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_487",
+    "end": "12:00",
+    "date": "2027-03-23",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_488",
+    "end": "15:30",
+    "date": "2027-03-23",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_489",
+    "end": "17:30",
+    "date": "2027-03-23",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_490",
+    "end": "10:00",
+    "date": "2027-03-24",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_491",
+    "end": "12:00",
+    "date": "2027-03-24",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_492",
+    "end": "15:30",
+    "date": "2027-03-24",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_493",
+    "end": "10:00",
+    "date": "2027-03-25",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_494",
+    "end": "12:00",
+    "date": "2027-03-25",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_495",
+    "end": "15:30",
+    "date": "2027-03-25",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_496",
+    "end": "09:00",
+    "date": "2027-03-26",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_497",
+    "end": "10:00",
+    "date": "2027-03-26",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_498",
+    "end": "11:00",
+    "date": "2027-03-26",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_499",
+    "end": "12:00",
+    "date": "2027-03-26",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_500",
+    "end": "15:30",
+    "date": "2027-03-26",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_724",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-03-27",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_503",
+    "end": "10:00",
+    "date": "2027-03-29",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_504",
+    "end": "12:00",
+    "date": "2027-03-29",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_505",
+    "end": "13:00",
+    "date": "2027-03-29",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_506",
+    "end": "17:30",
+    "date": "2027-03-29",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_507",
+    "end": "10:00",
+    "date": "2027-03-30",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_508",
+    "end": "12:00",
+    "date": "2027-03-30",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_509",
+    "end": "15:30",
+    "date": "2027-03-30",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_510",
+    "end": "17:30",
+    "date": "2027-03-30",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_511",
+    "end": "10:00",
+    "date": "2027-03-31",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_512",
+    "end": "12:00",
+    "date": "2027-03-31",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_513",
+    "end": "15:30",
+    "date": "2027-03-31",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_514",
+    "end": "10:00",
+    "date": "2027-04-01",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_515",
+    "end": "12:00",
+    "date": "2027-04-01",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_516",
+    "end": "15:30",
+    "date": "2027-04-01",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_517",
+    "end": "09:00",
+    "date": "2027-04-02",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_518",
+    "end": "10:00",
+    "date": "2027-04-02",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_519",
+    "end": "11:00",
+    "date": "2027-04-02",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_520",
+    "end": "12:00",
+    "date": "2027-04-02",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_521",
+    "end": "15:30",
+    "date": "2027-04-02",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_725",
+    "start": "08:00",
+    "end": "10:00",
+    "date": "2027-04-03",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS5 Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_ds_726",
+    "start": "10:00",
+    "end": "12:00",
+    "date": "2027-04-03",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS5 SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_523",
+    "end": "10:00",
+    "date": "2027-04-05",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_524",
+    "end": "12:00",
+    "date": "2027-04-05",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_525",
+    "end": "13:00",
+    "date": "2027-04-05",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_526",
+    "end": "17:30",
+    "date": "2027-04-05",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_527",
+    "end": "10:00",
+    "date": "2027-04-06",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_528",
+    "end": "12:00",
+    "date": "2027-04-06",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_529",
+    "end": "15:30",
+    "date": "2027-04-06",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_530",
+    "end": "17:30",
+    "date": "2027-04-06",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_531",
+    "end": "10:00",
+    "date": "2027-04-07",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_532",
+    "end": "12:00",
+    "date": "2027-04-07",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_533",
+    "end": "15:30",
+    "date": "2027-04-07",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_534",
+    "end": "10:00",
+    "date": "2027-04-08",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_535",
+    "end": "12:00",
+    "date": "2027-04-08",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_536",
+    "end": "15:30",
+    "date": "2027-04-08",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_537",
+    "end": "09:00",
+    "date": "2027-04-09",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_538",
+    "end": "10:00",
+    "date": "2027-04-09",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_539",
+    "end": "11:00",
+    "date": "2027-04-09",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_540",
+    "end": "12:00",
+    "date": "2027-04-09",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_541",
+    "end": "15:30",
+    "date": "2027-04-09",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_727",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-04-22",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_ds_728",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-04-24",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS9 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_542",
+    "end": "10:00",
+    "date": "2027-04-26",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_543",
+    "end": "12:00",
+    "date": "2027-04-26",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_544",
+    "end": "13:00",
+    "date": "2027-04-26",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_545",
+    "end": "17:30",
+    "date": "2027-04-26",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_546",
+    "end": "10:00",
+    "date": "2027-04-27",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_547",
+    "end": "12:00",
+    "date": "2027-04-27",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_548",
+    "end": "15:30",
+    "date": "2027-04-27",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_549",
+    "end": "17:30",
+    "date": "2027-04-27",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_550",
+    "end": "10:00",
+    "date": "2027-04-28",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_551",
+    "end": "12:00",
+    "date": "2027-04-28",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_552",
+    "end": "15:30",
+    "date": "2027-04-28",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_553",
+    "end": "10:00",
+    "date": "2027-04-29",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_554",
+    "end": "12:00",
+    "date": "2027-04-29",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_555",
+    "end": "15:30",
+    "date": "2027-04-29",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_556",
+    "end": "09:00",
+    "date": "2027-04-30",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_557",
+    "end": "10:00",
+    "date": "2027-04-30",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_558",
+    "end": "11:00",
+    "date": "2027-04-30",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_559",
+    "end": "12:00",
+    "date": "2027-04-30",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_560",
+    "end": "15:30",
+    "date": "2027-04-30",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_561",
+    "end": "10:00",
+    "date": "2027-05-03",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_562",
+    "end": "12:00",
+    "date": "2027-05-03",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_563",
+    "end": "13:00",
+    "date": "2027-05-03",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_564",
+    "end": "17:30",
+    "date": "2027-05-03",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_565",
+    "end": "10:00",
+    "date": "2027-05-04",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_566",
+    "end": "12:00",
+    "date": "2027-05-04",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_567",
+    "end": "15:30",
+    "date": "2027-05-04",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_568",
+    "end": "17:30",
+    "date": "2027-05-04",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_569",
+    "end": "10:00",
+    "date": "2027-05-05",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_570",
+    "end": "12:00",
+    "date": "2027-05-05",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_571",
+    "end": "15:30",
+    "date": "2027-05-05",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_572",
+    "end": "09:00",
+    "date": "2027-05-07",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_573",
+    "end": "10:00",
+    "date": "2027-05-07",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_574",
+    "end": "11:00",
+    "date": "2027-05-07",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_575",
+    "end": "12:00",
+    "date": "2027-05-07",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_576",
+    "end": "15:30",
+    "date": "2027-05-07",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_577",
+    "end": "10:00",
+    "date": "2027-05-10",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_578",
+    "end": "12:00",
+    "date": "2027-05-10",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_579",
+    "end": "13:00",
+    "date": "2027-05-10",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_580",
+    "end": "17:30",
+    "date": "2027-05-10",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_581",
+    "end": "10:00",
+    "date": "2027-05-11",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_582",
+    "end": "12:00",
+    "date": "2027-05-11",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_583",
+    "end": "15:30",
+    "date": "2027-05-11",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_584",
+    "end": "17:30",
+    "date": "2027-05-11",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_585",
+    "end": "10:00",
+    "date": "2027-05-12",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_586",
+    "end": "12:00",
+    "date": "2027-05-12",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_587",
+    "end": "15:30",
+    "date": "2027-05-12",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_588",
+    "end": "10:00",
+    "date": "2027-05-13",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_589",
+    "end": "12:00",
+    "date": "2027-05-13",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_590",
+    "end": "15:30",
+    "date": "2027-05-13",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_591",
+    "end": "09:00",
+    "date": "2027-05-14",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_592",
+    "end": "10:00",
+    "date": "2027-05-14",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_593",
+    "end": "11:00",
+    "date": "2027-05-14",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_594",
+    "end": "12:00",
+    "date": "2027-05-14",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_595",
+    "end": "15:30",
+    "date": "2027-05-14",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_729",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-05-15",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS8 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_597",
+    "end": "10:00",
+    "date": "2027-05-18",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_598",
+    "end": "12:00",
+    "date": "2027-05-18",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_599",
+    "end": "15:30",
+    "date": "2027-05-18",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_600",
+    "end": "17:30",
+    "date": "2027-05-18",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_601",
+    "end": "10:00",
+    "date": "2027-05-19",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_602",
+    "end": "12:00",
+    "date": "2027-05-19",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_603",
+    "end": "15:30",
+    "date": "2027-05-19",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_604",
+    "end": "10:00",
+    "date": "2027-05-20",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_605",
+    "end": "12:00",
+    "date": "2027-05-20",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_606",
+    "end": "15:30",
+    "date": "2027-05-20",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_607",
+    "end": "09:00",
+    "date": "2027-05-21",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_608",
+    "end": "10:00",
+    "date": "2027-05-21",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_609",
+    "end": "11:00",
+    "date": "2027-05-21",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_610",
+    "end": "12:00",
+    "date": "2027-05-21",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_611",
+    "end": "15:30",
+    "date": "2027-05-21",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_730",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-05-22",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS9 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_614",
+    "end": "10:00",
+    "date": "2027-05-24",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_615",
+    "end": "12:00",
+    "date": "2027-05-24",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_616",
+    "end": "13:00",
+    "date": "2027-05-24",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_617",
+    "end": "17:30",
+    "date": "2027-05-24",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_618",
+    "end": "10:00",
+    "date": "2027-05-25",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_619",
+    "end": "12:00",
+    "date": "2027-05-25",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_620",
+    "end": "15:30",
+    "date": "2027-05-25",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_621",
+    "end": "17:30",
+    "date": "2027-05-25",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_622",
+    "end": "10:00",
+    "date": "2027-05-26",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_623",
+    "end": "12:00",
+    "date": "2027-05-26",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_624",
+    "end": "15:30",
+    "date": "2027-05-26",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_625",
+    "end": "10:00",
+    "date": "2027-05-27",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_626",
+    "end": "12:00",
+    "date": "2027-05-27",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_627",
+    "end": "15:30",
+    "date": "2027-05-27",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_628",
+    "end": "09:00",
+    "date": "2027-05-28",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_629",
+    "end": "10:00",
+    "date": "2027-05-28",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_630",
+    "end": "11:00",
+    "date": "2027-05-28",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_631",
+    "end": "12:00",
+    "date": "2027-05-28",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_632",
+    "end": "15:30",
+    "date": "2027-05-28",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_731",
+    "start": "08:00",
+    "end": "10:00",
+    "date": "2027-05-29",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS6 Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_ds_732",
+    "start": "10:00",
+    "end": "12:00",
+    "date": "2027-05-29",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS6 SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_634",
+    "end": "10:00",
+    "date": "2027-05-31",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_635",
+    "end": "12:00",
+    "date": "2027-05-31",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_636",
+    "end": "13:00",
+    "date": "2027-05-31",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_637",
+    "end": "17:30",
+    "date": "2027-05-31",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_638",
+    "end": "10:00",
+    "date": "2027-06-01",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_639",
+    "end": "12:00",
+    "date": "2027-06-01",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_640",
+    "end": "15:30",
+    "date": "2027-06-01",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_641",
+    "end": "17:30",
+    "date": "2027-06-01",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_642",
+    "end": "10:00",
+    "date": "2027-06-02",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_643",
+    "end": "12:00",
+    "date": "2027-06-02",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_644",
+    "end": "15:30",
+    "date": "2027-06-02",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_645",
+    "end": "10:00",
+    "date": "2027-06-03",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_646",
+    "end": "12:00",
+    "date": "2027-06-03",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_647",
+    "end": "15:30",
+    "date": "2027-06-03",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_648",
+    "end": "09:00",
+    "date": "2027-06-04",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_649",
+    "end": "10:00",
+    "date": "2027-06-04",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_650",
+    "end": "11:00",
+    "date": "2027-06-04",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_651",
+    "end": "12:00",
+    "date": "2027-06-04",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_652",
+    "end": "15:30",
+    "date": "2027-06-04",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_733",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-06-05",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS11 Maths",
+    "subject": "maths"
+  },
+  {
+    "id": "s_654",
+    "end": "10:00",
+    "date": "2027-06-07",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_655",
+    "end": "12:00",
+    "date": "2027-06-07",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_656",
+    "end": "13:00",
+    "date": "2027-06-07",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_657",
+    "end": "17:30",
+    "date": "2027-06-07",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_658",
+    "end": "10:00",
+    "date": "2027-06-08",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_659",
+    "end": "12:00",
+    "date": "2027-06-08",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_660",
+    "end": "15:30",
+    "date": "2027-06-08",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_661",
+    "end": "17:30",
+    "date": "2027-06-08",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_662",
+    "end": "10:00",
+    "date": "2027-06-09",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_663",
+    "end": "12:00",
+    "date": "2027-06-09",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_664",
+    "end": "15:30",
+    "date": "2027-06-09",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_665",
+    "end": "10:00",
+    "date": "2027-06-10",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_666",
+    "end": "12:00",
+    "date": "2027-06-10",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_667",
+    "end": "15:30",
+    "date": "2027-06-10",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_668",
+    "end": "09:00",
+    "date": "2027-06-11",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_669",
+    "end": "10:00",
+    "date": "2027-06-11",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_670",
+    "end": "11:00",
+    "date": "2027-06-11",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_671",
+    "end": "12:00",
+    "date": "2027-06-11",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_672",
+    "end": "15:30",
+    "date": "2027-06-11",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_ds_734",
+    "start": "08:00",
+    "end": "12:00",
+    "date": "2027-06-12",
+    "room": "Salles DS",
+    "type": "DS",
+    "title": "DS9 Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_675",
+    "end": "10:00",
+    "date": "2027-06-14",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_676",
+    "end": "12:00",
+    "date": "2027-06-14",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_677",
+    "end": "13:00",
+    "date": "2027-06-14",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_678",
+    "end": "17:30",
+    "date": "2027-06-14",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_679",
+    "end": "10:00",
+    "date": "2027-06-15",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_680",
+    "end": "12:00",
+    "date": "2027-06-15",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_681",
+    "end": "15:30",
+    "date": "2027-06-15",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_682",
+    "end": "17:30",
+    "date": "2027-06-15",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_683",
+    "end": "10:00",
+    "date": "2027-06-16",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_684",
+    "end": "12:00",
+    "date": "2027-06-16",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_685",
+    "end": "15:30",
+    "date": "2027-06-16",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_686",
+    "end": "10:00",
+    "date": "2027-06-17",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_687",
+    "end": "12:00",
+    "date": "2027-06-17",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_688",
+    "end": "15:30",
+    "date": "2027-06-17",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_689",
+    "end": "09:00",
+    "date": "2027-06-18",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_690",
+    "end": "10:00",
+    "date": "2027-06-18",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_691",
+    "end": "11:00",
+    "date": "2027-06-18",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_692",
+    "end": "12:00",
+    "date": "2027-06-18",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_693",
+    "end": "15:30",
+    "date": "2027-06-18",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_694",
+    "end": "10:00",
+    "date": "2027-06-21",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_695",
+    "end": "12:00",
+    "date": "2027-06-21",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_696",
+    "end": "13:00",
+    "date": "2027-06-21",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_697",
+    "end": "17:30",
+    "date": "2027-06-21",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_698",
+    "end": "10:00",
+    "date": "2027-06-22",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_699",
+    "end": "12:00",
+    "date": "2027-06-22",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_700",
+    "end": "15:30",
+    "date": "2027-06-22",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_701",
+    "end": "17:30",
+    "date": "2027-06-22",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_702",
+    "end": "10:00",
+    "date": "2027-06-23",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_703",
+    "end": "12:00",
+    "date": "2027-06-23",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_704",
+    "end": "15:30",
+    "date": "2027-06-23",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_705",
+    "end": "10:00",
+    "date": "2027-06-24",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_706",
+    "end": "12:00",
+    "date": "2027-06-24",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_707",
+    "end": "15:30",
+    "date": "2027-06-24",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_708",
+    "end": "09:00",
+    "date": "2027-06-25",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_709",
+    "end": "10:00",
+    "date": "2027-06-25",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_710",
+    "end": "11:00",
+    "date": "2027-06-25",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_711",
+    "end": "12:00",
+    "date": "2027-06-25",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_712",
+    "end": "15:30",
+    "date": "2027-06-25",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  },
+  {
+    "id": "s_713",
+    "end": "10:00",
+    "date": "2027-06-28",
+    "room": "BS P6",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_714",
+    "end": "12:00",
+    "date": "2027-06-28",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_715",
+    "end": "13:00",
+    "date": "2027-06-28",
+    "room": "Salle de TP SI",
+    "type": "TP",
+    "start": "12:00",
+    "title": "Informatique",
+    "subject": "si"
+  },
+  {
+    "id": "s_716",
+    "end": "17:30",
+    "date": "2027-06-28",
+    "room": "CPGE B",
+    "type": "TD",
+    "start": "15:30",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_717",
+    "end": "10:00",
+    "date": "2027-06-29",
+    "room": "Salle 13/14",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_718",
+    "end": "12:00",
+    "date": "2027-06-29",
+    "room": "BS P5",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_719",
+    "end": "15:30",
+    "date": "2027-06-29",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_720",
+    "end": "17:30",
+    "date": "2027-06-29",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "15:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_721",
+    "end": "10:00",
+    "date": "2027-06-30",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_722",
+    "end": "12:00",
+    "date": "2027-06-30",
+    "room": "CPGE A",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Français",
+    "subject": "francais"
+  },
+  {
+    "id": "s_723",
+    "end": "15:30",
+    "date": "2027-06-30",
+    "room": "Bat Scientifique",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP Chimie",
+    "subject": "chimie"
+  },
+  {
+    "id": "s_724",
+    "end": "10:00",
+    "date": "2027-07-01",
+    "room": "Gymnase",
+    "type": "COURS",
+    "start": "08:30",
+    "title": "Sport",
+    "subject": "si"
+  },
+  {
+    "id": "s_725",
+    "end": "12:00",
+    "date": "2027-07-01",
+    "room": "CPGE 18",
+    "type": "COURS",
+    "start": "10:00",
+    "title": "Sciences de l'Ingénieur",
+    "subject": "si"
+  },
+  {
+    "id": "s_726",
+    "end": "15:30",
+    "date": "2027-07-01",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "13:30",
+    "title": "Anglais",
+    "subject": "anglais"
+  },
+  {
+    "id": "s_727",
+    "end": "09:00",
+    "date": "2027-07-02",
+    "room": "BS C2",
+    "type": "COURS",
+    "start": "08:00",
+    "title": "Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_728",
+    "end": "10:00",
+    "date": "2027-07-02",
+    "room": "Salle 18",
+    "type": "COURS",
+    "start": "09:00",
+    "title": "Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_729",
+    "end": "11:00",
+    "date": "2027-07-02",
+    "room": "BS C2",
+    "type": "TP",
+    "start": "10:00",
+    "title": "TP Physique",
+    "subject": "physique"
+  },
+  {
+    "id": "s_730",
+    "end": "12:00",
+    "date": "2027-07-02",
+    "room": "CPGE A",
+    "type": "TD",
+    "start": "11:00",
+    "title": "TD Mathématiques",
+    "subject": "maths"
+  },
+  {
+    "id": "s_731",
+    "end": "15:30",
+    "date": "2027-07-02",
+    "room": "Salle 109 TP SI",
+    "type": "TP",
+    "start": "13:30",
+    "title": "TP SI",
+    "subject": "si"
+  }
+]

@@ -160,7 +160,10 @@ function inferSubjectFromText(text) {
   if (/\b(math|maths|mathematiques|algebre|analyse)\b/.test(norm) && SUBJECTS.maths) return 'maths';
   if (/\b(physique|phys|mecanique|optique|thermo|elec)\b/.test(norm) && SUBJECTS.physique) return 'physique';
   if (/\b(chimie|orga|atomistique)\b/.test(norm) && SUBJECTS.chimie) return 'chimie';
-  if (/\b(sii|si|ingenieur|automatique|cinematique)\b/.test(norm) && SUBJECTS.sii) return 'sii';
+  if (/\b(sii|si|ingenieur|automatique|cinematique)\b/.test(norm)) {
+    if (SUBJECTS.si) return 'si';
+    if (SUBJECTS.sii) return 'sii';
+  }
   if (/\b(info|informatique|python|sql|algo)\b/.test(norm) && SUBJECTS.info) return 'info';
   if (/\b(anglais|english|lv1)\b/.test(norm) && SUBJECTS.anglais) return 'anglais';
   if (/\b(francais|philo|philosophie|lettres|dissertation)\b/.test(norm) && SUBJECTS.francais) return 'francais';
