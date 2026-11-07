@@ -999,12 +999,101 @@ select.saas-input option {
 }
 #toast.show { transform: translateY(0); opacity: 1; }
 
-/* Onboarding 4-Step Walkthrough Styles */
-.onb-step { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(8px) scale(0.985); }
+/* Onboarding & Intro Splash Styles (Orbital Monolith v4) */
+.onb-step {
+  animation: onbFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes onbFadeIn {
+  0% { opacity: 0; transform: translateY(10px) scale(0.98); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+/* Badass Intro Spawning */
+.onb-intro-hero {
+  position: relative;
+  text-align: center;
+  padding: 10px 0 6px;
+}
+.onb-orbital-pulse {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.onb-orbital-pulse::before,
+.onb-orbital-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+  animation: orbitalRingRotate 12s linear infinite;
+}
+.onb-orbital-pulse::after {
+  inset: -14px;
+  border-color: rgba(255, 255, 255, 0.08);
+  border-style: dashed;
+  animation: orbitalRingRotateRev 18s linear infinite;
+}
+@keyframes orbitalRingRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes orbitalRingRotateRev {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.onb-intro-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 0 35px rgba(255, 255, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: logoSpawnGlow 2.4s ease-in-out infinite alternate;
+}
+@keyframes logoSpawnGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: scale(0.98);
+  }
+  100% {
+    box-shadow: 0 0 42px rgba(255, 255, 255, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+.onb-glitch-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #FFFFFF 20%, #A1A1AA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+.onb-badge-version {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FAFAFC;
+  margin-bottom: 12px;
+}
+
 .onb-dots { display: flex; gap: 7px; align-items: center; }
 .onb-dot {
   width: 8px;
@@ -1017,8 +1106,9 @@ select.saas-input option {
   transition: all 0.22s ease;
 }
 .onb-dot.active {
-  width: 22px;
-  background: #F8FAFC;
+  width: 24px;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 .onb-skip-btn {
   background: transparent;
@@ -1040,11 +1130,24 @@ select.saas-input option {
   border-color: var(--border-subtle);
 }
 .onb-visual-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
-  border-radius: 13px;
-  padding: 14px 16px;
+  background: #0B0C10;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 15px 17px;
   margin-bottom: 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+.onb-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-main);
 }
 
 .app-shell.sidebar-collapsed .hide-collapsed { display: none !important; }

@@ -14,23 +14,27 @@
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.035);
+  border: 1.5px solid rgba(255, 255, 255, 0.09);
+  transition: opacity 0.3s ease;
 }
 .ambient-glow::before {
-  width: 960px;
-  height: 440px;
+  width: 980px;
+  height: 460px;
   top: -190px;
-  right: -180px;
+  right: -170px;
   transform: rotate(-24deg);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.16),
+    0 0 28px rgba(255, 255, 255, 0.04);
 }
 .ambient-glow::after {
-  width: 820px;
-  height: 360px;
-  top: -140px;
-  right: -110px;
+  width: 840px;
+  height: 380px;
+  top: -130px;
+  right: -100px;
   transform: rotate(32deg);
-  border-color: rgba(255, 255, 255, 0.025);
+  border-color: rgba(255, 255, 255, 0.065);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.12);
 }
 
 /* Bouton primaire Blanc Albâtre (contraste pur façon noyau du logo) */
@@ -117,6 +121,31 @@
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.26) 50%, transparent 100%);
   pointer-events: none;
+}
+
+/* Lignes de tâches épurées : suppression du rendu liquid glass / glossy excessif */
+.task-row {
+  background: #0E0F14 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  border-radius: 13px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+  transition: background-color 0.16s ease, border-color 0.16s ease, transform 0.16s ease !important;
+}
+.task-row::before {
+  display: none !important; /* Aucun arc liquide ou glossy sur les tâches */
+}
+.task-row:hover {
+  background: #13151D !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6) !important;
+}
+.task-row.task-row-done {
+  background: rgba(10, 11, 15, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.04) !important;
+  box-shadow: none !important;
 }
 
 .modal-box {
