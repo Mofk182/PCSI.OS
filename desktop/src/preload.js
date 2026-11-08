@@ -1,5 +1,5 @@
 // Pont minimal exposé à la page : window.pcsiDesktop (contextIsolation activé, sandbox activé).
-const { contextBridge } = require('electron');
+const { contextBridge, ipcRenderer } = require('electron');
 
 function argValue(name) {
   const prefix = `--${name}=`;
@@ -12,5 +12,8 @@ const apiBase = argValue('pcsi-api-base') || null;
 contextBridge.exposeInMainWorld('pcsiDesktop', {
   platform: process.platform,
   apiBase,
-  getMode: () => argValue('pcsi-mode') || 'fullscreen'
+  getMode: () => argValue('pcsi-mode') || 'fullscreen',
+  setMode: mode => ipcRenderer.invoke('pcsi:set-mode', mode),
+  onModeChange: cb => { ipcRenderer.on('pcsi:mode-changed', (_e, mode) => cb(mode)); },
+  quit: () => ipcRenderer.invoke('pcsi:quit')
 });

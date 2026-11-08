@@ -14,6 +14,10 @@
   <link rel="apple-touch-icon" href="icon.png" />
   <link rel="apple-touch-icon-precomposed" href="icon.png" />
   <link rel="manifest" href="manifest.webmanifest" />
+  <script>
+    // Appli de bureau : le mode (fullscreen, widget, hud) arrive dans l'URL ; absent sur le site web.
+    (function () { var m = new URLSearchParams(location.search).get('mode'); if (m) document.documentElement.dataset.mode = m; })();
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
