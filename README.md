@@ -19,24 +19,27 @@ Alternative : `npx serve .`
 
 Site statique, sans build. Dans Vercel : *Add New Project* → importer le dépôt GitHub → **Framework Preset : Other**, laisser *Build Command* et *Output Directory* vides.
 
-La conversion d'emploi du temps par IA passe par la fonction `api/ai-schedule.js` (`POST /api/ai-schedule`). Variables d'environnement à définir (*Settings → Environment Variables*), puis **redéployer** (elles ne sont lues qu'au déploiement) :
+La conversion d'emploi du temps par IA passe par la fonction `api/ai-schedule.js` (`POST /api/ai-schedule`). Elle transcrit de façon universelle les emplois du temps classiques, les colloscopes (avec sélection interactive du groupe ou trinôme), les calendriers de DS et les créneaux bimensuels (« 1 semaine sur 2 » avec gestion de la parité Semaine A / B).
+
+Variables d'environnement à définir (*Settings → Environment Variables*), puis **redéployer** (elles ne sont lues qu'au déploiement) :
 
 | Variable | Rôle |
 |---|---|
 | `GEMINI_API_KEY_1` (et `_2`, …) | Clé(s) Google AI Studio. Plusieurs variables = rotation. |
-| `GEMINI_MODELS` | Optionnel. Modèles essayés dans l'ordre, séparés par des virgules (défaut `gemini-2.5-flash-lite,gemini-2.5-flash`). |
+| `GEMINI_MODELS` | Optionnel. Modèles essayés dans l'ordre, séparés par des virgules (défaut `gemini-3.5-flash-lite,gemini-3.8-flash`). |
 | `ALLOWED_ORIGIN` | Optionnel. Origines supplémentaires autorisées (le site lui-même l'est toujours). |
 
-Limite Vercel : 4,5 Mo par requête. L'app envoie moins de pages si le document est trop lourd.
-En local (`python3 -m http.server`), la fonction n'existe pas : saisir sa propre clé Gemini dans l'app, ou utiliser `vercel dev`.
+- Limite Vercel : 4 Mo par requête, et rate-limit mémoire de 8 requêtes par 10 minutes par client IP (`api/_rate-limit.js`).
+- En local (`python3 -m http.server`), la fonction n'existe pas : saisir sa propre clé Gemini dans l'app, ou utiliser `vercel dev`.
 
 ## Structure
 
 ```
 index.html
 css/   base, layout, components, overrides
-js/    config, utils, state, ui, canvas, sync, missions, agenda, postits, data, portals, onboarding, app
-api/   ai-schedule.js (fonction Vercel)
+js/    config, utils, state, ui, canvas, sync, missions, agenda, postits, data, ai-import, portals, onboarding, app
+api/   ai-schedule.js (fonction Vercel), _rate-limit.js
+tests/ ai-import.test.js, agenda-slots.test.js, ai-schedule.test.js, smoke-ui.js
 ```
 
 Les scripts sont chargés dans cet ordre (portée globale partagée). Voir `CLAUDE.md` pour les conventions.

@@ -1,5 +1,5 @@
 // api/ai-schedule.js
-// Fonction Vercel (Node.js) : conversion visuelle Photo/PDF -> Emploi du temps JSON
+// Fonction Vercel (Node.js) : conversion visuelle Photo/PDF -> Emploi du temps JSON universel
 // Route : POST /api/ai-schedule
 //
 // Variables d'environnement Vercel (Project Settings > Environment Variables, puis redéployer) :
@@ -8,38 +8,67 @@
 //   ALLOWED_ORIGIN : (optionnel) origines supplémentaires autorisées, séparées par des virgules
 //                    (ex: https://mon-domaine.fr). Le site lui-même (même hôte) est toujours autorisé.
 
+const { checkRateLimit, clientKey } = require('./_rate-limit.js');
+
 // Vercel refuse les corps > 4,5 Mo (413) avant même d'appeler la fonction : on garde une marge.
 const MAX_BODY_BYTES = 4 * 1024 * 1024;
 const MAX_IMAGES = 3;
 const MAX_PROMPT_CHARS = 8000;
 const MAX_ATTEMPTS = 4;
-const DEFAULT_MODELS = 'gemini-2.5-flash-lite,gemini-2.5-flash';
+const DEFAULT_MODELS = 'gemini-3.5-flash-lite,gemini-3.8-flash';
+
+// Magasin de limitation de débit en mémoire (partagé au niveau de l'instance du conteneur Vercel)
+const rateLimitStore = new Map();
 
 // Seules les variables de type clé sont lues (GEMINI_MODELS ne doit pas être pris pour une clé).
 const KEY_ENV_PATTERN = /^GEMINI_(API_)?KEY/i;
 
-const SLOT_SCHEMA = {
+const UNIVERSAL_SCHEMA = {
   type: 'OBJECT',
   properties: {
-    slots: {
+    kind: {
+      type: 'STRING',
+      enum: ['edt', 'colloscope', 'ds', 'autre'],
+      nullable: true
+    },
+    groupsDetected: {
+      type: 'ARRAY',
+      items: { type: 'STRING' }
+    },
+    events: {
       type: 'ARRAY',
       items: {
         type: 'OBJECT',
         properties: {
-          dayOfWeek: { type: 'INTEGER', nullable: true },
+          weekday: { type: 'STRING', nullable: true },
+          weekStart: { type: 'STRING', nullable: true },
           date: { type: 'STRING', nullable: true },
+          frequency: {
+            type: 'STRING',
+            enum: ['weekly', 'biweekly'],
+            nullable: true
+          },
+          parity: {
+            type: 'STRING',
+            enum: ['A', 'B'],
+            nullable: true
+          },
           start: { type: 'STRING', nullable: true },
           end: { type: 'STRING', nullable: true },
           subject: { type: 'STRING', nullable: true },
-          type: { type: 'STRING', nullable: true },
+          type: {
+            type: 'STRING',
+            enum: ['COURS', 'TD', 'TP', 'COLLE', 'DS'],
+            nullable: true
+          },
           title: { type: 'STRING', nullable: true },
-          room: { type: 'STRING', nullable: true }
-        },
-        required: ['dayOfWeek', 'date', 'start', 'end', 'subject', 'type', 'title', 'room']
+          room: { type: 'STRING', nullable: true },
+          cancelled: { type: 'BOOLEAN', nullable: true }
+        }
       }
     }
   },
-  required: ['slots']
+  required: ['kind', 'groupsDetected', 'events']
 };
 
 function parseList(value) {
@@ -123,6 +152,14 @@ module.exports = async function handler(req, res) {
     return reply(403, { error: 'Origine non autorisée' });
   }
 
+  // Limitation de débit par client IP (8 req / 10 min par défaut)
+  const key = clientKey(req.headers);
+  const rl = checkRateLimit(rateLimitStore, key, Date.now());
+  if (!rl.ok) {
+    res.setHeader('Retry-After', String(rl.retryAfterSec));
+    return reply(429, { error: `Trop de demandes. Réessaie dans ${rl.retryAfterSec} s.` });
+  }
+
   const declaredLength = parseInt(req.headers['content-length'] || '0', 10);
   if (declaredLength > MAX_BODY_BYTES) {
     return reply(413, { error: 'Document trop volumineux (4 Mo max)' });
@@ -175,7 +212,7 @@ module.exports = async function handler(req, res) {
             generationConfig: {
               temperature: 0.1,
               responseMimeType: 'application/json',
-              responseSchema: SLOT_SCHEMA
+              responseSchema: UNIVERSAL_SCHEMA
             }
           })
         });
@@ -206,6 +243,7 @@ module.exports = async function handler(req, res) {
     if (attempts >= MAX_ATTEMPTS) break;
   }
 
-  const status = lastStatus === 429 ? 429 : (lastStatus >= 400 && lastStatus < 600 ? lastStatus : 502);
+  // Tout statut amont ≥ 400 autre que 429 est mappé en 502
+  const status = lastStatus === 429 ? 429 : 502;
   return reply(status, { error: `Erreur Gemini (${lastStatus}) : ${lastErrorMsg || 'service indisponible'}` });
 };

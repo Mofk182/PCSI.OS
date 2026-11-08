@@ -631,6 +631,43 @@
               <i class="ph-bold ph-sparkle"></i> Convertir avec l'IA
             </button>
           </div>
+
+          <!-- Section repliée Options (Forcer le type) -->
+          <details style="margin-top:10px; font-size:11.5px; color:var(--text-muted);">
+            <summary style="cursor:pointer; font-weight:600; color:var(--text-subtle); user-select:none;">Options avancées</summary>
+            <div style="display:flex; align-items:center; gap:8px; margin-top:8px;">
+              <label for="sched-ai-forced-kind" style="font-size:11px; color:var(--text-muted);">Type de document :</label>
+              <select id="sched-ai-forced-kind" onchange="window.setForcedKind(this.value || null)" class="saas-input" style="width:auto; padding:3px 8px; font-size:11.5px; min-height:28px;">
+                <option value="">Auto (détecté par l'IA)</option>
+                <option value="edt">Emploi du temps (EDT)</option>
+                <option value="colloscope">Colloscope</option>
+                <option value="ds">Planning de devoirs (DS)</option>
+              </select>
+            </div>
+          </details>
+        </div>
+
+        <!-- CONTENEUR CONDITIONNEL : CHOIX DU GROUPE / TRINÔME -->
+        <div id="sched-ai-group-box" class="sched-widget-card" style="display:none; margin-top:10px; border-color:rgba(56,189,248,0.38); background:rgba(56,189,248,0.05);">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+            <span style="font-size:12px; font-weight:700; color:#38BDF8;">
+              <i class="ph-bold ph-users"></i> Colloscope : quel est ton trinôme / groupe ?
+            </span>
+          </div>
+          <div id="sched-ai-group-buttons" style="display:flex; gap:6px; flex-wrap:wrap;"></div>
+        </div>
+
+        <!-- CONTENEUR CONDITIONNEL : PARITÉ SEMAINE A / SEMAINE B -->
+        <div id="sched-ai-parity-box" class="sched-widget-card" style="display:none; margin-top:10px; border-color:rgba(168,85,247,0.38); background:rgba(168,85,247,0.05);">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+            <span style="font-size:12px; font-weight:700; color:#C084FC;">
+              <i class="ph-bold ph-arrows-split"></i> Cours 1 semaine sur 2 : quelle est la semaine en cours ?
+            </span>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button type="button" onclick="window.answerWeekParity('A')" class="btn-primary" style="padding:6px 14px; font-size:11.5px;">Semaine A</button>
+            <button type="button" onclick="window.answerWeekParity('B')" class="btn-primary" style="padding:6px 14px; font-size:11.5px;">Semaine B</button>
+          </div>
         </div>
 
         <!-- STATUT DE L'ANALYSE IA -->
@@ -1268,6 +1305,7 @@
   <script src="js/agenda.js"></script>
   <script src="js/postits.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/ai-import.js"></script>
   <script src="js/portals.js"></script>
   <script src="js/daily_drop.js"></script>
   <script src="js/onboarding.js"></script>

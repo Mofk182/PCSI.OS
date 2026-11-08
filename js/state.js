@@ -276,10 +276,16 @@ function getUpcomingSaturdayDsSubjects() {
   // 3. Repli : créneaux hebdomadaires récurrents de type DS (ex: DS du Samedi matin)
   const recurringFound = new Set();
   if (Array.isArray(state.schedule)) {
+    // Calculer la date du prochain samedi pour vérifier l'activité des créneaux bi-hebdomadaires
+    const dayToSat = (6 - today.getDay() + 7) % 7;
+    const nextSat = new Date(today.getTime() + dayToSat * 86400000);
+    const nextSatISO = formatDateISO(nextSat);
+
     state.schedule.forEach(sl => {
       if (!sl || sl.date) return;
       const isDsSlot = String(sl.type || '').toUpperCase() === 'DS' || dsRegex.test(sl.title || '');
       if (!isDsSlot) return;
+      if (typeof isSlotActiveOn === 'function' && !isSlotActiveOn(sl, nextSatISO)) return;
       const inferred = inferSubjectFromText(sl.title || '');
       const subj = (inferred && SUBJECTS[inferred]) ? inferred : sl.subject;
       if (subj && SUBJECTS[subj]) recurringFound.add(subj);

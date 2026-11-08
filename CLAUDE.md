@@ -6,7 +6,7 @@ Cockpit de prépa PCSI : missions, emploi du temps, mur d'erreurs, portails. Fro
 - `index.html` : structure + 10 modales + CDN (Tailwind, Phosphor, qrcodejs, html5-qrcode, polices).
 - `css/` (ordre de cascade = ordre de chargement) : `base` (thème/reset) → `layout` (grille, sidebar) → `components` (boutons, modales, post-its…) → `overrides` (glass, kanban, sites, mobile).
 - `js/` (scripts classiques, portée globale partagée, **ordre de chargement critique**) :
-  `config` → `utils` → `state` → `ui` → `canvas` → `sync` → `missions` → `agenda` → `postits` → `data` → `portals` → `onboarding` → `app`.
+  `config` → `utils` → `state` → `ui` → `canvas` → `sync` → `missions` → `agenda` → `postits` → `data` → `ai-import` → `portals` → `onboarding` → `app`.
 
 ## Conventions
 - Pas de modules ES : `let state` & co sont des globales lexicales partagées entre scripts. Ne pas passer en `type="module"` sans réécrire les `onclick` inline.
@@ -19,7 +19,8 @@ Cockpit de prépa PCSI : missions, emploi du temps, mur d'erreurs, portails. Fro
 
 ## État clé (`state`, persisté sous `pcsi_minimal_saas_v2`)
 - `tasks[]` : `{id,title,note,subject,status('todo'|'in_progress'|'done'),duration,dueDate,createdAt}`
-- `schedule[]` : `{id,title,subject,type,start,end,room}` + `dayOfWeek` (récurrent) **ou** `date` (ponctuel)
+- `schedule[]` : `{id,title,subject,type,start,end,room}` + `dayOfWeek` (récurrent) **ou** `date` (ponctuel) + optionnels `every: 2` (bi-hebdomadaire) et `anchor` (lundi ISO actif)
+- `settings` : `{colleGroup, weekAMonday, ...}`
 - `postits[]` : `{id,subject,errType,color,source,text,rot,imageData}`
 - `errorTypes[]`, `portals[]`
 - UI : `activeTab`, `sidebarCollapsed`, `cahierMode`, `cahierSubjFilter`, `postitSubjFilter`, `postitTypeFilter`
@@ -34,10 +35,21 @@ Constantes `WORK_H_PER_DAY`, `LOAD_GAIN`, `URGENCY_MAX`, `URGENCY_DECAY` ; score
 
 ## Déploiement / IA (Vercel)
 - Hébergement Vercel (statique, sans build). `api/ai-schedule.js` = fonction Node (`POST /api/ai-schedule`), config dans `vercel.json`.
+- Rate limit : 8 requêtes / 10 min par client IP (`api/_rate-limit.js`), réponse 429.
+- Schéma universel Gemini (EDT hebdo/quinzaine, colloscope, DS). Modèles par défaut : `gemini-3.5-flash-lite,gemini-3.8-flash`.
 - Env Vercel : `GEMINI_API_KEY_1…`, `GEMINI_MODELS` (optionnel), `ALLOWED_ORIGIN` (optionnel). Redéployer après modification.
-- Corps de requête max 4,5 Mo (Vercel) : `callVisionAiProviders` tronque les pages (`AI_SERVER_MAX_BYTES`).
+- Corps de requête max 4 Mo (Vercel), 3,8 Mo côté client (`AI_SERVER_MAX_BYTES`).
 - `aiApiKey` et `aiCache` (réglages) restent locaux : exclus de la sync Supabase et de l'export (`LOCAL_ONLY_SETTINGS` dans `sync.js`).
 - Créneaux IA : champ illisible = `null` + `incomplete: true` ; ignorés à l'import.
+
+## Tests
+Exécuter la suite complète :
+```bash
+node tests/ai-import.test.js
+node tests/agenda-slots.test.js
+node tests/ai-schedule.test.js
+node tests/smoke-ui.js
+```
 
 ## Assets attendus à la racine (optionnels)
 `logo-ens.png`, `icon-192.png`, `icon-180.png`, `manifest.webmanifest`.

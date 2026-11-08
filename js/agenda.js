@@ -104,7 +104,7 @@ function getDayScheduleSlots(dateObj, dayIdx) {
   if (isHoliday || dayIdx === 6 || dateObj.getDay() === 0) {
     return state.schedule.filter(sl => sl.date === ds);
   }
-  return state.schedule.filter(sl => sl.date === ds || (Number(sl.dayOfWeek) === dayIdx && !sl.date));
+  return state.schedule.filter(sl => (typeof isSlotActiveOn === 'function') ? isSlotActiveOn(sl, ds) : (sl.date === ds || (Number(sl.dayOfWeek) === dayIdx && !sl.date)));
 }
 
 /**
@@ -1608,19 +1608,29 @@ window.openSlotModal = function(slotId, defaultDateStr = '', defaultStart = '08:
   document.getElementById('s-end').value = slot ? slot.end : minToTime(Math.min(timeToMin(slot ? slot.start : defaultStart) + 120, 23 * 60 + 59));
   document.getElementById('s-room').value = slot && slot.room ? slot.room : '';
   document.getElementById('s-delete-btn').style.display = slot ? 'inline-flex' : 'none';
-  const isRecurring = slot ? (slot.date === undefined && slot.dayOfWeek !== undefined) : true;
-  document.getElementById('s-date').value = slot && slot.date ? slot.date : (defaultDateStr || formatDateISO(new Date()));
+  const recVal = slot
+    ? (slot.date ? 'once' : (slot.every === 2 ? 'biweekly' : 'weekly'))
+    : 'weekly';
+  document.getElementById('s-date').value = slot && slot.date ? slot.date : (slot && slot.anchor ? slot.anchor : (defaultDateStr || formatDateISO(new Date())));
+
+  const dateLabelEl = document.querySelector('#s-date-container label');
+  const updateDateLabel = (val) => {
+    if (dateLabelEl) dateLabelEl.textContent = val === 'biweekly' ? 'À partir du (semaine active)' : 'Date précise';
+  };
+  updateDateLabel(recVal);
 
   mountCustomSelect('s-recurrence-mount', 's-recurrence', [
     { value: 'weekly', label: 'Chaque semaine' },
+    { value: 'biweekly', label: 'Toutes les 2 semaines' },
     { value: 'once', label: 'Une seule fois' }
-  ], isRecurring ? 'weekly' : 'once', (val) => {
-    document.getElementById('s-day-container').style.display = val === 'weekly' ? 'block' : 'none';
-    document.getElementById('s-date-container').style.display = val === 'once' ? 'block' : 'none';
+  ], recVal, (val) => {
+    document.getElementById('s-day-container').style.display = (val === 'weekly' || val === 'biweekly') ? 'block' : 'none';
+    document.getElementById('s-date-container').style.display = (val === 'once' || val === 'biweekly') ? 'block' : 'none';
+    updateDateLabel(val);
   });
 
-  document.getElementById('s-day-container').style.display = isRecurring ? 'block' : 'none';
-  document.getElementById('s-date-container').style.display = !isRecurring ? 'block' : 'none';
+  document.getElementById('s-day-container').style.display = (recVal === 'weekly' || recVal === 'biweekly') ? 'block' : 'none';
+  document.getElementById('s-date-container').style.display = (recVal === 'once' || recVal === 'biweekly') ? 'block' : 'none';
   mountCustomSelect('s-day-mount', 's-day', DAYS_LABELS.map((d, i) => ({ value: String(i), label: d })), slot && slot.dayOfWeek !== undefined ? String(slot.dayOfWeek) : String(defaultDayIdx));
   const defaultSubj = slot && SUBJECTS[slot.subject] ? slot.subject : (Object.keys(SUBJECTS)[0] || 'maths');
   mountCustomSelect('s-subject-mount', 's-subj', getSubjectOptions(), defaultSubj);
@@ -1647,22 +1657,47 @@ window.saveSlotForm = function(e) {
   const end = document.getElementById('s-end').value || '10:00';
   const room = document.getElementById('s-room').value.trim();
   if (timeToMin(end) <= timeToMin(start)) { showToast('La fin doit être après le début'); return; }
-  const isWeekly = customSelectValues['s-recurrence'] === 'weekly';
-  const dayOfWeek = isWeekly ? parseInt(customSelectValues['s-day'] || '0', 10) : undefined;
-  const date = !isWeekly ? document.getElementById('s-date').value : undefined;
+  const recMode = customSelectValues['s-recurrence'] || 'weekly';
+  const isWeekly = recMode === 'weekly';
+  const isBiweekly = recMode === 'biweekly';
+  const dayOfWeek = (isWeekly || isBiweekly) ? parseInt(customSelectValues['s-day'] || '0', 10) : undefined;
+  const rawDate = document.getElementById('s-date').value;
+  const date = recMode === 'once' ? rawDate : undefined;
+  const anchor = isBiweekly ? (typeof mondayOfISO === 'function' ? mondayOfISO(rawDate || formatDateISO(new Date())) : rawDate) : undefined;
 
   if (id) {
     const existing = state.schedule.find(s => s.id === id);
     if (existing) {
       Object.assign(existing, { title, subject, type, start, end, room });
-      if (isWeekly) { existing.dayOfWeek = dayOfWeek; delete existing.date; }
-      else { existing.date = date; delete existing.dayOfWeek; }
+      if (isWeekly) {
+        existing.dayOfWeek = dayOfWeek;
+        delete existing.date;
+        delete existing.every;
+        delete existing.anchor;
+      } else if (isBiweekly) {
+        existing.dayOfWeek = dayOfWeek;
+        existing.every = 2;
+        existing.anchor = anchor;
+        delete existing.date;
+      } else {
+        existing.date = date;
+        delete existing.dayOfWeek;
+        delete existing.every;
+        delete existing.anchor;
+      }
     }
     showToast('Créneau mis à jour');
   } else {
     const newSlot = { id: 's_' + Date.now(), title, subject, type, start, end, room };
-    if (isWeekly) newSlot.dayOfWeek = dayOfWeek;
-    else newSlot.date = date;
+    if (isWeekly) {
+      newSlot.dayOfWeek = dayOfWeek;
+    } else if (isBiweekly) {
+      newSlot.dayOfWeek = dayOfWeek;
+      newSlot.every = 2;
+      newSlot.anchor = anchor;
+    } else {
+      newSlot.date = date;
+    }
     state.schedule.push(newSlot);
     showToast('Créneau ajouté');
   }
@@ -1723,7 +1758,13 @@ window.applyScheduleJSON = function() {
         room: item.room || ''
       };
       if (item.date) s.date = item.date;
-      else s.dayOfWeek = item.dayOfWeek !== undefined ? Number(item.dayOfWeek) : (item.day !== undefined ? Number(item.day) : 0);
+      else {
+        s.dayOfWeek = item.dayOfWeek !== undefined ? Number(item.dayOfWeek) : (item.day !== undefined ? Number(item.day) : 0);
+        if (Number(item.every) === 2) {
+          s.every = 2;
+          if (item.anchor && /^\d{4}-\d{2}-\d{2}$/.test(item.anchor)) s.anchor = item.anchor;
+        }
+      }
       return s;
     });
     saveState();
