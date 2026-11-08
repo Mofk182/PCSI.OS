@@ -69,7 +69,7 @@ Aucun transfert de données : toutes les fenêtres lisent le même `localStorage
 
 ### 3.4 API du `preload` (`window.pcsiDesktop`)
 
-`platform` · `getMode()` · `setMode(mode)` · `onModeChange(cb)` · `setInteractive(bool)` (HUD Windows : bascule des clics selon la zone survolée) · `onQuickAdd(cb)` · `ankiInvoke(action, params)` · `quit()`. Rien d'autre n'est exposé.
+`platform` · `apiBase` (URL absolue du serveur IA lue dans `config.json`, `null` si vide) · `getMode()` · `setMode(mode)` · `onModeChange(cb)` · `setInteractive(bool)` (HUD Windows : bascule des clics selon la zone survolée) · `onQuickAdd(cb)` · `setQuickAddCapture(bool)` · `onToggleIsland(cb)` · `ankiInvoke(action, params)` · `quit()`. Rien d'autre n'est exposé.
 
 ## 4. Les trois modes
 
@@ -84,9 +84,9 @@ Aucun transfert de données : toutes les fenêtres lisent le même `localStorage
 
 Détails :
 
-- **Widget** : poignée de déplacement en CSS (`-webkit-app-region: drag`) ; position mémorisée ; à 360 px de large le CSS existant bascule sur sa mise en page étroite (points de rupture 640/768 px).
+- **Widget** : tailles prédéfinies petit 320×420, moyen 360×520, grand 420×680, placé par défaut en bas à droite de la zone utile (marge de 16 px) et recadré dans la zone visible si la position mémorisée n'existe plus ; poignée de déplacement en CSS (`-webkit-app-region: drag`) ; position mémorisée ; à 360 px de large le CSS existant bascule sur sa mise en page étroite (points de rupture 640/768 px).
 - **HUD** : contenu = navigation et onglet actif en panneaux de verre translucides ancrés en haut à droite, hauteur adaptée ; île en haut au centre ; le reste vide et traversable. Écran principal uniquement.
-- **Repli sans transparence** : option `--no-transparency` et entrée du menu de l'icône système : fond sombre opaque, même mise en page.
+- **Repli sans transparence** : option `--no-transparency` et entrée du menu de l'icône système : fond sombre opaque, même mise en page. Dans ce repli, le mode HUD est remplacé par un widget opaque : un HUD opaque plein écran cacherait tout le bureau.
 
 ## 5. Pilotage
 
