@@ -105,6 +105,11 @@ Détails :
 3. **Réseau et IA** : `fetch('/api/ai-schedule')` (`js/data.js`) passe par une constante `API_BASE` (vide sur le web, fournie par le `preload` depuis `config.json` dans Electron). Dans Electron, si `apiBase` est vide, `API_BASE` vaut `null` et l'appel au serveur est ignoré : le code retombe sur son chemin existant sans serveur (clé personnelle ou message d'erreur actuel). La fonction Vercel autorise l'origine `app://pcsi` via sa variable `ALLOWED_ORIGIN`. L'en-tête `Origin` réellement envoyé par Chromium pour ce protocole est vérifié au premier test.
 4. **Hors ligne** : ressources CDN embarquées par `build-web.js` (polices sous licence libre).
 5. **Données** : première exécution = Sync ID (Supabase) ou import JSON existants.
+6. **Écran de lancement (application de bureau uniquement)** : joué au démarrage de l'appli, pas à chaque changement de mode, en plein écran et en widget, jamais en HUD. Diagramme de flux de type SysML en HTML/CSS pur : un bloc central « boîte noire » (verre sombre, bordure fine `rgba(255,255,255,0.1)`, en-tête `«block»` en police monospace, nom `PCSI.OS` en Oxanium), une flèche d'entrée à gauche étiquetée « Données / Fichiers bruts » et une flèche de sortie à droite étiquetée « ENS · ULM · Polytechnique · etc. ».
+   - Séquence d'environ 2 s en `@keyframes` : le bloc apparaît ; des paquets de données glissent le long de la flèche d'entrée ; le bloc « traite » (ligne de balayage, bordure `--accent-info` qui pulse) ; la flèche de sortie s'allume et les paquets repartent.
+   - Dans le widget (moins de 640 px de large) le flux passe à la verticale.
+   - Fin : l'appli est prête et 1,8 s se sont écoulées ; sécurité à 6 s ; un clic ou une touche la passe ; avec `prefers-reduced-motion`, diagramme statique de 0,6 s.
+   - Désactivable avec `--no-splash`. Masqué par défaut dans le CSS et activé seulement par `?splash=1` dans l'URL : le site web ne change pas.
 
 ## 7. Saisie rapide Anki
 
@@ -154,7 +159,7 @@ Détails :
 
 ## 10. Tests
 
-- **Automatiques** (`node --test`, aucune dépendance) : `modes.js` (options par mode et plateforme), `cli.js` (arguments), liste blanche Anki, sélection des modules de l'île à partir d'un état et d'une heure fixés, calcul de position du cadre si extrait en fonction pure.
+- **Automatiques** (`node --test`, aucune dépendance) : `modes.js` (options par mode et plateforme), `cli.js` (arguments), liste blanche Anki, sélection des modules de l'île à partir d'un état et d'une heure fixés, règle de sortie de l'écran de lancement et règle « une seule fois par démarrage », calcul de position du cadre si extrait en fonction pure.
 - **Démarrage** : test de fumée sous `xvfb` (l'appli se lance et charge `app://pcsi/index.html`).
 - **Manuels** (`desktop/TESTING.md`, à dérouler sur Windows et Linux, résultat attendu par ligne) : transparence, « toujours au-dessus », passage des clics, survol de l'île (Windows), focus du panneau de saisie rapide (en particulier Wayland), icône système, persistance du mode après changement, repli `--no-transparency`, `Origin` envoyé à la fonction Vercel.
 
@@ -174,6 +179,7 @@ Détails :
 4. HUD, passage des clics, zones interactives.
 5. Panneau de saisie rapide et pont Anki.
 6. Île dynamique et ses réglages.
-7. Packaging par GitHub Actions.
+7. Écran de lancement.
+8. Packaging par GitHub Actions.
 
 Chaque étape produit une version utilisable.
