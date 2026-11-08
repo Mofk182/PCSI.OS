@@ -669,8 +669,9 @@ async function callVisionAiProviders(doc, promptText) {
     showToast(`Document volumineux : seules ${serverImages.length} page(s) sur ${images.length} sont envoyées à l'IA`);
   }
 
+  if (API_BASE !== null) {
   try {
-    const serverRes = await fetch('/api/ai-schedule', {
+    const serverRes = await fetch(API_BASE + '/api/ai-schedule', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -689,6 +690,7 @@ async function callVisionAiProviders(doc, promptText) {
     }
   } catch (e) {
     // En mode local sans serveur (python -m http.server), bascule transparente ci-dessous
+  }
   }
 
   // 2. Si une clé Gemini locale est présente (mode local hors Vercel), appeler l'API Gemini directement

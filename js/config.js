@@ -4,6 +4,9 @@ const STORAGE_KEY = 'pcsi_minimal_saas_v2';
 const SUPA_KEY = 'pcsi_supabase_cfg_v2';
 const DAILY_DROP_SEEN_KEY = 'pcsi_daily_drop_seen_date';
 
+// Base des appels /api : '' sur le web, URL absolue (ou null = aucun appel serveur) dans l'appli de bureau.
+const API_BASE = (typeof window !== 'undefined' && window.pcsiDesktop) ? window.pcsiDesktop.apiBase : '';
+
 const SUPABASE_URL = 'https://tuobyyfhwywbbwkayifw.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_qQg45ilq1NAzVqQ0eFfgyA_voFcptOm';
 
