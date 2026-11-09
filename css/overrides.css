@@ -760,3 +760,86 @@ input[type="date"]::-webkit-date-and-time-value, input[type="time"]::-webkit-dat
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+/* ===== Application de bureau : modes widget et HUD (html[data-mode], posé par le script de tête) ===== */
+#pcsi-drag-handle, #pcsi-mode-btn { display: none; }
+
+/* Cadre lumineux qui coulisse entre les boutons de navigation (js/nav-glide.js) */
+.nav-glide { display: none; }
+html[data-mode="widget"] .nav-glide,
+html[data-mode="hud"] .nav-glide {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  border: 1.5px solid var(--accent-info);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--accent-info) 55%, transparent),
+              inset 0 0 10px color-mix(in srgb, var(--accent-info) 22%, transparent);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 3;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-glide { transition: none !important; }
+}
+
+/* Widget : carte vitrée arrondie dans une fenêtre transparente */
+html[data-mode="widget"] { background: transparent; overflow: hidden; }
+html[data-mode="widget"] body {
+  background-color: rgba(9, 10, 15, 0.94);
+  height: 100vh;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+html[data-mode="widget"] .ambient-glow { display: none; }
+html[data-mode="widget"] #pcsi-drag-handle {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 14px;
+  right: 14px;
+  height: 18px;
+  z-index: 1000;
+  -webkit-app-region: drag;
+  cursor: grab;
+}
+html[data-mode="widget"] #pcsi-drag-handle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 36px;
+  height: 4px;
+  margin-left: -18px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Bouton de changement de mode (plein écran et widget) */
+#pcsi-mode-btn {
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+#pcsi-mode-btn:hover { color: var(--text-main); border-color: var(--border-hover); }
+html[data-mode="fullscreen"] #pcsi-mode-btn,
+html[data-mode="widget"] #pcsi-mode-btn { display: inline-flex; }
+html[data-mode="fullscreen"] #pcsi-mode-btn { right: 16px; bottom: 16px; }
+html[data-mode="widget"] #pcsi-mode-btn { right: 8px; top: 22px; }

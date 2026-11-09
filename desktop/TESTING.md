@@ -27,6 +27,21 @@ En développement, `pcsi-os --…` s'écrit `npx electron . --…` (dans `deskto
 | Entrée « Fond opaque » du menu | Le widget (ou le HUD, remplacé par un widget) devient un fond sombre opaque, même mise en page |
 | `--quit` | L'appli se ferme |
 
+## Widget et cadre qui coulisse
+
+| Vérification | Résultat attendu |
+|---|---|
+| Passer en widget (icône système ou bouton de mode) | Petite carte arrondie, sans cadre de fenêtre, fond transparent aux coins, au-dessus des autres fenêtres |
+| Glisser la poignée grise en haut du widget | Le widget se déplace ; la position est retrouvée après relance |
+| Survoler un bouton de la barre de navigation | Un cadre lumineux (bleu `#38BDF8`) glisse vers ce bouton |
+| Sortir la souris de la barre | Le cadre revient sur l'onglet actif |
+| Naviguer au clavier (`Tab`) dans la barre | Le cadre suit le bouton qui a le focus |
+| Cliquer sur un autre onglet | Le cadre se place sur le nouvel onglet actif |
+| Activer « réduire les animations » dans le système | Le cadre saute d'un bouton à l'autre sans animation |
+| Bouton rond en haut à droite du widget | Passe au mode suivant (widget vers HUD) |
+| Plein écran | Aucun cadre lumineux, pas de poignée ; seul un petit bouton de mode apparaît en bas à droite |
+| Ouvrir le site web normalement (navigateur, sans l'appli) | Aucun changement : pas de cadre, pas de bouton de mode, pas de poignée |
+
 ## Notes d'environnement de développement
 
 - `npm run build:web` télécharge Tailwind depuis `https://cdn.tailwindcss.com/3.4.17`. Hors ligne : `TAILWIND_LOCAL=/chemin/vers/tailwind.js npm run build:web`.
