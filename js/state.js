@@ -170,7 +170,42 @@ function inferSubjectFromText(text) {
   return null;
 }
 
-function buildDefaultPipelinePhases(totalDuration, phaseCount = 3, taskType = 'Exercice', mode = 'auto') {
+function computeStaggeredPhaseDates(count, finalDueDateISO) {
+  const n = Math.max(1, parseInt(count, 10) || 1);
+  const todayStr = formatDateISO(new Date());
+  const todayObj = new Date(todayStr + 'T00:00:00');
+
+  let targetISO = finalDueDateISO;
+  if (!targetISO || isNaN(new Date(targetISO + 'T00:00:00').getTime())) {
+    targetISO = getOffsetDateISO(Math.max(2, n * 2 - 1));
+  }
+  const targetObj = new Date(targetISO + 'T00:00:00');
+  const diffDays = Math.round((targetObj - todayObj) / 86400000);
+
+  if (n === 1) return [targetISO];
+
+  // Si l'échéance finale est très proche ou aujourd'hui, étaler à partir d'aujourd'hui (ex: J+0, J+1, J+2...) ou répartir entre aujourd'hui et l'échéance finale
+  if (diffDays <= 0) {
+    // Si l'échéance est aujourd'hui ou passée, étaler les passes sur les jours qui viennent (J+0, J+1, J+2...) pour lisser la charge
+    return Array.from({ length: n }, (_, idx) => getOffsetDateISO(idx));
+  }
+
+  if (diffDays < n - 1) {
+    // Pas assez de jours avant l'échéance finale : étaler d'aujourd'hui jusqu'à J+(n-1)
+    return Array.from({ length: n }, (_, idx) => getOffsetDateISO(idx));
+  }
+
+  // Répartir uniformément les jalons entre aujourd'hui (ou demain si diffDays >= n) et la date finale
+  const startOffset = diffDays >= n ? 1 : 0;
+  const span = Math.max(1, diffDays - startOffset);
+  return Array.from({ length: n }, (_, idx) => {
+    if (idx === n - 1) return targetISO;
+    const dayOffset = startOffset + Math.round((idx * span) / (n - 1));
+    return getOffsetDateISO(dayOffset);
+  });
+}
+
+function buildDefaultPipelinePhases(totalDuration, phaseCount = 3, taskType = 'Exercice', mode = 'auto', finalDueDateISO = null) {
   const count = Math.max(1, Math.min(10, parseInt(phaseCount, 10) || 3));
   const dur = Math.max(0.25 * count, parseFloat(totalDuration) || 1.5);
   const typeStr = String(taskType || '').toLowerCase();
@@ -185,6 +220,8 @@ function buildDefaultPipelinePhases(totalDuration, phaseCount = 3, taskType = 'E
     return Math.max(0.25, Number(Math.max(0.25, dur - used).toFixed(2)));
   };
 
+  const staggeredDates = computeStaggeredPhaseDates(count, finalDueDateISO);
+
   // Mode répétition explicite (ex: "Faire 2x / 3x / 4x" : Apprendre mon cours, refaire ses exos...)
   if (mode === 'repeat') {
     const ordinals = ['1re passe', '2e passe', '3e passe', '4e passe', '5e passe', '6e passe', '7e passe', '8e passe', '9e passe', '10e passe'];
@@ -192,6 +229,7 @@ function buildDefaultPipelinePhases(totalDuration, phaseCount = 3, taskType = 'E
       id: 'ph_' + (idx + 1),
       title: ordinals[idx] || `Séance ${idx + 1}`,
       duration: getStepDuration(idx),
+      dueDate: staggeredDates[idx] || null,
       done: false
     }));
   }
@@ -242,6 +280,7 @@ function buildDefaultPipelinePhases(totalDuration, phaseCount = 3, taskType = 'E
     id: 'ph_' + (idx + 1),
     title: titles[idx] || `Sous-mission ${idx + 1}`,
     duration: getStepDuration(idx),
+    dueDate: staggeredDates[idx] || null,
     done: false
   }));
 }
@@ -269,6 +308,15 @@ function normalizeTasksState() {
     } else {
       t.pipeline.enabled = !!t.pipeline.enabled;
       if (!Array.isArray(t.pipeline.phases)) t.pipeline.phases = [];
+      if (t.pipeline.enabled && t.pipeline.phases.length > 0) {
+        const missingDates = t.pipeline.phases.every(p => !p.dueDate);
+        if (missingDates) {
+          const autoDates = computeStaggeredPhaseDates(t.pipeline.phases.length, t.dueDate);
+          t.pipeline.phases.forEach((p, idx) => {
+            p.dueDate = autoDates[idx] || t.dueDate || null;
+          });
+        }
+      }
     }
   });
 }

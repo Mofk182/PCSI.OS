@@ -77,18 +77,38 @@ function getTaskTotalDuration(task) {
   return Math.max(0.5, parseFloat(task.duration) || 1);
 }
 
+function getActivePipelinePhase(task) {
+  if (!task || !task.pipeline || !task.pipeline.enabled || !Array.isArray(task.pipeline.phases) || !task.pipeline.phases.length) {
+    return null;
+  }
+  return task.pipeline.phases.find(p => !p.done) || null;
+}
+
+function getEffectiveTaskDueDate(task) {
+  if (!task) return null;
+  const activePhase = getActivePipelinePhase(task);
+  if (activePhase && activePhase.dueDate) {
+    return activePhase.dueDate;
+  }
+  return task.dueDate || null;
+}
+
 function getTaskDiffDays(task) {
-  if (!task || !task.dueDate) return 7;
+  const effDue = getEffectiveTaskDueDate(task);
+  if (!effDue) return 7;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const due = new Date(task.dueDate + 'T00:00:00');
+  const due = new Date(effDue + 'T00:00:00');
   if (isNaN(due.getTime())) return 7;
   return Math.round((due - today) / 86400000);
 }
 
 /**
- * Formule de Tension :
- * Tension = [ (alpha * Urgence Deadline) + (beta * Durée Estimée) ] * TypeMultiplier * ManualImportance * AutoDSFactor
+ * Formule de Tension recalibrée :
+ * - Si la tâche est subdivisée en sous-missions, la tension porte sur l'échéance et la durée de la PROCHAINE sous-mission active
+ *   (étalement réaliste de la charge sur plusieurs échéances).
+ * - Les multiplicateurs (TypeMultiplier, Importance, AutoDS) sont amortis par exposant doux et projetés via une courbe progressive
+ *   pour éviter l'effet plafond où tout atteint 100%.
  */
 function computePressure(task) {
   const typeMult = getTypeMultiplier(task ? task.type : DEFAULT_TASK_TYPE);
@@ -118,38 +138,48 @@ function computePressure(task) {
   const beta = typeof cfg.beta === 'number' ? cfg.beta : (1 - alpha);
 
   const remDur = getTaskRemainingDuration(task);
+  const activePhase = getActivePipelinePhase(task);
+  // Si subdivisé, la pression immédiate dépend de la durée de la sous-mission en cours (+ léger poids sur le reste)
+  const activeDur = activePhase
+    ? Math.max(0.25, (parseFloat(activePhase.duration) || 0.5) + 0.15 * Math.max(0, remDur - (parseFloat(activePhase.duration) || 0.5)))
+    : remDur;
+
+  const effDue = getEffectiveTaskDueDate(task);
   let diffDays = 7;
   let dayLabel = `${remDur}h`;
 
-  if (task.dueDate) {
+  if (effDue) {
     diffDays = getTaskDiffDays(task);
+    const stepPrefix = activePhase ? `Étape ` : '';
     if (diffDays < 0) {
-      dayLabel = `Retard ${Math.abs(diffDays)}j`;
+      dayLabel = `${stepPrefix}Retard ${Math.abs(diffDays)}j`;
     } else if (diffDays === 0) {
-      dayLabel = "Aujourd'hui";
+      dayLabel = `${stepPrefix}Aujourd'hui`;
     } else if (diffDays === 1) {
-      dayLabel = 'Demain';
+      dayLabel = `${stepPrefix}Demain`;
     } else {
-      dayLabel = `J-${diffDays}`;
+      dayLabel = `${stepPrefix}J-${diffDays}`;
     }
   }
 
-  // 1. Urgence Deadline (échelle 0 - 140)
-  let urgencyScore = 20;
-  if (!task.dueDate) {
-    urgencyScore = 22;
+  // 1. Urgence Deadline (échelle 0 - 110, plus progressive pour éviter la saturation)
+  let urgencyScore = 18;
+  if (!effDue) {
+    urgencyScore = 20;
   } else if (diffDays < 0) {
-    urgencyScore = 100 + Math.min(45, Math.abs(diffDays) * 12);
+    urgencyScore = 95 + Math.min(35, Math.abs(diffDays) * 10);
   } else if (diffDays === 0) {
-    urgencyScore = 100;
-  } else if (diffDays === 1) {
     urgencyScore = 88;
+  } else if (diffDays === 1) {
+    urgencyScore = 72;
+  } else if (diffDays === 2) {
+    urgencyScore = 55;
   } else {
-    urgencyScore = 100 * Math.exp(-(diffDays - 0.4) / 2.8);
+    urgencyScore = 72 * Math.exp(-(diffDays - 1) / 3.4);
   }
 
-  // 2. Durée Estimée (échelle 0 - 100)
-  const durationScore = 100 * (1 - Math.exp(-remDur / 2.4));
+  // 2. Durée Estimée de l'étape active (échelle 0 - 90, constante 3.5h au lieu de 2.4h)
+  const durationScore = 90 * (1 - Math.exp(-activeDur / 3.5));
 
   // 3. AutoDSFactor (Boost automatique si matière au programme du prochain DS)
   const dsSubjects = getUpcomingSaturdayDsSubjects();
@@ -157,19 +187,21 @@ function computePressure(task) {
   const isDsSubject = Boolean(cfg.autoDsBoost && (dsSubjects.includes(task.subject) || task.type === 'DS' || isDsTitle));
   const dsFactor = isDsSubject ? (parseFloat(cfg.dsBoostFactor) || 1.4) : 1.0;
 
-  // Calcul exact de la Tension avec TypeMultiplier * ManualImportance * AutoDSFactor
+  // Amortissement des multiplicateurs cumulés pour conserver la hiérarchie de tri sans saturer à 100%
   const baseWeighted = (alpha * urgencyScore) + (beta * durationScore);
-  const rawTension = baseWeighted * typeMult * importance * dsFactor;
+  const combinedMult = Math.pow(typeMult, 0.58) * Math.pow(importance, 0.65) * Math.pow(dsFactor, 0.55);
+  const rawTension = baseWeighted * combinedMult;
   const score = Number(rawTension.toFixed(1));
 
-  if (task.dueDate && diffDays < 0) {
+  if (effDue && diffDays < 0) {
+    const overduePct = Math.min(100, Math.round(92 + Math.min(8, Math.abs(diffDays) * 3)));
     return {
-      score: Math.max(150, score + 100),
+      score: Math.max(140, score + 80),
       rawScore: score,
-      pct: 100,
-      pctLabel: '100%',
+      pct: overduePct,
+      pctLabel: overduePct + '%',
       badge: 'RETARD',
-      color: pressureColor(100),
+      color: pressureColor(overduePct),
       urgent: true,
       dayLabel,
       diffDays,
@@ -181,14 +213,19 @@ function computePressure(task) {
     };
   }
 
-  const pct = Math.max(5, Math.min(100, Math.round(rawTension)));
-  const badge = !task.dueDate
+  // Compression douce au-delà de 65 pour que 95-99% reste exceptionnel (ex: DS/DM pour aujourd'hui)
+  let mappedPct = rawTension;
+  if (rawTension > 65) {
+    mappedPct = 65 + 34 * (1 - Math.exp(-(rawTension - 65) / 42));
+  }
+  const pct = Math.max(5, Math.min(99, Math.round(mappedPct)));
+  const badge = !effDue
     ? 'PLANIFIÉ'
-    : pct >= 75
+    : pct >= 76
       ? 'CRITIQUE'
-      : pct >= 50
+      : pct >= 52
         ? 'TENDU'
-        : pct >= 25
+        : pct >= 28
           ? 'MODÉRÉ'
           : 'ANTICIPÉ';
 
@@ -199,7 +236,7 @@ function computePressure(task) {
     pctLabel: pct + '%',
     badge,
     color: pressureColor(pct),
-    urgent: pct >= 60,
+    urgent: pct >= 68,
     dayLabel,
     diffDays,
     typeMult,
@@ -225,10 +262,13 @@ function sortTasksForView(tasksList) {
     const pa = computePressure(a);
     const pb = computePressure(b);
 
+    const effDueA = getEffectiveTaskDueDate(a);
+    const effDueB = getEffectiveTaskDueDate(b);
+
     // 2. Option "Tâches de demain en priorité" (Tomorrow's Tasks First)
     if (tomorrowFirst) {
-      const aTom = a.dueDate && pa.diffDays <= 1;
-      const bTom = b.dueDate && pb.diffDays <= 1;
+      const aTom = effDueA && pa.diffDays <= 1;
+      const bTom = effDueB && pb.diffDays <= 1;
       if (aTom !== bTom) return aTom ? -1 : 1;
       if (aTom && bTom && pa.diffDays !== pb.diffDays) {
         return pa.diffDays - pb.diffDays;
@@ -237,8 +277,8 @@ function sortTasksForView(tasksList) {
 
     // 3. Mode de tri : Score de Tension vs Délai Strict
     if (sortMode === 'deadline') {
-      const da = a.dueDate ? pa.diffDays : 9999;
-      const db = b.dueDate ? pb.diffDays : 9999;
+      const da = effDueA ? pa.diffDays : 9999;
+      const db = effDueB ? pb.diffDays : 9999;
       if (da !== db) return da - db;
       return pb.score - pa.score;
     }
@@ -321,11 +361,15 @@ window.quickAddMission = function(e) {
 
   const stepsEl = document.getElementById('qa-steps');
   const stepsCount = stepsEl ? parseInt(stepsEl.value, 10) || 1 : 1;
+  let dueDate = document.getElementById('qa-duedate').value || getOffsetDateISO(Math.max(2, stepsCount * 2 - 1));
   let pipeline = { enabled: false, phases: [] };
 
   if (stepsCount >= 2 && typeof buildDefaultPipelinePhases === 'function') {
-    const phases = buildDefaultPipelinePhases(dur, stepsCount, finalType, 'auto');
+    const phases = buildDefaultPipelinePhases(dur, stepsCount, finalType, 'auto', dueDate);
     dur = Number(phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0).toFixed(2));
+    if (phases.length && phases[phases.length - 1].dueDate) {
+      dueDate = phases[phases.length - 1].dueDate;
+    }
     pipeline = { enabled: true, phases };
   }
 
@@ -339,7 +383,7 @@ window.quickAddMission = function(e) {
     status: 'todo',
     completed: false,
     duration: dur,
-    dueDate: document.getElementById('qa-duedate').value || getOffsetDateISO(2),
+    dueDate,
     pipeline,
     createdAt: Date.now()
   });
@@ -348,7 +392,7 @@ window.quickAddMission = function(e) {
   saveState();
   renderCahier();
   if (typeof window.renderSettingsPanel === 'function') window.renderSettingsPanel();
-  showToast(stepsCount >= 2 ? `Mission ajoutée (${stepsCount} sous-missions)` : 'Mission ajoutée');
+  showToast(stepsCount >= 2 ? `Mission ajoutée (${stepsCount} échéances étalées)` : 'Mission ajoutée');
 };
 
 window.quickSubdivideTask = function(taskId, count = 2, event = null) {
@@ -360,18 +404,26 @@ window.quickSubdivideTask = function(taskId, count = 2, event = null) {
   if (!task) return;
 
   if (task.pipeline && task.pipeline.enabled && Array.isArray(task.pipeline.phases) && task.pipeline.phases.length > 0) {
-    // Ajouter une passe / sous-mission supplémentaire directement
+    // Ajouter une passe / sous-mission supplémentaire directement avec échéance décalée (+2 jours après la dernière)
     const nextIdx = task.pipeline.phases.length + 1;
     const isRepeatStyle = task.pipeline.phases.some(p => /passe|s[ée]ance/i.test(p.title || ''));
     const ordinals = ['1re passe', '2e passe', '3e passe', '4e passe', '5e passe', '6e passe', '7e passe', '8e passe', '9e passe', '10e passe'];
     const newTitle = isRepeatStyle ? (ordinals[nextIdx - 1] || `Séance ${nextIdx}`) : `Sous-mission ${nextIdx}`;
-    const lastDur = parseFloat(task.pipeline.phases[task.pipeline.phases.length - 1]?.duration) || 0.5;
+    const lastPhase = task.pipeline.phases[task.pipeline.phases.length - 1];
+    const lastDur = parseFloat(lastPhase?.duration) || 0.5;
+    const baseIso = lastPhase?.dueDate || task.dueDate || formatDateISO(new Date());
+    const nextDue = (typeof addDaysISO === 'function')
+      ? addDaysISO(baseIso, 2)
+      : getOffsetDateISO(nextIdx);
+
     task.pipeline.phases.push({
       id: 'ph_' + Date.now() + '_' + nextIdx,
       title: newTitle,
       duration: lastDur,
+      dueDate: nextDue,
       done: false
     });
+    task.dueDate = nextDue;
     task.duration = Number(task.pipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0).toFixed(2));
     if (isTaskCompleted(task)) {
       setTaskCompletedState(task, false);
@@ -380,19 +432,22 @@ window.quickSubdivideTask = function(taskId, count = 2, event = null) {
     saveState();
     renderCahier();
     if (state.activeTab === 'agenda') renderAgenda();
-    showToast(`Sous-mission ${nextIdx} ajoutée`);
+    showToast(`Sous-mission ${nextIdx} ajoutée (échéance étalée)`);
     return;
   }
 
   const targetCount = Math.max(2, parseInt(count, 10) || 2);
   const baseDur = parseFloat(task.duration) || 1.5;
-  const phases = buildDefaultPipelinePhases(baseDur, targetCount, task.type, 'auto');
+  const phases = buildDefaultPipelinePhases(baseDur, targetCount, task.type, 'auto', task.dueDate);
   task.pipeline = { enabled: true, phases };
+  if (phases.length && phases[phases.length - 1].dueDate) {
+    task.dueDate = phases[phases.length - 1].dueDate;
+  }
   task.duration = Number(phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0).toFixed(2));
   saveState();
   renderCahier();
   if (state.activeTab === 'agenda') renderAgenda();
-  showToast(`Mission subdivisée en ${phases.length} sous-missions`);
+  showToast(`Mission étalée sur ${phases.length} échéances`);
 };
 
 function renderTaskTypeBadge(typeId) {
@@ -401,27 +456,46 @@ function renderTaskTypeBadge(typeId) {
   return `<span class="task-type-badge mono" style="background:${tm.bg}; border:1px solid ${tm.border}; color:${tm.color};" title="Type ${tm.label} (Multiplicateur ×${mult})"><i class="ph-bold ${tm.icon}" style="font-size:10.5px;"></i>${escapeHtml(tm.label)}</span>`;
 }
 
+function formatPhaseShortDue(isoDate) {
+  if (!isoDate) return '';
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const d = new Date(isoDate + 'T00:00:00');
+  if (isNaN(d.getTime())) return '';
+  const diff = Math.round((d - today) / 86400000);
+  if (diff === 0) return 'Auj.';
+  if (diff === 1) return 'Dem.';
+  const dd = String(d.getDate()).padStart(2, '0');
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  return `${dd}/${mm}`;
+}
+
 function renderPipelineProgressHtml(task) {
   if (!task.pipeline || !task.pipeline.enabled || !Array.isArray(task.pipeline.phases) || !task.pipeline.phases.length) {
     return '';
   }
   const doneCount = task.pipeline.phases.filter(p => p.done).length;
   const totalCount = task.pipeline.phases.length;
+  const nextActiveIdx = task.pipeline.phases.findIndex(p => !p.done);
   return `
     <div class="pipeline-steps-bar" onclick="event.stopPropagation();">
       <div class="pipeline-header-tag mono">
         <i class="ph-bold ph-git-commit"></i> SOUS-MISSIONS (${doneCount}/${totalCount})
       </div>
       <div class="pipeline-steps-list">
-        ${task.pipeline.phases.map((ph, idx) => `
-          <button type="button" onclick="event.stopPropagation(); window.toggleTaskPhase('${task.id}', ${idx}, event)" class="pipeline-step-chip ${ph.done ? 'done' : ''}" title="Cliquer pour valider/invalider cette sous-mission">
-            <span class="pipeline-step-check">${ph.done ? '<i class="ph-bold ph-check"></i>' : (idx + 1)}</span>
-            <span class="pipeline-step-title">${escapeHtml(ph.title)}</span>
-            <span class="pipeline-step-dur mono">${ph.duration}h</span>
-          </button>
-        `).join('')}
+        ${task.pipeline.phases.map((ph, idx) => {
+          const shortDue = formatPhaseShortDue(ph.dueDate);
+          const isCurrent = idx === nextActiveIdx;
+          return `
+            <button type="button" onclick="event.stopPropagation(); window.toggleTaskPhase('${task.id}', ${idx}, event)" class="pipeline-step-chip ${ph.done ? 'done' : ''}" style="${isCurrent ? 'border-color:rgba(56,189,248,0.45); background:rgba(56,189,248,0.08);' : ''}" title="Cliquer pour valider/invalider cette sous-mission${ph.dueDate ? ' (Échéance : ' + ph.dueDate + ')' : ''}">
+              <span class="pipeline-step-check">${ph.done ? '<i class="ph-bold ph-check"></i>' : (idx + 1)}</span>
+              <span class="pipeline-step-title">${escapeHtml(ph.title)}</span>
+              <span class="pipeline-step-dur mono">${ph.duration}h${shortDue ? ' · ' + escapeHtml(shortDue) : ''}</span>
+            </button>
+          `;
+        }).join('')}
         ${!isTaskCompleted(task) && totalCount < 10 ? `
-          <button type="button" onclick="event.stopPropagation(); window.quickSubdivideTask('${task.id}', 1, event)" class="pipeline-step-chip" style="padding:3px 8px; border-style:dashed; color:var(--text-muted);" title="Ajouter une passe ou sous-mission supplémentaire">
+          <button type="button" onclick="event.stopPropagation(); window.quickSubdivideTask('${task.id}', 1, event)" class="pipeline-step-chip" style="padding:3px 8px; border-style:dashed; color:var(--text-muted);" title="Ajouter une passe ou sous-mission supplémentaire (+2j)">
             <i class="ph-bold ph-plus" style="font-size:10px;"></i>
           </button>
         ` : ''}
@@ -489,7 +563,7 @@ function renderSingleTaskRow(t, sL) {
               <span style="font-weight:600; font-size:14px; ${isDone ? 'text-decoration:line-through; color:var(--text-subtle);' : ''}">${escapeHtml(t.title)}</span>
               ${Math.abs(imp - 1.0) >= 0.05 ? `<span class="imp-scalar-badge mono" title="Importance Manuelle">×${imp.toFixed(1)}</span>` : ''}
               ${p.dsBoosted && !isDone ? `<span class="ds-boost-badge mono" title="Boost DS du Samedi (×${p.dsFactor})"><i class="ph-fill ph-lightning"></i> DS ×${p.dsFactor}</span>` : ''}
-              ${(!isDone && state.settings?.tomorrowFirst && t.dueDate && p.diffDays === 1) ? `<span class="tomorrow-prio-badge mono">DEMAIN</span>` : ''}
+              ${(!isDone && state.settings?.tomorrowFirst && getEffectiveTaskDueDate(t) && p.diffDays === 1) ? `<span class="tomorrow-prio-badge mono">DEMAIN</span>` : ''}
             </div>
             ${t.note ? `<div style="font-size:12.5px; color:var(--text-muted); margin-top:3px;">${escapeHtml(t.note)}</div>` : ''}
           </div>
@@ -756,7 +830,8 @@ window.selectMissionType = function(typeId) {
     const isUntouchedDefault = currentModalPipeline.phases.every(p => !p.done && /^(Phase|Étape|Partie|Sous-mission|\d+r?e\s+passe)\b/i.test(p.title || ''));
     if (isUntouchedDefault) {
       const dur = parseFloat(document.getElementById('m-duration')?.value) || 1.5;
-      currentModalPipeline.phases = buildDefaultPipelinePhases(dur, currentModalPipeline.phases.length || 2, currentModalTaskType, 'auto');
+      const due = document.getElementById('m-duedate')?.value || null;
+      currentModalPipeline.phases = buildDefaultPipelinePhases(dur, currentModalPipeline.phases.length || 2, currentModalTaskType, 'auto', due);
       renderModalPipelineEditor();
     }
   }
@@ -816,18 +891,45 @@ window.toggleModalPipeline = function() {
   currentModalPipeline.enabled = !currentModalPipeline.enabled;
   if (currentModalPipeline.enabled && (!currentModalPipeline.phases || !currentModalPipeline.phases.length)) {
     const dur = parseFloat(document.getElementById('m-duration').value) || 1.5;
+    const due = document.getElementById('m-duedate')?.value || null;
     const defaultCount = (currentModalTaskType === 'Cours' || currentModalTaskType === 'Révision') ? 2 : 3;
-    currentModalPipeline.phases = buildDefaultPipelinePhases(dur, defaultCount, currentModalTaskType, 'auto');
+    currentModalPipeline.phases = buildDefaultPipelinePhases(dur, defaultCount, currentModalTaskType, 'auto', due);
+    const lastDue = currentModalPipeline.phases[currentModalPipeline.phases.length - 1]?.dueDate;
+    if (lastDue && document.getElementById('m-duedate')) {
+      document.getElementById('m-duedate').value = lastDue;
+    }
   }
   renderModalPipelineEditor();
 };
 
 window.setModalPipelineCount = function(count, mode = 'auto') {
   const dur = parseFloat(document.getElementById('m-duration').value) || 1.5;
-  currentModalPipeline.phases = buildDefaultPipelinePhases(dur, count, currentModalTaskType, mode);
+  const due = document.getElementById('m-duedate')?.value || null;
+  currentModalPipeline.phases = buildDefaultPipelinePhases(dur, count, currentModalTaskType, mode, due);
   const total = currentModalPipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0);
   const durEl = document.getElementById('m-duration');
   if (durEl) durEl.value = Number(total.toFixed(2));
+  const lastDue = currentModalPipeline.phases[currentModalPipeline.phases.length - 1]?.dueDate;
+  if (lastDue && document.getElementById('m-duedate')) {
+    document.getElementById('m-duedate').value = lastDue;
+  }
+  renderModalPipelineEditor();
+};
+
+window.staggerModalPipelineDates = function() {
+  if (!currentModalPipeline || !Array.isArray(currentModalPipeline.phases) || !currentModalPipeline.phases.length) return;
+  const count = currentModalPipeline.phases.length;
+  const due = document.getElementById('m-duedate')?.value || null;
+  const dates = (typeof computeStaggeredPhaseDates === 'function')
+    ? computeStaggeredPhaseDates(count, due)
+    : [];
+  currentModalPipeline.phases.forEach((ph, idx) => {
+    if (dates[idx]) ph.dueDate = dates[idx];
+  });
+  const lastDue = currentModalPipeline.phases[currentModalPipeline.phases.length - 1]?.dueDate;
+  if (lastDue && document.getElementById('m-duedate')) {
+    document.getElementById('m-duedate').value = lastDue;
+  }
   renderModalPipelineEditor();
 };
 
@@ -838,19 +940,24 @@ window.addModalPipelinePhase = function() {
   const isRepeat = currentModalPipeline.phases.some(p => /passe|s[ée]ance/i.test(p.title || ''));
   const ordinals = ['1re passe', '2e passe', '3e passe', '4e passe', '5e passe', '6e passe', '7e passe', '8e passe', '9e passe', '10e passe'];
   const defaultTitle = isRepeat ? (ordinals[nextIdx - 1] || `Séance ${nextIdx}`) : `Sous-mission ${nextIdx}`;
-  const defaultDur = currentModalPipeline.phases.length > 0
-    ? (parseFloat(currentModalPipeline.phases[currentModalPipeline.phases.length - 1].duration) || 0.5)
-    : 0.5;
+  const lastPhase = currentModalPipeline.phases[currentModalPipeline.phases.length - 1];
+  const defaultDur = lastPhase ? (parseFloat(lastPhase.duration) || 0.5) : 0.5;
+  const baseIso = lastPhase?.dueDate || document.getElementById('m-duedate')?.value || formatDateISO(new Date());
+  const nextDue = (typeof addDaysISO === 'function') ? addDaysISO(baseIso, 2) : getOffsetDateISO(nextIdx);
 
   currentModalPipeline.phases.push({
     id: 'ph_' + Date.now() + '_' + nextIdx,
     title: defaultTitle,
     duration: defaultDur,
+    dueDate: nextDue,
     done: false
   });
   const total = currentModalPipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0);
   const durEl = document.getElementById('m-duration');
   if (durEl) durEl.value = Number(total.toFixed(2));
+  if (document.getElementById('m-duedate')) {
+    document.getElementById('m-duedate').value = nextDue;
+  }
   renderModalPipelineEditor();
 };
 
@@ -860,6 +967,10 @@ window.removeModalPipelinePhase = function(idx) {
   const total = currentModalPipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0);
   const durEl = document.getElementById('m-duration');
   if (durEl) durEl.value = Number(total.toFixed(2));
+  const lastDue = currentModalPipeline.phases[currentModalPipeline.phases.length - 1]?.dueDate;
+  if (lastDue && document.getElementById('m-duedate')) {
+    document.getElementById('m-duedate').value = lastDue;
+  }
   renderModalPipelineEditor();
 };
 
@@ -872,6 +983,11 @@ window.updateModalPipelinePhase = function(idx, field, val) {
     const total = currentModalPipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0);
     const durEl = document.getElementById('m-duration');
     if (durEl) durEl.value = Number(total.toFixed(2));
+  } else if (field === 'dueDate') {
+    currentModalPipeline.phases[idx].dueDate = val || null;
+    if (idx === currentModalPipeline.phases.length - 1 && val && document.getElementById('m-duedate')) {
+      document.getElementById('m-duedate').value = val;
+    }
   } else if (field === 'done') {
     currentModalPipeline.phases[idx].done = !!val;
     renderModalPipelineEditor();
@@ -885,8 +1001,8 @@ function renderModalPipelineEditor() {
 
   btn.classList.toggle('active-pill', currentModalPipeline.enabled);
   btn.innerHTML = currentModalPipeline.enabled
-    ? `<i class="ph-bold ph-check-circle" style="color:#10B981;"></i> <span>Subdivision activée (${currentModalPipeline.phases.length} sous-missions / passes)</span>`
-    : `<i class="ph-bold ph-git-commit"></i> <span>Subdiviser en sous-missions ou passes (ex: Apprendre mon cours ×2/×3, TD, DM...)</span>`;
+    ? `<i class="ph-bold ph-check-circle" style="color:#10B981;"></i> <span>Subdivision activée (${currentModalPipeline.phases.length} échéances étalées)</span>`
+    : `<i class="ph-bold ph-git-commit"></i> <span>Subdiviser en sous-missions ou passes (étaler sur plusieurs échéances)</span>`;
 
   if (!currentModalPipeline.enabled) {
     box.style.display = 'none';
@@ -901,22 +1017,26 @@ function renderModalPipelineEditor() {
     <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
       <span style="font-size:11.5px; font-weight:600; color:var(--text-muted);">Modèles rapides :</span>
       <div style="display:flex; gap:5px; flex-wrap:wrap;">
-        <button type="button" onclick="window.setModalPipelineCount(2, 'auto')" class="btn-ghost ${count === 2 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 2 étapes adaptées au type de tâche">2 Étapes</button>
-        <button type="button" onclick="window.setModalPipelineCount(3, 'auto')" class="btn-ghost ${count === 3 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 3 étapes adaptées au type de tâche">3 Étapes</button>
-        <button type="button" onclick="window.setModalPipelineCount(4, 'auto')" class="btn-ghost ${count === 4 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 4 étapes">4 Étapes</button>
+        <button type="button" onclick="window.setModalPipelineCount(2, 'auto')" class="btn-ghost ${count === 2 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 2 étapes étalées">2 Étapes</button>
+        <button type="button" onclick="window.setModalPipelineCount(3, 'auto')" class="btn-ghost ${count === 3 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 3 étapes étalées">3 Étapes</button>
+        <button type="button" onclick="window.setModalPipelineCount(4, 'auto')" class="btn-ghost ${count === 4 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 4 étapes étalées">4 Étapes</button>
         <button type="button" onclick="window.setModalPipelineCount(${Math.max(2, count)}, 'repeat')" class="btn-ghost ${isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px; color:#38BDF8;" title="Idéal pour une mission à faire plusieurs fois (1re passe, 2e passe, 3e passe...)">
           <i class="ph-bold ph-repeat"></i> Répéter (${Math.max(2, count)}×)
+        </button>
+        <button type="button" onclick="window.staggerModalPipelineDates()" class="btn-ghost" style="padding:4px 9px; font-size:11px; color:#10B981;" title="Répartir automatiquement les dates d'échéance de chaque sous-mission">
+          <i class="ph-bold ph-calendar-plus"></i> Étaler dates
         </button>
       </div>
     </div>
     <div style="display:flex; flex-direction:column; gap:7px;">
       ${currentModalPipeline.phases.map((ph, idx) => `
-        <div style="display:flex; align-items:center; gap:7px;">
+        <div style="display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
           <button type="button" onclick="window.updateModalPipelinePhase(${idx}, 'done', ${!ph.done})" class="custom-check ${ph.done ? 'checked' : ''}" title="Marquer cette sous-mission comme terminée">
             ${ph.done ? '<i class="ph-bold ph-check text-xs"></i>' : ''}
           </button>
-          <input type="text" class="saas-input" style="flex:1; padding:6px 10px; font-size:12px;" value="${escapeHtml(ph.title)}" placeholder="Sous-mission ${idx + 1}" oninput="window.updateModalPipelinePhase(${idx}, 'title', this.value)" />
-          <div style="display:flex; align-items:center; gap:4px; width:78px;">
+          <input type="text" class="saas-input" style="flex:1; min-width:120px; padding:6px 10px; font-size:12px;" value="${escapeHtml(ph.title)}" placeholder="Sous-mission ${idx + 1}" oninput="window.updateModalPipelinePhase(${idx}, 'title', this.value)" />
+          <input type="date" class="saas-input mono" style="width:128px; padding:5px 7px; font-size:11px;" value="${escapeHtml(ph.dueDate || '')}" title="Échéance de cette sous-mission" onchange="window.updateModalPipelinePhase(${idx}, 'dueDate', this.value)" />
+          <div style="display:flex; align-items:center; gap:4px; width:74px;">
             <input type="number" class="saas-input mono" style="padding:6px 7px; font-size:12px;" step="0.25" min="0.25" value="${ph.duration}" oninput="window.updateModalPipelinePhase(${idx}, 'duration', this.value)" />
             <span class="mono" style="font-size:11px; color:var(--text-subtle);">h</span>
           </div>
@@ -931,7 +1051,7 @@ function renderModalPipelineEditor() {
     ${count < 10 ? `
       <div style="display:flex; justify-content:flex-start; margin-top:2px;">
         <button type="button" onclick="window.addModalPipelinePhase()" class="btn-ghost" style="padding:5px 10px; font-size:11px; border-style:dashed; color:#38BDF8;">
-          <i class="ph-bold ph-plus"></i> Ajouter une sous-mission / passe
+          <i class="ph-bold ph-plus"></i> Ajouter une sous-mission / passe (+2j)
         </button>
       </div>
     ` : ''}
@@ -966,6 +1086,14 @@ window.openMissionModal = function(id, event) {
   // Mode Pipeline
   if (m && m.pipeline && m.pipeline.enabled) {
     currentModalPipeline = JSON.parse(JSON.stringify(m.pipeline));
+    if (Array.isArray(currentModalPipeline.phases) && currentModalPipeline.phases.every(p => !p.dueDate)) {
+      const staggered = (typeof computeStaggeredPhaseDates === 'function')
+        ? computeStaggeredPhaseDates(currentModalPipeline.phases.length, m.dueDate)
+        : [];
+      currentModalPipeline.phases.forEach((p, idx) => {
+        if (staggered[idx]) p.dueDate = staggered[idx];
+      });
+    }
   } else {
     currentModalPipeline = { enabled: false, phases: [] };
   }
@@ -995,17 +1123,25 @@ window.saveMissionForm = function(e) {
   const type = currentModalTaskType || DEFAULT_TASK_TYPE;
   const importance = Math.min(2.5, Math.max(0.5, parseFloat(document.getElementById('m-importance')?.value) || 1.0));
   let duration = parseFloat(document.getElementById('m-duration').value) || 1;
-  const dueDate = document.getElementById('m-duedate').value || null;
+  let dueDate = document.getElementById('m-duedate').value || null;
   let status = customSelectValues['m-stat'] || 'todo';
   const note = document.getElementById('m-note').value.trim();
+
+  let staggeredDates = [];
+  if (currentModalPipeline.enabled && Array.isArray(currentModalPipeline.phases) && currentModalPipeline.phases.every(p => !p.dueDate)) {
+    staggeredDates = (typeof computeStaggeredPhaseDates === 'function')
+      ? computeStaggeredPhaseDates(currentModalPipeline.phases.length, dueDate)
+      : [];
+  }
 
   const pipeline = currentModalPipeline.enabled
     ? {
         enabled: true,
         phases: currentModalPipeline.phases.map((p, i) => ({
           id: p.id || ('ph_' + (i + 1)),
-          title: (p.title || `Phase ${i + 1}`).trim(),
+          title: (p.title || `Sous-mission ${i + 1}`).trim(),
           duration: Math.max(0.25, parseFloat(p.duration) || 0.5),
+          dueDate: p.dueDate || staggeredDates[i] || dueDate || null,
           done: !!p.done
         }))
       }
@@ -1013,6 +1149,10 @@ window.saveMissionForm = function(e) {
 
   if (pipeline.enabled && pipeline.phases.length) {
     duration = Number(pipeline.phases.reduce((acc, p) => acc + p.duration, 0).toFixed(2));
+    const lastPhaseDue = pipeline.phases[pipeline.phases.length - 1]?.dueDate;
+    if (lastPhaseDue && (!dueDate || lastPhaseDue > dueDate)) {
+      dueDate = lastPhaseDue;
+    }
     if (pipeline.phases.every(p => p.done)) status = 'done';
     else if (pipeline.phases.some(p => p.done) && status === 'todo') status = 'in_progress';
   }
