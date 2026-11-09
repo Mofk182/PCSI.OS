@@ -42,6 +42,20 @@ En développement, `pcsi-os --…` s'écrit `npx electron . --…` (dans `deskto
 | Plein écran | Aucun cadre lumineux, pas de poignée ; seul un petit bouton de mode apparaît en bas à droite |
 | Ouvrir le site web normalement (navigateur, sans l'appli) | Aucun changement : pas de cadre, pas de bouton de mode, pas de poignée |
 
+## HUD
+
+| Vérification | Windows | Linux |
+|---|---|---|
+| Passer en HUD (icône système ou `--mode=hud`) | Fenêtre plein écran transparente ; panneau de verre en haut à droite (440 px), navigation en icônes | Idem |
+| Cliquer sur le bureau en dehors du panneau | Le clic atteint le bureau ou la fenêtre située dessous | Idem |
+| Cliquer dans le panneau (onglets, champs, boutons) | Fonctionne | Ne fonctionne pas (lecture seule, comportement attendu) |
+| Survoler un onglet du panneau | Le cadre lumineux suit le survol, puis revient sur l'onglet actif | Le cadre reste sur l'onglet actif |
+| Ouvrir une modale (par exemple « Ajouter à Anki ») | La modale est cliquable et se ferme | Aucune modale ne s'affiche |
+| Mini-barre en bas à droite | Visible ; ses deux boutons ramènent au widget et au plein écran | Absente |
+| Sortie de secours | Icône système, `--mode=fullscreen` et mini-barre | Icône système ou `--mode=fullscreen` |
+| Parcourir les 5 onglets dans le panneau | Aucun défilement horizontal, grilles en une colonne | Idem |
+| Fenêtre qui reste au-dessus des autres | Oui | À vérifier (rapports d'échecs sous Ubuntu) |
+
 ## Notes d'environnement de développement
 
 - `npm run build:web` télécharge Tailwind depuis `https://cdn.tailwindcss.com/3.4.17`. Hors ligne : `TAILWIND_LOCAL=/chemin/vers/tailwind.js npm run build:web`.

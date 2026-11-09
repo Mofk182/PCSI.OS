@@ -15,5 +15,6 @@ contextBridge.exposeInMainWorld('pcsiDesktop', {
   getMode: () => argValue('pcsi-mode') || 'fullscreen',
   setMode: mode => ipcRenderer.invoke('pcsi:set-mode', mode),
   onModeChange: cb => { ipcRenderer.on('pcsi:mode-changed', (_e, mode) => cb(mode)); },
+  setInteractive: interactive => ipcRenderer.invoke('pcsi:set-interactive', interactive === true),
   quit: () => ipcRenderer.invoke('pcsi:quit')
 });

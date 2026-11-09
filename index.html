@@ -34,8 +34,12 @@
 
   <div id="pcsi-drag-handle" aria-hidden="true"></div>
   <button type="button" id="pcsi-mode-btn" title="Changer de mode (plein écran, widget, HUD)" aria-label="Changer de mode"><i class="ph ph-picture-in-picture"></i></button>
+  <div id="pcsi-hud-bar" data-hud-zone role="group" aria-label="Changer de mode">
+    <button type="button" data-mode-target="widget" title="Passer en widget" aria-label="Passer en widget"><i class="ph ph-picture-in-picture"></i></button>
+    <button type="button" data-mode-target="fullscreen" title="Passer en plein écran" aria-label="Passer en plein écran"><i class="ph ph-arrows-out"></i></button>
+  </div>
 
-  <div id="app-shell" class="app-shell v3-bento-shell">
+  <div id="app-shell" class="app-shell v3-bento-shell" data-hud-zone>
 
     <!-- ========================================================== -->
     <!-- V3 TOP FLOATING COMMAND DOCK (REPLACES OLD LEFT SIDEBAR)    -->
@@ -1259,6 +1263,7 @@
   <script src="js/onboarding.js"></script>
   <script src="js/nav-glide.js"></script>
   <script src="js/desktop-bridge.js"></script>
+  <script src="js/hud-zones.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

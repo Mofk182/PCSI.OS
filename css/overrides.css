@@ -843,3 +843,73 @@ html[data-mode="fullscreen"] #pcsi-mode-btn,
 html[data-mode="widget"] #pcsi-mode-btn { display: inline-flex; }
 html[data-mode="fullscreen"] #pcsi-mode-btn { right: 16px; bottom: 16px; }
 html[data-mode="widget"] #pcsi-mode-btn { right: 8px; top: 22px; }
+
+/* HUD : fenêtre plein écran transparente ; l'appli devient un panneau de verre ancré en haut à droite */
+#pcsi-hud-bar { display: none; }
+html[data-mode="hud"],
+html[data-mode="hud"] body { background: transparent; overflow: hidden; }
+html[data-mode="hud"] body { min-height: 0; height: 100vh; }
+html[data-mode="hud"] .ambient-glow { display: none; }
+html[data-mode="hud"] #app-shell {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: min(440px, 40vw);
+  max-width: none;
+  min-height: 0;
+  max-height: calc(100vh - 32px);
+  margin: 0;
+  padding: 10px;
+  gap: 10px;
+  overflow-y: auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+}
+/* Barre de navigation seule, en icônes ; le reste du dock et l'en-tête de page sont masqués pour gagner de la place */
+html[data-mode="hud"] .sidebar.v3-top-dock {
+  position: static;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 14px;
+}
+html[data-mode="hud"] .sidebar.v3-top-dock > :not(.v3-segmented-nav) { display: none; }
+html[data-mode="hud"] .v3-segmented-nav .nav-item span { display: none; }
+html[data-mode="hud"] .v3-context-header { display: none; }
+
+/* Mini-barre de retour (Windows : le HUD y est interactif ; sous Linux il est en lecture seule) */
+html[data-mode="hud"][data-platform="win32"] #pcsi-hud-bar {
+  display: flex;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 99px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+}
+#pcsi-hud-bar button {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+#pcsi-hud-bar button:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.08); }
+
+/* HUD en lecture seule (Linux) : aucune modale (on ne pourrait ni la fermer ni cliquer dedans) */
+html[data-mode="hud"][data-platform="linux"] .modal-backdrop { display: none !important; }
+
+/* HUD : le panneau fait 440 px alors que la fenêtre est large (les règles « mobile » ne s'appliquent pas) : grilles en colonne unique */
+html[data-mode="hud"] .v3-bento-cahier-grid,
+html[data-mode="hud"] .evening-planner-grid,
+html[data-mode="hud"] .settings-grid,
+html[data-mode="hud"] .kanban-board { grid-template-columns: minmax(0, 1fr) !important; }

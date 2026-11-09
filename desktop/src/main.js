@@ -10,6 +10,7 @@ const { loadDesktopState, saveDesktopState } = require('./state-store.js');
 const { createModeManager, NEXT } = require('./mode-manager.js');
 const { buildTrayTemplate } = require('./tray.js');
 const { registerShortcuts } = require('./shortcuts.js');
+const { applyInteractive } = require('./interactive.js');
 
 const WEB_ROOT = path.join(__dirname, '..', 'web');
 const SMOKE = process.argv.includes('--smoke');
@@ -230,6 +231,11 @@ function start() {
       return requestMode(mode);
     });
     ipcMain.handle('pcsi:quit', e => { if (trustedSender(e)) app.quit(); });
+    ipcMain.handle('pcsi:set-interactive', (e, interactive) => {
+      if (!trustedSender(e) || manager.current() !== 'hud') return;
+      const win = BrowserWindow.fromWebContents(e.sender);
+      if (win && !win.isDestroyed()) applyInteractive(win, process.platform, interactive === true);
+    });
 
     if (!SMOKE) {
       routes.tray = createTray();
