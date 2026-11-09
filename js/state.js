@@ -170,24 +170,80 @@ function inferSubjectFromText(text) {
   return null;
 }
 
-function buildDefaultPipelinePhases(totalDuration, phaseCount = 3) {
-  const dur = Math.max(0.5, parseFloat(totalDuration) || 2);
-  if (Number(phaseCount) === 2) {
-    const p1 = Math.max(0.5, Math.round((dur * 0.5) * 2) / 2);
-    const p2 = Math.max(0.5, Number((dur - p1).toFixed(1)));
-    return [
-      { id: 'ph_1', title: 'Phase 1 : Recherche & Brouillon', duration: p1, done: false },
-      { id: 'ph_2', title: 'Phase 2 : Résolution & Rédaction', duration: p2, done: false }
-    ];
+function buildDefaultPipelinePhases(totalDuration, phaseCount = 3, taskType = 'Exercice', mode = 'auto') {
+  const count = Math.max(1, Math.min(10, parseInt(phaseCount, 10) || 3));
+  const dur = Math.max(0.25 * count, parseFloat(totalDuration) || 1.5);
+  const typeStr = String(taskType || '').toLowerCase();
+
+  // Calcul d'une durée équilibrée par sous-mission (arrondie au quart d'heure : 0.25h)
+  const rawStep = dur / count;
+  const stepDur = Math.max(0.25, Math.round(rawStep * 4) / 4);
+
+  const getStepDuration = (idx) => {
+    if (idx < count - 1) return stepDur;
+    const used = stepDur * (count - 1);
+    return Math.max(0.25, Number(Math.max(0.25, dur - used).toFixed(2)));
+  };
+
+  // Mode répétition explicite (ex: "Faire 2x / 3x / 4x" : Apprendre mon cours, refaire ses exos...)
+  if (mode === 'repeat') {
+    const ordinals = ['1re passe', '2e passe', '3e passe', '4e passe', '5e passe', '6e passe', '7e passe', '8e passe', '9e passe', '10e passe'];
+    return Array.from({ length: count }, (_, idx) => ({
+      id: 'ph_' + (idx + 1),
+      title: ordinals[idx] || `Séance ${idx + 1}`,
+      duration: getStepDuration(idx),
+      done: false
+    }));
   }
-  const p1 = Math.max(0.5, Math.round((dur * 0.35) * 2) / 2);
-  const p2 = Math.max(0.5, Math.round((dur * 0.4) * 2) / 2);
-  const p3 = Math.max(0.5, Number(Math.max(0.5, dur - p1 - p2).toFixed(1)));
-  return [
-    { id: 'ph_1', title: 'Phase 1 : Recherche / Brouillon', duration: p1, done: false },
-    { id: 'ph_2', title: 'Phase 2 : Résolution', duration: p2, done: false },
-    { id: 'ph_3', title: 'Phase 3 : Rédaction', duration: p3, done: false }
-  ];
+
+  // Modèles intelligents selon le type de mission
+  let titles = [];
+  if (typeStr === 'cours' || typeStr === 'révision' || typeStr === 'revision') {
+    if (count === 2) {
+      titles = ['1re passe : Lecture & compréhension', '2e passe : Mémorisation active & récitation'];
+    } else if (count === 3) {
+      titles = ['1re passe : Lecture & compréhension', '2e passe : Fiche / Démonstrations clés', '3e passe : Récitation active (feuille blanche)'];
+    } else if (count === 4) {
+      titles = ['1re passe : Lecture & compréhension', '2e passe : Apprentissage théorèmes & démos', '3e passe : Récitation feuille blanche', '4e passe : Réactivation J+3 / Flashcards'];
+    }
+  } else if (typeStr === 'colle' || typeStr === 'kholle') {
+    if (count === 2) {
+      titles = ['Étape 1 : Cours & questions de cours', 'Étape 2 : Démos & exercices types'];
+    } else if (count === 3) {
+      titles = ['Étape 1 : Questions de cours & définitions', 'Étape 2 : Démonstrations au programme', 'Étape 3 : Exercices types & méthodes'];
+    }
+  } else if (typeStr === 'td' || typeStr === 'exercice') {
+    if (count === 2) {
+      titles = ['Partie 1 : Exercices d\'application', 'Partie 2 : Exercices d\'approfondissement'];
+    } else if (count === 3) {
+      titles = ['Partie 1 : Exos d\'application directe', 'Partie 2 : Exos classiques / méthodes', 'Partie 3 : Reprise des erreurs & bilan'];
+    }
+  } else if (typeStr === 'tp') {
+    if (count === 2) {
+      titles = ['Étape 1 : Lecture protocole & préparation', 'Étape 2 : Exploitation & compte-rendu'];
+    } else if (count === 3) {
+      titles = ['Étape 1 : Préparation théorique', 'Étape 2 : Manipulations / Mesures', 'Étape 3 : Compte-rendu & incertitudes'];
+    }
+  } else if (typeStr === 'ds') {
+    if (count === 2) {
+      titles = ['Étape 1 : Maîtrise du cours & méthodes', 'Étape 2 : Annales & sujets types'];
+    } else if (count === 3) {
+      titles = ['Étape 1 : Révision du cours & formulaires', 'Étape 2 : Reprise des TD & erreurs (Post-its)', 'Étape 3 : Entraînement sujet type / Annale'];
+    }
+  } else if (typeStr === 'dm') {
+    if (count === 2) {
+      titles = ['Phase 1 : Recherche & Brouillon', 'Phase 2 : Résolution & Rédaction'];
+    } else if (count === 3) {
+      titles = ['Phase 1 : Recherche / Brouillon', 'Phase 2 : Résolution', 'Phase 3 : Rédaction propre'];
+    }
+  }
+
+  return Array.from({ length: count }, (_, idx) => ({
+    id: 'ph_' + (idx + 1),
+    title: titles[idx] || `Sous-mission ${idx + 1}`,
+    duration: getStepDuration(idx),
+    done: false
+  }));
 }
 
 function normalizeTasksState() {

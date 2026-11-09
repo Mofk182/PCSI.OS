@@ -317,7 +317,18 @@ window.quickAddMission = function(e) {
   const titleInferredType = inferTaskTypeFromTitle(t);
   const explicitPrefixMatch = /^(ds|dm|td|tp|colle|kh[ôo]lle|cours|r[ée]vision)\b/i.test(t);
   const finalType = explicitPrefixMatch ? titleInferredType : (currentQuickAddType || titleInferredType);
-  const dur = parseFloat(document.getElementById('qa-duration').value) || 1.5;
+  let dur = parseFloat(document.getElementById('qa-duration').value) || 1.5;
+
+  const stepsEl = document.getElementById('qa-steps');
+  const stepsCount = stepsEl ? parseInt(stepsEl.value, 10) || 1 : 1;
+  let pipeline = { enabled: false, phases: [] };
+
+  if (stepsCount >= 2 && typeof buildDefaultPipelinePhases === 'function') {
+    const phases = buildDefaultPipelinePhases(dur, stepsCount, finalType, 'auto');
+    dur = Number(phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0).toFixed(2));
+    pipeline = { enabled: true, phases };
+  }
+
   state.tasks.unshift({
     id: 't_' + Date.now(),
     title: t,
@@ -329,14 +340,59 @@ window.quickAddMission = function(e) {
     completed: false,
     duration: dur,
     dueDate: document.getElementById('qa-duedate').value || getOffsetDateISO(2),
-    pipeline: { enabled: false, phases: [] },
+    pipeline,
     createdAt: Date.now()
   });
   tInput.value = '';
+  if (stepsEl) stepsEl.value = '1';
   saveState();
   renderCahier();
   if (typeof window.renderSettingsPanel === 'function') window.renderSettingsPanel();
-  showToast('Mission ajoutée');
+  showToast(stepsCount >= 2 ? `Mission ajoutée (${stepsCount} sous-missions)` : 'Mission ajoutée');
+};
+
+window.quickSubdivideTask = function(taskId, count = 2, event = null) {
+  if (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
+  const task = state.tasks.find(x => x.id === taskId);
+  if (!task) return;
+
+  if (task.pipeline && task.pipeline.enabled && Array.isArray(task.pipeline.phases) && task.pipeline.phases.length > 0) {
+    // Ajouter une passe / sous-mission supplémentaire directement
+    const nextIdx = task.pipeline.phases.length + 1;
+    const isRepeatStyle = task.pipeline.phases.some(p => /passe|s[ée]ance/i.test(p.title || ''));
+    const ordinals = ['1re passe', '2e passe', '3e passe', '4e passe', '5e passe', '6e passe', '7e passe', '8e passe', '9e passe', '10e passe'];
+    const newTitle = isRepeatStyle ? (ordinals[nextIdx - 1] || `Séance ${nextIdx}`) : `Sous-mission ${nextIdx}`;
+    const lastDur = parseFloat(task.pipeline.phases[task.pipeline.phases.length - 1]?.duration) || 0.5;
+    task.pipeline.phases.push({
+      id: 'ph_' + Date.now() + '_' + nextIdx,
+      title: newTitle,
+      duration: lastDur,
+      done: false
+    });
+    task.duration = Number(task.pipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0).toFixed(2));
+    if (isTaskCompleted(task)) {
+      setTaskCompletedState(task, false);
+      task.status = 'in_progress';
+    }
+    saveState();
+    renderCahier();
+    if (state.activeTab === 'agenda') renderAgenda();
+    showToast(`Sous-mission ${nextIdx} ajoutée`);
+    return;
+  }
+
+  const targetCount = Math.max(2, parseInt(count, 10) || 2);
+  const baseDur = parseFloat(task.duration) || 1.5;
+  const phases = buildDefaultPipelinePhases(baseDur, targetCount, task.type, 'auto');
+  task.pipeline = { enabled: true, phases };
+  task.duration = Number(phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0).toFixed(2));
+  saveState();
+  renderCahier();
+  if (state.activeTab === 'agenda') renderAgenda();
+  showToast(`Mission subdivisée en ${phases.length} sous-missions`);
 };
 
 function renderTaskTypeBadge(typeId) {
@@ -354,16 +410,21 @@ function renderPipelineProgressHtml(task) {
   return `
     <div class="pipeline-steps-bar" onclick="event.stopPropagation();">
       <div class="pipeline-header-tag mono">
-        <i class="ph-bold ph-git-commit"></i> PIPELINE (${doneCount}/${totalCount})
+        <i class="ph-bold ph-git-commit"></i> SOUS-MISSIONS (${doneCount}/${totalCount})
       </div>
       <div class="pipeline-steps-list">
         ${task.pipeline.phases.map((ph, idx) => `
-          <button type="button" onclick="event.stopPropagation(); window.toggleTaskPhase('${task.id}', ${idx}, event)" class="pipeline-step-chip ${ph.done ? 'done' : ''}" title="Cliquer pour valider/invalider cette étape">
+          <button type="button" onclick="event.stopPropagation(); window.toggleTaskPhase('${task.id}', ${idx}, event)" class="pipeline-step-chip ${ph.done ? 'done' : ''}" title="Cliquer pour valider/invalider cette sous-mission">
             <span class="pipeline-step-check">${ph.done ? '<i class="ph-bold ph-check"></i>' : (idx + 1)}</span>
             <span class="pipeline-step-title">${escapeHtml(ph.title)}</span>
             <span class="pipeline-step-dur mono">${ph.duration}h</span>
           </button>
         `).join('')}
+        ${!isTaskCompleted(task) && totalCount < 10 ? `
+          <button type="button" onclick="event.stopPropagation(); window.quickSubdivideTask('${task.id}', 1, event)" class="pipeline-step-chip" style="padding:3px 8px; border-style:dashed; color:var(--text-muted);" title="Ajouter une passe ou sous-mission supplémentaire">
+            <i class="ph-bold ph-plus" style="font-size:10px;"></i>
+          </button>
+        ` : ''}
       </div>
     </div>
   `;
@@ -382,7 +443,7 @@ window.toggleTaskPhase = function(taskId, phaseIdx, event) {
   const someDone = task.pipeline.phases.some(p => p.done);
   if (allDone) {
     setTaskCompletedState(task, true);
-    showToast('Pipeline complété : Mission terminée !');
+    showToast('Toutes les sous-missions sont validées : Mission terminée !');
   } else if (someDone) {
     setTaskCompletedState(task, false);
     task.status = 'in_progress';
@@ -392,6 +453,7 @@ window.toggleTaskPhase = function(taskId, phaseIdx, event) {
   }
   saveState();
   renderCahier();
+  if (state.activeTab === 'agenda') renderAgenda();
 };
 
 // Clic général sur une ligne de tâche : ignore strictement tout clic provenant d'un bouton ou d'une checkbox
@@ -409,7 +471,8 @@ function renderSingleTaskRow(t, sL) {
   const imp = parseFloat(t.importance) || 1.0;
   const remDur = getTaskRemainingDuration(t);
   const totDur = getTaskTotalDuration(t);
-  const durLabel = t.pipeline && t.pipeline.enabled && !isDone && remDur !== totDur
+  const hasPipeline = Boolean(t.pipeline && t.pipeline.enabled && Array.isArray(t.pipeline.phases) && t.pipeline.phases.length > 0);
+  const durLabel = hasPipeline && !isDone && remDur !== totDur
     ? `${remDur}h/${totDur}h`
     : `${totDur}h`;
 
@@ -441,6 +504,7 @@ function renderSingleTaskRow(t, sL) {
             <div class="pressure-track"><div class="pressure-fill" style="width:${p.pct}%; background:${p.color};"></div></div>
           </div>
           <button type="button" onclick="event.stopPropagation(); window.cycleStatus('${t.id}', event)" class="btn-ghost task-action-btn" style="padding:6px 10px; font-size:11.5px;">${sL[t.status] || 'À faire'}</button>
+          ${!hasPipeline && !isDone ? `<button type="button" onclick="event.stopPropagation(); window.quickSubdivideTask('${t.id}', 2, event)" class="btn-ghost task-action-btn" style="padding:7px 9px; color:#38BDF8;" title="Subdiviser en sous-missions ou passes (×2)"><i class="ph-bold ph-git-commit"></i></button>` : ''}
           <button type="button" onclick="event.stopPropagation(); window.openMissionModal('${t.id}', event)" class="btn-ghost task-action-btn" style="padding:7px 10px;" title="Modifier"><i class="ph ph-pencil-simple"></i></button>
           <button type="button" onclick="event.stopPropagation(); window.deleteTask('${t.id}', event)" class="btn-ghost task-action-btn" style="padding:7px 10px; color:#F87171;" title="Supprimer"><i class="ph ph-trash"></i></button>
         </div>
@@ -540,6 +604,7 @@ function renderCahier() {
               const p = computePressure(t);
               const isDone = isTaskCompleted(t);
               const imp = parseFloat(t.importance) || 1.0;
+              const hasPipeline = Boolean(t.pipeline && t.pipeline.enabled && Array.isArray(t.pipeline.phases) && t.pipeline.phases.length > 0);
               return `
                 <div class="saas-card kanban-card" draggable="true" ondragstart="window.onKanbanDragStart(event, '${t.id}')" ondragend="window.onKanbanDragEnd(event)" style="border-left:3px solid ${s.color}; ${isDone ? 'opacity:0.5;' : ''}">
                   <div class="k-head">
@@ -553,6 +618,7 @@ function renderCahier() {
                       ${Math.abs(imp - 1.0) >= 0.05 ? `<span class="imp-scalar-badge mono">×${imp.toFixed(1)}</span>` : ''}
                     </div>
                     <div class="k-actions" onclick="event.stopPropagation();">
+                      ${!hasPipeline && !isDone ? `<button type="button" onclick="event.stopPropagation(); window.quickSubdivideTask('${t.id}', 2, event)" class="k-btn" style="color:#38BDF8;" title="Subdiviser en sous-missions (×2)"><i class="ph-bold ph-git-commit"></i></button>` : ''}
                       <button type="button" onclick="event.stopPropagation(); window.cycleStatus('${t.id}', event)" class="k-btn" title="Changer statut"><i class="ph ph-arrow-right"></i></button>
                       <button type="button" onclick="event.stopPropagation(); window.openMissionModal('${t.id}', event)" class="k-btn" title="Modifier"><i class="ph ph-pencil-simple"></i></button>
                       <button type="button" onclick="event.stopPropagation(); window.deleteTask('${t.id}', event)" class="k-btn k-del" title="Supprimer"><i class="ph ph-trash"></i></button>
@@ -686,6 +752,14 @@ window.selectMissionType = function(typeId) {
   if (!TASK_TYPES[typeId]) return;
   currentModalTaskType = typeId;
   renderModalTypePills();
+  if (currentModalPipeline && currentModalPipeline.enabled && Array.isArray(currentModalPipeline.phases)) {
+    const isUntouchedDefault = currentModalPipeline.phases.every(p => !p.done && /^(Phase|Étape|Partie|Sous-mission|\d+r?e\s+passe)\b/i.test(p.title || ''));
+    if (isUntouchedDefault) {
+      const dur = parseFloat(document.getElementById('m-duration')?.value) || 1.5;
+      currentModalPipeline.phases = buildDefaultPipelinePhases(dur, currentModalPipeline.phases.length || 2, currentModalTaskType, 'auto');
+      renderModalPipelineEditor();
+    }
+  }
 };
 
 function renderModalTypePills() {
@@ -741,15 +815,51 @@ window.onImportanceSliderInput = function(val) {
 window.toggleModalPipeline = function() {
   currentModalPipeline.enabled = !currentModalPipeline.enabled;
   if (currentModalPipeline.enabled && (!currentModalPipeline.phases || !currentModalPipeline.phases.length)) {
-    const dur = parseFloat(document.getElementById('m-duration').value) || 2;
-    currentModalPipeline.phases = buildDefaultPipelinePhases(dur, 3);
+    const dur = parseFloat(document.getElementById('m-duration').value) || 1.5;
+    const defaultCount = (currentModalTaskType === 'Cours' || currentModalTaskType === 'Révision') ? 2 : 3;
+    currentModalPipeline.phases = buildDefaultPipelinePhases(dur, defaultCount, currentModalTaskType, 'auto');
   }
   renderModalPipelineEditor();
 };
 
-window.setModalPipelineCount = function(count) {
-  const dur = parseFloat(document.getElementById('m-duration').value) || 2;
-  currentModalPipeline.phases = buildDefaultPipelinePhases(dur, count);
+window.setModalPipelineCount = function(count, mode = 'auto') {
+  const dur = parseFloat(document.getElementById('m-duration').value) || 1.5;
+  currentModalPipeline.phases = buildDefaultPipelinePhases(dur, count, currentModalTaskType, mode);
+  const total = currentModalPipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0);
+  const durEl = document.getElementById('m-duration');
+  if (durEl) durEl.value = Number(total.toFixed(2));
+  renderModalPipelineEditor();
+};
+
+window.addModalPipelinePhase = function() {
+  if (!Array.isArray(currentModalPipeline.phases)) currentModalPipeline.phases = [];
+  if (currentModalPipeline.phases.length >= 10) return;
+  const nextIdx = currentModalPipeline.phases.length + 1;
+  const isRepeat = currentModalPipeline.phases.some(p => /passe|s[ée]ance/i.test(p.title || ''));
+  const ordinals = ['1re passe', '2e passe', '3e passe', '4e passe', '5e passe', '6e passe', '7e passe', '8e passe', '9e passe', '10e passe'];
+  const defaultTitle = isRepeat ? (ordinals[nextIdx - 1] || `Séance ${nextIdx}`) : `Sous-mission ${nextIdx}`;
+  const defaultDur = currentModalPipeline.phases.length > 0
+    ? (parseFloat(currentModalPipeline.phases[currentModalPipeline.phases.length - 1].duration) || 0.5)
+    : 0.5;
+
+  currentModalPipeline.phases.push({
+    id: 'ph_' + Date.now() + '_' + nextIdx,
+    title: defaultTitle,
+    duration: defaultDur,
+    done: false
+  });
+  const total = currentModalPipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0);
+  const durEl = document.getElementById('m-duration');
+  if (durEl) durEl.value = Number(total.toFixed(2));
+  renderModalPipelineEditor();
+};
+
+window.removeModalPipelinePhase = function(idx) {
+  if (!Array.isArray(currentModalPipeline.phases) || currentModalPipeline.phases.length <= 1) return;
+  currentModalPipeline.phases.splice(idx, 1);
+  const total = currentModalPipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0);
+  const durEl = document.getElementById('m-duration');
+  if (durEl) durEl.value = Number(total.toFixed(2));
   renderModalPipelineEditor();
 };
 
@@ -761,7 +871,7 @@ window.updateModalPipelinePhase = function(idx, field, val) {
     currentModalPipeline.phases[idx].duration = Math.max(0.25, parseFloat(val) || 0.5);
     const total = currentModalPipeline.phases.reduce((acc, p) => acc + (parseFloat(p.duration) || 0.5), 0);
     const durEl = document.getElementById('m-duration');
-    if (durEl) durEl.value = Number(total.toFixed(1));
+    if (durEl) durEl.value = Number(total.toFixed(2));
   } else if (field === 'done') {
     currentModalPipeline.phases[idx].done = !!val;
     renderModalPipelineEditor();
@@ -775,8 +885,8 @@ function renderModalPipelineEditor() {
 
   btn.classList.toggle('active-pill', currentModalPipeline.enabled);
   btn.innerHTML = currentModalPipeline.enabled
-    ? `<i class="ph-bold ph-check-circle" style="color:#10B981;"></i> <span>Mode Pipeline activé (${currentModalPipeline.phases.length} étapes)</span>`
-    : `<i class="ph-bold ph-git-commit"></i> <span>Activer le Mode Pipeline (Subdiviser en 2 ou 3 phases)</span>`;
+    ? `<i class="ph-bold ph-check-circle" style="color:#10B981;"></i> <span>Subdivision activée (${currentModalPipeline.phases.length} sous-missions / passes)</span>`
+    : `<i class="ph-bold ph-git-commit"></i> <span>Subdiviser en sous-missions ou passes (ex: Apprendre mon cours ×2/×3, TD, DM...)</span>`;
 
   if (!currentModalPipeline.enabled) {
     box.style.display = 'none';
@@ -785,28 +895,46 @@ function renderModalPipelineEditor() {
 
   box.style.display = 'flex';
   const count = currentModalPipeline.phases.length;
+  const isRepeatMode = currentModalPipeline.phases.every(p => /^\d+r?e\s+passe$/i.test((p.title || '').trim()));
+
   box.innerHTML = `
     <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
-      <span style="font-size:11.5px; font-weight:600; color:var(--text-muted);">Découpage en sous-phases :</span>
-      <div style="display:flex; gap:6px;">
-        <button type="button" onclick="window.setModalPipelineCount(2)" class="btn-ghost ${count === 2 ? 'active-pill' : ''}" style="padding:4px 10px; font-size:11px;">2 Phases</button>
-        <button type="button" onclick="window.setModalPipelineCount(3)" class="btn-ghost ${count === 3 ? 'active-pill' : ''}" style="padding:4px 10px; font-size:11px;">3 Phases</button>
+      <span style="font-size:11.5px; font-weight:600; color:var(--text-muted);">Modèles rapides :</span>
+      <div style="display:flex; gap:5px; flex-wrap:wrap;">
+        <button type="button" onclick="window.setModalPipelineCount(2, 'auto')" class="btn-ghost ${count === 2 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 2 étapes adaptées au type de tâche">2 Étapes</button>
+        <button type="button" onclick="window.setModalPipelineCount(3, 'auto')" class="btn-ghost ${count === 3 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 3 étapes adaptées au type de tâche">3 Étapes</button>
+        <button type="button" onclick="window.setModalPipelineCount(4, 'auto')" class="btn-ghost ${count === 4 && !isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px;" title="Découper en 4 étapes">4 Étapes</button>
+        <button type="button" onclick="window.setModalPipelineCount(${Math.max(2, count)}, 'repeat')" class="btn-ghost ${isRepeatMode ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px; color:#38BDF8;" title="Idéal pour une mission à faire plusieurs fois (1re passe, 2e passe, 3e passe...)">
+          <i class="ph-bold ph-repeat"></i> Répéter (${Math.max(2, count)}×)
+        </button>
       </div>
     </div>
     <div style="display:flex; flex-direction:column; gap:7px;">
       ${currentModalPipeline.phases.map((ph, idx) => `
-        <div style="display:flex; align-items:center; gap:8px;">
-          <button type="button" onclick="window.updateModalPipelinePhase(${idx}, 'done', ${!ph.done})" class="custom-check ${ph.done ? 'checked' : ''}" title="Marquer cette phase comme terminée">
+        <div style="display:flex; align-items:center; gap:7px;">
+          <button type="button" onclick="window.updateModalPipelinePhase(${idx}, 'done', ${!ph.done})" class="custom-check ${ph.done ? 'checked' : ''}" title="Marquer cette sous-mission comme terminée">
             ${ph.done ? '<i class="ph-bold ph-check text-xs"></i>' : ''}
           </button>
-          <input type="text" class="saas-input" style="flex:1; padding:6px 10px; font-size:12px;" value="${escapeHtml(ph.title)}" oninput="window.updateModalPipelinePhase(${idx}, 'title', this.value)" />
-          <div style="display:flex; align-items:center; gap:4px; width:82px;">
-            <input type="number" class="saas-input mono" style="padding:6px 8px; font-size:12px;" step="0.25" min="0.25" value="${ph.duration}" oninput="window.updateModalPipelinePhase(${idx}, 'duration', this.value)" />
+          <input type="text" class="saas-input" style="flex:1; padding:6px 10px; font-size:12px;" value="${escapeHtml(ph.title)}" placeholder="Sous-mission ${idx + 1}" oninput="window.updateModalPipelinePhase(${idx}, 'title', this.value)" />
+          <div style="display:flex; align-items:center; gap:4px; width:78px;">
+            <input type="number" class="saas-input mono" style="padding:6px 7px; font-size:12px;" step="0.25" min="0.25" value="${ph.duration}" oninput="window.updateModalPipelinePhase(${idx}, 'duration', this.value)" />
             <span class="mono" style="font-size:11px; color:var(--text-subtle);">h</span>
           </div>
+          ${count > 1 ? `
+            <button type="button" onclick="window.removeModalPipelinePhase(${idx})" class="btn-ghost" style="padding:4px 6px; min-height:26px; border:none; color:var(--text-subtle);" title="Supprimer cette étape">
+              <i class="ph-bold ph-x"></i>
+            </button>
+          ` : ''}
         </div>
       `).join('')}
     </div>
+    ${count < 10 ? `
+      <div style="display:flex; justify-content:flex-start; margin-top:2px;">
+        <button type="button" onclick="window.addModalPipelinePhase()" class="btn-ghost" style="padding:5px 10px; font-size:11px; border-style:dashed; color:#38BDF8;">
+          <i class="ph-bold ph-plus"></i> Ajouter une sous-mission / passe
+        </button>
+      </div>
+    ` : ''}
   `;
 }
 

@@ -397,7 +397,7 @@ function getTaskActivePhaseLabel(task) {
     if (idx !== -1) {
       return `${task.pipeline.phases[idx].title} (${idx + 1}/${task.pipeline.phases.length})`;
     }
-    return `Pipeline complété (${task.pipeline.phases.length}/${task.pipeline.phases.length})`;
+    return `Toutes les sous-missions validées (${task.pipeline.phases.length}/${task.pipeline.phases.length})`;
   }
   return null;
 }
@@ -1384,6 +1384,7 @@ function renderEveningPlanner(weekDates) {
                 </div>
                 <div class="evening-task-title" style="${isDone ? 'text-decoration:line-through; color:var(--text-subtle);' : 'color:var(--text-main);'}">${escapeHtml(t.title)}</div>
                 ${phaseLbl ? `<div style="font-size:11.5px; color:${isDone ? '#10B981' : '#38BDF8'}; margin-top:3px; font-weight:600; ${isDone ? 'text-decoration:line-through;' : ''}"><i class="ph-bold ph-git-commit"></i> ${escapeHtml(phaseLbl)}</div>` : ''}
+                ${typeof renderPipelineProgressHtml === 'function' ? renderPipelineProgressHtml(t) : ''}
                 ${t.note ? `<div style="font-size:11.5px; color:var(--text-muted); margin-top:2px; ${isDone ? 'text-decoration:line-through;' : ''}">${escapeHtml(t.note)}</div>` : ''}
               </div>
             </div>

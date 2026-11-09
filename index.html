@@ -172,10 +172,18 @@
           <input type="text" id="qa-title" class="saas-input" style="flex:1; min-width:190px;" placeholder="Ajout rapide : DM, TD, Préparation colle..." required />
           <div id="qa-subject-select" style="width:155px;"></div>
           <label class="qa-field qa-dur"><span class="qa-lbl">Durée (h)</span>
-            <input type="number" id="qa-duration" class="saas-input mono" style="width:84px;" placeholder="1.5h" step="0.5" min="0.5" value="1.5" />
+            <input type="number" id="qa-duration" class="saas-input mono" style="width:76px;" placeholder="1.5h" step="0.25" min="0.25" value="1.5" />
+          </label>
+          <label class="qa-field" title="Subdiviser cette mission en plusieurs sous-missions ou passes (ex: Apprendre mon cours 2x ou 3x)"><span class="qa-lbl">Étapes</span>
+            <select id="qa-steps" class="saas-input mono" style="width:92px; padding:7px 8px; font-size:12px;">
+              <option value="1">1 bloc</option>
+              <option value="2">2 étapes</option>
+              <option value="3">3 étapes</option>
+              <option value="4">4 étapes</option>
+            </select>
           </label>
           <label class="qa-field qa-date"><span class="qa-lbl">Échéance</span>
-            <input type="date" id="qa-duedate" class="saas-input mono" style="width:140px;" />
+            <input type="date" id="qa-duedate" class="saas-input mono" style="width:136px;" />
           </label>
           <button type="submit" class="btn-primary">
             <i class="ph-bold ph-plus"></i> Ajouter
@@ -427,10 +435,10 @@
           <button type="button" onclick="window.setModalQuickDate(5)" class="btn-ghost" style="font-size:11px; padding:4px 8px;">+5 jours</button>
         </div>
 
-        <!-- MODE PIPELINE (SUBDIVISION EN 2 OU 3 PHASES) -->
+        <!-- MODE SOUS-MISSIONS / RÉPÉTITIONS (TOUTES MISSIONS : COURS, TD, COLLE, DM...) -->
         <div>
           <button type="button" id="m-pipeline-toggle-btn" onclick="window.toggleModalPipeline()" class="btn-ghost" style="width:100%; justify-content:center; padding:8px 12px; font-size:12px;">
-            <i class="ph-bold ph-git-commit"></i> <span>Activer le Mode Pipeline (Subdiviser DM / Dossier)</span>
+            <i class="ph-bold ph-git-commit"></i> <span>Subdiviser en sous-missions ou passes (ex: Apprendre mon cours ×2/×3, TD, DM...)</span>
           </button>
           <div id="m-pipeline-box" style="display:none; flex-direction:column; gap:10px; margin-top:8px; padding:12px; border-radius:10px; background:rgba(255,255,255,0.03); border:1px solid var(--border-subtle);"></div>
         </div>
