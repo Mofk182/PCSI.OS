@@ -11,6 +11,8 @@ const { createModeManager, NEXT } = require('./mode-manager.js');
 const { buildTrayTemplate } = require('./tray.js');
 const { registerShortcuts } = require('./shortcuts.js');
 const { applyInteractive } = require('./interactive.js');
+const { callAnki } = require('./anki.js');
+const { setCapture } = require('./capture.js');
 
 const WEB_ROOT = path.join(__dirname, '..', 'web');
 const SMOKE = process.argv.includes('--smoke');
@@ -33,6 +35,7 @@ function start() {
   let routes = { tray: false, shortcut: false };
   let lastOverlay = 'widget';
   let currentWin = null;
+  let currentCfg = null;
   const cli = parseArgs(process.argv);
 
   const saveState = () => saveDesktopState(stateFile, state);
@@ -81,6 +84,7 @@ function start() {
         if (cfg.post.maximize) win.maximize();
         win.show();
         currentWin = win;
+        currentCfg = cfg;
         resolve(win);
       });
       win.webContents.once('did-fail-load', (_e, code, desc) => reject(new Error(`chargement impossible (${code} ${desc})`)));
@@ -159,7 +163,11 @@ function start() {
     setWidget: size => { state.widgetSize = size; saveState(); return requestMode('widget'); },
     nextMode: () => requestMode(nextAllowed(manager.current())),
     toggle: toggleOverlay,
-    quickAdd: () => sendToPage('pcsi:quick-add'),
+    quickAdd: () => {
+      if (!currentWin || currentWin.isDestroyed()) return;
+      if (!currentWin.isVisible()) currentWin.show();
+      sendToPage('pcsi:quick-add');
+    },
     toggleIsland: () => sendToPage('pcsi:toggle-island'),
     toggleNoTransparency: () => {
       state.noTransparency = !state.noTransparency;
@@ -231,6 +239,27 @@ function start() {
       return requestMode(mode);
     });
     ipcMain.handle('pcsi:quit', e => { if (trustedSender(e)) app.quit(); });
+    ipcMain.handle('pcsi:anki-invoke', async (e, action, params) => {
+      if (!trustedSender(e)) return { ok: false, code: 'forbidden', message: 'requête refusée' };
+      try {
+        const result = await callAnki(fetch, String(action), params && typeof params === 'object' ? params : {});
+        return { ok: true, result };
+      } catch (err) {
+        return { ok: false, code: err.code || 'unreachable', message: err.message };
+      }
+    });
+    ipcMain.handle('pcsi:quick-add-capture', (e, on) => {
+      if (!trustedSender(e) || !currentWin || currentWin.isDestroyed()) return;
+      if (manager.current() === 'hud' && currentCfg) {
+        setCapture(currentWin, process.platform, on === true, {
+          ignoreMouse: currentCfg.post.ignoreMouse,
+          focusable: currentCfg.options.focusable !== false
+        });
+      } else if (on === true) {
+        currentWin.show();
+        currentWin.focus();
+      }
+    });
     ipcMain.handle('pcsi:set-interactive', (e, interactive) => {
       if (!trustedSender(e) || manager.current() !== 'hud') return;
       const win = BrowserWindow.fromWebContents(e.sender);

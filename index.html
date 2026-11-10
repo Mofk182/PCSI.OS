@@ -34,6 +34,23 @@
 
   <div id="pcsi-drag-handle" aria-hidden="true"></div>
   <button type="button" id="pcsi-mode-btn" title="Changer de mode (plein écran, widget, HUD)" aria-label="Changer de mode"><i class="ph ph-picture-in-picture"></i></button>
+  <div id="quick-add" class="quick-add" role="dialog" aria-modal="true" aria-labelledby="quick-add-title" hidden>
+    <div class="quick-add-card">
+      <div class="quick-add-head">
+        <span id="quick-add-title"><i class="ph-bold ph-lightning"></i> Ajout rapide Anki</span>
+        <button type="button" id="quick-add-close" aria-label="Fermer"><i class="ph-bold ph-x"></i></button>
+      </div>
+      <input type="text" id="quick-add-front" class="saas-input" placeholder="Mot" autocomplete="off" spellcheck="false" />
+      <input type="text" id="quick-add-back" class="saas-input" placeholder="Traduction" autocomplete="off" spellcheck="false" />
+      <input type="text" id="quick-add-deck" class="saas-input mono" placeholder="Paquet (PCSI::Vocabulaire)" autocomplete="off" spellcheck="false" />
+      <div id="quick-add-status"></div>
+      <div class="quick-add-actions">
+        <button type="button" id="quick-add-copy" class="btn-ghost" style="display:none;">Copier la carte</button>
+        <button type="button" id="quick-add-submit" class="btn-primary">Ajouter ↵</button>
+      </div>
+    </div>
+  </div>
+
   <div id="pcsi-hud-bar" data-hud-zone role="group" aria-label="Changer de mode">
     <button type="button" data-mode-target="widget" title="Passer en widget" aria-label="Passer en widget"><i class="ph ph-picture-in-picture"></i></button>
     <button type="button" data-mode-target="fullscreen" title="Passer en plein écran" aria-label="Passer en plein écran"><i class="ph ph-arrows-out"></i></button>
@@ -1259,11 +1276,13 @@
   <script src="js/postits.js"></script>
   <script src="js/data.js"></script>
   <script src="js/portals.js"></script>
+  <script src="js/anki-card.js"></script>
   <script src="js/daily_drop.js"></script>
   <script src="js/onboarding.js"></script>
   <script src="js/nav-glide.js"></script>
   <script src="js/desktop-bridge.js"></script>
   <script src="js/hud-zones.js"></script>
+  <script src="js/quick-add.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

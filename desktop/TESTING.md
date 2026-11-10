@@ -56,6 +56,24 @@ En développement, `pcsi-os --…` s'écrit `npx electron . --…` (dans `deskto
 | Parcourir les 5 onglets dans le panneau | Aucun défilement horizontal, grilles en une colonne | Idem |
 | Fenêtre qui reste au-dessus des autres | Oui | À vérifier (rapports d'échecs sous Ubuntu) |
 
+## Saisie rapide Anki
+
+Prérequis : Anki ouvert, greffon AnkiConnect (code `2055492159`) installé. Aucune règle CORS à configurer pour l'appli de bureau.
+
+| Vérification | Résultat attendu |
+|---|---|
+| `Ctrl+Alt+A` en plein écran, en widget et en HUD | Un panneau « Ajout rapide Anki » s'ouvre en haut au centre, le curseur est dans « Mot » |
+| Saisir un mot, sa traduction, puis `Entrée` | La carte apparaît dans Anki (paquet `PCSI::Vocabulaire` par défaut), message vert, champs vidés, curseur de retour sur « Mot » pour la carte suivante |
+| `Échap`, ou clic en dehors du panneau | Le panneau se ferme ; en HUD les clics traversent de nouveau la fenêtre |
+| HUD sous Windows : après fermeture, survoler et cliquer le panneau principal | Le HUD réagit comme avant la saisie rapide (survol, clics) |
+| HUD sous Linux : après fermeture | Le HUD est de nouveau en lecture seule, les clics atteignent le bureau |
+| Anki fermé | Message « Anki est fermé ou le greffon AnkiConnect n'est pas installé » et bouton « Copier la carte » |
+| Mot ou traduction vide | « Renseigne le mot et sa traduction. » |
+| Mot avec `<`, `&` ou des guillemets | Le texte apparaît tel quel dans la carte |
+| `pcsi-os --quick-add` depuis un terminal (widget masqué par `Ctrl+Alt+P`) | Le widget réapparaît avec le panneau ouvert |
+| Wayland, HUD : taper tout de suite après `Ctrl+Alt+A` | Le texte arrive dans « Mot ». Sinon : le noter (repli prévu : saisie rapide depuis le widget) |
+| Fenêtre « Ajouter à Anki » du Daily Drop | Fonctionne comme avant |
+
 ## Notes d'environnement de développement
 
 - `npm run build:web` télécharge Tailwind depuis `https://cdn.tailwindcss.com/3.4.17`. Hors ligne : `TAILWIND_LOCAL=/chemin/vers/tailwind.js npm run build:web`.

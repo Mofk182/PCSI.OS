@@ -327,6 +327,13 @@ window.copyAnkiCardFallback = function() {
  * pour éviter le preflight OPTIONS quand c'est possible, et teste 127.0.0.1 puis localhost.
  */
 async function invokeAnkiConnect(action, params = {}) {
+  // Appli de bureau : l'appel part du processus principal, donc aucune règle CORS à configurer dans Anki.
+  if (window.pcsiDesktop && typeof window.pcsiDesktop.ankiInvoke === 'function') {
+    const r = await window.pcsiDesktop.ankiInvoke(action, params);
+    if (r && r.ok) return { result: r.result, error: null };
+    if (r && r.code === 'anki-error') return { result: null, error: r.message };
+    throw new Error((r && r.message) || 'AnkiConnect unreachable');
+  }
   const payload = JSON.stringify({ action, version: 6, params });
   const endpoints = ['http://127.0.0.1:8765', 'http://localhost:8765'];
   let lastErr = null;
@@ -416,6 +423,45 @@ window.closeAnkiModal = function() {
   if (m) m.classList.remove('open');
 };
 
+/**
+ * Ajoute une carte (recto, verso) dans le paquet donné via AnkiConnect.
+ * Renvoie { ok: true, deckName } ou { ok: false, kind, error } avec kind = 'empty' | 'permission' | 'anki' | 'unreachable'.
+ * Partagée par la fenêtre « Ajouter à Anki » et par le panneau de saisie rapide.
+ */
+window.addAnkiCard = async function(front, back, deck) {
+  const fields = buildAnkiNoteFields(front, back);
+  if (!fields) return { ok: false, kind: 'empty', error: 'Renseigne le Recto (Front) et le Verso (Back)' };
+  const deckName = String(deck || '').trim() || 'PCSI::Vocabulaire';
+  try {
+    // 1. Permission AnkiConnect (indispensable au 1er appel depuis le web, sinon 403 Forbidden)
+    const permRes = await invokeAnkiConnect('requestPermission');
+    if (permRes && permRes.result && permRes.result.permission === 'denied') {
+      return { ok: false, kind: 'permission', error: 'PERMISSION_DENIED' };
+    }
+    // 2. Créer le deck (hiérarchie Parent::Child supportée) au cas où il n'existe pas encore
+    await invokeAnkiConnect('createDeck', { deck: deckName });
+    // 3. Détecter le modèle (Basic en EN, Basique en FR) et ses champs (Front/Back ou Recto/Verso)
+    const { modelName, frontField, backField } = await resolveAnkiNoteModelAndFields();
+    const fieldsObj = {};
+    fieldsObj[frontField] = fields.Front;
+    fieldsObj[backField] = fields.Back;
+    // 4. addNote
+    const data = await invokeAnkiConnect('addNote', {
+      note: {
+        deckName,
+        modelName,
+        fields: fieldsObj,
+        options: { allowDuplicate: true, duplicateScope: 'deck' },
+        tags: ['pcsi_os', 'daily_drop']
+      }
+    });
+    if (data && data.error) return { ok: false, kind: 'anki', error: String(data.error) };
+    return { ok: true, deckName };
+  } catch (err) {
+    return { ok: false, kind: 'unreachable', error: (err && err.message) ? err.message : String(err) };
+  }
+};
+
 window.submitAnkiCard = async function(e) {
   if (e) e.preventDefault();
   const deckEl = document.getElementById('anki-deck-input');
@@ -455,49 +501,34 @@ window.submitAnkiCard = async function(e) {
   }
 
   try {
-    // 1. Demander la permission à AnkiConnect (indispensable au 1er appel sinon AnkiConnect renvoie 403 Forbidden)
-    const permRes = await invokeAnkiConnect('requestPermission');
-    if (permRes && permRes.result && permRes.result.permission === 'denied') {
-      throw new Error('PERMISSION_DENIED');
-    }
-
-    // 2. Créer le deck (supporte la hiérarchie Parent::Child) au cas où il n'existe pas encore dans Anki
-    await invokeAnkiConnect('createDeck', { deck: deckName });
-
-    // 3. Détecter automatiquement le modèle (Basic en EN, Basique en FR) et ses champs (Front/Back ou Recto/Verso)
-    const { modelName, frontField, backField } = await resolveAnkiNoteModelAndFields();
-    const fieldsObj = {};
-    fieldsObj[frontField] = frontHtml;
-    fieldsObj[backField] = backHtml;
-
-    // 4. Appel addNote via AnkiConnect
-    const data = await invokeAnkiConnect('addNote', {
-      note: {
-        deckName,
-        modelName,
-        fields: fieldsObj,
-        options: {
-          allowDuplicate: true,
-          duplicateScope: 'deck'
-        },
-        tags: ['pcsi_os', 'daily_drop']
-      }
-    });
-
-    if (data && data.error) {
+    const res = await window.addAnkiCard(frontRaw, backRaw, deckName);
+    if (res.ok) {
+      window.closeAnkiModal();
+      showToast(`Carte ajoutée dans Anki (${deckName}) ✓`);
+    } else if (res.kind === 'anki') {
       if (statusEl) {
         statusEl.style.display = 'block';
         statusEl.style.background = 'rgba(245, 158, 11, 0.14)';
         statusEl.style.border = '1px solid rgba(245, 158, 11, 0.35)';
         statusEl.style.color = '#FBBF24';
-        statusEl.textContent = `AnkiConnect : ${data.error}`;
+        statusEl.textContent = `AnkiConnect : ${res.error}`;
       }
-      showToast(`Anki : ${data.error}`);
+      showToast(`Anki : ${res.error}`);
     } else {
-      window.closeAnkiModal();
-      showToast(`Carte ajoutée dans Anki (${deckName}) ✓`);
+      throw new Error(res.error || 'AnkiConnect unreachable');   // permission refusée ou Anki injoignable : message de connexion ci-dessous
     }
   } catch (err) {
+    if (window.pcsiDesktop) {
+      if (statusEl) {
+        statusEl.style.display = 'block';
+        statusEl.style.background = 'rgba(239, 68, 68, 0.12)';
+        statusEl.style.border = '1px solid rgba(239, 68, 68, 0.35)';
+        statusEl.style.color = '#FCA5A5';
+        statusEl.textContent = "Anki est fermé ou le greffon AnkiConnect (code 2055492159) n'est pas installé. Ouvre Anki puis réessaie.";
+      }
+      showToast('Anki injoignable : ouvre Anki (greffon AnkiConnect requis)');
+      return;
+    }
     const curOrigin = (typeof window !== 'undefined' && window.location) ? (window.location.origin || 'null') : 'null';
     if (statusEl) {
       statusEl.style.display = 'block';
