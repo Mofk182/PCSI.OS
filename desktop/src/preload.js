@@ -16,6 +16,7 @@ contextBridge.exposeInMainWorld('pcsiDesktop', {
   setMode: mode => ipcRenderer.invoke('pcsi:set-mode', mode),
   onModeChange: cb => { ipcRenderer.on('pcsi:mode-changed', (_e, mode) => cb(mode)); },
   setInteractive: interactive => ipcRenderer.invoke('pcsi:set-interactive', interactive === true),
+  onToggleIsland: cb => { ipcRenderer.on('pcsi:toggle-island', () => cb()); },
   onQuickAdd: cb => { ipcRenderer.on('pcsi:quick-add', () => cb()); },
   setQuickAddCapture: on => ipcRenderer.invoke('pcsi:quick-add-capture', on === true),
   ankiInvoke: (action, params) => ipcRenderer.invoke('pcsi:anki-invoke', action, params),

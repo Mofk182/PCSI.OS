@@ -33,9 +33,9 @@ function createZoneTracker(setInteractive) {
   const tracker = createZoneTracker(active ? (b => { window.pcsiDesktop.setInteractive(b); }) : (() => {}));
   window.pcsiHudZones = tracker;
   if (!active) return;
-  document.addEventListener('pointermove', e => {
-    tracker.track(!!(e.target && e.target.closest && e.target.closest(HUD_ZONE_SELECTOR)));
-  }, { passive: true });
+  const onMove = e => { tracker.track(!!(e.target && e.target.closest && e.target.closest(HUD_ZONE_SELECTOR))); };
+  document.addEventListener('pointermove', onMove, { passive: true });
+  document.addEventListener('mousemove', onMove, { passive: true });   // Windows : mouvements renvoyés à travers une fenêtre « clics ignorés »
 })();
 
 if (typeof module !== 'undefined' && module.exports) module.exports = { createZoneTracker, HUD_ZONE_SELECTOR };

@@ -913,3 +913,71 @@ html[data-mode="hud"] .v3-bento-cahier-grid,
 html[data-mode="hud"] .evening-planner-grid,
 html[data-mode="hud"] .settings-grid,
 html[data-mode="hud"] .kanban-board { grid-template-columns: minmax(0, 1fr) !important; }
+
+/* Île dynamique (HUD uniquement) : pilule en haut au centre qui s'étend pour afficher plus de données */
+#pcsi-island { display: none; }
+html[data-mode="hud"] #pcsi-island {
+  display: block;
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+}
+.island-body {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 999px;
+  overflow: hidden;
+  color: var(--text-main);
+  background: rgba(9, 10, 15, 0.94);
+  border: 1px solid var(--border-subtle);
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+#pcsi-island[data-open="true"] .island-body {
+  width: 340px;
+  border-radius: 22px;
+  border-color: color-mix(in srgb, var(--accent-info) 45%, transparent);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.55), 0 0 18px color-mix(in srgb, var(--accent-info) 25%, transparent);
+}
+.island-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.island-pill i { color: var(--accent-info); flex: none; }
+.island-pill span { overflow: hidden; text-overflow: ellipsis; }
+.island-expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease 0.05s;
+}
+#pcsi-island[data-open="true"] .island-expand { grid-template-rows: 1fr; opacity: 1; }
+.island-expand-inner { overflow: hidden; min-height: 0; }
+.island-sections { max-height: 60vh; overflow-y: auto; padding: 2px 14px 12px; display: flex; flex-direction: column; gap: 10px; }
+.island-section-title { font-size: 10.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
+.island-line { font-size: 12.5px; line-height: 1.5; color: var(--text-main); }
+@media (prefers-reduced-motion: reduce) {
+  .island-body, .island-expand { transition: none !important; }
+}
+
+/* Carte de réglages de l'île (Portails & Réglages) */
+.island-settings { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+.island-set-hint { margin: 0; font-size: 11.5px; line-height: 1.5; color: var(--text-muted); }
+.island-set-list { display: flex; flex-direction: column; gap: 4px; }
+.island-set-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 0; }
+.island-set-check { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+.island-set-arrows { display: inline-flex; gap: 4px; }
+.island-set-arrows button { padding: 2px 8px; min-height: 26px; }
+.island-set-field { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--text-muted); }
+

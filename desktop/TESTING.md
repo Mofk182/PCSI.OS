@@ -74,6 +74,20 @@ Prérequis : Anki ouvert, greffon AnkiConnect (code `2055492159`) installé. Auc
 | Wayland, HUD : taper tout de suite après `Ctrl+Alt+A` | Le texte arrive dans « Mot ». Sinon : le noter (repli prévu : saisie rapide depuis le widget) |
 | Fenêtre « Ajouter à Anki » du Daily Drop | Fonctionne comme avant |
 
+## Île dynamique (HUD)
+
+| Vérification | Windows | Linux |
+|---|---|---|
+| Passer en HUD | Pilule centrée en haut, avec l'heure ou le prochain cours | Idem |
+| Survoler la pilule | Elle s'étend en carte (animation douce) ; en sortant, elle se replie après un court délai, sans clignoter | Aucun effet (HUD en lecture seule) |
+| `Ctrl+Alt+I` ou `pcsi-os --toggle-island` | Ouvre l'île ; un second appui la replie | Idem (c'est la voie normale sous Linux) |
+| Ouverture automatique avant un cours (10 minutes par défaut) | L'île s'ouvre toute seule environ 8 secondes, une seule fois par cours, puis se replie | Idem |
+| Pendant l'animation d'ouverture, glisser la souris vers le bas de la carte | La carte reste cliquable et ne se replie pas tant que la souris est dessus | Sans objet |
+| « Portails & Réglages » : carte « Île dynamique (HUD) » | Cocher ou décocher un module, changer l'ordre, le module replié, le déclencheur, les minutes, les jours, la mission du compte à rebours : l'île reflète le changement sans relancer | Idem, mais le déclencheur est grisé sur « Raccourci » |
+| Profil vierge (aucun cours ni mission) | L'île affiche l'heure et la date, jamais une carte vide | Idem |
+| Changer de mode puis revenir en HUD, ou relancer l'appli | Les réglages de l'île sont conservés | Idem |
+| Activer « réduire les animations » dans le système | L'île s'ouvre et se replie sans animation | Idem |
+
 ## Notes d'environnement de développement
 
 - `npm run build:web` télécharge Tailwind depuis `https://cdn.tailwindcss.com/3.4.17`. Hors ligne : `TAILWIND_LOCAL=/chemin/vers/tailwind.js npm run build:web`.

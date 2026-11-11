@@ -34,6 +34,12 @@
 
   <div id="pcsi-drag-handle" aria-hidden="true"></div>
   <button type="button" id="pcsi-mode-btn" title="Changer de mode (plein écran, widget, HUD)" aria-label="Changer de mode"><i class="ph ph-picture-in-picture"></i></button>
+  <div id="pcsi-island" class="pcsi-island" data-hud-zone data-open="false">
+    <div class="island-body" aria-expanded="false">
+      <div class="island-pill"><i class="ph-bold ph-sparkle"></i><span id="island-pill-text"></span></div>
+      <div class="island-expand"><div class="island-expand-inner"><div id="island-sections" class="island-sections"></div></div></div>
+    </div>
+  </div>
   <div id="quick-add" class="quick-add" role="dialog" aria-modal="true" aria-labelledby="quick-add-title" hidden>
     <div class="quick-add-card">
       <div class="quick-add-head">
@@ -346,6 +352,9 @@
 
         <!-- LIENS DYNAMIQUES -->
         <div id="sites-grid-mount" class="sites-grid" style="margin-bottom:28px;"></div>
+
+        <!-- ÎLE DYNAMIQUE (appli de bureau) -->
+        <div id="island-settings-mount" style="margin-bottom:28px;"></div>
 
         <div class="section-label" style="margin-bottom:12px;">Calibration du Cockpit &amp; Personnalisation</div>
         <div id="settings-panel-mount" style="margin-bottom:28px;"></div>
@@ -1283,6 +1292,9 @@
   <script src="js/desktop-bridge.js"></script>
   <script src="js/hud-zones.js"></script>
   <script src="js/quick-add.js"></script>
+  <script src="js/island-modules.js"></script>
+  <script src="js/island.js"></script>
+  <script src="js/island-settings.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

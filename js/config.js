@@ -95,7 +95,15 @@ const DEFAULT_SETTINGS = {
   bedtime: '23:00',          // Couvre-feu / heure de coucher cible
   defaultClassEnd: '17:30',  // Heure de début soirée par défaut si aucun cours l'après-midi
   commuteBufferMin: 30,      // Buffer trajet / transition (min) après les cours et avant une séance tardive
-  ankiDeck: 'PCSI::Vocabulaire' // Deck Anki cible (supporte Parent::Enfant)
+  ankiDeck: 'PCSI::Vocabulaire', // Deck Anki cible (supporte Parent::Enfant)
+  island: {                  // Île dynamique du HUD (appli de bureau) : voir js/island-modules.js
+    trigger: 'hover',        // 'hover' | 'shortcut' (Linux : toujours 'shortcut')
+    collapsed: 'next-class',
+    expanded: ['next-class', 'missions-due', 'clock'],
+    autoOpenMinutesBeforeClass: 10,
+    dueWithinDays: 3,
+    countdownTaskId: null
+  }
 };
 
 const DAYS_LABELS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
