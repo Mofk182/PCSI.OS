@@ -9,10 +9,12 @@ const FLAG_ACTIONS = {
 };
 
 function parseArgs(argv) {
-  const result = { action: 'none', noTransparency: false };
+  const result = { action: 'none', noTransparency: false, noSplash: false };
   for (const arg of argv || []) {
     if (arg === '--no-transparency') {
       result.noTransparency = true;
+    } else if (arg === '--no-splash') {
+      result.noSplash = true;
     } else if (Object.prototype.hasOwnProperty.call(FLAG_ACTIONS, arg)) {
       result.action = FLAG_ACTIONS[arg];
     } else if (arg.startsWith('--mode=')) {

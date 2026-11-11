@@ -3,7 +3,7 @@ const assert = require('node:assert');
 const { parseArgs } = require('../src/cli.js');
 
 test('aucun argument utile : action none', () => {
-  assert.deepEqual(parseArgs([]), { action: 'none', noTransparency: false });
+  assert.deepEqual(parseArgs([]), { action: 'none', noTransparency: false, noSplash: false });
 });
 
 test('--mode=hud donne set-mode hud', () => {

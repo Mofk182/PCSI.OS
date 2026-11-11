@@ -16,7 +16,11 @@
   <link rel="manifest" href="manifest.webmanifest" />
   <script>
     // Appli de bureau : le mode (fullscreen, widget, hud) arrive dans l'URL ; absent sur le site web.
-    (function () { var m = new URLSearchParams(location.search).get('mode'); if (m) document.documentElement.dataset.mode = m; })();
+    (function () {
+      var q = new URLSearchParams(location.search);
+      if (q.get('mode')) document.documentElement.dataset.mode = q.get('mode');
+      if (q.get('splash') === '1') document.documentElement.dataset.splash = '1';
+    })();
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
@@ -27,8 +31,30 @@
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/overrides.css" />
+  <link rel="stylesheet" href="css/splash.css" />
 </head>
 <body>
+  <!-- ÉCRAN DE LANCEMENT (appli de bureau, ?splash=1) : diagramme de flux SysML -->
+  <div class="pcsi-splash" role="img" aria-label="Chargement de PCSI.OS">
+    <div class="splash-diagram" aria-hidden="true">
+      <div class="splash-flow splash-flow-in">
+        <span class="splash-label">Données / Fichiers bruts</span>
+        <div class="splash-line"><span class="splash-packet"></span><span class="splash-packet"></span></div>
+      </div>
+      <div class="splash-block">
+        <div class="splash-stereotype">«block»</div>
+        <div class="splash-name">PCSI.OS</div>
+        <div class="splash-scan-clip"><div class="splash-scan"></div></div>
+        <span class="splash-port splash-port-in"></span>
+        <span class="splash-port splash-port-out"></span>
+      </div>
+      <div class="splash-flow splash-flow-out">
+        <span class="splash-label">ENS · ULM · Polytechnique · etc.</span>
+        <div class="splash-line"><span class="splash-packet"></span><span class="splash-packet"></span></div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="ambient-glow"></div>
 
@@ -1295,6 +1321,7 @@
   <script src="js/island-modules.js"></script>
   <script src="js/island.js"></script>
   <script src="js/island-settings.js"></script>
+  <script src="js/splash.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

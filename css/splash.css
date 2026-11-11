@@ -1,0 +1,189 @@
+/* ===== Écran de lancement : diagramme de flux de type SysML (bloc « boîte noire » + flux d'entrée et de sortie) =====
+   Joué une seule fois au démarrage de l'appli de bureau ; masqué partout ailleurs (site web compris). */
+
+.pcsi-splash { display: none; }
+
+html[data-splash="1"] .pcsi-splash {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: var(--bg-canvas);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+/* Widget : la fenêtre est transparente, l'écran de lancement épouse la carte arrondie */
+html[data-splash="1"][data-mode="widget"] .pcsi-splash {
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+}
+.pcsi-splash.is-leaving { animation: splash-out 0.25s ease forwards; }
+/* Pas de barre de défilement de la page derrière le diagramme */
+html[data-splash="1"], html[data-splash="1"] body { overflow: hidden; }
+
+.splash-diagram {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  width: min(900px, 92vw);
+}
+
+/* ---- Flux (flèches) ---- */
+.splash-flow { position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 0 14px; }
+.splash-flow-in  { --d: 0.2s; }
+.splash-flow-out { --d: 1.4s; }
+
+.splash-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-align: center;
+  opacity: 0;
+  animation: splash-label-in 0.4s ease both;
+  animation-delay: calc(var(--d) + 0.1s);
+}
+
+.splash-line { position: relative; width: 100%; height: 2px; }
+.splash-line::before {                       /* trait de la flèche */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.16);
+  transform-origin: left center;
+  animation: splash-arrow-draw 0.7s var(--ease) both;
+  animation-delay: var(--d);
+}
+.splash-line::after {                        /* pointe de la flèche */
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -5px;
+  width: 11px;
+  height: 12px;
+  background: var(--accent-info);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  transform-origin: left center;
+  animation: splash-arrow-draw 0.3s var(--ease) both;
+  animation-delay: calc(var(--d) + 0.45s);
+}
+
+/* « Paquets de données » : un élément pleine largeur qui glisse (translateX) ; son point lumineux voyage le long de la flèche */
+.splash-packet { position: absolute; left: 0; top: -5px; width: 100%; height: 12px; pointer-events: none; opacity: 0; animation: splash-packet 1.2s linear infinite both; }
+.splash-packet::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 1px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--accent-info);
+  box-shadow: 0 0 10px var(--accent-info);
+}
+.splash-flow-in  .splash-packet:nth-of-type(1) { animation-delay: 0.7s; }
+.splash-flow-in  .splash-packet:nth-of-type(2) { animation-delay: 1.3s; }
+.splash-flow-out .splash-packet:nth-of-type(1) { animation-delay: 1.9s; }
+.splash-flow-out .splash-packet:nth-of-type(2) { animation-delay: 2.5s; }
+
+/* ---- Bloc central ---- */
+.splash-block {
+  position: relative;
+  width: 210px;
+  padding: 20px 22px;
+  text-align: center;
+  border-radius: 14px;
+  background: rgba(17, 19, 26, 0.6);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: splash-block-in 0.4s var(--ease) both,
+             splash-pulse 0.8s ease-in-out 1s both;
+}
+.splash-stereotype { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em; }
+.splash-name { margin-top: 6px; font-family: 'Oxanium', 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 0.04em; color: var(--text-main); }
+.splash-scan-clip { position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; }
+.splash-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--accent-info) 26%, transparent), transparent);
+  opacity: 0;
+  animation: splash-scan 0.8s ease-in-out 1s both;
+}
+.splash-port {                               /* ports SysML sur les bords du bloc */
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  background: var(--bg-canvas);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.splash-port-in  { left: -6px; }
+.splash-port-out { right: -6px; }
+
+/* ---- Animations ---- */
+@keyframes splash-block-in   { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: none; } }
+@keyframes splash-label-in   { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes splash-arrow-draw { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }
+@keyframes splash-packet {
+  0%   { opacity: 0; transform: translateX(-100%); }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(0); }
+}
+@keyframes splash-scan {
+  0%   { opacity: 0; transform: translateY(-100%); }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(250%); }
+}
+@keyframes splash-pulse {
+  0%   { border-color: rgba(255, 255, 255, 0.1); box-shadow: none; }
+  50%  { border-color: var(--accent-info); box-shadow: 0 0 22px color-mix(in srgb, var(--accent-info) 45%, transparent); }
+  100% { border-color: color-mix(in srgb, var(--accent-info) 55%, transparent); box-shadow: 0 0 14px color-mix(in srgb, var(--accent-info) 25%, transparent); }
+}
+@keyframes splash-out { to { opacity: 0; visibility: hidden; } }
+
+/* ---- Étroit (widget) : le flux passe à la verticale ---- */
+@media (max-width: 640px) {
+  .splash-diagram { grid-template-columns: 1fr; grid-template-rows: auto auto auto; justify-items: center; width: min(300px, 86vw); }
+  .splash-flow { width: 100%; padding: 0; gap: 8px; }
+  .splash-line { width: 2px; height: 76px; }
+  .splash-line::before { transform-origin: center top; }
+  .splash-line::after {
+    right: auto;
+    left: -5px;
+    top: auto;
+    bottom: -2px;
+    width: 12px;
+    height: 11px;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: center top;
+  }
+  .splash-packet { left: -5px; top: 0; width: 12px; height: 100%; }
+  .splash-packet::before { right: auto; left: 1px; top: auto; bottom: 0; }
+  .splash-block { width: 190px; }
+  @keyframes splash-arrow-draw { from { opacity: 0; transform: scaleY(0); } to { opacity: 1; transform: scaleY(1); } }
+  @keyframes splash-packet {
+    0%   { opacity: 0; transform: translateY(-100%); }
+    15%  { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { opacity: 0; transform: translateY(0); }
+  }
+}
+
+/* ---- « Réduire les animations » : diagramme statique, sans mouvement ---- */
+@media (prefers-reduced-motion: reduce) {
+  .pcsi-splash *, .pcsi-splash *::before, .pcsi-splash *::after { animation: none !important; transition: none !important; }
+  .pcsi-splash .splash-label,
+  .pcsi-splash .splash-block { opacity: 1; transform: none; }
+  .pcsi-splash .splash-line::before,
+  .pcsi-splash .splash-line::after { opacity: 1; transform: none; }
+  .pcsi-splash .splash-packet,
+  .pcsi-splash .splash-scan { display: none; }
+  .pcsi-splash.is-leaving { opacity: 0; visibility: hidden; }
+}

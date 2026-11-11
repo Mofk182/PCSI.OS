@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
 const { resolveWebPath } = require('./web-protocol.js');
-const { buildWindowOptions, canEnterHud, BG } = require('./modes.js');
+const { buildWindowOptions, canEnterHud, shouldSplash, BG } = require('./modes.js');
 const { parseArgs, MODES } = require('./cli.js');
 const { loadDesktopState, saveDesktopState } = require('./state-store.js');
 const { createModeManager, NEXT } = require('./mode-manager.js');
@@ -35,6 +35,7 @@ function start() {
   let routes = { tray: false, shortcut: false };
   let lastOverlay = 'widget';
   let currentWin = null;
+  let firstWindowCreated = false;   // l'écran de lancement ne se joue qu'une fois par démarrage
   let currentCfg = null;
   const cli = parseArgs(process.argv);
 
@@ -57,6 +58,8 @@ function start() {
       display: { bounds: display.bounds, workArea: display.workArea },
       prefs: { widgetSize: state.widgetSize, widgetPosition: state.widgetPosition, noTransparency: state.noTransparency }
     });
+    const splash = shouldSplash(cfg.mode, { firstWindow: !firstWindowCreated, noSplash: cli.noSplash });
+    firstWindowCreated = true;
     const win = new BrowserWindow(Object.assign({}, cfg.options, {
       webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
@@ -88,7 +91,7 @@ function start() {
         resolve(win);
       });
       win.webContents.once('did-fail-load', (_e, code, desc) => reject(new Error(`chargement impossible (${code} ${desc})`)));
-      win.loadURL(`app://pcsi/index.html?mode=${cfg.mode}`);
+      win.loadURL(`app://pcsi/index.html?mode=${cfg.mode}${splash ? '&splash=1' : ''}`);
       if (SMOKE) attachSmokeCheck(win);
     });
   }

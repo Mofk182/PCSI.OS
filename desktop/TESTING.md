@@ -88,6 +88,20 @@ Prérequis : Anki ouvert, greffon AnkiConnect (code `2055492159`) installé. Auc
 | Changer de mode puis revenir en HUD, ou relancer l'appli | Les réglages de l'île sont conservés | Idem |
 | Activer « réduire les animations » dans le système | L'île s'ouvre et se replie sans animation | Idem |
 
+## Écran de lancement
+
+| Vérification | Résultat attendu |
+|---|---|
+| Lancer l'appli en plein écran | Un bloc « boîte noire » `«block» PCSI.OS` au centre ; une flèche « Données / Fichiers bruts » entre par la gauche avec des paquets lumineux ; le bloc « traite » (balayage, bordure bleue qui pulse) ; la flèche « ENS · ULM · Polytechnique · etc. » s'allume à droite ; l'appli apparaît en fondu au bout d'environ 2 secondes |
+| Lancer l'appli en widget | Même séquence, avec un flux vertical (de haut en bas) et les coins arrondis du widget |
+| Lancer l'appli en HUD | Aucun écran de lancement |
+| Changer de mode avec l'icône système après le démarrage | L'écran de lancement ne se rejoue pas |
+| Cliquer ou appuyer sur une touche pendant le diagramme | Il se ferme immédiatement |
+| Lancer avec `--no-splash` | Aucun écran de lancement |
+| Activer « réduire les animations » dans le système | Diagramme statique, sans mouvement, fermé au bout d'environ 0,6 seconde |
+| Machine très lente ou démarrage anormalement long | L'écran ne reste jamais plus de 6 secondes |
+| Ouvrir le site web dans un navigateur | Aucun écran de lancement |
+
 ## Notes d'environnement de développement
 
 - `npm run build:web` télécharge Tailwind depuis `https://cdn.tailwindcss.com/3.4.17`. Hors ligne : `TAILWIND_LOCAL=/chemin/vers/tailwind.js npm run build:web`.

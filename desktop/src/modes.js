@@ -82,4 +82,9 @@ function canEnterHud(routes) {
   return !!(routes && (routes.tray || routes.shortcut));
 }
 
-module.exports = { buildWindowOptions, clampToDisplay, canEnterHud, WIDGET_SIZES, BG };
+// Écran de lancement : une seule fois par démarrage (première fenêtre), jamais en HUD, désactivable par --no-splash.
+function shouldSplash(mode, opts) {
+  return !!(opts && opts.firstWindow && !opts.noSplash && mode !== 'hud');
+}
+
+module.exports = { buildWindowOptions, clampToDisplay, canEnterHud, shouldSplash, WIDGET_SIZES, BG };
