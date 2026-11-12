@@ -8,7 +8,9 @@
     "start": "electron .",
     "test": "node --test tests/*.test.js",
     "build:web": "node scripts/build-web.js",
-    "smoke": "electron . --smoke"
+    "smoke": "electron . --smoke",
+    "dist:win": "electron-builder --win --publish never",
+    "dist:linux": "electron-builder --linux --publish never"
   },
   "devDependencies": {
     "@fontsource/caveat": "^5.2.5",
@@ -20,5 +22,7 @@
     "electron-builder": "26.18.0",
     "html5-qrcode": "2.3.8",
     "qrcodejs": "^1.0.0"
-  }
+  },
+  "author": "DracoMassi <noreply@users.noreply.github.com>",
+  "homepage": "https://github.com/DracoMassi/PCSI.OSbranch"
 }

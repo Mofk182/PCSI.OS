@@ -1,0 +1,71 @@
+name: Application de bureau (publication)
+
+# Se déclenche en poussant une étiquette « desktop-v… » (par exemple desktop-v0.1.0), ou à la main pour tester.
+on:
+  push:
+    tags: ['desktop-v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Windows
+            os: windows-latest
+            script: dist:win
+          - name: Linux
+            os: ubuntu-latest
+            script: dist:linux
+    defaults:
+      run:
+        working-directory: desktop
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: desktop/package-lock.json
+
+      - name: Vérifier que l'étiquette correspond à la version
+        if: startsWith(github.ref, 'refs/tags/desktop-v')
+        shell: bash
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          if [ "${GITHUB_REF_NAME}" != "desktop-v${VERSION}" ]; then
+            echo "L'étiquette ${GITHUB_REF_NAME} ne correspond pas à desktop/package.json (version ${VERSION})." >&2
+            exit 1
+          fi
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build:web
+      - run: npm run ${{ matrix.script }}
+
+      - name: Conserver les fichiers produits (utile avec un lancement manuel)
+        uses: actions/upload-artifact@v4
+        with:
+          name: pcsi-os-${{ matrix.name }}
+          path: |
+            desktop/dist/*.exe
+            desktop/dist/*.deb
+            desktop/dist/*.AppImage
+          if-no-files-found: error
+
+      - name: Publier dans les Releases
+        if: startsWith(github.ref, 'refs/tags/desktop-v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            desktop/dist/*.exe
+            desktop/dist/*.deb
+            desktop/dist/*.AppImage
+          generate_release_notes: true

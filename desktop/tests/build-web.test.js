@@ -30,3 +30,9 @@ test('la réécriture est idempotente', () => {
   const once = rewriteHtml(html);
   assert.equal(rewriteHtml(once), once);
 });
+
+test('Phosphor : seuls la feuille de style et les polices woff2 sont embarqués', () => {
+  const { shouldCopyPhosphorFile } = require('../scripts/build-web.js');
+  for (const f of ['style.css', 'Phosphor.woff2']) assert.equal(shouldCopyPhosphorFile(f), true, f);
+  for (const f of ['Phosphor.woff', 'Phosphor.ttf', 'Phosphor.svg', 'selection.json']) assert.equal(shouldCopyPhosphorFile(f), false, f);
+});

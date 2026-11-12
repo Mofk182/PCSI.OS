@@ -102,6 +102,27 @@ Prérequis : Anki ouvert, greffon AnkiConnect (code `2055492159`) installé. Auc
 | Machine très lente ou démarrage anormalement long | L'écran ne reste jamais plus de 6 secondes |
 | Ouvrir le site web dans un navigateur | Aucun écran de lancement |
 
+## Paquets et installation
+
+| Vérification | Résultat attendu |
+|---|---|
+| Windows : lancer `PCSI.OS-<version>-setup.exe` | L'écran SmartScreen apparaît (appli non signée) ; « Informations complémentaires » puis « Exécuter quand même » ; l'installeur propose le dossier et crée un raccourci |
+| Windows : lancer l'appli installée, puis `PCSI.OS.exe --next-mode` depuis un terminal | L'appli s'ouvre ; la commande change le mode de l'instance déjà ouverte |
+| Ubuntu : `sudo apt install ./pcsi-os_<version>_amd64.deb` | Installation sans erreur ; la commande `pcsi-os` existe ; l'entrée « PCSI.OS » apparaît dans le menu des applications |
+| Ubuntu : `sudo apt remove pcsi-os` | Désinstallation propre ; la commande `pcsi-os` disparaît |
+| Ubuntu récent : lancer l'AppImage sans `libfuse2` | Message d'erreur sur FUSE ; avec `--appimage-extract-and-run`, l'appli se lance |
+| Lancer l'appli installée sans réseau | L'interface s'affiche complètement (icônes, polices, style) |
+
+## Risques à vérifier au premier essai (spec §11)
+
+| Risque | À vérifier | Si ça échoue |
+|---|---|---|
+| Focus clavier de la saisie rapide sous Wayland | `pcsi-os --quick-add` depuis un raccourci GNOME en HUD : le curseur est dans le champ « mot » | Utiliser la saisie rapide depuis le widget |
+| Transparence et « toujours au-dessus » sous Linux | Le widget et le HUD sont transparents et restent au-dessus | Lancer avec `--no-transparency` |
+| `Origin` envoyé à la fonction Vercel | Une lecture IA depuis l'appli de bureau aboutit (`ALLOWED_ORIGIN` contient `app://pcsi`) | Ajuster `ALLOWED_ORIGIN` selon l'origine réellement reçue |
+| Icône système sous GNOME | L'icône apparaît (extension d'indicateurs d'applications) | Utiliser les commandes `pcsi-os --…` liées à des raccourcis |
+| AppImage sans `libfuse2` | Voir tableau précédent | Installer `libfuse2` ou utiliser le `.deb` |
+
 ## Notes d'environnement de développement
 
 - `npm run build:web` télécharge Tailwind depuis `https://cdn.tailwindcss.com/3.4.17`. Hors ligne : `TAILWIND_LOCAL=/chemin/vers/tailwind.js npm run build:web`.

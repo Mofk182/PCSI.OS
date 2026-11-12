@@ -1,0 +1,40 @@
+# Packaging de l'appli de bureau (aucune signature de code : voir desktop/README.md pour l'écran SmartScreen).
+appId: com.pcsios.desktop
+productName: PCSI.OS
+directories:
+  output: dist
+  buildResources: build
+files:
+  - src/**
+  - web/**
+  - config.json
+  - package.json
+# Fichiers en clair, sans archive asar : le protocole app:// les lit avec net.fetch. Vérifié sous Linux, une archive asar
+# fonctionne aussi, mais ce n'est pas vérifié sous Windows, donc on garde la disposition la plus simple.
+asar: false
+
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  artifactName: PCSI.OS-${version}-setup.${ext}
+
+linux:
+  target:
+    - target: deb
+      arch: [x64]
+    - target: AppImage
+      arch: [x64]
+  category: Education
+  executableName: pcsi-os
+  synopsis: Cockpit de prépa (missions, agenda, mur d'erreurs)
+  description: Application de bureau PCSI.OS avec plein écran, widget et HUD.
+deb:
+  packageName: pcsi-os
+  artifactName: pcsi-os_${version}_amd64.deb
+appImage:
+  artifactName: PCSI.OS-${version}.${ext}

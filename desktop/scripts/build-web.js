@@ -14,6 +14,11 @@ const RULES = [
   [/<link[^>]*href="https:\/\/fonts\.googleapis\.com[^"]*"[^>]*>/g, '<link rel="stylesheet" href="vendor/fonts.css" />']
 ];
 
+// Chromium (donc Electron) charge le woff2 : les trois autres formats pèsent des dizaines de Mo pour rien.
+function shouldCopyPhosphorFile(filePath) {
+  return /(^|[\\/])style\.css$|\.woff2$/i.test(String(filePath));
+}
+
 function rewriteHtml(html) {
   return RULES.reduce((out, [pattern, replacement]) => out.replace(pattern, replacement), html);
 }
@@ -76,11 +81,17 @@ async function main() {
   fs.mkdirSync(vendor, { recursive: true });
   buildFonts(vendor);
   for (const w of PHOSPHOR_WEIGHTS) {
-    fs.cpSync(path.join(NM, '@phosphor-icons', 'web', 'src', w), path.join(vendor, 'phosphor', w), { recursive: true });
+    fs.cpSync(path.join(NM, '@phosphor-icons', 'web', 'src', w), path.join(vendor, 'phosphor', w), {
+      recursive: true,
+      filter: src => fs.statSync(src).isDirectory() || shouldCopyPhosphorFile(src)
+    });
   }
   fs.copyFileSync(path.join(NM, 'qrcodejs', 'qrcode.js'), path.join(vendor, 'qrcode.min.js'));
   fs.copyFileSync(path.join(NM, 'html5-qrcode', 'html5-qrcode.min.js'), path.join(vendor, 'html5-qrcode.min.js'));
   fs.writeFileSync(path.join(vendor, 'tailwind.js'), await loadTailwind());
+  // Icône de l'application pour electron-builder (dossier build/ par défaut).
+  fs.mkdirSync(path.join(DESKTOP, 'build'), { recursive: true });
+  fs.copyFileSync(path.join(REPO, 'icon.png'), path.join(DESKTOP, 'build', 'icon.png'));
   console.log(`desktop/web prêt (${OUT})`);
 }
 
@@ -88,4 +99,4 @@ if (require.main === module) {
   main().catch(e => { console.error(e.message); process.exit(1); });
 }
 
-module.exports = { rewriteHtml, PHOSPHOR_WEIGHTS };
+module.exports = { rewriteHtml, shouldCopyPhosphorFile, PHOSPHOR_WEIGHTS };

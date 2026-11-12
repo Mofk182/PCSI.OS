@@ -50,3 +50,7 @@ Les scripts sont chargés dans cet ordre (portée globale partagée). Voir `CLAU
 ## Fichiers optionnels
 
 Ajouter à la racine : `logo-ens.png`, `icon-192.png`, `icon-180.png`, `manifest.webmanifest`.
+
+## Application de bureau
+
+Une version Windows et Linux (plein écran, widget, HUD) est disponible dans les Releases. Installation, commandes et développement : voir [`desktop/README.md`](desktop/README.md).

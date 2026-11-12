@@ -102,7 +102,8 @@ function start() {
       try {
         const title = await win.webContents.executeJavaScript('document.title');
         clearTimeout(timer);
-        if (title === 'PCSI.OS') { console.log('smoke: OK'); app.exit(0); }
+        // Le titre est ajusté par la page (js/config.js : nom + sous-titre) : on vérifie seulement qu'il commence par la marque.
+        if (/^PCSI\.OS\b/.test(String(title))) { console.log(`smoke: OK (${title})`); app.exit(0); }
         else { console.error(`smoke: titre inattendu "${title}"`); app.exit(1); }
       } catch (e) {
         console.error(`smoke: ${e.message}`); app.exit(1);
