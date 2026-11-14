@@ -606,6 +606,1830 @@
         "hook": "Dans son célèbre roman « 1984 », George Orwell imagine une dictature qui a trouvé un moyen encore plus efficace que la police pour empêcher les gens de se révolter : réduire et modifier le dictionnaire.",
         "details": "Le principe de la « Novlangue » (Newspeak) d'Orwell est simple : si on supprime d'une langue les mots qui permettent d'exprimer une critique (comme « libre », « injuste », « révolte »), les citoyens finissent par ne même plus pouvoir formuler l'idée d'une révolte dans leur tête ! Orwell s'inspirait aussi de ce qu'il voyait dans la politique de son époque : utiliser des euphémismes doux pour cacher des réalités brutales — par exemple dire « pacification » au lieu de « bombardement », ou aujourd'hui dire « plan de sauvegarde de l'emploi » au lieu de « licenciements ». 💡 En copie : un exemple incontournable pour montrer que parler clairement et avec des mots précis est la première défense de l'esprit critique."
       }
+    },
+    {
+      "id": "drop_08",
+      "theme": "Souveraineté, Démocratie & Faux-amis de gouvernement",
+      "wordOfTheDay": {
+        "word": "Accountable / Accountability",
+        "phonetic": "/əˈkaʊn.tə.bəl/",
+        "partOfSpeech": "adjectif / nom",
+        "meaning": "Responsable / L'obligation de rendre des comptes (devant les citoyens ou la loi)",
+        "example": "In a true democracy, elected officials must remain accountable to the public.",
+        "exampleTranslation": "Dans une véritable démocratie, les élus doivent rendre des comptes aux citoyens.",
+        "collocations": [
+          "hold somebody accountable (tenir quelqu'un pour responsable)",
+          "a lack of accountability (un manque de transparence / d'obligation de rendre des comptes)",
+          "accountable for one's actions (responsable de ses actes)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler du gouvernement et des institutions",
+        "topicalWords": [
+          {
+            "term": "A check and balance",
+            "translation": "Un contre-pouvoir / L'équilibre des pouvoirs",
+            "note": "Notion clé des régimes parlementaires et présidentiels anglo-saxons."
+          },
+          {
+            "term": "To override",
+            "translation": "Outrepasser / Passer outre (un veto, une décision)",
+            "note": "Ex: Congress can override a presidential veto with a two-thirds majority."
+          },
+          {
+            "term": "Rule of law",
+            "translation": "L'État de droit",
+            "note": "Incontournable : principe selon lequel la loi s'applique à tous de manière égale."
+          },
+          {
+            "term": "To resign / To step down",
+            "translation": "Démissionner / Se retirer",
+            "note": "Ex: The minister was forced to step down after the scandal."
+          },
+          {
+            "term": "A scapegoat",
+            "translation": "Un bouc émissaire",
+            "note": "Ex: Migrants are frequently used as political scapegoats."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Dire « être d'accord » : ne JAMAIS dire « I am agree » !",
+            "rule": "En anglais, « to agree » est déjà un verbe d'action à part entière, pas un adjectif. On dit donc simplement « I agree » (au présent) et « I agreed » (au passé).",
+            "wrong": "I am agree with the author's point of view.",
+            "right": "I agree with the author's point of view. / I totally agree."
+          },
+          {
+            "title": "« Most » vs « Most of » : la règle du déterminant",
+            "rule": "On utilise « Most + Nom pluriel » pour une généralité (ex: Most people). On n'utilise « Most of » que lorsqu'il y a un déterminant précis comme 'the', 'my', 'these' (ex: Most of the citizens).",
+            "wrong": "Most of people believe that technology is neutral.",
+            "right": "Most people believe... / Most of the citizens in this country voted."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Why Accountability is the Bedrock of Modern Democracy",
+        "source": "The Atlantic",
+        "category": "Politique & Idées",
+        "readingTime": "6 min",
+        "abstract": "Analyse approfondie sur la crise de confiance envers les institutions et la nécessité de mécanismes de surveillance citoyenne.",
+        "url": "https://www.theatlantic.com/ideas/"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie Politique",
+        "title": "1748 : Montesquieu et la Séparation des Pouvoirs (L'Esprit des lois)",
+        "hook": "Pourquoi toutes les démocraties occidentales séparent-elles le Président, l'Assemblée et les Juges ? Parce que Montesquieu a posé en 1748 une vérité psychologique universelle : « Tout homme qui a du pouvoir est porté à en abuser ».",
+        "details": "Dans *De l'esprit des lois* (1748), Montesquieu analyse les régimes politiques et montre qu'une constitution n'est libre que si « le pouvoir arrête le pouvoir ». Pour éviter la tyrannie, il faut séparer rigoureusement trois pouvoirs distincts :\n1) Le pouvoir législatif (qui fait la loi),\n2) Le pouvoir exécutif (qui l'applique et conduit l'État),\n3) Le pouvoir judiciaire (qui punit les infractions et tranche les litiges).\n💡 En colle ou en dissertation : c'est la citation et la référence indispensable pour commenter toute crise institutionnelle, tout décret présidentiel contesté ou la puissance des contre-pouvoirs aux États-Unis et au Royaume-Uni."
+      }
+    },
+    {
+      "id": "drop_09",
+      "theme": "Écologie, Ressources & Confusions Verbe/Nom",
+      "wordOfTheDay": {
+        "word": "Unsustainable / Sustainability",
+        "phonetic": "/ˌʌn.səˈsteɪ.nə.bəl/",
+        "partOfSpeech": "adjectif / nom",
+        "meaning": "Non soutenable / La pérennité ou durabilité écologique",
+        "example": "Our current consumption of fossil fuels is ecologically and economically unsustainable.",
+        "exampleTranslation": "Notre consommation actuelle d'énergies fossiles est écologiquement et économiquement insoutenable.",
+        "collocations": [
+          "an unsustainable debt burden (un fardeau de dette insoutenable)",
+          "environmental sustainability (la durabilité environnementale)",
+          "deplete natural resources (épuiser les ressources naturelles)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler du climat et de la transition écologique",
+        "topicalWords": [
+          {
+            "term": "A carbon footprint",
+            "translation": "Une empreinte carbone",
+            "note": "Ex: Companies are pressured to reduce their carbon footprint."
+          },
+          {
+            "term": "Greenwashing",
+            "translation": "L'éco-blanchiment / La manipulation verte",
+            "note": "Pratique consistant à se donner une image trompeuse d'entreprise éco-responsable."
+          },
+          {
+            "term": "To phase out",
+            "translation": "Éliminer progressivement / Sortir de",
+            "note": "Ex: Countries pledged to phase out coal subsidies."
+          },
+          {
+            "term": "A scarce resource",
+            "translation": "Une ressource rare / qui se fait rare",
+            "note": "Ex: Drinking water is becoming an increasingly scarce resource."
+          },
+          {
+            "term": "To mitigate",
+            "translation": "Atténuer / Limiter les dégâts",
+            "note": "Ex: Urgent policies are needed to mitigate the impact of heatwaves."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Ne pas confondre « To affect » (verbe) et « An effect » (nom)",
+            "rule": "« Affect » avec un 'A' est presque toujours un verbe (toucher, influencer). « Effect » avec un 'E' est le nom (le résultat, la conséquence).",
+            "wrong": "Pollution has a serious affect on human health.",
+            "right": "Pollution has a serious effect on health. / Climate change affects everyone."
+          },
+          {
+            "title": "« Unless » remplace « If... not » : pas de négation après !",
+            "rule": "« Unless » veut dire « à moins que / sauf si ». Comme la négation est déjà incluse dans le mot, on n'ajoute JAMAIS de 'not' ou 'don't' après « unless ».",
+            "wrong": "Unless governments do not act now, biodiversity will collapse.",
+            "right": "Unless governments act now, biodiversity will collapse."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Geopolitics of the Clean Energy Transition",
+        "source": "Financial Times",
+        "category": "Économie & Climat",
+        "readingTime": "5 min",
+        "abstract": "Comment la course aux batteries, au lithium et aux énergies décarbonées redessine les alliances stratégiques mondiales.",
+        "url": "https://www.ft.com/climate-capital"
+      },
+      "cultureGNiche": {
+        "category": "Économie & Écologie",
+        "title": "1968 : La « Tragédie des biens communs » de Garrett Hardin",
+        "hook": "Si un pâturage est ouvert à tous les éleveurs sans aucune règle, chacun a intérêt à y faire paître une vache de plus. Résultat inévitable : le pâturage est surexploité et tout le monde meurt de faim. Bienvenue dans la Tragédie des communs.",
+        "details": "Formulée par le biologiste Garrett Hardin en 1968, la « Tragédie des biens communs » explique pourquoi les ressources partagées non régulées (l'air pur, les bancs de poissons dans les océans, le climat) finissent systématiquement détruites par l'addition des intérêts individuels rationnels.\nLa politologue Elinor Ostrom (Prix Nobel d'économie 2009) a complété cette théorie en montrant que les communautés locales peuvent gérer leurs biens communs de façon durable sans nationalisation ni privatisation pure, grâce à des règles coutumières partagées.\n💡 En colle : la référence reine pour les sujets sur le réchauffement climatique, la surpêche ou la gestion de l'eau."
+      }
+    },
+    {
+      "id": "drop_10",
+      "theme": "Intelligence Artificielle, Éthique & Nombres invariables",
+      "wordOfTheDay": {
+        "word": "A double-edged sword",
+        "phonetic": "/ˌdʌb.əl.edʒd ˈsɔːd/",
+        "partOfSpeech": "nom idiomatique",
+        "meaning": "Une arme à double tranchant (un progrès porteur à la fois de grands bienfaits et de risques mortels)",
+        "example": "Artificial intelligence is a double-edged sword: it boosts productivity but threatens millions of jobs.",
+        "exampleTranslation": "L'intelligence artificielle est une arme à double tranchant : elle décuple la productivité mais menace des millions d'emplois.",
+        "collocations": [
+          "prove to be a double-edged sword (s'avérer être à double tranchant)",
+          "wield a double-edged sword (manier une arme à double tranchant)",
+          "technological disruptions (des ruptures technologiques majeures)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler d'IA, d'algorithmes et d'automatisation",
+        "topicalWords": [
+          {
+            "term": "To pave the way for",
+            "translation": "Ouvrir la voie à",
+            "note": "Ex: Deep learning paved the way for automated medical diagnoses."
+          },
+          {
+            "term": "Accountability",
+            "translation": "La traçabilité / Responsabilité éthique",
+            "note": "Qui est responsable quand un algorithme commet une faute ?"
+          },
+          {
+            "term": "A safeguard",
+            "translation": "Un garde-fou / Une mesure de protection",
+            "note": "Ex: Legislators must install safeguards against algorithm bias."
+          },
+          {
+            "term": "To supersede",
+            "translation": "Remplacer / Supplanter (une ancienne méthode)",
+            "note": "Ex: Automated systems are rapidly superseding manual data processing."
+          },
+          {
+            "term": "Disinformation / Deepfake",
+            "translation": "Désinformation / Hypertrucage vidéo",
+            "note": "Risque central pour les scrutins électoraux et la vérité publique."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Les chiffres invariables : « Two million », JAMAIS « Two millions » !",
+            "rule": "En anglais, « hundred », « thousand », « million », « billion » sont invariables lorsqu'ils sont précédés d'un nombre précis. On ne met de « -s » QUE dans l'expression « millions of » sans chiffre devant.",
+            "wrong": "This startup raised five millions dollars last week.",
+            "right": "This startup raised five million dollars. / Millions of dollars were invested."
+          },
+          {
+            "title": "Faux-ami : « Eventually » ne veut PAS dire « éventuellement » !",
+            "rule": "« Eventually » signifie « finalement / à terme / tôt ou tard ». Pour dire « éventuellement / peut-être », il faut utiliser « possibly » ou « perhaps ».",
+            "wrong": "We could eventually meet tomorrow if you are free. (Faux si on veut dire 'peut-être')",
+            "right": "We could possibly meet tomorrow. / After years of research, they eventually succeeded."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "How Generative AI is Reshaping Human Thought and Labor",
+        "source": "The Economist",
+        "category": "Technologie & Société",
+        "readingTime": "6 min",
+        "abstract": "Enquête sur l'impact des modèles de langage sur l'écriture, la recherche scientifique et la division cognitive du travail.",
+        "url": "https://www.economist.com/science-and-technology"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie & Éthique",
+        "title": "1967 : Le « Dilemme du Tramway » (Trolley Problem) et les voitures autonomes",
+        "hook": "Un tramway fou fonce vers 5 ouvriers sur la voie. Vous pouvez actionner un levier pour dévier le tramway vers une voie secondaire où se trouve 1 seul ouvrier. Actionnez-vous le levier ?",
+        "details": "Inventée en 1967 par la philosophe britannique Philippa Foot, cette expérience de pensée oppose deux grandes visions morales :\n- L'utilitarisme (Bentham) : mieux vaut sauver 5 vies qu'une seule, il faut donc agir et dévier le tramway.\n- La déontologie kantienne : tuer délibérément une personne innocente est un meurtre moralement inacceptable, même pour en sauver d'autres.\nCe problème abstrait est devenu brûlant avec les voitures autonomes et les drones militaires : quelle ligne de code doit choisir un algorithme lorsqu'un accident mortel est inévitable ?\n💡 En dissertation : l'illustration parfaite du passage d'un dilemme philosophique classique à un enjeu d'ingénierie et de régulation mondiale."
+      }
+    },
+    {
+      "id": "drop_11",
+      "theme": "Société, Travail & Habitudes passées en anglais",
+      "wordOfTheDay": {
+        "word": "To erode / Erosion",
+        "phonetic": "/ɪˈrəʊd/",
+        "partOfSpeech": "verbe / nom",
+        "meaning": "Éroder / Ronger / Effriter progressivement (la confiance, le pouvoir d'achat)",
+        "example": "Persistent inflation has steadily eroded the purchasing power of middle-class families.",
+        "exampleTranslation": "L'inflation persistante a progressivement érodé le pouvoir d'achat des familles de la classe moyenne.",
+        "collocations": [
+          "erode public trust (effriter la confiance du public)",
+          "erode civil liberties (rogner sur les libertés civiles)",
+          "gradual erosion of democratic norms (érosion progressive des normes démocratiques)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler de l'emploi, du pouvoir d'achat et des inégalités",
+        "topicalWords": [
+          {
+            "term": "Purchasing power",
+            "translation": "Le pouvoir d'achat",
+            "note": "Au cœur des débats économiques et des mouvements sociaux."
+          },
+          {
+            "term": "The gig economy",
+            "translation": "L'économie des petits boulots / ubérisation",
+            "note": "Caractérisée par l'absence de contrat stable et de protection sociale."
+          },
+          {
+            "term": "To bridge the gap",
+            "translation": "Combler le fossé / Réduire l'écart",
+            "note": "Ex: Policies aimed at bridging the gap between rich and poor."
+          },
+          {
+            "term": "Precariousness / Precarity",
+            "translation": "La précarité",
+            "note": "Ex: Youth unemployment often leads to prolonged social precarity."
+          },
+          {
+            "term": "A living wage",
+            "translation": "Un salaire décent (qui permet de vivre dignement)",
+            "note": "Différent du simple salaire minimum légal (minimum wage)."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Used to + V » vs « Be used to + V-ING » : ne plus jamais confondre !",
+            "rule": "« I used to work » = 'Je travaillais autrefois' (habitude révolue passée). « I am used to working » = 'Je suis habitué à travailler' (habitude présente, toujours suivi de -ING !).",
+            "wrong": "I am used to wake up early every morning.",
+            "right": "I am used to waking up early. / I used to wake up late when I was a student."
+          },
+          {
+            "title": "« Hard » vs « Hardly » : un faux-ami de sens radical",
+            "rule": "« Hard » veut dire 'dur / avec acharnement' (ex: He works hard). « Hardly » veut dire 'à peine / presque pas' (ex: He hardly works = Il ne travaille quasiment pas !).",
+            "wrong": "She studied hardly and passed her competitive exams easily.",
+            "right": "She studied hard and passed. / She hardly had any sleep before the exam."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Disappearing Middle Class and the Future of Work",
+        "source": "The Guardian",
+        "category": "Économie & Société",
+        "readingTime": "5 min",
+        "abstract": "Enquête sur la polarisation de l'emploi entre très hauts salaires technologiques et emplois de services précaires.",
+        "url": "https://www.theguardian.com/business"
+      },
+      "cultureGNiche": {
+        "category": "Sociologie & Philosophie",
+        "title": "1844 : Karl Marx et le concept d'« Aliénation » du travailleur",
+        "hook": "Quand un artisan fabrique une table, il se reconnaît dans son œuvre. Mais que ressent l'ouvrier à la chaîne ou l'employé qui clique sur des tickets toute la journée ? Pour Marx, il est « aliéné ».",
+        "details": "Dans les *Manuscrits de 1844*, Karl Marx définit l'aliénation (du latin *alienus*, étranger). Dans le travail moderne poussé à l'extrême, l'ouvrier est dépossédé de son humanité à quatre niveaux :\n1) Il ne possède pas l'objet qu'il produit,\n2) Le travail n'est plus une création mais une corvée subie pour survivre,\n3) Il est coupé de sa propre nature créative,\n4) Il est mis en concurrence hostile avec ses collègues.\n💡 En colle : concept d'une modernité éclatante pour analyser le burn-out, les « bullshit jobs » (David Graeber) et le travail algorithmique contemporain."
+      }
+    },
+    {
+      "id": "drop_12",
+      "theme": "Science, Vérité & Inversion après adverbes négatifs",
+      "wordOfTheDay": {
+        "word": "Biased / A cognitive bias",
+        "phonetic": "/ˈbaɪ.əst/",
+        "partOfSpeech": "adjectif / nom",
+        "meaning": "Biaisé / Partiel / Un biais cognitif (qui altère le jugement)",
+        "example": "Even peer-reviewed studies can be biased if funding sources are not disclosed.",
+        "exampleTranslation": "Même les études évaluées par des pairs peuvent être biaisées si les sources de financement ne sont pas divulguées.",
+        "collocations": [
+          "confirmation bias (le biais de confirmation)",
+          "inherently biased against (intrinsèquement partial contre)",
+          "unbiased judgment (un jugement impartial et objectif)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Défendre la méthode scientifique et la démarche critique",
+        "topicalWords": [
+          {
+            "term": "Peer-reviewed",
+            "translation": "Évalué par des pairs (critère d'or de la publication scientifique)",
+            "note": "Ex: Only peer-reviewed papers provide reliable evidence."
+          },
+          {
+            "term": "Flawed",
+            "translation": "Défectueux / Erroné / Qui comporte des failles",
+            "note": "Ex: The experiment was based on fundamentally flawed assumptions."
+          },
+          {
+            "term": "To debunk a myth",
+            "translation": "Démystifier / Démonter une idée fausse",
+            "note": "Ex: Scientists have debunked the myth that vaccines cause autism."
+          },
+          {
+            "term": "Empirical evidence",
+            "translation": "Des preuves empiriques (mesurables et observables)",
+            "note": "Incontournable pour les sujets de sciences et société."
+          },
+          {
+            "term": "Pseudoscience",
+            "translation": "Pseudo-science / Ch Charlatanisme scientifique",
+            "note": "Ex: The proliferation of pseudoscience on social media."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "L'inversion de style après les adverbes restrictifs (Seldom, Rarely, Hardly)",
+            "rule": "Quand on commence une phrase par un adverbe restrictif ou négatif (Seldom, Rarely, Little, Never), le sujet et l'auxiliaire S'INVERSENT, exactement comme dans une question. C'est la structure reine pour marquer des points au concours !",
+            "wrong": "Rarely scientists have faced such intense public skepticism.",
+            "right": "Rarely HAVE scientists faced such intense public skepticism. / Seldom do we see such unanimity."
+          },
+          {
+            "title": "Faux-ami : « Current » ne veut PAS dire « courant (banal) » !",
+            "rule": "« Current » signifie « actuel / en cours » (ex: the current crisis = la crise actuelle). Pour dire que quelque chose est courant ou banal, on dit « common » ou « widespread ».",
+            "wrong": "Spelling mistakes are very current among students.",
+            "right": "Spelling mistakes are very common. / The current government is facing strikes."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Why Scientific Consensus Matters in an Age of Disinformation",
+        "source": "BBC News",
+        "category": "Sciences & Société",
+        "readingTime": "5 min",
+        "abstract": "Comment les marchands de doute exploitent l'incertitude inhérente à la science pour paralyser l'action publique.",
+        "url": "https://www.bbc.com/news/science_and_environment"
+      },
+      "cultureGNiche": {
+        "category": "Épistémologie & Sciences",
+        "title": "1934 : Karl Popper et la « Réfutabilité » (Falsifiability)",
+        "hook": "Si quelqu'un vous dit : « Demain, soit il pleuvra, soit il ne pleuvra pas », cette phrase est toujours vraie, mais elle n'a aucune valeur scientifique. Pourquoi ?",
+        "details": "Dans *La Logique de la découverte scientifique* (1934), le philosophe Karl Popper résout le problème de la démarcation entre vraie science et pseudo-science. Une théorie n'est scientifique que si elle est « réfutable » (falsifiable) :\nIl doit être possible d'imaginer une expérience qui, si elle échoue, prouverait que la théorie est fausse.\n- La théorie de la relativité d'Einstein est scientifique car elle prédisait la courbure de la lumière lors d'une éclipse (vérifiée en 1919).\n- À l'inverse, l'astrologie ou le complotisme ne sont pas scientifiques car ils trouvent toujours une excuse rétroactive pour expliquer leurs erreurs.\n💡 En colle : la référence magistrale pour tout sujet sur la méthode scientifique, l'intelligence artificielle ou le doute cartésien."
+      }
+    },
+    {
+      "id": "drop_13",
+      "theme": "Frontières, Mondialisation & Distinctions Like/As",
+      "wordOfTheDay": {
+        "word": "A scapegoat / To scapegoat",
+        "phonetic": "/ˈskeɪp.ɡəʊt/",
+        "partOfSpeech": "nom / verbe",
+        "meaning": "Un bouc émissaire / Faire porter le chapeau à quelqu'un d'autre",
+        "example": "During economic downturns, populist leaders often scapegoat foreign workers for domestic failures.",
+        "exampleTranslation": "Pendant les récessions économiques, les dirigeants populistes font souvent des travailleurs étrangers des boucs émissaires pour masquer leurs propres échecs.",
+        "collocations": [
+          "make somebody a scapegoat (faire de quelqu'un un bouc émissaire)",
+          "seek a scapegoat (chercher un coupable idéal)",
+          "convenient scapegoats (des boucs émissaires bien commodes)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "vocab",
+        "topicTitle": "Parler des flux migratoires et de la mondialisation",
+        "topicalWords": [
+          {
+            "term": "A brain drain",
+            "translation": "Une fuite des cerveaux",
+            "note": "Ex: Developing nations suffer from a severe brain drain to Western universities."
+          },
+          {
+            "term": "Asylum seekers",
+            "translation": "Des demandeurs d'asile",
+            "note": "À distinguer des simples 'economic migrants'."
+          },
+          {
+            "term": "To stem the flow",
+            "translation": "Endiguer / Freiner le flux",
+            "note": "Ex: Border walls rarely succeed in stemming the flow of desperate migrants."
+          },
+          {
+            "term": "Cultural assimilation",
+            "translation": "L'assimilation culturelle",
+            "note": "Débat classique entre modèle républicain (assimilation) et modèle anglo-saxon (multiculturalism)."
+          },
+          {
+            "term": "A double-edged policy",
+            "translation": "Une politique à double tranchant",
+            "note": "Ex: Strict border controls can backfire by feeding human trafficking networks."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Like » vs « As » : la règle absolue pour comparer",
+            "rule": "« Like » est une préposition suivie d'un nom ou pronom (ex: He fights like a lion). « As » est suivi d'une proposition avec verbe conjugué (ex: As I explained earlier) ou s'utilise pour indiquer une profession/rôle réel (ex: He works AS an engineer).",
+            "wrong": "He works like a doctor in this hospital. (Faux s'il est réellement médecin)",
+            "right": "He works as a doctor. / She speaks like an expert, as we all noticed."
+          },
+          {
+            "title": "Ne pas confondre « To emigrate » et « To immigrate »",
+            "rule": "« Emigrate FROM » = quitter son pays natal (avec un 'E' comme Exil / Exit). « Immigrate TO » = arriver et s'installer dans un nouveau pays (avec un 'I' comme In / Entrée).",
+            "wrong": "Thousands of scientists immigrated from Europe during the war.",
+            "right": "Thousands of scientists emigrated from Europe and immigrated to the US."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Borders in an Interconnected World: The Paradox of Globalization",
+        "source": "Foreign Affairs",
+        "category": "Géopolitique & Migrations",
+        "readingTime": "6 min",
+        "abstract": "Pourquoi le libre échange des marchandises s'est accompagné d'un durcissement sans précédent des frontières humaines.",
+        "url": "https://www.foreignaffairs.com/regions/global"
+      },
+      "cultureGNiche": {
+        "category": "Anthropologie & Philosophie",
+        "title": "1972 : René Girard et le mécanisme du « Bouc Émissaire »",
+        "hook": "Quand une société entre en crise profonde, les tensions internes s'accumulent au point de risquer l'explosion. Comment la communauté retrouve-t-elle la paix ? En désignant une victime unique sur laquelle tout le monde s'accorde.",
+        "details": "Dans *La Violence et le Sacré* (1972), l'académicien et philosophe René Girard théorise le désir mimétique : les êtres humains désirent les mêmes choses parce qu'ils s'imitent mutuellement, ce qui engendre des rivalités destructrices.\nPour éviter la guerre de tous contre tous, la foule se rassemble en canalisant sa haine contre un « bouc émissaire » (l'étranger, la minorité, l'hérétique). Son expulsion ou son sacrifice restaure temporairement l'illusion d'une harmonie sociale.\n💡 En colle : la grille de lecture psychologique et sociologique suprême pour analyser les dérives populistes, la xénophobie en période de crise et les chasses aux sorcières contemporaines."
+      }
+    },
+    {
+      "id": "drop_14",
+      "theme": "Surveillance, Justice & Faux-amis redoutables",
+      "wordOfTheDay": {
+        "word": "A deterrent / Deterrence",
+        "phonetic": "/dɪˈter.ənt/",
+        "partOfSpeech": "nom",
+        "meaning": "Un moyen de dissuasion / L'effet dissuasif (pénal ou militaire)",
+        "example": "Nuclear arsenals were built primarily as a deterrent against total war.",
+        "exampleTranslation": "Les arsenaux nucléaires ont été construits avant tout comme un moyen de dissuasion contre une guerre totale.",
+        "collocations": [
+          "act as a deterrent (agir comme un élément dissuasif)",
+          "nuclear deterrence (la dissuasion nucléaire)",
+          "fail to deter criminals (échouer à dissuader les criminels)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler de surveillance, de justice et de libertés publiques",
+        "topicalWords": [
+          {
+            "term": "Facial recognition",
+            "translation": "La reconnaissance faciale",
+            "note": "Objet de vifs débats éthiques sur l'espace public et la vie privée."
+          },
+          {
+            "term": "An infringement on freedom",
+            "translation": "Une atteinte à la liberté",
+            "note": "Ex: Mass surveillance is seen as a severe infringement on civil rights."
+          },
+          {
+            "term": "A chilling effect",
+            "translation": "Un effet paralysant / d'autocensure",
+            "note": "Quand la surveillance pousse les citoyens à ne plus oser s'exprimer librement."
+          },
+          {
+            "term": "To crack down on",
+            "translation": "Répressionner sévèrement / Serrer la vis",
+            "note": "Ex: The government cracked down on unauthorized protests."
+          },
+          {
+            "term": "Whistleblower",
+            "translation": "Un lanceur d'alerte",
+            "note": "Figure centrale de la démocratie moderne (ex: Edward Snowden)."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Faux-ami suprême : « Deception » ne veut PAS dire « déception » !",
+            "rule": "« Deception » signifie « tromperie / ruse / escroquerie ». Pour dire « une déception », on doit TOUJOURS dire « a disappointment ».",
+            "wrong": "Failing the exam was a terrible deception for the candidate.",
+            "right": "Failing the exam was a terrible disappointment. / The politician relied on deliberate deception."
+          },
+          {
+            "title": "Dire « Je préfère A à B » : « I prefer A TO B », jamais « than » !",
+            "rule": "En anglais, après le verbe « prefer », la comparaison s'exprime avec la préposition « TO », jamais avec « than ».",
+            "wrong": "Many citizens prefer security than privacy.",
+            "right": "Many citizens prefer security TO privacy. / I prefer reading books to watching television."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Surveillance Capitalism: How Data Mining Redefines Freedom",
+        "source": "The Atlantic",
+        "category": "Technologie & Libertés",
+        "readingTime": "6 min",
+        "abstract": "Comment les algorithmes prédictifs et les caméras urbaines transforment le citoyen en utilisateur perpétuellement profilé.",
+        "url": "https://www.theatlantic.com/technology"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie & Droit",
+        "title": "1791 : Jeremy Bentham et le « Panoptique » (Panopticon)",
+        "hook": "Imaginez une prison circulaire avec une tour centrale. Les surveillants peuvent voir chaque cellule à tout instant, mais les prisonniers ne peuvent pas voir l'intérieur de la tour. Savez-vous ce qui se produit ?",
+        "details": "Conçu en 1791 par le philosophe utilitariste Jeremy Bentham, le Panoptique repose sur une idée diabolique : ne sachant jamais s'ils sont observés ou non, les détenus se comportent comme s'ils étaient surveillés en permanence. Ils finissent par intérioriser la contrainte et deviennent leurs propres surveillants.\nDans *Surveiller et punir* (1975), Michel Foucault montre que le panoptique est devenu le modèle de toute la société disciplinaire moderne (usines, écoles, hôpitaux, et aujourd'hui réseaux sociaux et algorithmes de big data).\n💡 En dissertation : l'arme argumentative absolue pour traiter de la cybersurveillance, de la transparence et de la disparition de la vie privée."
+      }
+    },
+    {
+      "id": "drop_15",
+      "theme": "Économie, Dette & Verbes intransitifs (Rise/Raise)",
+      "wordOfTheDay": {
+        "word": "To plummet / A slump",
+        "phonetic": "/ˈplʌm.ɪt/",
+        "partOfSpeech": "verbe / nom",
+        "meaning": "Dégringoler / S'effondrer brutalement (un cours, des ventes, la monnaie)",
+        "example": "Following the announcement of new tariffs, stock markets plummeted worldwide.",
+        "exampleTranslation": "Suite à l'annonce de nouveaux droits de douane, les marchés boursiers se sont effondrés dans le monde entier.",
+        "collocations": [
+          "plummet to an all-time low (chuter à un niveau historiquement bas)",
+          "temperatures plummeted (les températures ont chuté vertigineusement)",
+          "a prolonged economic slump (un marasme économique prolongé)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "vocab",
+        "topicTitle": "Décrire les fluctuations économiques et les crises",
+        "topicalWords": [
+          {
+            "term": "To skyrocket / To surge",
+            "translation": "Montee en flèche / Exploser (prix, demande)",
+            "note": "Ex: Energy bills skyrocketed after the outbreak of the war."
+          },
+          {
+            "term": "A sovereign debt crisis",
+            "translation": "Une crise de la dette souveraine",
+            "note": "Quand un État ne peut plus emprunter à des taux soutenables."
+          },
+          {
+            "term": "Interest rates",
+            "translation": "Les taux d'intérêt",
+            "note": "Outil principal des banques centrales (Federal Reserve, BCE) pour juguler l'inflation."
+          },
+          {
+            "term": "To bail out / A bailout",
+            "translation": "Renflouer / Un plan de sauvetage financier",
+            "note": "Ex: The government bailed out major banks to prevent systemic collapse."
+          },
+          {
+            "term": "Recession-proof",
+            "translation": "Résistant à la récession",
+            "note": "Secteurs d'activité qui continuent de tourner même en temps de crise."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Rise » (intransitif) vs « Raise » (transitif) : la confusion fatale",
+            "rule": "« Rise » (rose, risen) s'emploie sans complément d'objet : la chose monte d'elle-même (ex: Prices are rising). « Raise » (régulier) exige un complément : on augmente ou on lève quelque chose (ex: The bank raised its interest rates).",
+            "wrong": "The central bank will rise the rates to curb inflation.",
+            "right": "The central bank will raise the rates. / Unemployment is steadily rising."
+          },
+          {
+            "title": "Donner un conseil impératif : « Had better + BV » sans « to » !",
+            "rule": "« Had better » (souvent contracté en 'd better) exprime un avertissement ou conseil pressant. Il est TOUJOURS suivi de la base verbale directe (sans 'to' !).",
+            "wrong": "You had better to revise your grammar before the exam.",
+            "right": "You had better revise your grammar. / Governments had better act quickly."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Shifting Global Financial Order: De-dollarization and Emerging Blocs",
+        "source": "Financial Times",
+        "category": "Économie & Monnaie",
+        "readingTime": "5 min",
+        "abstract": "Analyse sur la volonté des BRICS de commercer dans leurs monnaies nationales et le futur statut de monnaie de réserve du dollar.",
+        "url": "https://www.ft.com/global-economy"
+      },
+      "cultureGNiche": {
+        "category": "Histoire & Géopolitique",
+        "title": "Le « Piège de Thucydide » de Graham Allison : pourquoi les superpuissances s'affrontent-elles ?",
+        "hook": "« Ce fut la montée en puissance d'Athènes et la peur qu'elle inspira à Sparte qui rendirent la guerre inévitable. » En une seule phrase écrite il y a 2400 ans, l'historien Thucydide a résumé l'histoire des empires.",
+        "details": "Popularisé par le professeur de Harvard Graham Allison dans *Destined for War* (2017), le « Piège de Thucydide » désigne la dynamique géopolitique fatale qui s'enclenche lorsqu'une puissance émergente (la Chine aujourd'hui, l'Allemagne en 1914) menace de détrôner la puissance dominante établie (les États-Unis aujourd'hui, le Royaume-Uni en 1914).\nSur les 16 cas historiques étudiés sur 500 ans, 12 se sont soldés par une guerre dévastatrice.\n💡 En colle : la référence géopolitique indispensable pour tout sujet sur les relations sino-américaines, Taïwan ou les équilibres multipolaires du XXIe siècle."
+      }
+    },
+    {
+      "id": "drop_16",
+      "theme": "Éducation, Méritocratie & Accords au singulier",
+      "wordOfTheDay": {
+        "word": "A double standard",
+        "phonetic": "/ˌdʌb.əl ˈstæn.dəd/",
+        "partOfSpeech": "nom",
+        "meaning": "Deux poids, deux mesures (un traitement injustement asymétrique selon les personnes ou les pays)",
+        "example": "Critics accuse international bodies of applying a double standard when condemning foreign aggressions.",
+        "exampleTranslation": "Les détracteurs accusent les instances internationales d'appliquer deux poids, deux mesures lorsqu'elles condamnent les agressions étrangères.",
+        "collocations": [
+          "expose a blatant double standard (dénoncer un deux poids deux mesures flagrant)",
+          "moral double standards (des normes morales à géométrie variable)",
+          "guilty of double standards (coupable d'hypocrisie / de partialité)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler du système éducatif, du mérite et des concours",
+        "topicalWords": [
+          {
+            "term": "Meritocracy",
+            "translation": "La méritocratie (le pouvoir ou la réussite selon le mérite individuel)",
+            "note": "Idéal républicain aujourd'hui mis à l'épreuve par les sociologues."
+          },
+          {
+            "term": "Social mobility",
+            "translation": "L'ascenseur social / La mobilité sociale",
+            "note": "Ex: Higher education should be an engine of social mobility."
+          },
+          {
+            "term": "Affirmative action",
+            "translation": "La discrimination positive",
+            "note": "Sujet d'intenses débats juridiques aux États-Unis (annulation des quotas par la Cour suprême en 2023)."
+          },
+          {
+            "term": "To level the playing field",
+            "translation": "Mettre tout le monde sur un pied d'égalité",
+            "note": "Ex: Scholarships aim to level the playing field for underprivileged students."
+          },
+          {
+            "term": "Student debt crisis",
+            "translation": "La crise de la dette étudiante",
+            "note": "Fardeau financier colossal aux États-Unis (plus de 1700 milliards de dollars)."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Each » et « Every » s'accordent TOUJOURS au singulier !",
+            "rule": "Même si « every student » évoque tout le monde, grammaticalement « each » et « every » sont strictement singuliers. Le verbe qui suit prend donc toujours la marque de 3e personne du singulier.",
+            "wrong": "Every students in this class want to succeed.",
+            "right": "Every student in this class WANTS to succeed. / Each candidate was interviewed."
+          },
+          {
+            "title": "« Such as » vs « As such » : ne plus faire l'erreur en essai",
+            "rule": "« Such as » introduit des exemples (ex: Renewable energies such as wind and solar). « As such » signifie « en tant que tel / de ce fait » (ex: He is the CEO, and as such, he makes the decisions).",
+            "wrong": "Many countries, as such France and Germany, signed the treaty.",
+            "right": "Many countries, such as France and Germany... / He is a leader; as such, he must listen."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Meritocracy Trap: How Elite Education Deepens Inequality",
+        "source": "The New Yorker",
+        "category": "Éducation & Société",
+        "readingTime": "6 min",
+        "abstract": "Analyse critique sur la façon dont les diplômes des grandes universités sont devenus le principal mécanisme de transmission héréditaire du statut social.",
+        "url": "https://www.newyorker.com/magazine"
+      },
+      "cultureGNiche": {
+        "category": "Sociologie de l'Éducation",
+        "title": "1970 : Pierre Bourdieu et « La Reproduction » des inégalités",
+        "hook": "L'école républicaine traite tous les élèves de façon formellement égale devant la même copie anonyme. Pourquoi alors les enfants de cadres réussissent-ils statistiquement bien plus les concours que les enfants d'ouvriers ?",
+        "details": "Dans *La Reproduction* (1970), coécrit avec Jean-Claude Passeron, Pierre Bourdieu démontre que l'école ne valorise pas seulement des connaissances brutes mais un « capital culturel » hérité de la famille (aisance linguistique, références artistiques, rapport naturel à l'écrit).\nEn feignant de croire que tous les candidats partent avec les mêmes armes, l'institution scolaire transforme un privilège social hérité en un « mérite individuel » légitimé par le diplôme.\n💡 En colle : la référence suprême en France pour réfléchir sur le système des classes préparatoires, l'égalitarisme républicain et la méritocratie."
+      }
+    },
+    {
+      "id": "drop_17",
+      "theme": "Guerre moderne, Drones & Formes en -ING",
+      "wordOfTheDay": {
+        "word": "Collateral damage",
+        "phonetic": "/kəˈlæt.ər.əl ˈdæm.ɪdʒ/",
+        "partOfSpeech": "nom (indénombrable)",
+        "meaning": "Dommages collatéraux (victimes civiles ou destructions matérielles involontaires causées lors d'une frappe)",
+        "example": "Even precision-guided munitions frequently cause devastating collateral damage in urban warfare.",
+        "exampleTranslation": "Même les munitions guidées avec précision causent fréquemment des dommages collatéraux dévastateurs en milieu urbain.",
+        "collocations": [
+          "minimize collateral damage (réduire au minimum les dommages collatéraux)",
+          "suffer collateral damage (subir des dommages collatéraux)",
+          "collateral consequences (des répercussions imprévues)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler des conflits modernes, des drones et du droit de la guerre",
+        "topicalWords": [
+          {
+            "term": "A proxy war",
+            "translation": "Une guerre par procuration",
+            "note": "Conflit où deux grandes puissances s'affrontent indirectement via des acteurs tiers sur le terrain."
+          },
+          {
+            "term": "A drone strike",
+            "translation": "Une frappe de drone",
+            "note": "Symbole de la guerre asymétrique et déshumanisée du XXIe siècle."
+          },
+          {
+            "term": "A civilian casualty",
+            "translation": "Une victime civile",
+            "note": "Attention : 'casualty' ne veut pas dire 'accidentel' mais 'victime / mort ou blessé'."
+          },
+          {
+            "term": "A ceasefire",
+            "translation": "Un cessez-le-feu",
+            "note": "Ex: International mediators are desperately negotiating a lasting ceasefire."
+          },
+          {
+            "term": "Cyberwarfare",
+            "translation": "La cyberguerre",
+            "note": "Attaques informatiques ciblant les réseaux électriques, hôpitaux et banques d'un pays rival."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Stop to do » vs « Stop doing » : sens complètement opposé !",
+            "rule": "« Stop doing » = arrêter une action (ex: He stopped smoking = il a arrêté de fumer). « Stop to do » = s'arrêter en chemin afin de faire quelque chose (ex: He stopped to smoke a cigarette = il s'est arrêté pour fumer).",
+            "wrong": "Soldiers stopped fighting to negotiate a peace deal.",
+            "right": "Soldiers stopped fighting (ont cessé le combat) / They stopped to catch their breath (se sont arrêtés pour reprendre leur souffle)."
+          },
+          {
+            "title": "Faux-ami : « Caution » ne veut PAS dire « caution financière » !",
+            "rule": "En anglais, « caution » signifie « prudence / mise en garde » (ex: Exercise great caution). Pour désigner la caution financière versée pour sortir de prison, on dit « bail ».",
+            "wrong": "The suspect was released after his family paid the caution.",
+            "right": "The suspect was released on bail. / Treat this diplomatic statement with great caution."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Autonomous Weapons and the Changing Nature of Battlefield Ethics",
+        "source": "Foreign Affairs",
+        "category": "Défense & Éthique",
+        "readingTime": "5 min",
+        "abstract": "L'irruption des drones autonomes pilotés par IA pose une question vertigineuse : peut-on confier la décision d'ouvrir le feu à un algorithme ?",
+        "url": "https://www.foreignaffairs.com/topics/defense-and-military"
+      },
+      "cultureGNiche": {
+        "category": "Stratégie Militaire & Philosophie",
+        "title": "1832 : Carl von Clausewitz et « La Guerre, continuation de la politique »",
+        "hook": "Pourquoi déclenche-t-on une guerre ? Pour détruire son ennemi ou pour obtenir un traité avantageux ? En 1832, le général prussien Carl von Clausewitz a tranché avec la formule la plus célèbre de l'histoire militaire.",
+        "details": "Dans son traité magistral *De la guerre* (1832), Clausewitz formule sa thèse révolutionnaire :\n« La guerre n'est qu'un prolongement de la politique par d'autres moyens. »\nCela signifie que la violence armée n'a aucun sens en soi : elle n'est qu'un instrument au service d'un objectif politique concret (un territoire, un changement de régime, un accord commercial). Dès lors qu'une guerre ne sert plus l'objectif politique, elle devient une pure folie destructrice (« la montée aux extrêmes »).\n💡 En dissertation : l'argument classique pour expliquer pourquoi les guerres d'Afghanistan ou d'Irak ont échoué militairement faute d'un projet politique clair pour l'après-guerre."
+      }
+    },
+    {
+      "id": "drop_18",
+      "theme": "Liberté d'expression, Censure & Mots dérivés de Critique",
+      "wordOfTheDay": {
+        "word": "To curb / A curb",
+        "phonetic": "/kɜːb/",
+        "partOfSpeech": "verbe / nom",
+        "meaning": "Freiner / Réfréner / Endiguer / Un frein (à une dérive ou une liberté)",
+        "example": "Democratic states must curb the spread of hate speech without infringing on legitimate free speech.",
+        "exampleTranslation": "Les États démocratiques doivent freiner la propagation des discours de haine sans porter atteinte à la légitime liberté d'expression.",
+        "collocations": [
+          "curb inflation (juguler l'inflation)",
+          "curb carbon emissions (réduire les émissions de carbone)",
+          "put a curb on government spending (mettre un frein aux dépenses publiques)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler du débat public, de la censure et des plateformes",
+        "topicalWords": [
+          {
+            "term": "Freedom of speech / First Amendment",
+            "translation": "La liberté d'expression",
+            "note": "Protégée de manière quasi absolue aux États-Unis par le Premier Amendement."
+          },
+          {
+            "term": "To censor / Censorship",
+            "translation": "Censurer / La censure",
+            "note": "Ex: Authoritarian regimes impose heavy censorship on online journalists."
+          },
+          {
+            "term": "Hate speech",
+            "translation": "Les discours de haine",
+            "note": "Ligne de fracture entre la tradition juridique européenne (interdiction) et américaine (tolérance)."
+          },
+          {
+            "term": "Cancel culture",
+            "translation": "La culture du bannissement / du boycott public",
+            "note": "Mise au ban d'une personnalité publique suite à des propos jugés inacceptables."
+          },
+          {
+            "term": "The public square",
+            "translation": "L'agora / L'espace public de débat",
+            "note": "Aujourd'hui largement privatisé par des plateformes numériques privées (X, Meta)."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Ne plus jamais mélanger : « Critic », « Criticism », « Critical » et « To criticize »",
+            "rule": "« A critic » = la personne (le critique d'art). « Criticism » = la critique formulée (nom abstrait). « Critical » = l'adjectif (fondamental ou critique). « To criticize » = le verbe d'action.",
+            "wrong": "The newspaper published a very harsh critic of the new law.",
+            "right": "The newspaper published a very harsh criticism. / This step is critical (capital) for success."
+          },
+          {
+            "title": "L'accord avec « Neither... nor » : toujours avec le sujet le plus proche !",
+            "rule": "Quand deux sujets sont reliés par « Neither... nor », le verbe s'accorde en nombre avec le sujet qui est placé immédiatement à côté du verbe.",
+            "wrong": "Neither the president nor his ministers was present at the conference.",
+            "right": "Neither the president nor his ministers WERE present. / Neither the ministers nor the president WAS present."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Free Speech in the Digital Public Square: Who Polices the Internet?",
+        "source": "The Guardian",
+        "category": "Médias & Droit",
+        "readingTime": "5 min",
+        "abstract": "Comment la régulation des contenus en ligne par les multinationales de la tech redéfinit les frontières du débat démocratique.",
+        "url": "https://www.theguardian.com/technology"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie Politique",
+        "title": "1859 : John Stuart Mill et la défense absolue de la liberté d'expression",
+        "hook": "Pourquoi faut-il autoriser une personne à exprimer une opinion même si tout le reste de la société est persuadé qu'elle a tort ? Pour le philosophe John Stuart Mill, faire taire une voix dissidente est un crime contre l'humanité tout entière.",
+        "details": "Dans son essai fondamental *De la liberté* (1859), John Stuart Mill formule une triple justification de la liberté de parole :\n1) L'opinion censurée est peut-être vraie (l'histoire prouve que la majorité s'est souvent trompée, comme Galilée ou Socrate),\n2) Si l'opinion censurée est fausse, la combattre publiquement est indispensable pour garder vivante la vérité, sans quoi elle dégénère en un dogme mort et mécanique,\n3) La vérité est presque toujours un compromis nuancé entre deux opinions opposées.\n💡 En colle : la référence d'autorité indétrônable pour tous les sujets sur les lois mémorielles, la censure sur les réseaux sociaux et la liberté de la presse."
+      }
+    },
+    {
+      "id": "drop_19",
+      "theme": "Démographie, Vieillissement & Subjonctif après verbes de volonté",
+      "wordOfTheDay": {
+        "word": "A dwindling resource / Dwindling",
+        "phonetic": "/ˈdwɪn.dəl.ɪŋ/",
+        "partOfSpeech": "adjectif / participe",
+        "meaning": "Qui diminue / S'amenuise / Fond à vue d'œil (une population, des réserves, des budgets)",
+        "example": "Many developed nations are facing an aging workforce and dwindling birth rates.",
+        "exampleTranslation": "De nombreuses nations développées font face au vieillissement de leur population active et à l'amenuisement de leur taux de natalité.",
+        "collocations": [
+          "dwindling numbers (des effectifs en chute libre)",
+          "dwindling natural resources (des ressources naturelles qui s'amenuisent)",
+          "dwindle into insignificance (perdre toute importance / disparaître)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "vocab",
+        "topicTitle": "Parler du vieillissement démographique et des retraites",
+        "topicalWords": [
+          {
+            "term": "Life expectancy",
+            "translation": "L'espérance de vie",
+            "note": "A augmenté de manière spectaculaire au XXe siècle, posant le défi du financement des retraites."
+          },
+          {
+            "term": "Birth rate / Fertility rate",
+            "translation": "Le taux de natalité / Le taux de fécondité",
+            "note": "Le seuil de renouvellement des générations est fixé à 2,1 enfants par femme."
+          },
+          {
+            "term": "Dependency ratio",
+            "translation": "Le ratio de dépendance (actifs vs retraités)",
+            "note": "Indicateur clé de la viabilité des systèmes de pension par répartition."
+          },
+          {
+            "term": "Labor shortage",
+            "translation": "La pénurie de main-d'œuvre",
+            "note": "Ex: Hospitals face severe labor shortages as senior nurses retire."
+          },
+          {
+            "term": "Intergenerational solidarity",
+            "translation": "La solidarité intergénérationnelle",
+            "note": "Le pacte tacite par lequel les actifs financent les pensions des plus âgés."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Le subjonctif anglais après les verbes de demande/exigence (Require, Insist, Demand)",
+            "rule": "Après un verbe exprimant un ordre ou une suggestion (I recommend that, They demand that), le verbe de la proposition subordonnée reste à la forme infinitive NUE (base verbale sans 'to', ni marque de 's' à la 3e personne !).",
+            "wrong": "The commission recommended that the pension age is raised.",
+            "right": "The commission recommended that the pension age BE raised. / He insisted that she participate."
+          },
+          {
+            "title": "« Farther » vs « Further » : la nuance de distance",
+            "rule": "« Farther » s'utilise pour une distance physique mesurable dans l'espace (ex: He ran farther than me). « Further » s'utilise pour une distance métaphorique ou un degré abstrait (ex: further research = des recherches complémentaires).",
+            "wrong": "We need farther information before making an economic decision.",
+            "right": "We need FURTHER information. / The village was much farther than expected."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Global Aging Crisis: How Shrinking Workforces Threaten Economies",
+        "source": "The Economist",
+        "category": "Démographie & Économie",
+        "readingTime": "6 min",
+        "abstract": "Du Japon à l'Italie et à la Corée du Sud, décryptage des bouleversements fiscaux et sociaux provoqués par l'hiver démographique.",
+        "url": "https://www.economist.com/international"
+      },
+      "cultureGNiche": {
+        "category": "Démographie & Économie Politique",
+        "title": "1798 : Thomas Malthus et le « Piège Malthusien » (Essai sur la population)",
+        "hook": "La population grandit de façon géométrique (1, 2, 4, 8, 16...) tandis que la production agricole ne croît que de façon arithmétique (1, 2, 3, 4, 5...). Que se passe-t-il quand les deux courbes se croisent ?",
+        "details": "En 1798, le pasteur et économiste britannique Thomas Malthus publie son célèbre *Essai sur le principe de population*. Il prédit que l'humanité est condamnée à des famines récurrentes dès que la population dépasse les capacités de subsistance du sol.\nBien que la révolution industrielle et les engrais modernes aient repoussé ce plafond au XIXe et XXe siècle, le terme « malthusianisme » désigne aujourd'hui toute doctrine prônant la restriction volontaire (des naissances ou de la production) face à des ressources finies.\n💡 En dissertation : l'armature théorique parfaite pour discuter des limites de la planète, de la décroissance et de l'équilibre ressources / population."
+      }
+    },
+    {
+      "id": "drop_20",
+      "theme": "Énergie, Nucléaire & Noms indénombrables (Advice, Progress)",
+      "wordOfTheDay": {
+        "word": "A breakthrough",
+        "phonetic": "/ˈbreɪk.θruː/",
+        "partOfSpeech": "nom",
+        "meaning": "Une percée décisive / Une avancée majeure (technologique ou scientifique)",
+        "example": "Scientists hailed the nuclear fusion experiment as a historic breakthrough toward clean energy.",
+        "exampleTranslation": "Les scientifiques ont salué l'expérience de fusion nucléaire comme une percée historique vers une énergie propre.",
+        "collocations": [
+          "a technological breakthrough (une avancée technologique majeure)",
+          "make a major breakthrough (réaliser une percée décisive)",
+          "diplomatic breakthrough (un déblocage diplomatique inespéré)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler du mix énergétique, du nucléaire et des matières premières",
+        "topicalWords": [
+          {
+            "term": "Nuclear fusion",
+            "translation": "La fusion nucléaire",
+            "note": "Le Graal de l'énergie propre : reproduire la réaction physique du cœur du Soleil sans déchets longue durée."
+          },
+          {
+            "term": "The energy grid",
+            "translation": "Le réseau électrique",
+            "note": "Ex: Renewable energy requires a massive modernization of the national power grid."
+          },
+          {
+            "term": "Intermittent power",
+            "translation": "L'énergie intermittente",
+            "note": "Limite majeure de l'éolien et du solaire, qui dépendent du vent et de l'ensoleillement."
+          },
+          {
+            "term": "Critical raw materials",
+            "translation": "Les matières premières critiques (lithium, cobalt, terres rares)",
+            "note": "Au cœur des tensions géopolitiques avec la Chine."
+          },
+          {
+            "term": "Energy independence",
+            "translation": "L'indépendance énergétique",
+            "note": "Priorité absolue des États après le choc gazier de 2022."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Advice » est indénombrable : JAMAIS « an advice » ni « advices » !",
+            "rule": "En anglais, « advice » est strictement indénombrable. On ne dit jamais 'an advice'. Pour compter, on dit « a piece of advice » ou « some advice ».",
+            "wrong": "My professor gave me very useful advices for my engineering project.",
+            "right": "My professor gave me very useful ADVICE (ou 'pieces of advice')."
+          },
+          {
+            "title": "Exprimer le but : « So that » vs « In order to »",
+            "rule": "« In order to » est suivi directement d'une base verbale (ex: in order to succeed). « So that » est suivi d'une proposition avec sujet + auxiliaire modal (ex: so that he COULD succeed).",
+            "wrong": "Governments invest in solar panels in order that citizens save money.",
+            "right": "Governments invest so that citizens CAN save money. / ...in order to reduce emissions."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Race for Critical Minerals: Clean Energy's Geopolitical Frontier",
+        "source": "Financial Times",
+        "category": "Énergie & Géopolitique",
+        "readingTime": "5 min",
+        "abstract": "Comment la dépendance aux terres rares et au raffinage chinois remplace la dépendance historique au pétrole du Moyen-Orient.",
+        "url": "https://www.ft.com/energy"
+      },
+      "cultureGNiche": {
+        "category": "Économie du Développement",
+        "title": "La « Malédiction des matières premières » (The Resource Curse)",
+        "hook": "Pourquoi les pays disposant des plus immenses gisements de pétrole, d'or ou de diamants (Venezuela, RDC, Nigeria) sont-ils souvent parmi les plus pauvres, les plus corrompus et les plus instables du monde ?",
+        "details": "Formulé par l'économiste Richard Auty en 1993, le paradoxe de la « Malédiction des ressources » (Resource Curse) explique que l'abondance facile de rentes minières ou pétrolières freine le développement d'une économie industrielle diversifiée.\nCe phénomène produit trois fléaux structurels :\n1) Le syndrome hollandais (Dutch Disease) : les exportations massives font monter la monnaie, ce qui détruit les autres industries manufacturières locales,\n2) La rente nourrit la corruption des élites qui n'ont pas besoin de lever des impôts équitables auprès de leurs citoyens,\n3) Les gisements attisent les guerres civiles et les ingérences armées étrangères.\n💡 En colle : la référence de prestige pour expliquer pourquoi la richesse géologique ne garantit pas la prospérité démocratique."
+      }
+    },
+    {
+      "id": "drop_21",
+      "theme": "Médias, Polarisation & Faux-ami « Evidence »",
+      "wordOfTheDay": {
+        "word": "To fuel / Fuel to the fire",
+        "phonetic": "/ˈfjuː.əl/",
+        "partOfSpeech": "verbe",
+        "meaning": "Alimenter / Attiser / Souffler sur les braises (une colère, un conflit, une rumeur)",
+        "example": "Sensationalist media headlines continue to fuel social resentment and political division.",
+        "exampleTranslation": "Les gros titres sensationnalistes des médias continuent d'alimenter le ressentiment social et la division politique.",
+        "collocations": [
+          "fuel speculation (alimenter les spéculations)",
+          "fuel public outrage (attiser l'indignation populaire)",
+          "add fuel to the fire (jeter de l'huile sur le feu)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Analyser les réseaux sociaux, les algorithmes et la polarisation",
+        "topicalWords": [
+          {
+            "term": "An echo chamber",
+            "translation": "Une chambre d'écho",
+            "note": "Environnement numérique où l'internaute n'est exposé qu'à des opinions confirmant les siennes."
+          },
+          {
+            "term": "Tribalism",
+            "translation": "Le tribalisme politique",
+            "note": "Quand l'appartenance à un camp prime sur la vérité objective des faits."
+          },
+          {
+            "term": "Outrage culture",
+            "translation": "La culture de l'indignation permanente",
+            "note": "Mécanisme par lequel les algorithmes amplifient la colère pour maximiser le temps d'écran."
+          },
+          {
+            "term": "Clickbait",
+            "translation": "Le piège à clics / Le titre racoleur",
+            "note": "Stratégie éditoriale visant à susciter le clic au détriment de l'information vérifiée."
+          },
+          {
+            "term": "Media literacy",
+            "translation": "L'éducation aux médias et à l'esprit critique",
+            "note": "Rempart indispensable face à la manipulation numérique de masse."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Faux-ami majeur : « Evidence » ne veut PAS dire « une évidence » !",
+            "rule": "En anglais, « evidence » signifie « des preuves / des éléments tangibles » (ex: There is no evidence). Pour dire « une évidence », on dit « an obvious fact » ou « something self-evident ».",
+            "wrong": "It is an evidence that climate change is caused by human activity.",
+            "right": "It is an obvious fact that... / Scientists have accumulated overwhelming evidence."
+          },
+          {
+            "title": "« As long as » (condition) vs « As far as » (degré de connaissance)",
+            "rule": "« As long as » exprime une condition temporelle : 'tant que / à condition que'. « As far as I know / As far as I'm concerned » exprime une restriction de point de vue : 'pour autant que je sache / en ce qui me concerne'.",
+            "wrong": "As far as you study regularly, you will pass your exams.",
+            "right": "As long as you study regularly... / As far as I know, the exam takes place tomorrow."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Echo Chambers and Tribal Politics: Can Democracies Heal?",
+        "source": "The Atlantic",
+        "category": "Démocratie & Médias",
+        "readingTime": "6 min",
+        "abstract": "Une plongée dans les mécanismes psychologiques qui enferment les citoyens dans des bulles informationnelles imperméables au compromis.",
+        "url": "https://www.theatlantic.com/ideas"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie Politique",
+        "title": "1835 : Alexis de Tocqueville et la « Tyrannie de la majorité »",
+        "hook": "Dans une monarchie, le tyran s'attaque au corps physique : il emprisonne, exile ou guillotine. Mais dans une démocratie égalitaire moderne, comment s'exerce l'oppression ? Tocqueville donne une réponse stupéfiante : elle s'attaque à l'âme.",
+        "details": "Dans *De la démocratie en Amérique* (1835), Alexis de Tocqueville met en garde contre un risque inattendu de l'égalitarisme : la « Tyrannie de la majorité ».\nQuand la majorité décide de tout, celui qui ose penser différemment n'est pas jeté au cachot, mais il subit une mort sociale : il est mis à l'écart, méprisé et marginalisé par la pression du conformisme ambiant.\n« Le maître n'y dit plus : vous penserez comme moi ou vous mourrez ; il dit : vous êtes libre de ne point penser ainsi que moi ; votre vie, vos biens, tout vous reste ; mais de ce jour vous êtes un étranger parmi nous. »\n💡 En colle : la citation reine pour disserter sur la censure par la foule sur internet, le conformisme académique et les dangers du politiquement correct."
+      }
+    },
+    {
+      "id": "drop_22",
+      "theme": "Santé, Bioéthique & Verbes « Lie » et « Lay »",
+      "wordOfTheDay": {
+        "word": "Rampant",
+        "phonetic": "/ˈræm.pənt/",
+        "partOfSpeech": "adjectif",
+        "meaning": "Endémique / Galopant / Qui se propage sans contrôle (une maladie, la corruption)",
+        "example": "Malnutrition remains rampant in conflict zones where humanitarian aid cannot enter.",
+        "exampleTranslation": "La malnutrition demeure endémique dans les zones de conflit où l'aide humanitaire ne peut pas pénétrer.",
+        "collocations": [
+          "rampant inflation (une inflation galopante)",
+          "run rampant (se propager à bride abattue)",
+          "rampant corruption in government (corruption endémique au sein de l'État)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler de la santé mondiale, des pandémies et des biotechnologies",
+        "topicalWords": [
+          {
+            "term": "Gene editing (CRISPR)",
+            "translation": "L'édition génomique (les ciseaux moléculaires)",
+            "note": "Révolution biotechnologique qui permet de modifier l'ADN d'embryons vivants."
+          },
+          {
+            "term": "Herd immunity",
+            "translation": "L'immunité collective",
+            "note": "Atteinte lorsque suffisamment d'individus sont vaccinés pour bloquer la chaîne de transmission."
+          },
+          {
+            "term": "Universal healthcare",
+            "translation": "La couverture santé universelle",
+            "note": "Fossé idéologique majeur entre le modèle européen (sécurité sociale) et américain."
+          },
+          {
+            "term": "Preventive medicine",
+            "translation": "La médecine préventive",
+            "note": "Mieux vaut prévenir que guérir : clé de la réduction des dépenses publiques de santé."
+          },
+          {
+            "term": "A moral hazard",
+            "translation": "Un aléa moral (risque moral)",
+            "note": "Quand une personne assurée prend plus de risques parce qu'elle sait qu'elle sera remboursée."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Le cauchemar des anglophones : « Lie » (être couché) vs « Lay » (poser)",
+            "rule": "« Lie / lay / lain » (intransitif) = être étendu, reposer (ex: The book lies on the table). « Lay / laid / laid » (transitif) = poser quelque chose avec précaution (ex: She laid the baby in the crib).",
+            "wrong": "He laid on the hospital bed for two weeks.",
+            "right": "He LAY on the hospital bed. / He laid the medical documents on the desk."
+          },
+          {
+            "title": "« In the end » (finalement) vs « At the end of » (à la fin de quelque chose)",
+            "rule": "« In the end » est un connecteur qui signifie « finalement / au bout du compte ». « At the end of » exige un complément de temps ou de lieu précis (ex: at the end of the year / at the end of the street).",
+            "wrong": "In the end of the clinical trial, results were published.",
+            "right": "At the end of the clinical trial... / In the end, the vaccine proved safe and effective."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Pandemics and Preparedness: Why Global Health Needs Stronger Treaties",
+        "source": "BBC News",
+        "category": "Santé & Société",
+        "readingTime": "5 min",
+        "abstract": "Bilan des négociations internationales à l'OMS pour anticiper les futures épidémies et partager les vaccins avec les pays du Sud.",
+        "url": "https://www.bbc.com/news/health"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie & Bioéthique",
+        "title": "1785 : Emmanuel Kant et la 2e formule de l'« Impératif Catégorique »",
+        "hook": "A-t-on le droit de vendre son propre rein pour payer les études de ses enfants ? A-t-on le droit de cloner un être humain pour en faire un réservoir d'organes ? Pour Kant, la réponse est un NON absolu.",
+        "details": "Dans les *Fondements de la métaphysique des mœurs* (1785), Emmanuel Kant pose le principe fondamental de la dignité humaine :\n« Agis de telle sorte que tu traites l'humanité, aussi bien dans ta personne que dans la personne de tout autre, toujours en même temps comme une fin, et jamais simplement comme un moyen. »\nLes choses matérielles ont un prix (elles sont échangeables contre de l'argent), mais l'être humain a une dignité : il n'a aucun équivalent et ne peut jamais être instrumentalisé comme un simple outil au service d'un autre but.\n💡 En dissertation : le fondement philosophique de tous les comités d'éthique médicale modernes (GPA, vente d'organes, transhumanisme, sélection génétique)."
+      }
+    },
+    {
+      "id": "drop_23",
+      "theme": "Urbanisation, Mégalopoles & Faux-amis « Beside / Besides »",
+      "wordOfTheDay": {
+        "word": "Sprawling / Urban sprawl",
+        "phonetic": "/ˈsprɔː.lɪŋ/",
+        "partOfSpeech": "adjectif / nom",
+        "meaning": "Tentaculaire / S'étendant de manière anarchique / L'étalement urbain",
+        "example": "The sprawling suburbs of modern megalopolises consume agricultural land at an alarming rate.",
+        "exampleTranslation": "Les banlieues tentaculaires des mégalopoles modernes dévorent les terres agricoles à un rythme alarmant.",
+        "collocations": [
+          "sprawling metropolis (une métropole tentaculaire)",
+          "curb urban sprawl (endiguer l'étalement urbain)",
+          "sprawl across the valley (s'étendre de manière désordonnée dans toute la vallée)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "vocab",
+        "topicTitle": "Parler de l'aménagement du territoire, des villes et du logement",
+        "topicalWords": [
+          {
+            "term": "Gentrification",
+            "translation": "L'embourgeoisement des quartiers populaires",
+            "note": "Processus qui chasse les classes modestes vers la périphérie en raison de la hausse des loyers."
+          },
+          {
+            "term": "Affordable housing",
+            "translation": "Le logement abordable",
+            "note": "Crise majeure à Londres, New York et Paris, où les jeunes actifs peinent à se loger."
+          },
+          {
+            "term": "Public transit",
+            "translation": "Les transports en commun",
+            "note": "Levier central de décarbonation des déplacements quotidiens."
+          },
+          {
+            "term": "A 15-minute city",
+            "translation": "La ville du quart d'heure",
+            "note": "Concept urbanistique où tous les services essentiels sont accessibles en 15 minutes à pied ou à vélo."
+          },
+          {
+            "term": "Rural flight / Brain drain",
+            "translation": "L'exode rural",
+            "note": "Concentration des talents et des richesses dans quelques hyper-métropoles mondiales."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Beside » (à côté de) vs « Besides » (en outre / de plus)",
+            "rule": "« Beside » (sans 's') est une préposition spatiale qui veut dire 'à côté de / auprès de'. « Besides » (avec un 's') est un adverbe de liaison qui signifie 'd'ailleurs / de plus / en outre'.",
+            "wrong": "He sat besides the mayor during the city council.",
+            "right": "He sat BESIDE the mayor. / Besides, the city lacks the budget to build this tramway."
+          },
+          {
+            "title": "« People » est TOUJOURS pluriel en anglais courant !",
+            "rule": "En anglais, « people » (les gens) prend un verbe au PLURIEL. (« A people » au singulier n'existe que dans le sens rare de 'un peuple / une ethnie').",
+            "wrong": "Many people believes that living in big cities is stressful.",
+            "right": "Many people BELIEVE that living in big cities is stressful."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "How Mega-Cities Shape the Future of Human Societies",
+        "source": "The New Yorker",
+        "category": "Urbanisme & Société",
+        "readingTime": "6 min",
+        "abstract": "Reportage au cœur des mégalopoles asiatiques et africaines de plus de 20 millions d'habitants qui inventent l'architecture du futur.",
+        "url": "https://www.newyorker.com/culture"
+      },
+      "cultureGNiche": {
+        "category": "Urbanisme & Sociologie",
+        "title": "1961 : Jane Jacobs et « Mort et vie des grandes villes américaines »",
+        "hook": "Dans les années 1950, les urbanistes voulaient raser les vieux quartiers denses pour construire d'immenses tours entourées de voies rapides. Une journaliste autodidacte s'est levée pour leur expliquer pourquoi ils détruisaient la vie.",
+        "details": "Dans son chef-d'œuvre *The Death and Life of Great American Cities* (1961), Jane Jacobs pulvérise les dogmes de l'urbanisme moderniste (Le Corbusier, Robert Moses).\nElle montre qu'une ville sûre et vivante ne repose pas sur la police ou le béton, mais sur les « yeux sur la rue » (eyes on the street) :\n- Des trottoirs vivants bordés de commerces de proximité,\n- Une mixité entre logements, bureaux et boutiques pour que la rue soit fréquentée à toute heure,\n- Des îlots courts favorisant les rencontres spontanées entre voisins.\n💡 En colle : la référence phare pour critiquer les cités-dortoirs et valoriser les écoquartiers denses et conviviaux."
+      }
+    },
+    {
+      "id": "drop_24",
+      "theme": "Droit constitutionnel, Justice & Structure « Prevent from »",
+      "wordOfTheDay": {
+        "word": "To uphold",
+        "phonetic": "/ʌpˈhəʊld/",
+        "partOfSpeech": "verbe",
+        "meaning": "Défendre / Maintenir / Confirmer la validité (d'un droit, d'une loi, d'un jugement)",
+        "example": "The Supreme Court voted to uphold the constitutionality of the environmental regulation.",
+        "exampleTranslation": "La Cour suprême a voté la confirmation de la constitutionnalité de la réglementation environnementale.",
+        "collocations": [
+          "uphold the rule of law (faire respecter l'État de droit)",
+          "uphold democratic values (défendre les valeurs démocratiques)",
+          "a decision upheld on appeal (une décision confirmée en appel)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler des juges, de la constitution et de l'État de droit",
+        "topicalWords": [
+          {
+            "term": "The Supreme Court",
+            "translation": "La Cour suprême",
+            "note": "Plus haute juridiction américaine, dont les 9 juges sont nommés à vie par le Président."
+          },
+          {
+            "term": "A landmark ruling",
+            "translation": "Une décision de justice historique / qui fait jurisprudence",
+            "note": "Ex: Brown v. Board of Education (1954) qui mit fin à la ségrégation scolaire aux États-Unis."
+          },
+          {
+            "term": "Judicial review",
+            "translation": "Le contrôle de constitutionnalité des lois",
+            "note": "Pouvoir des juges d'invalider une loi votée par le Parlement si elle viole la Constitution."
+          },
+          {
+            "term": "Due process of law",
+            "translation": "La garantie d'une procédure régulière et équitable",
+            "note": "Pilier des droits fondamentaux dans le système juridique anglo-saxon."
+          },
+          {
+            "term": "To repeal a law",
+            "translation": "Abroger une loi",
+            "note": "Ex: The conservative majority attempted to repeal the healthcare reform."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "La préposition obligatoire : « To prevent somebody FROM doing »",
+            "rule": "En anglais, le verbe « to prevent » (empêcher) se construit TOUJOURS avec la préposition « FROM » suivie du verbe en « -ING ». On n'emploie jamais d'infinitif en 'to'.",
+            "wrong": "The new law prevents companies to pollute the rivers.",
+            "right": "The new law prevents companies FROM polluting the rivers."
+          },
+          {
+            "title": "« With regard to » sans « s », ou « As regards »",
+            "rule": "Ne confondez pas les deux formules : c'est soit « with regard to » (sans 's' à regard), soit « as regards » (avec un 's'). Ne jamais dire 'with regards to' dans une dissertation !",
+            "wrong": "With regards to foreign policy, the candidate remained vague.",
+            "right": "With REGARD to foreign policy... / As REGARDS foreign policy..."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Rule of Law Under Pressure: Courts and Executive Power",
+        "source": "Foreign Affairs",
+        "category": "Droit & Géopolitique",
+        "readingTime": "5 min",
+        "abstract": "Analyse sur les tentatives des exécutifs populistes de contourner ou d'asservir les cours suprêmes et l'indépendance de la justice.",
+        "url": "https://www.foreignaffairs.com"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie Morale & Droit",
+        "title": "1963 : Hannah Arendt et la « Banalité du Mal » (Eichmann à Jérusalem)",
+        "hook": "Lors du procès d'Adolf Eichmann à Jérusalem en 1961, l'opinion s'attendait à voir un monstre sanguinaire fanatique. Au lieu de cela, elle a découvert un bureaucrate falot qui répétait : « Je n'ai fait qu'obéir aux ordres et organiser les horaires de trains ».",
+        "details": "Dans *Eichmann à Jérusalem : Rapport sur la banalité du mal* (1963), la philosophe Hannah Arendt choque le monde entier en affirmant que le pire crime de l'histoire humaine n'a pas été perpétré par des fous sadiques, mais par des hommes ordinaires incapables de penser par eux-mêmes.\nLa « banalité du mal » ne minimise pas l'horreur du crime ; elle alerte sur le fait que la soumission aveugle aux règles administratives et la démission du jugement moral individuel transforment n'importe quel fonctionnaire zélé en complice d'un génocide.\n💡 En dissertation : la référence suprême pour traiter de l'obéissance aux ordres, de la responsabilité individuelle et de l'éthique de la désobéissance civile."
+      }
+    },
+    {
+      "id": "drop_25",
+      "theme": "Littérature, Mythes & Faux-ami « Sensible / Sensitive »",
+      "wordOfTheDay": {
+        "word": "Compelling",
+        "phonetic": "/kəmˈpel.ɪŋ/",
+        "partOfSpeech": "adjectif",
+        "meaning": "Irrésistible / Captivant / Profondément convaincant (un argument, un roman, une preuve)",
+        "example": "The historian provided compelling evidence that the diplomatic crisis was entirely avoidable.",
+        "exampleTranslation": "L'historien a fourni des preuves convaincantes montrant que la crise diplomatique était tout à fait évitable.",
+        "collocations": [
+          "a compelling argument (un argument irréfutable / captivant)",
+          "a compelling reason (une raison impérieuse)",
+          "a compelling narrative (un récit captivant et poignant)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "vocab",
+        "topicTitle": "Argumenter sur les mythes, la culture et l'imaginaire collectif",
+        "topicalWords": [
+          {
+            "term": "A narrative",
+            "translation": "Un récit / Un narratif national",
+            "note": "La façon dont une société se raconte sa propre histoire pour cimenter son unité."
+          },
+          {
+            "term": "A founding myth",
+            "translation": "Un mythe fondateur",
+            "note": "Ex: The myth of the American Frontier as celebrated in Western cinema."
+          },
+          {
+            "term": "Cultural heritage",
+            "translation": "Le patrimoine culturel",
+            "note": "Trésor matériel et immatériel qu'une génération transmet à la suivante."
+          },
+          {
+            "term": "Dystopia / Utopia",
+            "translation": "Dystopie / Utopie",
+            "note": "Récits anticipant le pire (1984, Le Meilleur des mondes) ou le meilleur de l'organisation humaine."
+          },
+          {
+            "term": "To capture the zeitgeist",
+            "translation": "Capter l'esprit du temps (l'air du temps)",
+            "note": "Ex: This novel captured the post-war zeitgeist of disillusionment."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Faux-ami classique : « Sensible » ne veut PAS dire « sensible » !",
+            "rule": "« Sensible » signifie « raisonnable / plein de bon sens » (ex: a sensible choice = un choix judicieux). Pour dire « sensible / susceptible », on doit dire « SENSITIVE » (ex: sensitive skin, a sensitive topic).",
+            "wrong": "This is a very sensible topic that requires diplomatic care.",
+            "right": "This is a very SENSITIVE topic. / Wearing a warm coat in winter is a SENSIBLE choice."
+          },
+          {
+            "title": "Exprimer le regret dans le passé avec « Wish » : past perfect obligatoire !",
+            "rule": "Quand on exprime un regret portant sur un fait passé révolu avec « I wish », on utilise le Past Perfect (had + participe passé), jamais de simple prétérit.",
+            "wrong": "I wish I knew the answer during yesterday's exam.",
+            "right": "I wish I HAD KNOWN the answer. / We wish governments had acted sooner."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Why Great Literature Endures Across Generations",
+        "source": "The Atlantic",
+        "category": "Littérature & Culture",
+        "readingTime": "5 min",
+        "abstract": "Réflexion sur les classiques littéraires qui continuent d'éclairer les crises morales contemporaines des siècles après leur écriture.",
+        "url": "https://www.theatlantic.com/books"
+      },
+      "cultureGNiche": {
+        "category": "Sémiologie & Littérature",
+        "title": "1957 : Roland Barthes et les « Mythologies » modernes",
+        "hook": "Pourquoi la nouvelle Citroën DS ressemble-t-elle à une cathédrale gothique ? Pourquoi le catch passionne-t-il les foules ? En 1957, Roland Barthes s'amuse à décoder les petits objets du quotidien pour révéler la grande idéologie bourgeoise.",
+        "details": "Dans *Mythologies* (1957), le critique et sémiologue Roland Barthes analyse les objets ordinaires de la France des Trente Glorieuses (le vin rouge, la publicité pour la lessive, le steak-frites, le visage de Greta Garbo).\nIl montre que la société moderne crée des « mythes » qui ont une fonction politique précise : transformer des choix historiques et économiques contingents en des « évidences naturelles » incontestables.\n💡 En dissertation : l'outil méthodologique parfait pour analyser la publicité moderne, le marketing politique et la fabrication des symboles de consommation."
+      }
+    },
+    {
+      "id": "drop_26",
+      "theme": "Commerce mondial, Protectionnisme & « Few » vs « A few »",
+      "wordOfTheDay": {
+        "word": "A tariff / Tariff barriers",
+        "phonetic": "/ˈtær.ɪf/",
+        "partOfSpeech": "nom",
+        "meaning": "Un droit de douane / Les barrières tarifaires protectionnistes",
+        "example": "Imposing high tariffs on imported steel sparked immediate retaliatory measures from trade partners.",
+        "exampleTranslation": "L'imposition de droits de douane élevés sur l'acier importé a déclenché des mesures de représailles immédiates de la part des partenaires commerciaux.",
+        "collocations": [
+          "impose punitive tariffs (imposer des droits de douane punitifs)",
+          "lift trade tariffs (lever les barrières douanières)",
+          "trade war tariffs (droits de douane dans le cadre d'une guerre commerciale)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Disserter sur le protectionnisme et les chaînes de valeur",
+        "topicalWords": [
+          {
+            "term": "Protectionism",
+            "translation": "Le protectionnisme",
+            "note": "Politique visant à protéger la production nationale contre la concurrence étrangère."
+          },
+          {
+            "term": "Supply chain",
+            "translation": "La chaîne d'approvisionnement",
+            "note": "La crise du Covid et le blocage du canal de Suez ont révélé l'extrême fragilité des chaînes tendues."
+          },
+          {
+            "term": "Nearshoring / Reshoring",
+            "translation": "La relocalisation de proximité / Le rapatriement industriel",
+            "note": "Tendance des entreprises à rapatrier leurs usines près de leurs marchés nationaux."
+          },
+          {
+            "term": "Retaliation / Retaliatory",
+            "translation": "Des représailles / Des mesures de rétorsion",
+            "note": "Ex: The European Union threatened retaliatory tariffs on American goods."
+          },
+          {
+            "term": "Trade deficit",
+            "translation": "Le déficit commercial",
+            "note": "Quand un pays importe davantage de biens qu'il n'en exporte."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Few » (presque aucun, négatif) vs « A few » (quelques-uns, positif)",
+            "rule": "« Few » (sans article) a un sens négatif : 'très peu de / quasiment aucun'. « A few » (avec 'a') a un sens positif : 'quelques / un petit nombre appréciable'. Ne confondez pas les deux dans un raisonnement !",
+            "wrong": "Few politicians supported the reform, so it easily passed. (Contradictoire !)",
+            "right": "A few politicians supported it, so it passed. / Few politicians dared to oppose the bill."
+          },
+          {
+            "title": "Faux-ami : « To demand » ne veut PAS dire « demander gentiment » !",
+            "rule": "En anglais, « to demand » signifie « exiger de façon impérieuse ». Pour dire « demander poliment / poser une question », on utilise « to ask » ou « to request ».",
+            "wrong": "The student demanded the teacher if the exam was difficult.",
+            "right": "The student ASKED the teacher... / The union demanded immediate wage increases."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Reshoring Wave: Why Supply Chains are Moving Back Home",
+        "source": "Financial Times",
+        "category": "Commerce & Industrie",
+        "readingTime": "5 min",
+        "abstract": "Enquête sur la fin de l'ère du libre-échange naïf et la renaissance des politiques industrielles souveraines en Occident.",
+        "url": "https://www.ft.com/trade"
+      },
+      "cultureGNiche": {
+        "category": "Économie Politique Classique",
+        "title": "1817 : David Ricardo et la théorie des « Avantages Comparatifs »",
+        "hook": "Si l'Angleterre produit des draps plus efficacement que le Portugal, mais que le Portugal produit à la fois le drap et le vin de façon plus efficace que l'Angleterre, ont-ils intérêt à commercer ensemble ? La réponse géniale de David Ricardo est OUI.",
+        "details": "Dans *Des principes de l'économie politique et de l'impôt* (1817), David Ricardo démontre mathématiquement les bienfaits du libre-échange grâce aux avantages comparatifs :\nMême si un pays est moins bon dans absolument toutes les productions (désavantage absolu), il a toujours intérêt à se spécialiser dans le domaine où son désavantage est le plus faible, et à acheter le reste à son partenaire.\nCe modèle a constitué le socle théorique du commerce mondial et de la mondialisation tout au long du XIXe et XXe siècle.\n💡 En dissertation : la thèse théorique d'incontournable référence pour tout débat opposant libre-échange et protectionnisme patriotique."
+      }
+    },
+    {
+      "id": "drop_27",
+      "theme": "Philosophie morale, Altruisme & Faux-amis « Lose / Loose »",
+      "wordOfTheDay": {
+        "word": "Self-serving",
+        "phonetic": "/ˌselfˈsɜː.vɪŋ/",
+        "partOfSpeech": "adjectif",
+        "meaning": "Intéressé / Égoïste / Qui sert ses propres intérêts sous couvert de vertu",
+        "example": "Many voters viewed the CEO's charitable foundation as a self-serving tax evasion scheme.",
+        "exampleTranslation": "De nombreux électeurs ont considéré la fondation caritative du PDG comme un dispositif égoïste d'évasion fiscale.",
+        "collocations": [
+          "self-serving motives (des motivations purement intéressées)",
+          "self-serving rhetoric (un discours qui sert ses propres ambitions)",
+          "pure altruism vs self-serving behavior (altruisme pur contre comportement égoïste)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "vocab",
+        "topicTitle": "Débattre de la philanthropie, du don et de la morale civique",
+        "topicalWords": [
+          {
+            "term": "Philanthropy",
+            "translation": "La philanthropie / Le mécénat",
+            "note": "Critiqué pour donner aux milliardaires le pouvoir de fixer l'agenda de la recherche et de la santé."
+          },
+          {
+            "term": "Altruism",
+            "translation": "L'altruisme",
+            "note": "Disposition à se soucier du bien-être d'autrui de manière désintéressée."
+          },
+          {
+            "term": "A public good",
+            "translation": "Un bien public (non rival et non excluable)",
+            "note": "Doit-il être financé par l'impôt démocratique ou par des dons privés discrétionnaires ?"
+          },
+          {
+            "term": "To whitewash a reputation",
+            "translation": "Redorer / Blanchir une réputation ternie",
+            "note": "Ex: Questionable donations made to prestigious art galleries to whitewash corrupt fortunes."
+          },
+          {
+            "term": "Civic duty",
+            "translation": "Le devoir civique",
+            "note": "Ex: Voting and paying taxes are seen as core civic duties in democratic societies."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Ne plus confondre « Lose » (perdre) et « Loose » (ample / desserré)",
+            "rule": "« Lose » (un seul 'O') est le verbe : perdre (ex: to lose money). « Loose » (deux 'O') est un adjectif qui signifie : lâche, desserré, ample (ex: loose clothing, a loose screw).",
+            "wrong": "If tariffs rise, companies will loose millions of dollars.",
+            "right": "Companies will LOSE millions. / The belt was too loose around his waist."
+          },
+          {
+            "title": "« Remember to do » (penser à faire) vs « Remember doing » (se souvenir d'avoir fait)",
+            "rule": "« Remember to + verbe » regarde vers l'avenir : ne pas oublier d'accomplir une tâche (ex: Remember to lock the door). « Remember + V-ing » regarde vers le passé : se remémorer un souvenir (ex: I remember visiting London when I was ten).",
+            "wrong": "Please remember locking the laboratory door before leaving.",
+            "right": "Please remember TO LOCK the door. / I remember meeting him at the conference."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Effective Altruism and the Limits of Pure Rationality",
+        "source": "The Guardian",
+        "category": "Philosophie & Société",
+        "readingTime": "5 min",
+        "abstract": "Enquête sur le mouvement de l'altruisme efficace, qui prétend calculer mathématiquement le bien moral à l'aide de données.",
+        "url": "https://www.theguardian.com/world"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie Morale",
+        "title": "1789 : Jeremy Bentham et l'« Utilitarisme » (Le plus grand bonheur pour le plus grand nombre)",
+        "hook": "Comment savoir si une décision politique ou une loi est moralement bonne ? En consultant la Bible ? La tradition ? La volonté du Roi ? Pour Jeremy Bentham, il n'y a qu'un seul critère : le calcul du plaisir et de la peine.",
+        "details": "Dans son *Introduction aux principes de morale et de législation* (1789), le juriste et philosophe britannique Jeremy Bentham fonde l'utilitarisme moderne.\nLe principe d'utilité est limpide : une action est bonne si elle maximise la somme totale de bonheur (plaisir) et minimise la somme totale de souffrance (douleur) pour l'ensemble des individus concernés (« the greatest happiness for the greatest number »).\nCe principe a servi de moteur aux grandes réformes sociales britanniques (abolition des châtiments corporels, droit de vote, décriminalisation de l'homosexualité).\n💡 En dissertation : la doctrine éthique de référence opposée au rigorisme kantien dans les débats sur l'allocation des budgets de santé ou le tri médical."
+      }
+    },
+    {
+      "id": "drop_28",
+      "theme": "Espace, Satellites & Faux-ami « Facility »",
+      "wordOfTheDay": {
+        "word": "Uncharted territory",
+        "phonetic": "/ʌnˈtʃɑː.tɪd ˈter.ɪ.tər.i/",
+        "partOfSpeech": "expression idiomatique",
+        "meaning": "Un terrain totalement inexploré / L'inconnu absolu (scientifique, géopolitique, juridique)",
+        "example": "Commercial space mining and orbital real estate are plunging international law into uncharted territory.",
+        "exampleTranslation": "L'exploitation minière commerciale de l'espace et l'immobilier orbital plongent le droit international dans un terrain totalement inexploré.",
+        "collocations": [
+          "venture into uncharted territory (s'aventurer en terre inconnue)",
+          "uncharted waters (des eaux inexplorées / une zone d'incertitude)",
+          "navigate uncharted economic territory (naviguer dans un paysage économique inédit)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Parler du New Space, des télécommunications et des satellites",
+        "topicalWords": [
+          {
+            "term": "Low Earth Orbit (LEO)",
+            "translation": "L'orbite terrestre basse",
+            "note": "Zone saturée par les constellations de milliers de satellites privés (Starlink)."
+          },
+          {
+            "term": "Space debris / Space junk",
+            "translation": "Les débris spatiaux",
+            "note": "Menace critique de collisions en cascade selon le syndrome de Kessler."
+          },
+          {
+            "term": "Militarization of space",
+            "translation": "La militarisation de l'espace",
+            "note": "Développement d'armes anti-satellites et de systèmes de brouillage laser."
+          },
+          {
+            "term": "A launch pad",
+            "translation": "Un pas de tir / Une rampe de lancement",
+            "note": "Ex: The rocket lifted off successfully from the coastal launch pad."
+          },
+          {
+            "term": "Deep space exploration",
+            "translation": "L'exploration de l'espace lointain",
+            "note": "Missions lunaires Artemis et exploration habitée vers la planète Mars."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Faux-ami : « Facility » ne veut PAS dire « facilité » !",
+            "rule": "En anglais, « a facility » désigne une infrastructure, un bâtiment ou une installation technique (ex: a research facility = un centre de recherche). Pour dire « facilité / aisance », on utilise « ease » (ex: with ease).",
+            "wrong": "He solved the math equation with great facility.",
+            "right": "He solved the equation with great EASE. / The company built a new satellite testing FACILITY."
+          },
+          {
+            "title": "« Due to » (adjectif après être) vs « Because of » (cause adverbiale)",
+            "rule": "« Due to » s'emploie traditionnellement après le verbe être ou pour qualifier directement un nom (ex: The delay was due to bad weather). Pour introduire la cause d'une action verbale, préférez « because of ».",
+            "wrong": "Due to the storm, the rocket launch was canceled at the last minute.",
+            "right": "Because of the storm, the launch was canceled. / The cancellation was due to the storm."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The New Space Race: Competition, Satellites and Orbital Diplomacy",
+        "source": "BBC News",
+        "category": "Espace & Géopolitique",
+        "readingTime": "5 min",
+        "abstract": "Analyse sur la rivalité entre les États-Unis et la Chine pour la colonisation du pôle Sud de la Lune et le contrôle des orbites basses.",
+        "url": "https://www.bbc.com/news/science-environment"
+      },
+      "cultureGNiche": {
+        "category": "Droit International & Espace",
+        "title": "1967 : Le « Traité de l'Espace » (Outer Space Treaty) : l'espace, bien commun de l'humanité",
+        "hook": "A-t-on le droit de planter le drapeau d'un pays ou d'une entreprise sur la Lune et d'en réclamer la propriété privée ? En pleine Guerre froide, Américains et Soviétiques se sont mis d'accord pour dire NON.",
+        "details": "Signé en 1967 sous l'égide de l'ONU, le Traité sur l'espace extra-atmosphérique (Outer Space Treaty) pose les principes cardinaux du droit spatial mondial :\n1) L'espace et les corps célestes (Lune, planètes, astéroïdes) sont le « patrimoine commun de l'humanité » (province of all mankind),\n2) Aucun État ne peut s'approprier un territoire dans l'espace par souveraineté, occupation ou tout autre moyen,\n3) Interdiction totale de placer des armes nucléaires ou de destruction massive en orbite ou sur la Lune.\nCependant, ce traité historique est aujourd'hui menacé par l'essor d'entreprises privées (SpaceX, Blue Origin) et les accords unilatéraux Artemis qui prévoient l'exploitation des ressources minières lunaires.\n💡 En colle : la référence juridique absolue pour tout sujet sur la gouvernance des biens communs mondiaux (espace, océans, Antarctique)."
+      }
+    },
+    {
+      "id": "drop_29",
+      "theme": "Psychologie sociale, Conformisme & « Either... or »",
+      "wordOfTheDay": {
+        "word": "To conform / Conformity",
+        "phonetic": "/kənˈfɔːm/",
+        "partOfSpeech": "verbe / nom",
+        "meaning": "Se conformer aux attentes du groupe / Le conformisme social",
+        "example": "In oppressive environments, the immense pressure to conform stifles innovation and free speech.",
+        "exampleTranslation": "Dans les environnements oppressifs, l'immense pression au conformisme étouffe l'innovation et la parole libre.",
+        "collocations": [
+          "conform to social norms (se conformer aux normes sociales)",
+          "blind conformity (un conformisme aveugle)",
+          "dissent vs conformity (dissidence contre conformisme de groupe)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Analyser la pression sociale, l'obéissance et la dissidence",
+        "topicalWords": [
+          {
+            "term": "Groupthink",
+            "translation": "La pensée de groupe",
+            "note": "Dysfonctionnement décisionnel où la recherche du consensus étouffe tout esprit critique (ex: désastre de la baie des Cochons)."
+          },
+          {
+            "term": "Peer pressure",
+            "translation": "La pression des pairs / de l'entourage",
+            "note": "Force psychologique majeure chez les adolescents et dans les milieux professionnels fermés."
+          },
+          {
+            "term": "A dissenter / To dissent",
+            "translation": "Un dissident / Exprimer un désaccord formel",
+            "note": "Notamment la célèbre 'dissenting opinion' d'un juge minoritaire à la Cour suprême."
+          },
+          {
+            "term": "Whistleblower protection",
+            "translation": "La protection des lanceurs d'alerte",
+            "note": "Cruciale pour contrer l'omertà au sein des grandes entreprises."
+          },
+          {
+            "term": "Civil disobedience",
+            "translation": "La désobéissance civile",
+            "note": "Concept théorisé par Thoreau (1849) et appliqué par Gandhi et Martin Luther King."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« Either... or » (l'un ou l'autre) vs « Neither... nor » (ni l'un ni l'autre)",
+            "rule": "« Either... or » propose une alternative positive entre deux choix. « Neither... nor » nie les deux éléments en même temps. Veillez à ne jamais mélanger les paires (pas de 'either... nor' !).",
+            "wrong": "Either you accept the rules nor you leave the company.",
+            "right": "Either you accept the rules OR you leave. / Neither the manager NOR the employees agreed."
+          },
+          {
+            "title": "« Compliment » (éloge) vs « Complement » (complémentarité)",
+            "rule": "« Compliment » avec un 'I' = féliciter, faire un compliment (ex: He paid her a compliment). « Complement » avec un 'E' = compléter, créer une synergie parfaite (ex: Their skills complement each other).",
+            "wrong": "The engineer received many complements for his breakthrough design.",
+            "right": "He received many COMPLIMENTS. / Theory and practice COMPLEMENT each other."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Why Independent Thinkers are Essential for Healthy Democracies",
+        "source": "The New Yorker",
+        "category": "Psychologie & Idées",
+        "readingTime": "5 min",
+        "abstract": "Une analyse sur le courage intellectuel nécessaire pour résister aux mouvements de meute sur les réseaux sociaux et dans les conseils d'administration.",
+        "url": "https://www.newyorker.com"
+      },
+      "cultureGNiche": {
+        "category": "Psychologie Sociale",
+        "title": "1951 : L'expérience de Solomon Asch sur le « Conformisme de Groupe »",
+        "hook": "On vous montre une ligne de 10 cm, et trois lignes de comparaison : 5 cm, 10 cm et 15 cm. Tout le monde autour de vous affirme avec assurance que la bonne réponse est 5 cm. Allez-vous oser dire la vérité ou allez-vous mentir pour ne pas être exclu du groupe ?",
+        "details": "En 1951, le psychologue Solomon Asch mène une expérience devenue légendaire : 7 complices et 1 cobaye naïf doivent comparer des longueurs de lignes évidentes.\nDans 75 % des cas, le cobaye finit par donner une réponse manifestement fausse simplement pour s'aligner sur l'unanimité du groupe.\nInterrogés après l'expérience, certains ont admis avoir menti par peur du ridicule, mais d'autres ont sincèrement fini par percevoir la ligne comme le groupe la décrivait.\n💡 En colle : la référence psychologique maîtresse pour analyser la désinformation de masse, l'effet de meute sur les réseaux sociaux et la faillite collective des comités d'experts."
+      }
+    },
+    {
+      "id": "drop_30",
+      "theme": "Mémoire collective, Histoire & Faux-ami « Sympathetic »",
+      "wordOfTheDay": {
+        "word": "A legacy",
+        "phonetic": "/ˈleɡ.ə.si/",
+        "partOfSpeech": "nom",
+        "meaning": "Un héritage / Un legs historique ou culturel (positif ou lourd à porter)",
+        "example": "The legacy of colonialism continues to shape economic inequalities and diplomatic tensions across Africa.",
+        "exampleTranslation": "L'héritage du colonialisme continue de façonner les inégalités économiques et les tensions diplomatiques à travers l'Afrique.",
+        "collocations": [
+          "a lasting legacy (un héritage durable)",
+          "grapple with a painful legacy (se colleter avec un passé douloureux)",
+          "leave a lasting legacy for future generations (laisser un héritage durable pour les générations futures)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "vocab",
+        "topicTitle": "Disserter sur la mémoire historique, les monuments et la repentance",
+        "topicalWords": [
+          {
+            "term": "Restitution of cultural artifacts",
+            "translation": "La restitution des biens culturels",
+            "note": "Débat brûlant sur le retour des œuvres d'art africaines pillées vers leurs pays d'origine."
+          },
+          {
+            "term": "Historical revisionism",
+            "translation": "Le révisionnisme historique",
+            "note": "Tentative de réécrire l'histoire à des fins de propagande politique ou nationaliste."
+          },
+          {
+            "term": "To topple a statue",
+            "translation": "Déboulonner une statue",
+            "note": "Mouvement mondial (Black Lives Matter, Rhodes Must Fall) contestant la célébration publique de figures esclavagistes."
+          },
+          {
+            "term": "A war memorial",
+            "translation": "Un monument aux morts / Un mémorial",
+            "note": "Lieu de recueillement civique et de transmission de la mémoire du sacrifice républicain."
+          },
+          {
+            "term": "Transitional justice",
+            "translation": "La justice transitionnelle",
+            "note": "Processus judiciaire et réconciliation nationale après une dictature (ex: Commissions Vérité en Afrique du Sud)."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "Faux-ami redoutable : « Sympathetic » ne veut PAS dire « sympathique » !",
+            "rule": "En anglais, « sympathetic » signifie « compatissant / plein de compassion / compréhensif envers le malheur d'autrui ». Pour dire que quelqu'un est sympathique et gentil, on dit « friendly », « nice » ou « likeable ».",
+            "wrong": "The new engineering student is very sympathetic and talks to everyone.",
+            "right": "The new student is very FRIENDLY. / The doctor was sympathetic to the patient's pain."
+          },
+          {
+            "title": "« Between » (entre deux éléments) vs « Among » (au milieu de plusieurs)",
+            "rule": "« Between » s'utilise pour désigner une relation entre deux personnes ou deux choses bien distinctes (ex: between France and Britain). « Among » s'utilise lorsque l'on est au milieu d'un groupe ou d'une collectivité (ex: among the crowd).",
+            "wrong": "Diplomats tried to negotiate among the two warring factions.",
+            "right": "Diplomats negotiated BETWEEN the two factions. / Fear spread AMONG the population."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "Statues, Memory and History: How Nations Deal With Difficult Pasts",
+        "source": "The Economist",
+        "category": "Histoire & Société",
+        "readingTime": "6 min",
+        "abstract": "Du Royaume-Uni aux États-Unis et à l'Afrique du Sud, enquête sur les batailles mémorielles autour des statues et des programmes scolaires.",
+        "url": "https://www.economist.com/culture"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie de l'Histoire",
+        "title": "2000 : Paul Ricœur et « La Mémoire, l'histoire, l'oubli » (La mémoire juste)",
+        "hook": "Faut-il tout pardonner et tout oublier pour préserver la paix civile, ou faut-il au contraire ériger le devoir de mémoire en obligation perpétuelle au risque d'attiser des ressentiments sans fin ?",
+        "details": "Dans son monument philosophique *La Mémoire, l'histoire, l'oubli* (2000), Paul Ricœur met en garde contre deux dérives symétriques de la mémoire collective :\n1) L'oubli complaisant ou l'amnistie forcée, qui bafoue la douleur des victimes et favorise la répétition des crimes,\n2) L'excès de mémoire victimicide (la rancune inextinguible), qui paralyse le présent et empêche toute réconciliation nationale.\nRicœur propose l'idéal d'une « mémoire apaisée et juste » : faire le travail d'histoire avec rigueur scientifique, reconnaître les torts, pour enfin parvenir à un « pardon difficile » qui libère l'avenir sans effacer le passé.\n💡 En dissertation : la référence philosophique suprême pour tout sujet sur les lois mémorielles, la repentance coloniale et la transmission de la mémoire."
+      }
+    },
+    {
+      "id": "drop_31",
+      "theme": "Synthèse pour les Concours & Éloquence rhétorique",
+      "wordOfTheDay": {
+        "word": "Paradoxical / A paradox",
+        "phonetic": "/ˌpær.əˈdɒk.sɪ.kəl/",
+        "partOfSpeech": "adjectif / nom",
+        "meaning": "Paradoxal / Un paradoxe (une contradiction apparente qui révèle une vérité profonde)",
+        "example": "It is paradoxical that our hyper-connected society suffers from unprecedented levels of loneliness.",
+        "exampleTranslation": "Il est paradoxal que notre société hyper-connectée souffre de niveaux de solitude sans précédent.",
+        "collocations": [
+          "seemingly paradoxical (en apparence paradoxal)",
+          "resolve a central paradox (résoudre un paradoxe central)",
+          "the paradox of progress (le paradoxe du progrès technique)"
+        ]
+      },
+      "dailyFocus": {
+        "defaultMode": "grammar",
+        "topicTitle": "Structurer une conclusion brillante en colle et en dissertation",
+        "topicalWords": [
+          {
+            "term": "All things considered",
+            "translation": "Tout bien pesé / Au bout du compte",
+            "note": "Connecteur de conclusion élégant pour équilibrer deux thèses opposées."
+          },
+          {
+            "term": "To strike a balance between",
+            "translation": "Trouver un juste milieu entre",
+            "note": "Ex: Society must strike a delicate balance between individual freedom and public safety."
+          },
+          {
+            "term": "A nuanced approach",
+            "translation": "Une approche nuancée",
+            "note": "Ce que recherchent avant tout les jurys de concours (Mines-Ponts, Centrale, CCINP, X-ENS)."
+          },
+          {
+            "term": "Far from being a panacea",
+            "translation": "Loin d'être une panacée (un remède universel)",
+            "note": "Ex: Technological innovation is far from being a panacea for social ills."
+          },
+          {
+            "term": "Food for thought",
+            "translation": "Matière à réflexion",
+            "note": "Formule élégante pour ouvrir une conclusion d'essai sur un enjeu plus large."
+          }
+        ],
+        "grammarTraps": [
+          {
+            "title": "« In spite of » (3 mots) = « Despite » (1 mot sans 'of')",
+            "rule": "Ne mélangez jamais les deux expressions : c'est soit « in spite of » (trois mots distincts), soit « despite » (un seul mot, SANS préposition 'of').",
+            "wrong": "Despite of his excellent marks, he failed the interview.",
+            "right": "DESPITE his excellent marks... / IN SPITE OF his excellent marks..."
+          },
+          {
+            "title": "L'expression de contraste : « On the one hand..., on the other hand »",
+            "rule": "Pour opposer deux arguments, n'oubliez jamais l'article 'the' et le mot 'hand'. Dire simplement 'on one hand' est familier ; dire 'on the other' sans hand est incomplet.",
+            "wrong": "On one hand technology creates jobs; on the other it automates work.",
+            "right": "On THE one hand, technology creates jobs; on THE OTHER HAND, it automates routine work."
+          }
+        ]
+      },
+      "articleOfTheDay": {
+        "title": "The Art of the Essay: Why Clear Thinking is the Ultimate Competitive Edge",
+        "source": "The Atlantic",
+        "category": "Éducation & Éloquence",
+        "readingTime": "5 min",
+        "abstract": "Comment l'apprentissage de l'argumentation rigoureuse et du style concis reste la compétence intellectuelle la plus recherchée au XXIe siècle.",
+        "url": "https://www.theatlantic.com/ideas"
+      },
+      "cultureGNiche": {
+        "category": "Philosophie Antique",
+        "title": "380 av. J.-C. : Platon et le « Mythe de la Caverne » (La République, Livre VII)",
+        "hook": "Des hommes sont enchaînés depuis l'enfance dans une caverne obscure, le dos tourné à la lumière. Ils ne voient que des ombres projetées sur le mur et croient dur comme fer que ces ombres constituent la seule réalité du monde.",
+        "details": "Dans *La République* (Livre VII), Platon expose la métaphore fondatrice de toute la philosophie occidentale.\nLe philosophe est le prisonnier qui parvient à briser ses chaînes et à gravir la pente escarpée pour contempler la lumière éclatante du Soleil (le Bien et la Vérité).\nLorsqu'il redescend dans la caverne pour avertir ses compagnons et les délivrer de leurs illusions, ceux-ci le prennent pour un fou et menacent de le tuer (allusion directe à la condamnation à mort de Socrate par les Athéniens).\n💡 En dissertation et en colle : le mythe suprême pour conclure sur le rôle émancipateur des sciences, la lutte contre l'obscurantisme et le devoir des esprits éclairés dans la cité démocratique."
+      }
     }
   ]
 }
