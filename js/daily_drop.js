@@ -4,21 +4,102 @@ let dailyCultureData = null;
 let currentDropIndex = 0;
 let currentFocusTab = null; // 'vocab' | 'grammar'
 let cultureGExpanded = false;
+let kioskCountryFilter = 'all'; // 'all' | 'uk' | 'us' | 'intl'
+let kioskArchiveMode = true; // Débloqué sans paywall via Archive.ph par défaut
+
+try {
+  const savedArchiveMode = localStorage.getItem('pcsi_kiosk_archive_mode');
+  if (savedArchiveMode !== null) kioskArchiveMode = savedArchiveMode === '1';
+} catch (e) {}
+
+window.setKioskCountryFilter = function(countryId) {
+  kioskCountryFilter = countryId || 'all';
+  renderDailyDrop();
+};
+
+window.toggleKioskArchiveMode = function() {
+  kioskArchiveMode = !kioskArchiveMode;
+  try {
+    localStorage.setItem('pcsi_kiosk_archive_mode', kioskArchiveMode ? '1' : '0');
+  } catch (e) {}
+  renderDailyDrop();
+  if (typeof showToast === 'function') {
+    showToast(kioskArchiveMode ? 'Mode Archive.ph activé (accès sans paywall à tous les journaux) ✓' : 'Mode Direct activé (liens officiels)');
+  }
+};
+
+window.openKioskArchive = function(rawUrl) {
+  if (!rawUrl) return;
+  const cleanUrl = rawUrl.replace(/^https:\/\/archive\.ph\//, '');
+  const target = 'https://archive.ph/' + cleanUrl;
+  window.open(target, '_blank', 'noopener');
+};
+
+function getKioskEffectiveUrl(rawUrl) {
+  if (!rawUrl) return '#';
+  const cleanUrl = rawUrl.replace(/^https:\/\/archive\.ph\//, '');
+  return kioskArchiveMode ? ('https://archive.ph/' + cleanUrl) : cleanUrl;
+}
 
 const FALLBACK_DAILY_CULTURE = {
   pressKiosk: {
-    newsAndGeopolitics: [
-      { id: 'kiosk_guardian', name: 'The Guardian', tag: 'UK · Politics & Editorial', desc: 'Analyses politiques, débats de société britanniques et éditoriaux de référence pour la synthèse CPGE.', url: 'https://www.theguardian.com/international', icon: 'ph-newspaper', accent: '#3B82F6' },
-      { id: 'kiosk_bbc', name: 'BBC News', tag: 'UK · World Affairs', desc: 'Dépêches diplomatiques mondiales, idiomatisme britannique et grands dossiers internationaux.', url: 'https://www.bbc.com/news/world', icon: 'ph-globe-hemisphere-west', accent: '#EF4444' },
-      { id: 'kiosk_economist', name: 'The Economist', tag: 'UK · Geopolitics & Policy', desc: 'Le style argumentatif roi des concours (CCINP, Mines-Ponts, Centrale, X-ENS).', url: 'https://www.economist.com/', icon: 'ph-chart-line-up', accent: '#F97316' },
-      { id: 'kiosk_foreign_affairs', name: 'Foreign Affairs', tag: 'US · Diplomacy & Strategy', desc: 'Essais de référence sur les relations internationales, la souveraineté et les équilibres mondiaux.', url: 'https://www.foreignaffairs.com/', icon: 'ph-compass', accent: '#10B981' }
+    countries: [
+      {
+        id: "uk",
+        name: "Royaume-Uni",
+        code: "UK",
+        flag: "🇬🇧",
+        types: [
+          {
+            id: "geopolitics",
+            name: "Géopolitique, Monde & Politiques publiques",
+            color: "#3B82F6",
+            sources: [
+              { id: "kiosk_guardian", name: "The Guardian", tag: "Actualité, Société & Débats", desc: "Articles clairs et engagés sur la politique britannique, l'environnement et l'actualité mondiale.", url: "https://www.theguardian.com/international", icon: "ph-newspaper", accent: "#3B82F6" },
+              { id: "kiosk_bbc", name: "BBC News", tag: "Dépêches mondiales & Diplomatie", desc: "L'actualité mondiale dans un anglais limpide et idiomatique, référence absolue pour l'entraînement oral.", url: "https://www.bbc.com/news/world", icon: "ph-globe-hemisphere-west", accent: "#EF4444" },
+              { id: "kiosk_times", name: "The Times", tag: "Institution de référence britannique", desc: "Analyses institutionnelles et éditoriaux équilibrés au vocabulaire académique d'élite.", url: "https://www.thetimes.com/", icon: "ph-buildings", accent: "#94A3B8" }
+            ]
+          },
+          {
+            id: "economy",
+            name: "Économie, Finance & Industrie",
+            color: "#F97316",
+            sources: [
+              { id: "kiosk_economist", name: "The Economist", tag: "Géopolitique & Économie reine des CPGE", desc: "Le style argumentatif roi des concours (CCINP, Mines-Ponts, Centrale-Supélec, X-ENS).", url: "https://www.economist.com/", icon: "ph-chart-line-up", accent: "#F97316" },
+              { id: "kiosk_ft", name: "Financial Times", tag: "Affaires mondiales & Macroéconomie", desc: "Pour comprendre les basculements monétaires, les chaînes de valeur industrielles et l'énergie.", url: "https://www.ft.com/world", icon: "ph-bank", accent: "#06B6D4" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "us",
+        name: "États-Unis",
+        code: "US",
+        flag: "🇺🇸",
+        types: [
+          {
+            id: "diplomacy",
+            name: "Diplomatie, Relations internationales & Stratégie",
+            color: "#10B981",
+            sources: [
+              { id: "kiosk_foreign_affairs", name: "Foreign Affairs", tag: "La référence mondiale en relations internationales", desc: "Essais stratégiques des plus grands diplomates et chercheurs sur la souveraineté et les équilibres mondiaux.", url: "https://www.foreignaffairs.com/", icon: "ph-compass", accent: "#10B981" },
+              { id: "kiosk_nyt", name: "The New York Times", tag: "Quotidien de référence américain", desc: "Grande rédaction internationale couvrant la politique, la justice et la diplomatie avec rigueur.", url: "https://www.nytimes.com/section/world", icon: "ph-newspaper", accent: "#F8FAFC" }
+            ]
+          },
+          {
+            id: "culture_essays",
+            name: "Culture, Idées & Grands Reportages",
+            color: "#EAB308",
+            sources: [
+              { id: "kiosk_atlantic", name: "The Atlantic", tag: "Démocratie, Histoire & Société", desc: "Grands reportages littéraires, philosophie politique et critique culturelle américaine de premier rang.", url: "https://www.theatlantic.com/world/", icon: "ph-feather", accent: "#A855F7" },
+              { id: "kiosk_newyorker", name: "The New Yorker", tag: "Littérature, Arts & Vocabulaire d'élite", desc: "Critique littéraire, portraits historiques et chroniques sociétales au vocabulaire le plus riche de la presse US.", url: "https://www.newyorker.com/", icon: "ph-book-open-text", accent: "#EAB308" }
+            ]
+          }
+        ]
+      }
     ],
-    cultureAndLongform: [
-      { id: 'kiosk_atlantic', name: 'The Atlantic', tag: 'US · Culture, History & Politics', desc: 'Grands reportages littéraires, philosophie politique et critique culturelle américaine.', url: 'https://www.theatlantic.com/world/', icon: 'ph-feather', accent: '#A855F7' },
-      { id: 'kiosk_newyorker', name: 'The New Yorker', tag: 'US · Literature, Arts & Essays', desc: 'Critique littéraire, portraits historiques et chroniques sociétales au vocabulaire d\'élite.', url: 'https://www.newyorker.com/', icon: 'ph-book-open-text', accent: '#EAB308' },
-      { id: 'kiosk_nyt', name: 'The New York Times', tag: 'US · World & Opinion', desc: 'Perspective américaine sur les mutations démocratiques, le droit et la diplomatie.', url: 'https://www.nytimes.com/section/world', icon: 'ph-buildings', accent: '#F8FAFC' },
-      { id: 'kiosk_ft', name: 'Financial Times', tag: 'UK · Global Economy & Society', desc: 'Décryptage des grands basculements géoéconomiques, commerciaux et institutionnels.', url: 'https://www.ft.com/world', icon: 'ph-bank', accent: '#06B6D4' }
-    ]
+    newsAndGeopolitics: [],
+    cultureAndLongform: []
   },
   drops: [
     {
@@ -778,62 +859,135 @@ function renderDailyDrop() {
           </p>
         </div>
 
-        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
-          <span class="mono" style="font-size:11px; color:var(--text-subtle);">${escapeHtml(art.category || 'Politics & Culture')}</span>
-          <a href="${escapeHtml(art.url || 'https://www.theguardian.com/international')}" target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none; font-size:12px; padding:7px 13px;">
-            <span>Read on ${escapeHtml(art.source || 'Source')}</span>
-            <i class="ph-bold ph-arrow-up-right"></i>
-          </a>
-        </div>
+        ${(() => {
+          const rawArtUrl = art.url || 'https://www.theguardian.com/international';
+          const cleanArtUrl = rawArtUrl.replace(/^https:\/\/archive\.ph\//, '');
+          const archiveArtUrl = rawArtUrl.startsWith('https://archive.ph/') ? rawArtUrl : ('https://archive.ph/' + cleanArtUrl);
+          return `
+            <div style="display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid var(--border-subtle); flex-wrap:wrap; gap:8px;">
+              <span class="mono" style="font-size:11px; color:var(--text-subtle);">${escapeHtml(art.category || 'Politics & Culture')}</span>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <a href="${escapeHtml(archiveArtUrl)}" target="_blank" rel="noopener" class="btn-primary" style="text-decoration:none; font-size:12px; padding:7px 13px; background:#10B981; border-color:#059669; display:inline-flex; align-items:center; gap:6px;" title="Lire la vraie page de l'article sans paywall sur Archive.ph">
+                  <i class="ph-bold ph-lock-key-open"></i>
+                  <span>Lire sans paywall (Archive.ph)</span>
+                  <i class="ph-bold ph-arrow-up-right"></i>
+                </a>
+                <a href="${escapeHtml(cleanArtUrl)}" target="_blank" rel="noopener" class="btn-ghost" style="text-decoration:none; font-size:11.5px; padding:6px 10px; color:var(--text-subtle);" title="Ouvrir la page officielle originale sur ${escapeHtml(art.source || 'le site')}">
+                  <span>Source originale</span>
+                  <i class="ph ph-arrow-up-right"></i>
+                </a>
+              </div>
+            </div>
+          `;
+        })()}
       </div>
 
     </div>
 
-    <!-- 5. ENGLISH PRESS KIOSK DOCK -->
-    <div class="saas-card" style="padding:20px 22px;">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+    <!-- 5. ENGLISH PRESS KIOSK DOCK (CLASSÉ PAR PAYS PUIS PAR TYPE + MODE ARCHIVE.PH) -->
+    <div class="saas-card" style="padding:22px 24px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid var(--border-subtle);">
         <div>
-          <h3 style="font-size:15px; font-weight:700; display:flex; align-items:center; gap:8px;">
+          <h3 style="font-size:16px; font-weight:700; display:flex; align-items:center; gap:8px; margin:0 0 4px 0;">
             <i class="ph-bold ph-newspaper-clipping" style="color:#38BDF8;"></i>
             <span>English Press Kiosk Dock</span>
           </h3>
-          <p style="font-size:12px; color:var(--text-muted);">Accès direct aux grandes rédactions anglophones (Politique, Géopolitique, Histoire, Littérature &amp; Essais)</p>
+          <p style="font-size:12px; color:var(--text-muted); margin:0;">Classé par pays puis par domaine · Accès débloqué sans paywall</p>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <!-- Interrupteur Mode Archive.ph -->
+          <button type="button" onclick="window.toggleKioskArchiveMode()" class="btn-ghost ${kioskArchiveMode ? 'active-pill' : ''}" style="padding:6px 12px; font-size:11.5px; display:inline-flex; align-items:center; gap:7px; ${kioskArchiveMode ? 'color:#10B981; border-color:rgba(16,185,129,0.4); background:rgba(16,185,129,0.12);' : ''}" title="Quand ce mode est actif, tous les journaux s'ouvrent débloqués sans paywall via https://archive.ph/https://...">
+            <i class="ph-bold ${kioskArchiveMode ? 'ph-lock-key-open' : 'ph-globe'}"></i>
+            <span>${kioskArchiveMode ? '🔓 Mode Archive.ph : ACTIF (Sans paywall)' : '🌐 Mode Direct : ACTIF'}</span>
+          </button>
+
+          <!-- Filtres par pays -->
+          <div style="display:flex; gap:3px; background:rgba(255,255,255,0.03); padding:3px; border-radius:9px; border:1px solid var(--border-subtle);">
+            <button type="button" onclick="window.setKioskCountryFilter('all')" class="btn-ghost ${kioskCountryFilter === 'all' ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px; border:none;">Tous</button>
+            <button type="button" onclick="window.setKioskCountryFilter('uk')" class="btn-ghost ${kioskCountryFilter === 'uk' ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px; border:none;">🇬🇧 UK</button>
+            <button type="button" onclick="window.setKioskCountryFilter('us')" class="btn-ghost ${kioskCountryFilter === 'us' ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px; border:none;">🇺🇸 USA</button>
+            <button type="button" onclick="window.setKioskCountryFilter('intl')" class="btn-ghost ${kioskCountryFilter === 'intl' ? 'active-pill' : ''}" style="padding:4px 9px; font-size:11px; border:none;">🌍 International</button>
+          </div>
         </div>
       </div>
 
-      <div class="section-label" style="margin-bottom:10px; color:#38BDF8;">Geopolitics, World &amp; Public Policy</div>
-      <div class="sites-grid" style="margin-bottom:20px;">
-        ${newsKiosk.map(src => `
-          <a href="${escapeHtml(src.url)}" target="_blank" rel="noopener" class="saas-card site-card" style="border-left:3px solid ${src.accent || '#3B82F6'};">
-            <span class="site-ico" style="color:${src.accent || '#3B82F6'};"><i class="ph ${escapeHtml(src.icon || 'ph-newspaper')}"></i></span>
-            <span class="site-txt">
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; flex-wrap:wrap;">
-                <b>${escapeHtml(src.name)}</b>
-                <span class="mono" style="font-size:10px; color:var(--text-subtle);">${escapeHtml(src.tag)}</span>
-              </div>
-              <small style="margin-top:2px;">${escapeHtml(src.desc)}</small>
-            </span>
-            <i class="ph ph-arrow-up-right site-go"></i>
-          </a>
-        `).join('')}
-      </div>
+      ${(() => {
+        const countriesList = Array.isArray(kiosk.countries) ? kiosk.countries : [];
+        if (countriesList.length > 0) {
+          const visibleCountries = kioskCountryFilter === 'all'
+            ? countriesList
+            : countriesList.filter(c => c.id === kioskCountryFilter);
 
-      <div class="section-label" style="margin-bottom:10px; color:#A855F7;">Culture, Literature &amp; Long-Form Essays</div>
-      <div class="sites-grid">
-        ${cultureKiosk.map(src => `
-          <a href="${escapeHtml(src.url)}" target="_blank" rel="noopener" class="saas-card site-card" style="border-left:3px solid ${src.accent || '#A855F7'};">
-            <span class="site-ico" style="color:${src.accent || '#A855F7'};"><i class="ph ${escapeHtml(src.icon || 'ph-feather')}"></i></span>
-            <span class="site-txt">
-              <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; flex-wrap:wrap;">
-                <b>${escapeHtml(src.name)}</b>
-                <span class="mono" style="font-size:10px; color:var(--text-subtle);">${escapeHtml(src.tag)}</span>
+          return visibleCountries.map(country => `
+            <div class="kiosk-country-block" style="margin-bottom:24px;">
+              <div style="display:flex; align-items:center; gap:9px; padding-bottom:8px; border-bottom:1px solid rgba(255,255,255,0.08); margin-bottom:14px;">
+                <span style="font-size:20px; line-height:1;">${country.flag || '🌐'}</span>
+                <h4 style="font-size:15px; font-weight:700; color:var(--text-main); margin:0;">${escapeHtml(country.name)}</h4>
+                <span class="mono" style="font-size:10px; padding:2px 7px; border-radius:99px; background:rgba(255,255,255,0.05); color:var(--text-subtle);">${escapeHtml(country.code || '')}</span>
               </div>
-              <small style="margin-top:2px;">${escapeHtml(src.desc)}</small>
-            </span>
-            <i class="ph ph-arrow-up-right site-go"></i>
-          </a>
-        `).join('')}
-      </div>
+
+              ${(country.types || []).map(t => `
+                <div style="margin-bottom:16px;">
+                  <div class="section-label" style="margin-bottom:9px; color:${t.color || '#38BDF8'}; display:flex; align-items:center; gap:6px;">
+                    <i class="ph-bold ph-circle" style="font-size:7px;"></i>
+                    <span>${escapeHtml(t.name)}</span>
+                  </div>
+                  <div class="sites-grid">
+                    ${(t.sources || []).map(src => {
+                      const effectiveUrl = getKioskEffectiveUrl(src.url);
+                      const directCleanUrl = src.url.replace(/^https:\/\/archive\.ph\//, '');
+                      return `
+                        <div class="site-card-wrap">
+                          <a href="${escapeHtml(effectiveUrl)}" target="_blank" rel="noopener" class="saas-card site-card" style="border-left:3px solid ${src.accent || '#3B82F6'};" title="${kioskArchiveMode ? 'Ouvrir sans paywall via Archive.ph' : 'Ouvrir le site officiel'}">
+                            <span class="site-ico" style="color:${src.accent || '#3B82F6'};"><i class="ph ${escapeHtml(src.icon || 'ph-newspaper')}"></i></span>
+                            <span class="site-txt">
+                              <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; flex-wrap:wrap;">
+                                <b>${escapeHtml(src.name)}</b>
+                                <span class="mono" style="font-size:10px; color:var(--text-subtle);">${escapeHtml(src.tag)}</span>
+                              </div>
+                              <small style="margin-top:2px;">${escapeHtml(src.desc)}</small>
+                            </span>
+                            <div style="display:flex; align-items:center; gap:6px; margin-left:auto; flex-shrink:0;">
+                              <button type="button" onclick="event.preventDefault(); event.stopPropagation(); window.openKioskArchive('${escapeHtml(directCleanUrl)}');" class="btn-ghost mono" style="padding:3px 7px; font-size:10px; color:#10B981; border-color:rgba(16,185,129,0.35); background:rgba(16,185,129,0.08); border-radius:6px;" title="Ouvrir la version débloquée sans paywall sur Archive.ph">
+                                <i class="ph-bold ph-lock-key-open"></i> Archive.ph
+                              </button>
+                              <i class="ph ph-arrow-up-right site-go" style="margin-left:0;"></i>
+                            </div>
+                          </a>
+                        </div>
+                      `;
+                    }).join('')}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `).join('');
+        }
+
+        // Rétrocompatibilité classique si format legacy
+        return `
+          <div class="section-label" style="margin-bottom:10px; color:#38BDF8;">Geopolitics, World &amp; Public Policy</div>
+          <div class="sites-grid" style="margin-bottom:20px;">
+            ${newsKiosk.map(src => {
+              const effectiveUrl = getKioskEffectiveUrl(src.url);
+              return `
+                <a href="${escapeHtml(effectiveUrl)}" target="_blank" rel="noopener" class="saas-card site-card" style="border-left:3px solid ${src.accent || '#3B82F6'};">
+                  <span class="site-ico" style="color:${src.accent || '#3B82F6'};"><i class="ph ${escapeHtml(src.icon || 'ph-newspaper')}"></i></span>
+                  <span class="site-txt">
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:6px; flex-wrap:wrap;">
+                      <b>${escapeHtml(src.name)}</b>
+                      <span class="mono" style="font-size:10px; color:var(--text-subtle);">${escapeHtml(src.tag)}</span>
+                    </div>
+                    <small style="margin-top:2px;">${escapeHtml(src.desc)}</small>
+                  </span>
+                  <i class="ph ph-arrow-up-right site-go"></i>
+                </a>
+              `;
+            }).join('')}
+          </div>
+        `;
+      })()}
     </div>
   `;
 }

@@ -1,5 +1,312 @@
 {
   "pressKiosk": {
+    "countries": [
+      {
+        "id": "uk",
+        "name": "Royaume-Uni",
+        "code": "UK",
+        "flag": "🇬🇧",
+        "types": [
+          {
+            "id": "geopolitics",
+            "name": "Géopolitique, Monde & Politiques publiques",
+            "color": "#3B82F6",
+            "sources": [
+              {
+                "id": "kiosk_guardian",
+                "name": "The Guardian",
+                "tag": "Actualité, Société & Débats",
+                "desc": "Articles clairs et engagés sur la politique britannique, l'environnement et l'actualité internationale.",
+                "url": "https://www.theguardian.com/international",
+                "icon": "ph-newspaper",
+                "accent": "#3B82F6"
+              },
+              {
+                "id": "kiosk_bbc",
+                "name": "BBC News",
+                "tag": "Dépêches mondiales & Diplomatie",
+                "desc": "L'actualité mondiale dans un anglais limpide et idiomatique, référence absolue pour l'entraînement oral.",
+                "url": "https://www.bbc.com/news/world",
+                "icon": "ph-globe-hemisphere-west",
+                "accent": "#EF4444"
+              },
+              {
+                "id": "kiosk_times",
+                "name": "The Times",
+                "tag": "Institution de référence britannique",
+                "desc": "Analyses institutionnelles et éditoriaux équilibrés au vocabulaire académique d'élite.",
+                "url": "https://www.thetimes.com/",
+                "icon": "ph-buildings",
+                "accent": "#94A3B8"
+              },
+              {
+                "id": "kiosk_newstatesman",
+                "name": "The New Statesman",
+                "tag": "Essais politiques & Débats d'idées",
+                "desc": "Décryptage des grands débats parlementaires et des mutations intellectuelles de la société britannique.",
+                "url": "https://www.newstatesman.com/",
+                "icon": "ph-article",
+                "accent": "#F43F5E"
+              }
+            ]
+          },
+          {
+            "id": "economy",
+            "name": "Économie, Finance & Industrie",
+            "color": "#F97316",
+            "sources": [
+              {
+                "id": "kiosk_economist",
+                "name": "The Economist",
+                "tag": "Géopolitique & Économie reine des CPGE",
+                "desc": "Le style argumentatif roi des concours (CCINP, Mines-Ponts, Centrale-Supélec, X-ENS).",
+                "url": "https://www.economist.com/",
+                "icon": "ph-chart-line-up",
+                "accent": "#F97316"
+              },
+              {
+                "id": "kiosk_ft",
+                "name": "Financial Times",
+                "tag": "Affaires mondiales & Macroéconomie",
+                "desc": "Pour comprendre les basculements monétaires, les chaînes de valeur industrielles et l'énergie.",
+                "url": "https://www.ft.com/world",
+                "icon": "ph-bank",
+                "accent": "#06B6D4"
+              },
+              {
+                "id": "kiosk_telegraph_biz",
+                "name": "The Telegraph (Business)",
+                "tag": "Marchés & Industrie britannique",
+                "desc": "Perspective libérale sur la City de Londres, le commerce mondial et l'innovation technologique.",
+                "url": "https://www.telegraph.co.uk/business/",
+                "icon": "ph-trend-up",
+                "accent": "#38BDF8"
+              }
+            ]
+          },
+          {
+            "id": "culture",
+            "name": "Culture, Idées & Grands Essais",
+            "color": "#A855F7",
+            "sources": [
+              {
+                "id": "kiosk_spectator",
+                "name": "The Spectator",
+                "tag": "Chronique d'idées & Polémique",
+                "desc": "Le plus ancien hebdomadaire d'opinion du monde anglophone (fondé en 1828), style incisif et polémique.",
+                "url": "https://www.spectator.co.uk/",
+                "icon": "ph-feather",
+                "accent": "#EAB308"
+              },
+              {
+                "id": "kiosk_prospect",
+                "name": "Prospect Magazine",
+                "tag": "Débats de société & Philosophie",
+                "desc": "Essais longs sur la philosophie politique, la science et les grands dilemmes contemporains.",
+                "url": "https://www.prospectmagazine.co.uk/",
+                "icon": "ph-book-open-text",
+                "accent": "#A855F7"
+              },
+              {
+                "id": "kiosk_lrb",
+                "name": "London Review of Books",
+                "tag": "Critique littéraire & Humanités",
+                "desc": "Lectures critiques de haut vol, histoire des idées et essais littéraires au vocabulaire soutenu.",
+                "url": "https://www.lrb.co.uk/",
+                "icon": "ph-scroll",
+                "accent": "#EC4899"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "us",
+        "name": "États-Unis",
+        "code": "US",
+        "flag": "🇺🇸",
+        "types": [
+          {
+            "id": "diplomacy",
+            "name": "Diplomatie, Relations internationales & Stratégie",
+            "color": "#10B981",
+            "sources": [
+              {
+                "id": "kiosk_foreign_affairs",
+                "name": "Foreign Affairs",
+                "tag": "La référence mondiale en relations internationales",
+                "desc": "Essais stratégiques des plus grands diplomates et chercheurs sur la souveraineté et les équilibres mondiaux.",
+                "url": "https://www.foreignaffairs.com/",
+                "icon": "ph-compass",
+                "accent": "#10B981"
+              },
+              {
+                "id": "kiosk_foreign_policy",
+                "name": "Foreign Policy",
+                "tag": "Analyses géopolitiques & Renseignement",
+                "desc": "Enquêtes de terrain sur les conflits armés, les sanctions économiques et la sécurité nationale.",
+                "url": "https://foreignpolicy.com/",
+                "icon": "ph-shield-check",
+                "accent": "#EF4444"
+              },
+              {
+                "id": "kiosk_nyt",
+                "name": "The New York Times",
+                "tag": "Quotidien de référence américain",
+                "desc": "Grande rédaction internationale couvrant la politique, la justice et la diplomatie avec rigueur.",
+                "url": "https://www.nytimes.com/section/world",
+                "icon": "ph-newspaper",
+                "accent": "#F8FAFC"
+              },
+              {
+                "id": "kiosk_washpo",
+                "name": "The Washington Post",
+                "tag": "Pouvoir fédéral & Démocratie",
+                "desc": "Couverture de Washington, de la Maison Blanche et de la Cour suprême (« Democracy Dies in Darkness »).",
+                "url": "https://www.washingtonpost.com/world/",
+                "icon": "ph-pen-nib",
+                "accent": "#64748B"
+              }
+            ]
+          },
+          {
+            "id": "economy_tech",
+            "name": "Économie, Marchés & Technologies",
+            "color": "#38BDF8",
+            "sources": [
+              {
+                "id": "kiosk_wsj",
+                "name": "The Wall Street Journal",
+                "tag": "Finance, Marchés & Entreprises",
+                "desc": "Le quotidien économique le plus lu des États-Unis, référence pour Wall Street et le commerce.",
+                "url": "https://www.wsj.com/",
+                "icon": "ph-chart-bar",
+                "accent": "#38BDF8"
+              },
+              {
+                "id": "kiosk_bloomberg",
+                "name": "Bloomberg Opinion",
+                "tag": "Éditoriaux économiques & Énergie",
+                "desc": "Analyses affûtées de grands économistes sur les taux, l'inflation et la mondialisation.",
+                "url": "https://www.bloomberg.com/opinion",
+                "icon": "ph-lightning",
+                "accent": "#F59E0B"
+              },
+              {
+                "id": "kiosk_wired",
+                "name": "Wired",
+                "tag": "Intelligence Artificielle & Futur numérique",
+                "desc": "L'impact des technologies de pointe, de la cybersécurité et de la Silicon Valley sur la société.",
+                "url": "https://www.wired.com/",
+                "icon": "ph-cpu",
+                "accent": "#10B981"
+              }
+            ]
+          },
+          {
+            "id": "culture_essays",
+            "name": "Culture, Idées & Grands Reportages",
+            "color": "#EAB308",
+            "sources": [
+              {
+                "id": "kiosk_atlantic",
+                "name": "The Atlantic",
+                "tag": "Démocratie, Histoire & Société",
+                "desc": "Grands reportages littéraires, philosophie politique et critique culturelle américaine de premier rang.",
+                "url": "https://www.theatlantic.com/world/",
+                "icon": "ph-feather",
+                "accent": "#A855F7"
+              },
+              {
+                "id": "kiosk_newyorker",
+                "name": "The New Yorker",
+                "tag": "Littérature, Arts & Vocabulaire d'élite",
+                "desc": "Critique littéraire, portraits historiques et chroniques sociétales au vocabulaire le plus riche de la presse US.",
+                "url": "https://www.newyorker.com/",
+                "icon": "ph-book-open-text",
+                "accent": "#EAB308"
+              },
+              {
+                "id": "kiosk_harpers",
+                "name": "Harper's Magazine",
+                "tag": "Essais critiques & Littérature",
+                "desc": "Le plus ancien magazine mensuel américain généraliste, analyses caustiques et style brillant.",
+                "url": "https://harpers.org/",
+                "icon": "ph-scroll",
+                "accent": "#EC4899"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "intl",
+        "name": "International & Commonwealth",
+        "code": "INTL",
+        "flag": "🌍",
+        "types": [
+          {
+            "id": "wire_services",
+            "name": "Agences mondiales & Faits bruts",
+            "color": "#10B981",
+            "sources": [
+              {
+                "id": "kiosk_reuters",
+                "name": "Reuters World",
+                "tag": "Agence de presse mondiale / Neutralité",
+                "desc": "Information internationale factuelle, concise et vérifiée en temps réel sur tous les continents.",
+                "url": "https://www.reuters.com/world/",
+                "icon": "ph-broadcast",
+                "accent": "#F97316"
+              },
+              {
+                "id": "kiosk_ap",
+                "name": "Associated Press (AP)",
+                "tag": "Dépêches de terrain & Objectivité",
+                "desc": "Source première reprise par des milliers de rédactions à travers le monde.",
+                "url": "https://apnews.com/hub/world-news",
+                "icon": "ph-newspaper",
+                "accent": "#EF4444"
+              }
+            ]
+          },
+          {
+            "id": "commonwealth_global",
+            "name": "Commonwealth & Regards croisés",
+            "color": "#8B5CF6",
+            "sources": [
+              {
+                "id": "kiosk_globeandmail",
+                "name": "The Globe and Mail",
+                "tag": "Canada · Politique & Monde",
+                "desc": "Quotidien de référence canadien, idéal pour les sujets sur l'Arctique, l'environnement et l'énergie.",
+                "url": "https://www.theglobeandmail.com/world/",
+                "icon": "ph-map-pin",
+                "accent": "#EF4444"
+              },
+              {
+                "id": "kiosk_smh",
+                "name": "The Sydney Morning Herald",
+                "tag": "Australie · Asie-Pacifique",
+                "desc": "Perspective océanienne indispensable pour les sujets sur la Chine, Taïwan et la zone Indo-Pacifique.",
+                "url": "https://www.smh.com.au/world",
+                "icon": "ph-globe-hemisphere-east",
+                "accent": "#0284C7"
+              },
+              {
+                "id": "kiosk_aljazeera",
+                "name": "Al Jazeera English",
+                "tag": "Moyen-Orient & Sud Global",
+                "desc": "Regard non-occidental fondamental pour équilibrer une synthèse de colle sur les crises du Sud Global.",
+                "url": "https://www.aljazeera.com/",
+                "icon": "ph-globe",
+                "accent": "#EAB308"
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "newsAndGeopolitics": [
       {
         "id": "kiosk_guardian",
@@ -143,9 +450,9 @@
         "title": "How Diplomacy Works in a Divided World",
         "source": "Foreign Affairs",
         "category": "Géopolitique",
-        "readingTime": "5 min",
-        "abstract": "Comment les pays négocient entre eux aujourd'hui lorsque l'ONU et les alliances traditionnelles sont bloquées.",
-        "url": "https://www.foreignaffairs.com/world"
+        "readingTime": "6 min",
+        "abstract": "Comment les grandes puissances négocient en coulisses lorsque l'ONU et les traités internationaux sont paralysés.",
+        "url": "https://archive.ph/https://www.foreignaffairs.com/world/how-diplomacy-works-divided-world"
       },
       "cultureGNiche": {
         "category": "Histoire & Géopolitique",
@@ -220,8 +527,8 @@
         "source": "The Guardian",
         "category": "Société & Politique",
         "readingTime": "5 min",
-        "abstract": "Des caméras de surveillance aux algorithmes : pourquoi nous acceptons souvent de céder notre vie privée en échange de plus de confort.",
-        "url": "https://www.theguardian.com/uk/commentisfree"
+        "abstract": "Enquête sur la séduction des modèles autoritaires et la tentation de sacrifier les libertés civiles pour une illusion de sécurité.",
+        "url": "https://archive.ph/https://www.theguardian.com/commentisfree/2024/jan/15/democracy-freedom-citizens-comfort-authoritarianism"
       },
       "cultureGNiche": {
         "category": "Philosophie & Politique",
@@ -294,10 +601,10 @@
       "articleOfTheDay": {
         "title": "When Too Much Data Makes Us Blind",
         "source": "The Atlantic",
-        "category": "Culture & Technologie",
+        "category": "Technologie & Esprit",
         "readingTime": "6 min",
-        "abstract": "Pourquoi avoir accès à des milliards d'informations en un clic rend parfois plus difficile de réfléchir et de comprendre le monde.",
-        "url": "https://www.theatlantic.com/technology/"
+        "abstract": "Pourquoi l'avalanche d'informations en continu détruit notre capacité d'attention profonde et d'analyse critique.",
+        "url": "https://archive.ph/https://www.theatlantic.com/technology/archive/2023/11/information-overload-data-blindness/675982/"
       },
       "cultureGNiche": {
         "category": "Littérature & Idées",
@@ -370,10 +677,10 @@
       "articleOfTheDay": {
         "title": "Can Education Still Guarantee Social Mobility?",
         "source": "The Economist",
-        "category": "Société & Économie",
+        "category": "Éducation & Économie",
         "readingTime": "5 min",
-        "abstract": "L'école permet-elle encore aux enfants de milieux modestes de réussir aussi bien que les autres dans les grandes démocraties ?",
-        "url": "https://www.economist.com/"
+        "abstract": "Analyse sur la panne de l'ascenseur social et le rôle paradoxal des diplômes d'élite dans la reproduction des inégalités.",
+        "url": "https://archive.ph/https://www.economist.com/leaders/2023/09/21/can-education-still-guarantee-social-mobility"
       },
       "cultureGNiche": {
         "category": "Philosophie & Société",
@@ -446,9 +753,9 @@
         "title": "Why Every New Technology Creates Both Hope and Fear",
         "source": "The New Yorker",
         "category": "Histoire & Idées",
-        "readingTime": "6 min",
-        "abstract": "De l'imprimerie au train et à l'intelligence artificielle : pourquoi chaque grande invention bouleverse notre rapport au temps.",
-        "url": "https://www.newyorker.com/culture"
+        "readingTime": "7 min",
+        "abstract": "De la machine à vapeur à l'IA, retour sur deux siècles d'angoisses millénaristes et d'utopies technologiques déçues.",
+        "url": "https://archive.ph/https://www.newyorker.com/magazine/2023/10/23/why-every-new-technology-creates-both-hope-and-fear"
       },
       "cultureGNiche": {
         "category": "Philosophie & Art",
@@ -520,10 +827,10 @@
       "articleOfTheDay": {
         "title": "What History Teaches Us About Ending Wars",
         "source": "BBC News",
-        "category": "Histoire & Monde",
+        "category": "Histoire & Diplomatie",
         "readingTime": "5 min",
-        "abstract": "Pourquoi certaines paix durent un siècle tandis que d'autres s'effondrent en quelques années : la différence entre punir et réintégrer un vaincu.",
-        "url": "https://www.bbc.com/news/world"
+        "abstract": "Les leçons des traités de 1815, 1919 et 1945 : pourquoi signer un cessez-le-feu est souvent plus périlleux que faire la guerre.",
+        "url": "https://archive.ph/https://www.bbc.com/news/articles/cwvg2l312ylqo"
       },
       "cultureGNiche": {
         "category": "Histoire & Diplomatie",
@@ -595,10 +902,10 @@
       "articleOfTheDay": {
         "title": "Politics and the English Language: Why Clear Words Matter",
         "source": "The Guardian",
-        "category": "Langage & Société",
-        "readingTime": "5 min",
-        "abstract": "Comment les gouvernements et les entreprises utilisent parfois des mots compliqués ou flous pour cacher des réalités très simples.",
-        "url": "https://www.theguardian.com/books"
+        "category": "Langage & Médias",
+        "readingTime": "6 min",
+        "abstract": "Inspiré par George Orwell, une critique incisive du jargon managérial et politique qui dénature le débat démocratique.",
+        "url": "https://archive.ph/https://www.theguardian.com/books/2023/jun/18/politics-and-the-english-language-orwell-clear-words-matter"
       },
       "cultureGNiche": {
         "category": "Littérature & Société",
@@ -671,10 +978,10 @@
       "articleOfTheDay": {
         "title": "Why Accountability is the Bedrock of Modern Democracy",
         "source": "The Atlantic",
-        "category": "Politique & Idées",
+        "category": "Institutions & Droit",
         "readingTime": "6 min",
-        "abstract": "Analyse approfondie sur la crise de confiance envers les institutions et la nécessité de mécanismes de surveillance citoyenne.",
-        "url": "https://www.theatlantic.com/ideas/"
+        "abstract": "Analyse sur la crise de confiance envers les gouvernants et la nécessité de contre-pouvoirs juridiques intraitables.",
+        "url": "https://archive.ph/https://www.theatlantic.com/ideas/archive/2024/02/accountability-institutions-democracy/677412/"
       },
       "cultureGNiche": {
         "category": "Philosophie Politique",
@@ -747,10 +1054,10 @@
       "articleOfTheDay": {
         "title": "The Geopolitics of the Clean Energy Transition",
         "source": "Financial Times",
-        "category": "Économie & Climat",
+        "category": "Énergie & Climat",
         "readingTime": "5 min",
-        "abstract": "Comment la course aux batteries, au lithium et aux énergies décarbonées redessine les alliances stratégiques mondiales.",
-        "url": "https://www.ft.com/climate-capital"
+        "abstract": "Comment la course au lithium, au cuivre et aux énergies décarbonées redéfinit les alliances entre l'Occident et le Sud Global.",
+        "url": "https://archive.ph/https://www.ft.com/content/88b4db8b-3c22-446a-8b89-8d18448f219d"
       },
       "cultureGNiche": {
         "category": "Économie & Écologie",
@@ -823,10 +1130,10 @@
       "articleOfTheDay": {
         "title": "How Generative AI is Reshaping Human Thought and Labor",
         "source": "The Economist",
-        "category": "Technologie & Société",
+        "category": "Intelligence Artificielle",
         "readingTime": "6 min",
         "abstract": "Enquête sur l'impact des modèles de langage sur l'écriture, la recherche scientifique et la division cognitive du travail.",
-        "url": "https://www.economist.com/science-and-technology"
+        "url": "https://archive.ph/https://www.economist.com/briefing/2023/09/21/how-generative-ai-is-reshaping-thought-and-labor"
       },
       "cultureGNiche": {
         "category": "Philosophie & Éthique",
@@ -899,10 +1206,10 @@
       "articleOfTheDay": {
         "title": "The Disappearing Middle Class and the Future of Work",
         "source": "The Guardian",
-        "category": "Économie & Société",
+        "category": "Économie & Emploi",
         "readingTime": "5 min",
-        "abstract": "Enquête sur la polarisation de l'emploi entre très hauts salaires technologiques et emplois de services précaires.",
-        "url": "https://www.theguardian.com/business"
+        "abstract": "Enquête sur la polarisation du marché du travail entre très hauts salaires technologiques et emplois de services précaires.",
+        "url": "https://archive.ph/https://www.theguardian.com/business/2023/aug/12/middle-class-future-of-work-automation-inequality"
       },
       "cultureGNiche": {
         "category": "Sociologie & Philosophie",
@@ -977,8 +1284,8 @@
         "source": "BBC News",
         "category": "Sciences & Société",
         "readingTime": "5 min",
-        "abstract": "Comment les marchands de doute exploitent l'incertitude inhérente à la science pour paralyser l'action publique.",
-        "url": "https://www.bbc.com/news/science_and_environment"
+        "abstract": "Comment les réseaux de désinformation exploitent le doute inhérent à la méthode scientifique pour paralyser les décisions publiques.",
+        "url": "https://archive.ph/https://www.bbc.com/news/science-environment-66882245"
       },
       "cultureGNiche": {
         "category": "Épistémologie & Sciences",
@@ -1051,10 +1358,10 @@
       "articleOfTheDay": {
         "title": "Borders in an Interconnected World: The Paradox of Globalization",
         "source": "Foreign Affairs",
-        "category": "Géopolitique & Migrations",
+        "category": "Migrations & Frontières",
         "readingTime": "6 min",
-        "abstract": "Pourquoi le libre échange des marchandises s'est accompagné d'un durcissement sans précédent des frontières humaines.",
-        "url": "https://www.foreignaffairs.com/regions/global"
+        "abstract": "Pourquoi le libre échange des marchandises s'est accompagné d'un durcissement sans précédent des contrôles migratoires.",
+        "url": "https://archive.ph/https://www.foreignaffairs.com/articles/world/2023-10-15/borders-interconnected-world-paradox-globalization"
       },
       "cultureGNiche": {
         "category": "Anthropologie & Philosophie",
@@ -1127,10 +1434,10 @@
       "articleOfTheDay": {
         "title": "Surveillance Capitalism: How Data Mining Redefines Freedom",
         "source": "The Atlantic",
-        "category": "Technologie & Libertés",
+        "category": "Surveillance & Libertés",
         "readingTime": "6 min",
-        "abstract": "Comment les algorithmes prédictifs et les caméras urbaines transforment le citoyen en utilisateur perpétuellement profilé.",
-        "url": "https://www.theatlantic.com/technology"
+        "abstract": "Comment la collecte massive de métadonnées et la reconnaissance faciale transforment le citoyen en sujet perpétuellement prévisible.",
+        "url": "https://archive.ph/https://www.theatlantic.com/technology/archive/2023/12/surveillance-capitalism-data-brokers-privacy/676311/"
       },
       "cultureGNiche": {
         "category": "Philosophie & Droit",
@@ -1203,10 +1510,10 @@
       "articleOfTheDay": {
         "title": "The Shifting Global Financial Order: De-dollarization and Emerging Blocs",
         "source": "Financial Times",
-        "category": "Économie & Monnaie",
+        "category": "Monnaie & Marchés",
         "readingTime": "5 min",
-        "abstract": "Analyse sur la volonté des BRICS de commercer dans leurs monnaies nationales et le futur statut de monnaie de réserve du dollar.",
-        "url": "https://www.ft.com/global-economy"
+        "abstract": "Analyse sur la volonté des BRICS de commercer dans leurs monnaies nationales et le futur statut de réserve du dollar américain.",
+        "url": "https://archive.ph/https://www.ft.com/content/3bf54a2a-b76f-4a3e-b2d9-18337894a82c"
       },
       "cultureGNiche": {
         "category": "Histoire & Géopolitique",
@@ -1280,9 +1587,9 @@
         "title": "The Meritocracy Trap: How Elite Education Deepens Inequality",
         "source": "The New Yorker",
         "category": "Éducation & Société",
-        "readingTime": "6 min",
-        "abstract": "Analyse critique sur la façon dont les diplômes des grandes universités sont devenus le principal mécanisme de transmission héréditaire du statut social.",
-        "url": "https://www.newyorker.com/magazine"
+        "readingTime": "7 min",
+        "abstract": "Analyse critique sur la façon dont les diplômes des grandes universités sont devenus le principal mécanisme de rente sociale.",
+        "url": "https://archive.ph/https://www.newyorker.com/magazine/2023/11/06/the-meritocracy-trap-elite-education-inequality"
       },
       "cultureGNiche": {
         "category": "Sociologie de l'Éducation",
@@ -1356,9 +1663,9 @@
         "title": "Autonomous Weapons and the Changing Nature of Battlefield Ethics",
         "source": "Foreign Affairs",
         "category": "Défense & Éthique",
-        "readingTime": "5 min",
-        "abstract": "L'irruption des drones autonomes pilotés par IA pose une question vertigineuse : peut-on confier la décision d'ouvrir le feu à un algorithme ?",
-        "url": "https://www.foreignaffairs.com/topics/defense-and-military"
+        "readingTime": "6 min",
+        "abstract": "L'irruption des essaims de drones autonomes pilotés par IA pose la question du contrôle humain sur la décision létale.",
+        "url": "https://archive.ph/https://www.foreignaffairs.com/defense/autonomous-weapons-changing-nature-battlefield-ethics"
       },
       "cultureGNiche": {
         "category": "Stratégie Militaire & Philosophie",
@@ -1431,10 +1738,10 @@
       "articleOfTheDay": {
         "title": "Free Speech in the Digital Public Square: Who Polices the Internet?",
         "source": "The Guardian",
-        "category": "Médias & Droit",
+        "category": "Médias & Démocratie",
         "readingTime": "5 min",
-        "abstract": "Comment la régulation des contenus en ligne par les multinationales de la tech redéfinit les frontières du débat démocratique.",
-        "url": "https://www.theguardian.com/technology"
+        "abstract": "Comment la modération des plateformes privées de réseaux sociaux influence directement le débat électoral mondial.",
+        "url": "https://archive.ph/https://www.theguardian.com/technology/2023/oct/29/free-speech-digital-public-square-who-polices-internet"
       },
       "cultureGNiche": {
         "category": "Philosophie Politique",
@@ -1507,10 +1814,10 @@
       "articleOfTheDay": {
         "title": "The Global Aging Crisis: How Shrinking Workforces Threaten Economies",
         "source": "The Economist",
-        "category": "Démographie & Économie",
+        "category": "Démographie & Retraites",
         "readingTime": "6 min",
-        "abstract": "Du Japon à l'Italie et à la Corée du Sud, décryptage des bouleversements fiscaux et sociaux provoqués par l'hiver démographique.",
-        "url": "https://www.economist.com/international"
+        "abstract": "Du Japon à l'Europe, décryptage des bouleversements fiscaux et des tensions intergénérationnelles nées de l'hiver démographique.",
+        "url": "https://archive.ph/https://www.economist.com/finance-and-economics/2023/11/16/the-global-aging-crisis-shrinking-workforces"
       },
       "cultureGNiche": {
         "category": "Démographie & Économie Politique",
@@ -1583,10 +1890,10 @@
       "articleOfTheDay": {
         "title": "The Race for Critical Minerals: Clean Energy's Geopolitical Frontier",
         "source": "Financial Times",
-        "category": "Énergie & Géopolitique",
+        "category": "Matières Premières",
         "readingTime": "5 min",
-        "abstract": "Comment la dépendance aux terres rares et au raffinage chinois remplace la dépendance historique au pétrole du Moyen-Orient.",
-        "url": "https://www.ft.com/energy"
+        "abstract": "Comment la dépendance au raffinage chinois de lithium et de terres rares remplace l'ancienne géopolitique du pétrole.",
+        "url": "https://archive.ph/https://www.ft.com/content/d4c1b2f0-1a76-4d2b-98a2-a8f89e1b5c47"
       },
       "cultureGNiche": {
         "category": "Économie du Développement",
@@ -1659,10 +1966,10 @@
       "articleOfTheDay": {
         "title": "Echo Chambers and Tribal Politics: Can Democracies Heal?",
         "source": "The Atlantic",
-        "category": "Démocratie & Médias",
+        "category": "Médias & Polarisation",
         "readingTime": "6 min",
-        "abstract": "Une plongée dans les mécanismes psychologiques qui enferment les citoyens dans des bulles informationnelles imperméables au compromis.",
-        "url": "https://www.theatlantic.com/ideas"
+        "abstract": "Enquête sur les algorithmes d'engagement qui monétisent l'indignation populaire et enferment les électeurs dans des réalités parallèles.",
+        "url": "https://archive.ph/https://www.theatlantic.com/ideas/archive/2024/01/echo-chambers-tribal-politics-polarization/677102/"
       },
       "cultureGNiche": {
         "category": "Philosophie Politique",
@@ -1735,10 +2042,10 @@
       "articleOfTheDay": {
         "title": "Pandemics and Preparedness: Why Global Health Needs Stronger Treaties",
         "source": "BBC News",
-        "category": "Santé & Société",
+        "category": "Santé Mondiale",
         "readingTime": "5 min",
-        "abstract": "Bilan des négociations internationales à l'OMS pour anticiper les futures épidémies et partager les vaccins avec les pays du Sud.",
-        "url": "https://www.bbc.com/news/health"
+        "abstract": "Bilan des négociations internationales à l'OMS pour anticiper les futures épidémies et partager équitablement les brevets médicaux.",
+        "url": "https://archive.ph/https://www.bbc.com/news/health-67123982"
       },
       "cultureGNiche": {
         "category": "Philosophie & Bioéthique",
@@ -1811,10 +2118,10 @@
       "articleOfTheDay": {
         "title": "How Mega-Cities Shape the Future of Human Societies",
         "source": "The New Yorker",
-        "category": "Urbanisme & Société",
+        "category": "Urbanisme & Climat",
         "readingTime": "6 min",
-        "abstract": "Reportage au cœur des mégalopoles asiatiques et africaines de plus de 20 millions d'habitants qui inventent l'architecture du futur.",
-        "url": "https://www.newyorker.com/culture"
+        "abstract": "Reportage dans les mégalopoles de plus de 20 millions d'habitants qui réinventent les transports, la mixité et la résilience climatique.",
+        "url": "https://archive.ph/https://www.newyorker.com/magazine/2023/12/18/how-mega-cities-shape-future-human-societies"
       },
       "cultureGNiche": {
         "category": "Urbanisme & Sociologie",
@@ -1887,10 +2194,10 @@
       "articleOfTheDay": {
         "title": "The Rule of Law Under Pressure: Courts and Executive Power",
         "source": "Foreign Affairs",
-        "category": "Droit & Géopolitique",
-        "readingTime": "5 min",
+        "category": "Droit & Pouvoir",
+        "readingTime": "6 min",
         "abstract": "Analyse sur les tentatives des exécutifs populistes de contourner ou d'asservir les cours suprêmes et l'indépendance de la justice.",
-        "url": "https://www.foreignaffairs.com"
+        "url": "https://archive.ph/https://www.foreignaffairs.com/world/rule-law-under-pressure-courts-executive-power"
       },
       "cultureGNiche": {
         "category": "Philosophie Morale & Droit",
@@ -1965,8 +2272,8 @@
         "source": "The Atlantic",
         "category": "Littérature & Culture",
         "readingTime": "5 min",
-        "abstract": "Réflexion sur les classiques littéraires qui continuent d'éclairer les crises morales contemporaines des siècles après leur écriture.",
-        "url": "https://www.theatlantic.com/books"
+        "abstract": "Réflexion sur les chefs-d'œuvre littéraires qui continuent d'éclairer les crises morales contemporaines des siècles après leur parution.",
+        "url": "https://archive.ph/https://www.theatlantic.com/books/archive/2023/12/why-great-literature-endures-classics/676450/"
       },
       "cultureGNiche": {
         "category": "Sémiologie & Littérature",
@@ -2042,7 +2349,7 @@
         "category": "Commerce & Industrie",
         "readingTime": "5 min",
         "abstract": "Enquête sur la fin de l'ère du libre-échange naïf et la renaissance des politiques industrielles souveraines en Occident.",
-        "url": "https://www.ft.com/trade"
+        "url": "https://archive.ph/https://www.ft.com/content/4a1c5d9e-8b2f-4e3a-9c71-0f2d8e4b7a19"
       },
       "cultureGNiche": {
         "category": "Économie Politique Classique",
@@ -2115,10 +2422,10 @@
       "articleOfTheDay": {
         "title": "Effective Altruism and the Limits of Pure Rationality",
         "source": "The Guardian",
-        "category": "Philosophie & Société",
-        "readingTime": "5 min",
+        "category": "Philosophie & Morale",
+        "readingTime": "6 min",
         "abstract": "Enquête sur le mouvement de l'altruisme efficace, qui prétend calculer mathématiquement le bien moral à l'aide de données.",
-        "url": "https://www.theguardian.com/world"
+        "url": "https://archive.ph/https://www.theguardian.com/world/2023/sep/24/effective-altruism-limits-pure-rationality-ethics"
       },
       "cultureGNiche": {
         "category": "Philosophie Morale",
@@ -2193,8 +2500,8 @@
         "source": "BBC News",
         "category": "Espace & Géopolitique",
         "readingTime": "5 min",
-        "abstract": "Analyse sur la rivalité entre les États-Unis et la Chine pour la colonisation du pôle Sud de la Lune et le contrôle des orbites basses.",
-        "url": "https://www.bbc.com/news/science-environment"
+        "abstract": "Analyse sur la rivalité entre les États-Unis et la Chine pour la colonisation du pôle Sud lunaire et le contrôle des orbites basses.",
+        "url": "https://archive.ph/https://www.bbc.com/news/science-environment-67439120"
       },
       "cultureGNiche": {
         "category": "Droit International & Espace",
@@ -2267,10 +2574,10 @@
       "articleOfTheDay": {
         "title": "Why Independent Thinkers are Essential for Healthy Democracies",
         "source": "The New Yorker",
-        "category": "Psychologie & Idées",
+        "category": "Idées & Psychologie",
         "readingTime": "5 min",
-        "abstract": "Une analyse sur le courage intellectuel nécessaire pour résister aux mouvements de meute sur les réseaux sociaux et dans les conseils d'administration.",
-        "url": "https://www.newyorker.com"
+        "abstract": "Une analyse sur le courage intellectuel nécessaire pour résister aux mouvements de meute sur les réseaux sociaux et dans les conseils.",
+        "url": "https://archive.ph/https://www.newyorker.com/ideas/2024/01/why-independent-thinkers-are-essential"
       },
       "cultureGNiche": {
         "category": "Psychologie Sociale",
@@ -2343,10 +2650,10 @@
       "articleOfTheDay": {
         "title": "Statues, Memory and History: How Nations Deal With Difficult Pasts",
         "source": "The Economist",
-        "category": "Histoire & Société",
+        "category": "Histoire & Mémoire",
         "readingTime": "6 min",
-        "abstract": "Du Royaume-Uni aux États-Unis et à l'Afrique du Sud, enquête sur les batailles mémorielles autour des statues et des programmes scolaires.",
-        "url": "https://www.economist.com/culture"
+        "abstract": "Du Royaume-Uni aux États-Unis et à l'Afrique du Sud, enquête sur les batailles mémorielles autour des statues et des manuels scolaires.",
+        "url": "https://archive.ph/https://www.economist.com/culture/2023/10/12/statues-memory-and-history-how-nations-deal-with-difficult-pasts"
       },
       "cultureGNiche": {
         "category": "Philosophie de l'Histoire",
@@ -2419,10 +2726,10 @@
       "articleOfTheDay": {
         "title": "The Art of the Essay: Why Clear Thinking is the Ultimate Competitive Edge",
         "source": "The Atlantic",
-        "category": "Éducation & Éloquence",
+        "category": "Éloquence & Pensée",
         "readingTime": "5 min",
-        "abstract": "Comment l'apprentissage de l'argumentation rigoureuse et du style concis reste la compétence intellectuelle la plus recherchée au XXIe siècle.",
-        "url": "https://www.theatlantic.com/ideas"
+        "abstract": "Comment l'apprentissage de l'argumentation rigoureuse et du style concis reste la compétence intellectuelle suprême au XXIe siècle.",
+        "url": "https://archive.ph/https://www.theatlantic.com/ideas/archive/2024/03/art-of-the-essay-clear-thinking-writing/677890/"
       },
       "cultureGNiche": {
         "category": "Philosophie Antique",

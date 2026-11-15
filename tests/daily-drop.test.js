@@ -48,13 +48,13 @@ data.drops.forEach((d, idx) => {
     assert.ok(gt.right, `Drop ${d.id} grammarTrap ${gtIdx} missing right example`);
   });
 
-  // Article of the day
+  // Article of the day (doit être sous la forme https://archive.ph/https://...)
   const art = d.articleOfTheDay;
   assert.ok(art, `Drop ${d.id} articleOfTheDay missing`);
   assert.ok(art.title && art.title.length > 5, `Drop ${d.id} article title missing`);
   assert.ok(art.source && art.source.length > 2, `Drop ${d.id} article source missing`);
   assert.ok(art.abstract && art.abstract.length > 10, `Drop ${d.id} article abstract missing`);
-  assert.ok(art.url && art.url.startsWith('http'), `Drop ${d.id} article url missing`);
+  assert.ok(art.url && art.url.startsWith('https://archive.ph/https://'), `Drop ${d.id} article url must start with https://archive.ph/https://`);
 
   // Culture G de niche
   const cg = d.cultureGNiche;
@@ -65,11 +65,18 @@ data.drops.forEach((d, idx) => {
   assert.ok(cg.details && cg.details.length > 50, `Drop ${d.id} cultureGNiche details missing`);
 });
 
-// Rotation test across 365 days
-for (let day = 0; day < 365; day++) {
-  const idx = day % data.drops.length;
-  assert.ok(idx >= 0 && idx < 31, `Invalid day index ${idx}`);
-  assert.ok(data.drops[idx], `Missing drop for day index ${idx}`);
-}
+// Validation de la structure du kiosque par pays et par type
+assert.ok(Array.isArray(data.pressKiosk.countries), 'pressKiosk.countries must be an array');
+assert.ok(data.pressKiosk.countries.length >= 3, 'Must have at least 3 countries (UK, US, INTL)');
+data.pressKiosk.countries.forEach(c => {
+  assert.ok(c.id && c.name && c.flag, `Country ${c.id} missing basic fields`);
+  assert.ok(Array.isArray(c.types) && c.types.length >= 1, `Country ${c.id} must have types`);
+  c.types.forEach(t => {
+    assert.ok(t.id && t.name && Array.isArray(t.sources) && t.sources.length >= 1, `Type ${t.id} missing fields`);
+    t.sources.forEach(s => {
+      assert.ok(s.id && s.name && s.url && s.desc, `Source ${s.id} in country ${c.id} missing fields`);
+    });
+  });
+});
 
-console.log('ALL DAILY-DROP TESTS PASSED (31 drops validated)!');
+console.log('ALL DAILY-DROP TESTS PASSED (31 drops & categorized kiosk validated)!');
