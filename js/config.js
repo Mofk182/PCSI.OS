@@ -171,6 +171,9 @@ const DEFAULT_PORTALS = [
 ];
 
 function getSubject(subjId) {
+  if (subjId === 'none' || subjId === 'perso' || subjId === 'rdv' || subjId === 'divers' || !subjId) {
+    return { id: 'none', name: 'Personnel / Sans matière', short: 'PERSO', color: '#94A3B8', builtin: true };
+  }
   if (subjId && SUBJECTS[subjId]) return SUBJECTS[subjId];
   const first = Object.values(SUBJECTS)[0];
   return first || DEFAULT_SUBJECTS.physique;

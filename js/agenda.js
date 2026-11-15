@@ -1548,13 +1548,18 @@ function renderAcademicGrid(weekDates) {
     const laid = layoutDaySlots(perDay[i]);
     const blocks = laid.map(it => {
       const m = it.sl;
+      const isNoneSubj = m.subject === 'none' || !m.subject;
       const sub = getSubject(m.subject);
       const top = (it.s - rangeStart) / 60 * CAL_HOUR_H;
       const height = Math.max((it.e - it.s) / 60 * CAL_HOUR_H - 2, 22);
       const isSpecific = !!m.date;
       const widthPct = 100 / it.cols;
       const compact = height < 44;
-      return `<div onclick="event.stopPropagation(); window.openSlotModal('${escapeHtml(m.id)}')" title="${escapeHtml(m.title)} · ${m.start}–${m.end}${m.room ? ' · ' + escapeHtml(m.room) : ''}" style="position:absolute; top:${top + 1}px; height:${height}px; left:calc(${it.col * widthPct}% + 2px); width:calc(${widthPct}% - 4px); background:${sub.color}26; border-left:3px solid ${sub.color}; border-radius:7px; padding:${compact ? '3px 7px' : '6px 8px'}; overflow:hidden; cursor:pointer; z-index:2; ${isSpecific ? 'outline:1px solid ' + sub.color + '77;' : ''} transition:background-color 0.15s ease;" onmouseover="this.style.background='${sub.color}40'" onmouseout="this.style.background='${sub.color}26'"><div style="display:flex; justify-content:space-between; align-items:flex-start; gap:4px;"><span style="font-weight:700; font-size:11.5px; line-height:1.25; color:var(--text-main); ${compact ? 'white-space:nowrap; overflow:hidden; text-overflow:ellipsis;' : ''}">${escapeHtml(m.title)}</span><span class="mono" style="font-size:9px; padding:1px 5px; border-radius:4px; background:rgba(0,0,0,0.4); color:var(--text-muted); flex-shrink:0;">${escapeHtml(m.type || 'COURS')}</span></div>${compact ? '' : `<div class="mono" style="font-size:10px; color:var(--text-muted); margin-top:3px;">${m.start}–${m.end}</div>`}${(height >= 74 && m.room) ? `<div style="font-size:10.5px; color:var(--text-muted); margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(m.room)}</div>` : ''}</div>`;
+      const typeBadge = escapeHtml(m.type || (isNoneSubj ? 'RDV' : 'COURS'));
+      const bgCol = isNoneSubj ? 'rgba(148, 163, 184, 0.16)' : (sub.color + '26');
+      const borderCol = isNoneSubj ? '#94A3B8' : sub.color;
+      const hoverBg = isNoneSubj ? 'rgba(148, 163, 184, 0.30)' : (sub.color + '40');
+      return `<div onclick="event.stopPropagation(); window.openSlotModal('${escapeHtml(m.id)}')" title="${escapeHtml(m.title)} · ${m.start}–${m.end}${m.room ? ' · ' + escapeHtml(m.room) : ''}${isNoneSubj ? ' · Sans matière' : ''}" style="position:absolute; top:${top + 1}px; height:${height}px; left:calc(${it.col * widthPct}% + 2px); width:calc(${widthPct}% - 4px); background:${bgCol}; border-left:3px solid ${borderCol}; border-radius:7px; padding:${compact ? '3px 7px' : '6px 8px'}; overflow:hidden; cursor:pointer; z-index:2; ${isSpecific ? 'outline:1px solid ' + borderCol + '77;' : ''} transition:background-color 0.15s ease;" onmouseover="this.style.background='${hoverBg}'" onmouseout="this.style.background='${bgCol}'"><div style="display:flex; justify-content:space-between; align-items:flex-start; gap:4px;"><span style="font-weight:700; font-size:11.5px; line-height:1.25; color:var(--text-main); ${compact ? 'white-space:nowrap; overflow:hidden; text-overflow:ellipsis;' : ''}">${escapeHtml(m.title)}</span><span class="mono" style="font-size:9px; padding:1px 5px; border-radius:4px; background:rgba(0,0,0,0.4); color:${isNoneSubj ? '#E2E8F0' : 'var(--text-muted)'}; flex-shrink:0;">${typeBadge}</span></div>${compact ? '' : `<div class="mono" style="font-size:10px; color:var(--text-muted); margin-top:3px;">${m.start}–${m.end}</div>`}${(height >= 74 && m.room) ? `<div style="font-size:10.5px; color:var(--text-muted); margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(m.room)}</div>` : ''}</div>`;
     }).join('');
     let nowLine = '';
     if (isToday && nowMin >= rangeStart && nowMin <= rangeEnd) {
@@ -1600,9 +1605,9 @@ window.onCalColumnClick = function(e, dateStr, dayIdx, rangeStart) {
 
 setInterval(() => { if (state.activeTab === 'agenda') renderAgenda(); }, 60000);
 
-window.openSlotModal = function(slotId, defaultDateStr = '', defaultStart = '08:00', defaultDayIdx = 0) {
+window.openSlotModal = function(slotId, defaultDateStr = '', defaultStart = '08:00', defaultDayIdx = 0, initialPreset = null) {
   const slot = slotId ? state.schedule.find(s => s.id === slotId) : null;
-  document.getElementById('slot-modal-title').textContent = slot ? 'Modifier le créneau' : 'Ajouter un créneau';
+  document.getElementById('slot-modal-title').textContent = slot ? 'Modifier le créneau' : (initialPreset === 'rdv' ? 'Ajouter un rendez-vous (Sans matière)' : 'Ajouter un créneau');
   document.getElementById('s-id').value = slot ? slot.id : '';
   document.getElementById('s-title').value = slot ? slot.title : '';
   document.getElementById('s-start').value = slot ? slot.start : defaultStart;
@@ -1611,7 +1616,7 @@ window.openSlotModal = function(slotId, defaultDateStr = '', defaultStart = '08:
   document.getElementById('s-delete-btn').style.display = slot ? 'inline-flex' : 'none';
   const recVal = slot
     ? (slot.date ? 'once' : (slot.every === 2 ? 'biweekly' : 'weekly'))
-    : 'weekly';
+    : (initialPreset === 'rdv' ? 'once' : 'weekly');
   document.getElementById('s-date').value = slot && slot.date ? slot.date : (slot && slot.anchor ? slot.anchor : (defaultDateStr || formatDateISO(new Date())));
 
   const dateLabelEl = document.querySelector('#s-date-container label');
@@ -1633,17 +1638,105 @@ window.openSlotModal = function(slotId, defaultDateStr = '', defaultStart = '08:
   document.getElementById('s-day-container').style.display = (recVal === 'weekly' || recVal === 'biweekly') ? 'block' : 'none';
   document.getElementById('s-date-container').style.display = (recVal === 'once' || recVal === 'biweekly') ? 'block' : 'none';
   mountCustomSelect('s-day-mount', 's-day', DAYS_LABELS.map((d, i) => ({ value: String(i), label: d })), slot && slot.dayOfWeek !== undefined ? String(slot.dayOfWeek) : String(defaultDayIdx));
-  const defaultSubj = slot && SUBJECTS[slot.subject] ? slot.subject : (Object.keys(SUBJECTS)[0] || 'maths');
-  mountCustomSelect('s-subject-mount', 's-subj', getSubjectOptions(), defaultSubj);
+
+  const isNoneSubj = slot ? (slot.subject === 'none' || !slot.subject) : (initialPreset === 'rdv' || initialPreset === 'perso');
+  const defaultSubj = isNoneSubj
+    ? 'none'
+    : ((slot && SUBJECTS[slot.subject]) ? slot.subject : (Object.keys(SUBJECTS)[0] || 'maths'));
+  mountCustomSelect('s-subject-mount', 's-subj', getSubjectOptions(null, true), defaultSubj);
+
+  const defaultType = slot ? slot.type : (initialPreset === 'rdv' ? 'RDV' : (initialPreset === 'perso' ? 'PERSO' : 'COURS'));
   mountCustomSelect('s-type-mount', 's-type', [
     { value: 'COURS', label: 'COURS' },
     { value: 'TD', label: 'TD' },
     { value: 'TP', label: 'TP' },
     { value: 'COLLE', label: 'COLLE' },
-    { value: 'DS', label: 'DS' }
-  ], slot ? slot.type : 'COURS');
+    { value: 'DS', label: 'DS' },
+    { value: 'RDV', label: 'RDV (Rendez-vous)' },
+    { value: 'PERSO', label: 'PERSO (Sport, Activité)' },
+    { value: 'ÉVÉNEMENT', label: 'ÉVÉNEMENT (Divers)' }
+  ], defaultType, (selectedType) => {
+    if (['RDV', 'PERSO', 'ÉVÉNEMENT'].includes(selectedType)) {
+      if (typeof window.setCustomSelectValue === 'function') {
+        window.setCustomSelectValue('s-subj', 'none');
+      }
+    }
+  });
+
   document.getElementById('slot-modal').classList.add('open');
+  if (initialPreset) {
+    window.applySlotPreset(initialPreset);
+  }
   if (typeof window.focusModalInput === 'function') window.focusModalInput('s-title');
+};
+
+window.applySlotPreset = function(preset) {
+  const titleEl = document.getElementById('s-title');
+  const dayCont = document.getElementById('s-day-container');
+  const dateCont = document.getElementById('s-date-container');
+
+  if (preset === 'rdv') {
+    if (typeof window.setCustomSelectValue === 'function') {
+      window.setCustomSelectValue('s-subj', 'none');
+      window.setCustomSelectValue('s-type', 'RDV');
+      window.setCustomSelectValue('s-recurrence', 'once');
+    }
+    if (dayCont) dayCont.style.display = 'none';
+    if (dateCont) dateCont.style.display = 'block';
+    if (titleEl) {
+      if (!titleEl.value || /^(cours|td|tp|colle|ds)\b/i.test(titleEl.value)) {
+        titleEl.value = 'Rendez-vous';
+      }
+      titleEl.placeholder = 'Ex: Dentiste, Médecin, Permis, RDV Préfecture...';
+      titleEl.focus();
+      titleEl.select();
+    }
+  } else if (preset === 'perso') {
+    if (typeof window.setCustomSelectValue === 'function') {
+      window.setCustomSelectValue('s-subj', 'none');
+      window.setCustomSelectValue('s-type', 'PERSO');
+      window.setCustomSelectValue('s-recurrence', 'weekly');
+    }
+    if (dayCont) dayCont.style.display = 'block';
+    if (dateCont) dateCont.style.display = 'none';
+    if (titleEl) {
+      if (!titleEl.value || /^(cours|td|tp|colle|ds|rendez-vous)\b/i.test(titleEl.value)) {
+        titleEl.value = 'Activité / Sport';
+      }
+      titleEl.placeholder = 'Ex: Escalade, Entraînement, Musique, Club...';
+      titleEl.focus();
+      titleEl.select();
+    }
+  } else if (preset === 'event') {
+    if (typeof window.setCustomSelectValue === 'function') {
+      window.setCustomSelectValue('s-subj', 'none');
+      window.setCustomSelectValue('s-type', 'ÉVÉNEMENT');
+      window.setCustomSelectValue('s-recurrence', 'once');
+    }
+    if (dayCont) dayCont.style.display = 'none';
+    if (dateCont) dateCont.style.display = 'block';
+    if (titleEl) {
+      if (!titleEl.value || /^(cours|td|tp|colle|ds|rendez-vous|activité)\b/i.test(titleEl.value)) {
+        titleEl.value = 'Événement';
+      }
+      titleEl.placeholder = 'Ex: Forum Grandes Écoles, Conférence, BDE...';
+      titleEl.focus();
+      titleEl.select();
+    }
+  } else {
+    // academic
+    if (typeof window.setCustomSelectValue === 'function') {
+      const firstSubj = Object.keys(SUBJECTS)[0] || 'maths';
+      window.setCustomSelectValue('s-subj', firstSubj);
+      window.setCustomSelectValue('s-type', 'COURS');
+      window.setCustomSelectValue('s-recurrence', 'weekly');
+    }
+    if (dayCont) dayCont.style.display = 'block';
+    if (dateCont) dateCont.style.display = 'none';
+    if (titleEl) {
+      titleEl.placeholder = 'Ex: Colle Maths, Cours Optique, DS...';
+    }
+  }
 };
 
 window.closeSlotModal = function() { document.getElementById('slot-modal').classList.remove('open'); };
@@ -1652,8 +1745,8 @@ window.saveSlotForm = function(e) {
   e.preventDefault();
   const id = document.getElementById('s-id').value;
   const title = document.getElementById('s-title').value.trim();
-  const subject = customSelectValues['s-subj'] || Object.keys(SUBJECTS)[0] || 'maths';
-  const type = customSelectValues['s-type'] || 'COURS';
+  const subject = customSelectValues['s-subj'] || 'none';
+  const type = customSelectValues['s-type'] || (subject === 'none' ? 'RDV' : 'COURS');
   const start = document.getElementById('s-start').value || '08:00';
   const end = document.getElementById('s-end').value || '10:00';
   const room = document.getElementById('s-room').value.trim();

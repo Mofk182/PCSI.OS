@@ -30,10 +30,20 @@ window.toggleCustomSelect = function(s, e) {
 };
 
 window.pickCustomSelect = function(s, val, e) {
-  e.stopPropagation();
+  if (e && e.stopPropagation) e.stopPropagation();
   customSelectValues[s] = val;
   document.querySelectorAll('.custom-select.open').forEach(el => el.classList.remove('open'));
   const el = document.getElementById(`cs-${s}`);
+  if (el && el.parentElement && el.parentElement._rerender) {
+    const parent = el.parentElement;
+    parent._rerender();
+    if (parent._onChange) parent._onChange(val);
+  }
+};
+
+window.setCustomSelectValue = function(selectId, val) {
+  customSelectValues[selectId] = val;
+  const el = document.getElementById(`cs-${selectId}`);
   if (el && el.parentElement && el.parentElement._rerender) {
     const parent = el.parentElement;
     parent._rerender();
@@ -124,8 +134,11 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-function getSubjectOptions(includeAll = null) {
+function getSubjectOptions(includeAll = null, includeNone = false) {
   const l = Object.values(SUBJECTS).map(s => ({ value: s.id, label: s.name, dot: s.color }));
+  if (includeNone) {
+    l.unshift({ value: 'none', label: 'Sans matière (RDV, Perso, Événement...)', dot: '#94A3B8' });
+  }
   if (includeAll) l.unshift({ value: 'all', label: includeAll });
   return l;
 }

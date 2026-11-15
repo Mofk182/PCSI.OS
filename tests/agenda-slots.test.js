@@ -25,7 +25,9 @@ const context = {
       // 2. Hebdomadaire sans every (dayOfWeek: 2)
       { id: 's_hebdo', dayOfWeek: 2, title: 'Cours Maths' },
       // 3. Ponctuel daté le 2026-11-11
-      { id: 's_once', date: '2026-11-11', title: 'Colle Spéciale' }
+      { id: 's_once', date: '2026-11-11', title: 'Colle Spéciale' },
+      // 4. Rendez-vous ponctuel sans matière (RDV médical)
+      { id: 's_rdv', date: '2026-11-11', subject: 'none', type: 'RDV', title: 'Dentiste' }
     ]
   }
 };
@@ -40,7 +42,8 @@ const ids1 = res1.map(s => s.id);
 assert.ok(ids1.includes('s_bi'), 's_bi doit être actif le 2026-11-11');
 assert.ok(ids1.includes('s_hebdo'), 's_hebdo doit être actif le 2026-11-11');
 assert.ok(ids1.includes('s_once'), 's_once doit être actif le 2026-11-11');
-console.log('ok: slots actifs le 2026-11-11');
+assert.ok(ids1.includes('s_rdv'), 's_rdv (sans matière) doit être actif le 2026-11-11');
+console.log('ok: slots actifs le 2026-11-11 (y compris RDV sans matière)');
 
 // Test 2 : Mercredi 2026-11-18 (semaine inactive pour s_bi)
 const d2 = new Date(2026, 10, 18);
@@ -49,7 +52,8 @@ const ids2 = res2.map(s => s.id);
 assert.ok(!ids2.includes('s_bi'), 's_bi NE doit PAS être actif le 2026-11-18');
 assert.ok(ids2.includes('s_hebdo'), 's_hebdo doit être actif le 2026-11-18');
 assert.ok(!ids2.includes('s_once'), 's_once NE doit PAS être actif le 2026-11-18');
-console.log('ok: s_bi et s_once inactifs le 2026-11-18');
+assert.ok(!ids2.includes('s_rdv'), 's_rdv NE doit PAS être actif le 2026-11-18');
+console.log('ok: s_bi, s_once et s_rdv inactifs le 2026-11-18');
 
 // Test 3 : Mercredi 2026-11-25 (semaine active pour s_bi)
 const d3 = new Date(2026, 10, 25);
