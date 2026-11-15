@@ -104,6 +104,9 @@ function normalizeSettingsState() {
   state.settings.commuteBufferMin = Number.isFinite(buf) ? Math.min(120, Math.max(0, buf)) : 30;
   const rawDeck = String(state.settings.ankiDeck || '').trim();
   state.settings.ankiDeck = rawDeck || 'PCSI::Vocabulaire';
+  state.settings.tensionAlertEnabled = state.settings.tensionAlertEnabled !== false;
+  const thresh = parseInt(state.settings.tensionAlertThreshold, 10);
+  state.settings.tensionAlertThreshold = Number.isFinite(thresh) ? Math.min(95, Math.max(40, thresh)) : 80;
 
   if (!state.eveningPlan || typeof state.eveningPlan !== 'object') {
     state.eveningPlan = { manualOrder: [], excludedIds: [], customDurations: {}, pinnedEveningIds: [], naps: {}, canvasAddedByDay: {} };
@@ -285,8 +288,134 @@ function buildDefaultPipelinePhases(totalDuration, phaseCount = 3, taskType = 'E
   }));
 }
 
+/**
+ * Calcule les N prochaines occurrences d'une tâche récurrente.
+ * @param {object} recurrence - { enabled, type: 'weekly'|'biweekly'|'days', dayOfWeek: 0..6, daysInterval: number }
+ * @param {string|null} fromDateISO - Date de référence (YYYY-MM-DD). Si non fournie, utilise aujourd'hui.
+ * @param {boolean} strictlyAfter - Si true, la 1re occurrence retournée est strictement après fromDateISO.
+ * @param {number} count - Nombre d'occurrences à retourner (défaut: 2).
+ */
+function computeNextRecurrenceDates(recurrence, fromDateISO = null, strictlyAfter = false, count = 2) {
+  if (!recurrence || !recurrence.enabled) return [];
+  const baseStr = fromDateISO || formatDateISO(new Date());
+  const baseDate = new Date(baseStr + 'T00:00:00');
+  if (isNaN(baseDate.getTime())) return [];
+
+  const type = recurrence.type || 'weekly';
+  const results = [];
+
+  if (type === 'weekly' || type === 'biweekly') {
+    const targetDow = (recurrence.dayOfWeek !== undefined && recurrence.dayOfWeek !== null)
+      ? (parseInt(recurrence.dayOfWeek, 10) % 7 + 7) % 7
+      : baseDate.getDay();
+    const stepWeeks = type === 'biweekly' ? 2 : 1;
+
+    let diff = (targetDow - baseDate.getDay() + 7) % 7;
+    if (strictlyAfter && diff === 0) {
+      diff = stepWeeks * 7;
+    }
+
+    const first = new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate() + diff);
+    for (let i = 0; i < count; i++) {
+      const next = new Date(first.getFullYear(), first.getMonth(), first.getDate() + i * stepWeeks * 7);
+      results.push(formatDateISO(next));
+    }
+  } else if (type === 'days') {
+    const interval = Math.max(1, parseInt(recurrence.daysInterval || recurrence.interval, 10) || 7);
+    const startOffset = strictlyAfter ? interval : 0;
+    for (let i = 0; i < count; i++) {
+      const next = new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate() + startOffset + i * interval);
+      results.push(formatDateISO(next));
+    }
+  }
+
+  return results;
+}
+
+function formatRecurrenceBadgeLabel(recurrence) {
+  if (!recurrence || !recurrence.enabled) return '';
+  const dowShort = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+  const type = recurrence.type || 'weekly';
+  if (type === 'weekly') {
+    const d = (recurrence.dayOfWeek !== undefined && recurrence.dayOfWeek !== null) ? dowShort[recurrence.dayOfWeek] : '';
+    return d ? `Hebdo · ${d}` : 'Hebdo';
+  }
+  if (type === 'biweekly') {
+    const d = (recurrence.dayOfWeek !== undefined && recurrence.dayOfWeek !== null) ? dowShort[recurrence.dayOfWeek] : '';
+    return d ? `Bi-hebdo · ${d}` : 'Bi-hebdo';
+  }
+  if (type === 'days') {
+    const n = Math.max(1, parseInt(recurrence.daysInterval || recurrence.interval, 10) || 7);
+    return n === 1 ? 'Quotidien' : `Tous les ${n}j`;
+  }
+  return 'Récurrent';
+}
+
 function normalizeTasksState() {
   if (!Array.isArray(state.tasks)) state.tasks = [];
+  const todayISO = formatDateISO(new Date());
+
+  // 1. Nettoyage automatique des quêtes dont la date d'échéance est dépassée (< aujourd'hui)
+  //    - Si la tâche est récurrente : elle avance automatiquement vers sa prochaine occurrence (>= aujourd'hui)
+  //    - Si la tâche est ponctuelle (non récurrente) et que sa date est passée : elle disparaît automatiquement
+  const keptTasks = [];
+  state.tasks.forEach(t => {
+    if (!t || typeof t !== 'object') return;
+
+    // Normalisation de l'objet recurrence
+    if (!t.recurrence || typeof t.recurrence !== 'object') {
+      t.recurrence = { enabled: false, type: 'weekly', dayOfWeek: 0, daysInterval: 7 };
+    } else {
+      t.recurrence.enabled = !!t.recurrence.enabled;
+      t.recurrence.type = ['weekly', 'biweekly', 'days'].includes(t.recurrence.type) ? t.recurrence.type : 'weekly';
+      const dow = parseInt(t.recurrence.dayOfWeek, 10);
+      t.recurrence.dayOfWeek = Number.isFinite(dow) ? ((dow % 7) + 7) % 7 : 0;
+      const dInt = parseInt(t.recurrence.daysInterval || t.recurrence.interval, 10);
+      t.recurrence.daysInterval = Number.isFinite(dInt) && dInt >= 1 ? Math.min(365, dInt) : 7;
+    }
+
+    const isRecurring = Boolean(t.recurrence && t.recurrence.enabled);
+    const due = t.dueDate || null;
+
+    if (due && due < todayISO) {
+      if (isRecurring) {
+        // Faire avancer la tâche récurrente à la prochaine occurrence >= aujourd'hui et la remettre "À faire"
+        let nextDue = due;
+        let guard = 0;
+        while (nextDue < todayISO && guard < 200) {
+          const nextArr = computeNextRecurrenceDates(t.recurrence, nextDue, true, 1);
+          if (!nextArr.length || nextArr[0] <= nextDue) break;
+          nextDue = nextArr[0];
+          guard++;
+        }
+        if (nextDue < todayISO) {
+          const fallbackArr = computeNextRecurrenceDates(t.recurrence, todayISO, false, 1);
+          nextDue = fallbackArr[0] || todayISO;
+        }
+        t.dueDate = nextDue;
+        t.completed = false;
+        t.status = 'todo';
+        delete t.completedDate;
+        delete t.completedInEveningDate;
+        if (t.pipeline && t.pipeline.enabled && Array.isArray(t.pipeline.phases) && t.pipeline.phases.length > 0) {
+          const staggered = computeStaggeredPhaseDates(t.pipeline.phases.length, nextDue);
+          t.pipeline.phases.forEach((p, idx) => {
+            p.done = false;
+            p.dueDate = staggered[idx] || nextDue;
+          });
+        }
+        keptTasks.push(t);
+      } else {
+        // Quête ponctuelle dont la date programmée est déjà passée : disparaît toute seule
+        return;
+      }
+    } else {
+      keptTasks.push(t);
+    }
+  });
+
+  state.tasks = keptTasks;
+
   state.tasks.forEach(t => {
     if (!t.type || !TASK_TYPES[t.type]) {
       const matched = t.type ? Object.keys(TASK_TYPES).find(k => k.toLowerCase() === String(t.type).toLowerCase()) : null;

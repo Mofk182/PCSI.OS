@@ -3,6 +3,8 @@
 let currentModalTaskType = DEFAULT_TASK_TYPE; // 'Exercice'
 let currentQuickAddType = 'TD';
 let currentModalPipeline = { enabled: false, phases: [] };
+let currentModalRecurrence = { enabled: false, type: 'weekly', dayOfWeek: 0, daysInterval: 7 };
+const notifiedTensionTaskKeys = new Set();
 
 function pressureColor(pct) {
   const clamped = Math.max(0, Math.min(100, pct));
@@ -11,6 +13,13 @@ function pressureColor(pct) {
 
 function isTaskCompleted(task) {
   return !!(task && (task.completed === true || task.status === 'done'));
+}
+
+function formatFrenchShortDate(isoStr) {
+  if (!isoStr) return '';
+  const d = new Date(isoStr + 'T00:00:00');
+  if (isNaN(d.getTime())) return isoStr;
+  return d.toLocaleDateString('fr-FR', { weekday: 'short', day: '2-digit', month: 'short' });
 }
 
 function setTaskCompletedState(task, isDone, eveningDateISO = null) {
@@ -33,6 +42,40 @@ function setTaskCompletedState(task, isDone, eveningDateISO = null) {
   }
 
   if (isDone) {
+    // Si la mission est récurrente, calculer la prochaine occurrence et la reprogrammer automatiquement
+    if (task.recurrence && task.recurrence.enabled && typeof computeNextRecurrenceDates === 'function') {
+      const baseRef = (task.dueDate && task.dueDate >= formatDateISO(new Date()))
+        ? task.dueDate
+        : formatDateISO(new Date());
+      const nextDates = computeNextRecurrenceDates(task.recurrence, baseRef, true, 2);
+      const nextDue = nextDates[0] || getOffsetDateISO(7);
+      const secondDue = nextDates[1] || '';
+
+      task.dueDate = nextDue;
+      task.completed = false;
+      task.status = 'todo';
+      task.lastCompletedDate = formatDateISO(new Date());
+      delete task.completedDate;
+      delete task.completedInEveningDate;
+
+      if (task.pipeline && task.pipeline.enabled && Array.isArray(task.pipeline.phases) && task.pipeline.phases.length > 0) {
+        const staggered = (typeof computeStaggeredPhaseDates === 'function')
+          ? computeStaggeredPhaseDates(task.pipeline.phases.length, nextDue)
+          : [];
+        task.pipeline.phases.forEach((ph, idx) => {
+          ph.done = false;
+          ph.dueDate = staggered[idx] || nextDue;
+        });
+      }
+
+      if (typeof showToast === 'function') {
+        const nextLabel = formatFrenchShortDate(nextDue);
+        const afterLabel = secondDue ? ` (puis ${formatFrenchShortDate(secondDue)})` : '';
+        showToast(`Mission validée ! Prochaine échéance : ${nextLabel}${afterLabel}`);
+      }
+      return;
+    }
+
     if (!isTaskCompleted(task) || !task.eveningAllocatedHours) {
       task.eveningAllocatedHours = (typeof getTaskEveningDurationHours === 'function')
         ? getTaskEveningDurationHours(task)
@@ -538,6 +581,78 @@ window.onTaskRowClick = function(event, taskId) {
   window.openMissionModal(taskId);
 };
 
+function renderRecurrenceBadgeHtml(task) {
+  if (!task || !task.recurrence || !task.recurrence.enabled || typeof formatRecurrenceBadgeLabel !== 'function') return '';
+  const lbl = formatRecurrenceBadgeLabel(task.recurrence);
+  if (!lbl) return '';
+  let nextHint = '';
+  if (typeof computeNextRecurrenceDates === 'function') {
+    const baseRef = task.dueDate || formatDateISO(new Date());
+    const nexts = computeNextRecurrenceDates(task.recurrence, baseRef, true, 1);
+    if (nexts[0]) nextHint = ` — Prochaine après celle-ci : ${formatFrenchShortDate(nexts[0])}`;
+  }
+  return `<span class="mono" style="font-size:10px; font-weight:700; padding:2px 7px; border-radius:99px; background:rgba(56,189,248,0.12); border:1px solid rgba(56,189,248,0.32); color:#38BDF8; display:inline-flex; align-items:center; gap:4px;" title="Mission récurrente (${escapeHtml(lbl)})${escapeHtml(nextHint)}"><i class="ph-bold ph-arrows-clockwise"></i> ${escapeHtml(lbl)}</span>`;
+}
+
+function checkTensionThresholdAlerts() {
+  const cfg = (typeof state !== 'undefined' && state.settings) ? state.settings : DEFAULT_SETTINGS;
+  if (cfg.tensionAlertEnabled === false) return;
+  const threshold = Number.isFinite(parseInt(cfg.tensionAlertThreshold, 10))
+    ? Math.min(95, Math.max(40, parseInt(cfg.tensionAlertThreshold, 10)))
+    : 80;
+
+  if (!Array.isArray(state.tasks)) return;
+
+  // Charger les clés déjà notifiées aujourd'hui en sessionStorage
+  try {
+    const raw = sessionStorage.getItem('pcsi_tension_alerts_v1');
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) arr.forEach(k => notifiedTensionTaskKeys.add(k));
+    }
+  } catch (e) {}
+
+  const todayISO = formatDateISO(new Date());
+  const newlyTriggered = [];
+
+  state.tasks.forEach(t => {
+    if (!t || isTaskCompleted(t)) return;
+    const p = computePressure(t);
+    if (p && p.pct >= threshold) {
+      const alertKey = `${todayISO}_${t.id}_${threshold}`;
+      if (!notifiedTensionTaskKeys.has(alertKey)) {
+        notifiedTensionTaskKeys.add(alertKey);
+        newlyTriggered.push({ task: t, pct: p.pct });
+      }
+    }
+  });
+
+  if (newlyTriggered.length > 0) {
+    try {
+      sessionStorage.setItem('pcsi_tension_alerts_v1', JSON.stringify(Array.from(notifiedTensionTaskKeys)));
+    } catch (e) {}
+
+    const top = newlyTriggered.sort((a, b) => b.pct - a.pct)[0];
+    const extraCount = newlyTriggered.length - 1;
+    const msg = extraCount > 0
+      ? `⚠️ Seuil de tension (${threshold}%) atteint : « ${top.task.title} » (${top.pct}%) et ${extraCount} autre(s)`
+      : `⚠️ Seuil de tension (${threshold}%) atteint : « ${top.task.title} » est à ${top.pct}%`;
+
+    if (typeof showToast === 'function') {
+      showToast(msg);
+    }
+
+    if (typeof window !== 'undefined' && 'Notification' in window && Notification.permission === 'granted') {
+      try {
+        new Notification('PCSI.OS · Alerte Tension', {
+          body: msg,
+          tag: 'pcsi-tension-alert-' + todayISO
+        });
+      } catch (e) {}
+    }
+  }
+}
+
 function renderSingleTaskRow(t, sL) {
   const s = getSubject(t.subject);
   const p = computePressure(t);
@@ -561,6 +676,7 @@ function renderSingleTaskRow(t, sL) {
             <div style="display:flex; align-items:center; gap:7px; flex-wrap:wrap;">
               ${renderTaskTypeBadge(t.type)}
               <span style="font-weight:600; font-size:14px; ${isDone ? 'text-decoration:line-through; color:var(--text-subtle);' : ''}">${escapeHtml(t.title)}</span>
+              ${renderRecurrenceBadgeHtml(t)}
               ${Math.abs(imp - 1.0) >= 0.05 ? `<span class="imp-scalar-badge mono" title="Importance Manuelle">×${imp.toFixed(1)}</span>` : ''}
               ${p.dsBoosted && !isDone ? `<span class="ds-boost-badge mono" title="Boost DS du Samedi (×${p.dsFactor})"><i class="ph-fill ph-lightning"></i> DS ×${p.dsFactor}</span>` : ''}
               ${(!isDone && state.settings?.tomorrowFirst && getEffectiveTaskDueDate(t) && p.diffDays === 1) ? `<span class="tomorrow-prio-badge mono">DEMAIN</span>` : ''}
@@ -589,6 +705,13 @@ function renderSingleTaskRow(t, sL) {
 }
 
 function renderCahier() {
+  if (typeof normalizeTasksState === 'function') {
+    const beforeCount = Array.isArray(state.tasks) ? state.tasks.length : 0;
+    normalizeTasksState();
+    if (Array.isArray(state.tasks) && state.tasks.length !== beforeCount) {
+      saveState();
+    }
+  }
   renderQuickAddTypePills();
   const active = state.tasks.filter(t => !isTaskCompleted(t));
   const done = state.tasks.filter(t => isTaskCompleted(t));
@@ -598,6 +721,7 @@ function renderCahier() {
     h += getTaskRemainingDuration(t);
     if (computePressure(t).urgent) uCount++;
   });
+  checkTensionThresholdAlerts();
 
   document.getElementById('kpi-urgent').textContent = uCount;
   document.getElementById('kpi-hours').textContent = `${h % 1 === 0 ? h : h.toFixed(1)}h`;
@@ -689,6 +813,7 @@ function renderCahier() {
                       </button>
                       ${renderTaskTypeBadge(t.type)}
                       <span class="subj-badge"><span class="subj-dot" style="background:${s.color};"></span>${escapeHtml(s.short)}</span>
+                      ${renderRecurrenceBadgeHtml(t)}
                       ${Math.abs(imp - 1.0) >= 0.05 ? `<span class="imp-scalar-badge mono">×${imp.toFixed(1)}</span>` : ''}
                     </div>
                     <div class="k-actions" onclick="event.stopPropagation();">
@@ -817,6 +942,7 @@ window.deleteTask = function(id, event) {
 
 window.setModalQuickDate = function(offset) {
   document.getElementById('m-duedate').value = getOffsetDateISO(offset);
+  if (typeof window.onModalDueDateInput === 'function') window.onModalDueDateInput();
 };
 
 // =========================================================
@@ -1058,6 +1184,125 @@ function renderModalPipelineEditor() {
   `;
 }
 
+const RECURRENCE_DOW_OPTIONS = [
+  { value: '0', label: 'Dimanche' },
+  { value: '1', label: 'Lundi' },
+  { value: '2', label: 'Mardi' },
+  { value: '3', label: 'Mercredi' },
+  { value: '4', label: 'Jeudi' },
+  { value: '5', label: 'Vendredi' },
+  { value: '6', label: 'Samedi' }
+];
+
+const RECURRENCE_TYPE_OPTIONS = [
+  { value: 'none', label: 'Aucune (Mission unique)' },
+  { value: 'weekly', label: 'Toutes les semaines' },
+  { value: 'biweekly', label: 'Toutes les 2 semaines' },
+  { value: 'days', label: 'Tous les X jours' }
+];
+
+function renderModalRecurrenceControls(autoSyncDueDate = false) {
+  const dowWrap = document.getElementById('m-recurrence-dow-wrap');
+  const daysWrap = document.getElementById('m-recurrence-days-wrap');
+  const previewEl = document.getElementById('m-recurrence-preview');
+  const daysInput = document.getElementById('m-recurrence-days');
+
+  if (!currentModalRecurrence || !currentModalRecurrence.enabled) {
+    if (dowWrap) dowWrap.style.display = 'none';
+    if (daysWrap) daysWrap.style.display = 'none';
+    if (previewEl) {
+      previewEl.style.display = 'none';
+      previewEl.innerHTML = '';
+    }
+    return;
+  }
+
+  const rType = currentModalRecurrence.type || 'weekly';
+  if (dowWrap) dowWrap.style.display = (rType === 'weekly' || rType === 'biweekly') ? 'block' : 'none';
+  if (daysWrap) daysWrap.style.display = (rType === 'days') ? 'block' : 'none';
+  if (daysInput && document.activeElement !== daysInput) {
+    daysInput.value = currentModalRecurrence.daysInterval || 7;
+  }
+
+  // Calcul des 2 prochaines occurrences
+  let occ1 = '';
+  let occ2 = '';
+  const dueInput = document.getElementById('m-duedate');
+  const todayISO = formatDateISO(new Date());
+
+  if (typeof computeNextRecurrenceDates === 'function') {
+    if (rType === 'weekly' || rType === 'biweekly') {
+      const nexts = computeNextRecurrenceDates(currentModalRecurrence, todayISO, false, 2);
+      occ1 = nexts[0] || todayISO;
+      occ2 = nexts[1] || '';
+      if (autoSyncDueDate && dueInput && occ1) {
+        dueInput.value = occ1;
+      } else if (dueInput && dueInput.value && dueInput.value >= todayISO) {
+        occ1 = dueInput.value;
+        const afterFirst = computeNextRecurrenceDates(currentModalRecurrence, occ1, true, 1);
+        occ2 = afterFirst[0] || occ2;
+      }
+    } else if (rType === 'days') {
+      if (autoSyncDueDate && dueInput) {
+        const nextsFromToday = computeNextRecurrenceDates(currentModalRecurrence, todayISO, true, 2);
+        occ1 = nextsFromToday[0] || todayISO;
+        occ2 = nextsFromToday[1] || '';
+        dueInput.value = occ1;
+      } else {
+        occ1 = (dueInput && dueInput.value && dueInput.value >= todayISO) ? dueInput.value : todayISO;
+        const afterFirst = computeNextRecurrenceDates(currentModalRecurrence, occ1, true, 1);
+        occ2 = afterFirst[0] || '';
+      }
+    }
+  }
+
+  if (previewEl) {
+    if (occ1 && occ2) {
+      previewEl.style.display = 'block';
+      previewEl.innerHTML = `
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+          <span style="font-weight:700; color:#38BDF8; font-size:11px; text-transform:uppercase; letter-spacing:0.04em;">
+            <i class="ph-bold ph-calendar-check"></i> 2 prochaines occurrences
+          </span>
+          <span style="font-size:10.5px; color:var(--text-muted);">Reconduction auto dès validation</span>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:6px;">
+          <div class="mono" style="padding:5px 8px; border-radius:6px; background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); font-size:11px;">
+            <span style="color:var(--text-muted);">1re :</span> <strong style="color:#FFFFFF;">${escapeHtml(formatFrenchShortDate(occ1))}</strong>
+          </div>
+          <div class="mono" style="padding:5px 8px; border-radius:6px; background:rgba(255,255,255,0.04); border:1px solid var(--border-subtle); font-size:11px;">
+            <span style="color:var(--text-muted);">2e :</span> <strong style="color:#38BDF8;">${escapeHtml(formatFrenchShortDate(occ2))}</strong>
+          </div>
+        </div>
+      `;
+    } else {
+      previewEl.style.display = 'none';
+    }
+  }
+}
+
+window.onModalRecurrenceDaysInput = function(val) {
+  const n = Math.max(1, Math.min(365, parseInt(val, 10) || 7));
+  currentModalRecurrence.daysInterval = n;
+  renderModalRecurrenceControls(false);
+};
+
+window.onModalDueDateInput = function() {
+  if (currentModalRecurrence && currentModalRecurrence.enabled) {
+    const dueVal = document.getElementById('m-duedate')?.value;
+    if (dueVal && (currentModalRecurrence.type === 'weekly' || currentModalRecurrence.type === 'biweekly')) {
+      const d = new Date(dueVal + 'T00:00:00');
+      if (!isNaN(d.getTime())) {
+        currentModalRecurrence.dayOfWeek = d.getDay();
+        if (typeof window.setCustomSelectValue === 'function') {
+          window.setCustomSelectValue('m-rec-dow', String(d.getDay()));
+        }
+      }
+    }
+    renderModalRecurrenceControls(false);
+  }
+};
+
 window.openMissionModal = function(id, event) {
   if (event) {
     event.stopPropagation();
@@ -1082,6 +1327,37 @@ window.openMissionModal = function(id, event) {
     impSlider.value = impVal;
     window.onImportanceSliderInput(impVal);
   }
+
+  // Mode Récurrence
+  if (m && m.recurrence && m.recurrence.enabled) {
+    currentModalRecurrence = {
+      enabled: true,
+      type: ['weekly', 'biweekly', 'days'].includes(m.recurrence.type) ? m.recurrence.type : 'weekly',
+      dayOfWeek: Number.isFinite(parseInt(m.recurrence.dayOfWeek, 10)) ? ((parseInt(m.recurrence.dayOfWeek, 10) % 7) + 7) % 7 : 0,
+      daysInterval: Math.max(1, parseInt(m.recurrence.daysInterval || m.recurrence.interval, 10) || 7)
+    };
+  } else {
+    currentModalRecurrence = { enabled: false, type: 'weekly', dayOfWeek: 0, daysInterval: 7 };
+  }
+
+  const initRecType = currentModalRecurrence.enabled ? currentModalRecurrence.type : 'none';
+  mountCustomSelect('m-recurrence-type-mount', 'm-rec-type', RECURRENCE_TYPE_OPTIONS, initRecType, (val) => {
+    if (val === 'none') {
+      currentModalRecurrence.enabled = false;
+      renderModalRecurrenceControls(false);
+    } else {
+      currentModalRecurrence.enabled = true;
+      currentModalRecurrence.type = val;
+      renderModalRecurrenceControls(true);
+    }
+  });
+
+  mountCustomSelect('m-recurrence-dow-mount', 'm-rec-dow', RECURRENCE_DOW_OPTIONS, String(currentModalRecurrence.dayOfWeek), (val) => {
+    currentModalRecurrence.dayOfWeek = parseInt(val, 10) || 0;
+    renderModalRecurrenceControls(true);
+  });
+
+  renderModalRecurrenceControls(false);
 
   // Mode Pipeline
   if (m && m.pipeline && m.pipeline.enabled) {
@@ -1127,6 +1403,23 @@ window.saveMissionForm = function(e) {
   let status = customSelectValues['m-stat'] || 'todo';
   const note = document.getElementById('m-note').value.trim();
 
+  const recSelectVal = customSelectValues['m-rec-type'] || (currentModalRecurrence.enabled ? currentModalRecurrence.type : 'none');
+  const recurrence = (recSelectVal && recSelectVal !== 'none')
+    ? {
+        enabled: true,
+        type: ['weekly', 'biweekly', 'days'].includes(recSelectVal) ? recSelectVal : 'weekly',
+        dayOfWeek: parseInt(customSelectValues['m-rec-dow'] ?? currentModalRecurrence.dayOfWeek, 10) || 0,
+        daysInterval: Math.max(1, parseInt(document.getElementById('m-recurrence-days')?.value || currentModalRecurrence.daysInterval, 10) || 7)
+      }
+    : { enabled: false, type: 'weekly', dayOfWeek: 0, daysInterval: 7 };
+
+  // Si la récurrence est activée et qu'aucune date valide future n'est définie, caler sur la 1re occurrence
+  const todayISO = formatDateISO(new Date());
+  if (recurrence.enabled && (!dueDate || dueDate < todayISO) && typeof computeNextRecurrenceDates === 'function') {
+    const nexts = computeNextRecurrenceDates(recurrence, todayISO, false, 1);
+    if (nexts[0]) dueDate = nexts[0];
+  }
+
   let staggeredDates = [];
   if (currentModalPipeline.enabled && Array.isArray(currentModalPipeline.phases) && currentModalPipeline.phases.every(p => !p.dueDate)) {
     staggeredDates = (typeof computeStaggeredPhaseDates === 'function')
@@ -1163,7 +1456,7 @@ window.saveMissionForm = function(e) {
     const t = state.tasks.find(x => x.id === id);
     if (t) {
       const wasDone = isTaskCompleted(t);
-      Object.assign(t, { title, type, importance, subject, duration, dueDate, note, pipeline });
+      Object.assign(t, { title, type, importance, subject, duration, dueDate, note, pipeline, recurrence });
       if (completed !== wasDone) {
         setTaskCompletedState(t, completed);
       } else {
@@ -1185,9 +1478,10 @@ window.saveMissionForm = function(e) {
       completed,
       note,
       pipeline,
+      recurrence,
       createdAt: Date.now()
     });
-    showToast('Mission créée');
+    showToast(recurrence.enabled ? 'Mission récurrente créée' : 'Mission créée');
   }
   saveState();
   closeMissionModal();

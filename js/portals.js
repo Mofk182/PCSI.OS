@@ -162,6 +162,53 @@ window.setDsSubjectOverride = function(val, event = null) {
   showToast(label);
 };
 
+window.toggleTensionAlert = function() {
+  if (!state.settings) state.settings = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+  state.settings.tensionAlertEnabled = state.settings.tensionAlertEnabled === false;
+  saveState();
+  window.renderSettingsPanel();
+  showToast(state.settings.tensionAlertEnabled ? 'Alerte de seuil de tension activée' : 'Alerte de seuil de tension désactivée');
+  if (state.settings.tensionAlertEnabled && typeof checkTensionThresholdAlerts === 'function') {
+    checkTensionThresholdAlerts();
+  }
+};
+
+window.onTensionThresholdInput = function(val) {
+  const num = Math.min(95, Math.max(40, parseInt(val, 10) || 80));
+  if (!state.settings) state.settings = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
+  state.settings.tensionAlertThreshold = num;
+  const readout = document.getElementById('cfg-tension-thresh-readout');
+  if (readout) readout.textContent = `${num}%`;
+  saveState();
+  if (typeof checkTensionThresholdAlerts === 'function') {
+    checkTensionThresholdAlerts();
+  }
+};
+
+window.requestTensionNotificationPermission = function() {
+  if (typeof window === 'undefined' || !('Notification' in window)) {
+    showToast('Notifications système non supportées sur ce navigateur (les alertes in-app restent actives)');
+    return;
+  }
+  if (Notification.permission === 'granted') {
+    showToast('Notifications navigateur déjà autorisées ✓');
+    try {
+      new Notification('PCSI.OS · Alerte Tension', {
+        body: `Notifications actives (seuil actuel : ${state.settings?.tensionAlertThreshold || 80}%)`
+      });
+    } catch (e) {}
+    return;
+  }
+  Notification.requestPermission().then(perm => {
+    window.renderSettingsPanel();
+    if (perm === 'granted') {
+      showToast('Notifications système activées ✓');
+    } else {
+      showToast('Notifications système refusées (les alertes in-app restent actives)');
+    }
+  }).catch(() => {});
+};
+
 window.updateSettingValue = function(key, val) {
   if (!state.settings) state.settings = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
   if (key === 'commuteBufferMin') {
@@ -582,6 +629,30 @@ window.renderSettingsPanel = function() {
             <button type="button" onclick="window.toggleTomorrowFirst()" class="settings-toggle-btn ${cfg.tomorrowFirst !== false ? 'on' : ''}" aria-label="Tâches de demain en priorité">
               <span class="settings-toggle-knob"></span>
             </button>
+          </div>
+        </div>
+
+        <div class="settings-field-group" style="border-top:1px solid var(--border-subtle); padding-top:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;">
+            <div>
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span style="font-size:12.5px; font-weight:600; color:var(--text-main);">Notification de Seuil de Tension</span>
+                <span id="cfg-tension-thresh-readout" class="mono" style="font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:99px; background:rgba(239,68,68,0.14); border:1px solid rgba(239,68,68,0.35); color:#F87171;">${cfg.tensionAlertThreshold || 80}%</span>
+              </div>
+              <div style="font-size:11px; color:var(--text-muted); margin-top:2px;">Déclenche une alerte dès qu'une mission active dépasse le seuil de tension choisi</div>
+            </div>
+            <button type="button" onclick="window.toggleTensionAlert()" class="settings-toggle-btn ${cfg.tensionAlertEnabled !== false ? 'on' : ''}" aria-label="Activer alerte de tension">
+              <span class="settings-toggle-knob"></span>
+            </button>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px; ${cfg.tensionAlertEnabled !== false ? '' : 'opacity:0.45; pointer-events:none;'}">
+            <input type="range" min="40" max="95" step="5" value="${cfg.tensionAlertThreshold || 80}" oninput="window.onTensionThresholdInput(this.value)" class="saas-range" />
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+              <span class="mono" style="font-size:10px; color:var(--text-subtle);">40% (Préventif) · 75% (Tendu) · 95% (Critique)</span>
+              <button type="button" onclick="window.requestTensionNotificationPermission()" class="btn-ghost" style="padding:4px 9px; font-size:11px;">
+                <i class="ph-bold ph-bell-ringing" style="color:#F59E0B;"></i> Autoriser notifications navigateur
+              </button>
+            </div>
           </div>
         </div>
       </div>

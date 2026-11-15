@@ -92,7 +92,9 @@ const DEFAULT_SETTINGS = {
   bedtime: '23:00',          // Couvre-feu / heure de coucher cible
   defaultClassEnd: '17:30',  // Heure de début soirée par défaut si aucun cours l'après-midi
   commuteBufferMin: 30,      // Buffer trajet / transition (min) après les cours et avant une séance tardive
-  ankiDeck: 'PCSI::Vocabulaire' // Deck Anki cible (supporte Parent::Enfant)
+  ankiDeck: 'PCSI::Vocabulaire', // Deck Anki cible (supporte Parent::Enfant)
+  tensionAlertEnabled: true, // Notification automatique quand une mission franchit le seuil de tension
+  tensionAlertThreshold: 80  // Seuil de tension (%) déclenchant une notification (50 à 95%)
 };
 
 const DAYS_LABELS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
